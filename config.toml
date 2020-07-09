@@ -1,4 +1,16 @@
-baseURL = "http://example.org/"
+baseURL = "https://fshschool.github.io/"
 languageCode = "en-us"
-title = "My New Hugo Site"
+title = "FSH School"
+
+# Use the Learn theme: https://learn.netlify.app/en/
 theme = "learn"
+
+[params]
+  disableInlineCopyToClipBoard = false
+  # disableNextPrev = true
+  themeVariant = "blue"
+  # custom_css = ["css/foo.css", "css/bar.css"]
+
+# For search functionality
+[outputs]
+  home = [ "HTML", "RSS", "JSON"]
