@@ -1,7 +1,7 @@
 # FSH School
 
 The FSH School website is built using [Hugo](https://themes.gohugo.io/hugo-theme-learn/) and
-deployed to [https://fshschool.github.io/](https://fshschool.github.io/) via GitHub Actions that
+deployed to [http://fshschool.org/](http://fshschool.org/) and [https://fshschool.github.io/](https://fshschool.github.io/) via GitHub Actions that
 build the site and push its contents to the
 [FSHSchool.github.io](https://github.com/FSHSchool/FSHSchool.github.io) repository.
 

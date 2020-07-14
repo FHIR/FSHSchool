@@ -1,4 +1,4 @@
-baseURL = "https://fshschool.github.io/"
+baseURL = "http://fshschool.org/"
 languageCode = "en-us"
 title = "FSH School"
 
