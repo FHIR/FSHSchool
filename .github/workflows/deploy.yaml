@@ -20,3 +20,4 @@ jobs:
           HUGO_VERSION: 0.73.0
           TARGET_REPO: FSHSchool/FSHSchool.github.io
           TOKEN: ${{ secrets.TOKEN }}
+          CNAME: fshschool.org
