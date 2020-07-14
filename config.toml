@@ -5,11 +5,29 @@ title = "FSH School"
 # Use the Learn theme: https://learn.netlify.app/en/
 theme = "learn"
 
+[[menu.shortcuts]]
+  name = "<i class='fas fa-fire fa-fw'></i> FHIR<sup>&reg;</sup> R4"
+  url = "http://hl7.org/fhir/R4/"
+  weight = 10
+
+[[menu.shortcuts]]
+  name = "<i class='fas fa-fish fa-fw'></i> FHIR<sup>&reg;</sup> Shorthand"
+  url = "https://build.fhir.org/ig/HL7/fhir-shorthand/"
+  weight = 15
+
+[[menu.shortcuts]]
+  name = "<i class='fas fa-comment-dots fa-fw'></i> #shorthand"
+  url = "https://chat.fhir.org/#narrow/stream/215610-shorthand"
+  weight = 20
+
 [params]
-  disableInlineCopyToClipBoard = false
+  disableInlineCopyToClipBoard = true
   # disableNextPrev = true
   themeVariant = "blue"
   # custom_css = ["css/foo.css", "css/bar.css"]
+
+[markup.goldmark.renderer]
+  unsafe= true
 
 # For search functionality
 [outputs]

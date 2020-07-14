@@ -1,12 +1,12 @@
 ---
 title: "FSH School"
-menu: ["main"]
+chapter: true
 ---
 
-# FSH School
+# Welcome to FSH School
 
-{{% notice note %}}
-This site is currently under development.
-{{% /notice %}}
+![Shorty the FSH](./Shorty.png)
 
-Welcome to FSH School
+Select **Getting Started** on the left <br>
+_or_ <br>
+Click the **>** on the right <br>
