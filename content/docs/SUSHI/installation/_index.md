@@ -36,9 +36,9 @@ Use `sushi -v` to display the installed version of SUSHI and the version of the 
 * **MINOR**: Contains new or modified features, while maintaining backwards compatibility within the major version.
 * **PATCH**: Contains minor updates and bug fixes, while maintaining backwards compatibility within the major version.
 
-{{% notice tip %}}
+{{% alert title="Tip" color="success" %}}
 For the most up-to-date information and latest releases of SUSHI, check the [release history and release notes](https://github.com/FHIR/sushi/releases).
-{{% /notice %}}
+{{% /alert %}}
 
 ## Updating or Reverting SUSHI
 

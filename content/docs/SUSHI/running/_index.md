@@ -3,9 +3,9 @@ title: "Running SUSHI"
 weight: 20
 ---
 
-{{% notice note %}}
+{{% alert title="Note" color="primary" %}}
 This documentation assumes you have a SUSHI-compliant project structure and configuration as discussed in the previous sections.
-{{% /notice %}}
+{{% /alert %}}
 
 ## Running SUSHI
 
@@ -25,14 +25,14 @@ where options include the following (in any order):
 -h, --help        output usage information
 ```
 
-{{% notice tip %}}
+{{% alert title="Tip" color="success" %}}
 If you run SUSHI from your FSH project directory, and accept the defaults, the command can be shortened to `sushi .`. _NOTE: If your FSH project has a **fsh** subdirectory, SUSHI will default to **fsh** as the input location and **fsh**'s parent directory as the output location. This behavior is to support the IG Publisher integration._
-{{% /notice %}}
+{{% /alert %}}
 
 
-{{% notice note %}}
+{{% alert title="Note" color="primary" %}}
 By default, SUSHI only generates the [profile differential](https://www.hl7.org/fhir/R4/profiling.html#snapshot), allowing the IG Publisher to create the [profile snapshot](https://www.hl7.org/fhir/R4/profiling.html#snapshot). This is the approach recommended by HL7 FHIR leadership. If authors prefer, the `-s` option can be used to cause SUSHI to generate the snapshot without having to run the IG Publisher.
-{{% /notice %}}
+{{% /alert %}}
 
 While SUSHI is running, it will print status messages as it processes your project files. When SUSHI has completed, you should receive a summary like the following:
 
@@ -98,9 +98,9 @@ customized-ig
 └── package-list.json
 ```
 
-{{% notice info %}}
+{{% alert title="Info" color="info" %}}
 SUSHI generates _output_ into a directory called **input**, because it is generating _input_ files for the IG Publisher.  The IG Publisher requires this directory to be named **input**.
-{{% /notice %}}
+{{% /alert %}}
 
 Note the following files and directories from the output:
 
@@ -114,9 +114,9 @@ Note the following files and directories from the output:
 
 ### Downloading the IG Publisher
 
-{{% notice note %}}
+{{% alert title="Note" color="primary" %}}
 The following steps require the **\_updatePublisher.bat|sh** and **\_genonce.bat|sh** scripts in the output directory that SUSHI writes to. If these scripts are not present there, you will need to download them from the sample-ig project. The easiest way to do this is to [download the sample-ig project](https://github.com/FHIR/sample-ig/archive/master.zip), unzip it, and copy _all_ of the **.bat** and **.sh** files to the directory that SUSHI writes to.
-{{% /notice %}}
+{{% /alert %}}
 
 After running SUSHI, change directories to the output directory (if necessary). At the command prompt, enter:
 
@@ -130,15 +130,15 @@ After running SUSHI, change directories to the output directory (if necessary). 
 
 This will download the latest version of the HL7 FHIR IG Publisher tool into the **/build/input-cache** directory. _This step can be skipped if you already have the latest version of the IG Publisher tool in **input-cache**._
 
-{{% notice tip %}}
+{{% alert title="Tip" color="success" %}}
 If you are blocked by a firewall, or if for any reason `_updatePublisher` fails to execute, download the current IG Publisher jar file [here](https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar). When the file has downloaded, move it into the **input-cache** directory (which you may need to create as a _sibling_ to the **input** directory).
-{{% /notice %}}
+{{% /alert %}}
 
 ### Running the IG Publisher
 
-{{% notice warning %}}
+{{% alert title="Warning" color="warning" %}}
 If you have never run the IG Publisher, you may need to install Jekyll first. See [Installing the IG Publisher](https://confluence.hl7.org/display/FHIR/IG+Publisher+Documentation) for details.
-{{% /notice %}}
+{{% /alert %}}
 
 After the IG Publisher has been successfully downloaded, execute the following command to run it:
 

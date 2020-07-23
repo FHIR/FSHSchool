@@ -1,0 +1,18 @@
+{{ define "main" }}
+
+<a class="td-offset-anchor"></a>
+<section class="row td-box td-box--1 position-relative td-box--gradient td-box--height-auto">
+	<div class="container text-center td-arrow-down">
+		<span class="h4 mb-0">
+<h1>Join the FSH community</h1>
+
+<p>FHIR Shorthand and SUSHI are relatively young but already enjoy great communities! If you run into any issues developing IGs with FSH and SUSHI, you can reach out to the community.</span>
+	</div>
+</section>
+{{ partial "community_links.html" . }}
+
+<div class="td-content">
+{{ .Content }}
+</div>
+
+{{ end }}
