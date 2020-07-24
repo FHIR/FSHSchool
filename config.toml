@@ -49,23 +49,6 @@ anchor = "smart"
 # Comment out the next line to disable GA tracking. Also disables the feature described in [params.ui.feedback].
 id = "UA-00000000-0"
 
-# Language configuration
-
-# [languages]
-# [languages.en]
-# title = "FSH School"
-# description = "A Docsy example site"
-# languageName ="English"
-# # Weight used for sorting.
-# weight = 1
-# [languages.no]
-# title = "Goldydocs"
-# description = "Docsy er operativsystem for skyen"
-# languageName ="Norsk"
-# contentDir = "content/no"
-# time_format_default = "02.01.2006"
-# time_format_blog = "02.01.2006"
-
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
@@ -80,45 +63,20 @@ id = "UA-00000000-0"
 
 [params]
 copyright = "The MITRE Corporation"
-# privacy_policy = "https://policies.google.com/privacy"
-
-# First one is picked as the Twitter card image if not set on page.
-# images = ["images/project-illustration.png"]
-
-# Menu title if your navbar has a versions selector to access old versions of your site.
-# This menu appears only if you have at least one [params.versions] set.
-version_menu = "Releases"
-
-# Flag used in the "version-banner" partial to decide whether to display a 
-# banner on every page indicating that this is an archived version of the docs.
-# Set this flag to "true" if you want to display the banner.
-archived_version = false
-
-# The version number for the version of the docs represented in this doc set.
-# Used in the "version-banner" partial to display a version number for the 
-# current doc set.
-version = "0.0"
-
-# A link to latest version of the docs. Used in the "version-banner" partial to
-# point people to the main doc site.
-url_latest_version = "https://example.com"
 
 # Repository configuration (URLs for in-page links to opening issues and suggesting changes)
-github_repo = "https://github.com/google/docsy-example"
+github_repo = "https://github.com/FSHSchool/site"
 # An optional link to a related project repo. For example, the sibling repository where your product code lives.
 github_project_repo = "https://github.com/fhir/sushi"
 
-# Specify a value here if your content directory is not in your repo's root directory
-# github_subdir = ""
-
 # Google Custom Search Engine ID. Remove or comment out to disable search.
-gcs_engine_id = "011737558837375720776:fsdu1nryfng"
+# gcs_engine_id = "011737558837375720776:fsdu1nryfng"
 
 # Enable Algolia DocSearch
 algolia_docsearch = false
 
 # Enable Lunr.js offline search
-offlineSearch = false
+offlineSearch = true
 
 # User interface configuration
 [params.ui]
@@ -133,16 +91,6 @@ navbar_logo = false
 # Set to true to disable the About link in the site footer
 footer_about_disable = false
 
-# Adds a H2 section titled "Feedback" to the bottom of each doc. The responses are sent to Google Analytics as events.
-# This feature depends on [services.googleAnalytics] and will be disabled if "services.googleAnalytics.id" is not set.
-# If you want this feature, but occasionally need to remove the "Feedback" section from a single page,
-# add "hide_feedback: true" to the page's front matter.
-# [params.ui.feedback]
-# enable = true
-# # The responses that the user sees after clicking "yes" (the page was helpful) or "no" (the page was not helpful).
-# yes = 'Glad to hear it! Please <a href="https://github.com/USERNAME/REPOSITORY/issues/new">tell us how we can improve</a>.'
-# no = 'Sorry to hear that. Please <a href="https://github.com/USERNAME/REPOSITORY/issues/new">tell us how we can improve</a>.'
-
 # Adds a reading time to the top of each doc.
 # If you want this feature, but occasionally need to remove the Reading time from a single page, 
 # add "hide_readingtime: true" to the page's front matter
@@ -156,21 +104,27 @@ enable = false
 	name = "Zulip"
 	url = "https://chat.fhir.org/#narrow/stream/215610-shorthand"
 	icon = "fas fa-comments"
-        desc = "Participate, ask, or answer questions on the Zulip #shorthand stream."
+  desc = "Participate, ask, or answer questions on the Zulip #shorthand stream."
 [[params.links.user]]
 	name ="Issues"
 	url = "https://github.com/FHIR/sushi/issues"
 	icon = "fab fa-github"
-        desc = "File a SUSHI bug report or feature request."
+  desc = "File a SUSHI bug report or feature request."
 [[params.links.user]]
 	name = "Jira"
 	url = "https://jira.hl7.org/issues/?jql=project%20%3D%20FHIR%20AND%20Specification%20%3D%20%22Shorthand%20(FHIR)%20%5BFHIR-shorthand%5D%22"
 	icon = "fab fa-jira"
-        desc = "File a FSH comment or suggestion on the FHIR Jira."
+  desc = "File a FSH comment or suggestion on the FHIR Jira."
 # Developer relevant links. These will show up on right side of footer and in the community page if you have one.
 [[params.links.developer]]
-	name = "GitHub"
+	name = "FSH School"
+	url = "https://github.com/FSHSchool/site"
+	icon = "fab fa-github"
+  desc = "Development of this site takes place here."
+[[params.links.developer]]
+	name = "SUSHI"
 	url = "https://github.com/FHIR/sushi/"
 	icon = "fab fa-github"
-        desc = "Development takes place here!"
+  desc = "Check out the source for the SUSHI compiler."
+
 
