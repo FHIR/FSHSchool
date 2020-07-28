@@ -27,6 +27,27 @@ To develop this site locally:
    _NOTE: Optionally use the `-D` flag to include draft content_
 5. View the local site in your browser at [http://localhost:1313/](http://localhost:1313/)
 
+# Local Build
+
+To do a local build (i.e., build the static site files without serving them), you will additionally
+need to install the `postcss-cli` and `autoprefixer` node modules. You can install them locally
+or globally:
+```bash
+$ npm install postcss-cli autoprefixer
+```
+or
+```bash
+$ npm -g install postcss-cli autoprefixer
+```
+
+Then run hugo with no arguments:
+```bash
+$ hugo
+```
+
+This will build the static site files to the `./public` folder. They can then be served using any
+standard HTTP server.
+
 # License
 
 Copyright 2020+ The MITRE Corporation

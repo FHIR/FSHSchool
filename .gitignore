@@ -1,5 +1,7 @@
 /public
-resources/
+/resources
+/node_modules
+/package-lock.json
 
 # Editors
 .vscode
