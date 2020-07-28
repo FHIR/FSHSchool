@@ -43,3 +43,5 @@ jobs:
           publish_branch: master
           publish_dir: ./public
           cname: fshschool.org
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
