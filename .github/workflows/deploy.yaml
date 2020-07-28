@@ -5,28 +5,40 @@ on:
       - master
 
 jobs:
-  build:
-    name: Publish
-    runs-on: ubuntu-latest
+  deploy:
+    runs-on: ubuntu-18.04
     steps:
-      - name: Checkout master
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
         with:
-          submodules: recursive
+          submodules: recursive 
+          fetch-depth: 0
 
-      - name: Install Node.js 12.x
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.74.2'
+          extended: true
+
+      - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: 12.x
+          node-version: '12.x'
 
-      - name: Install docsy prerequisites
-        run: npm install postcss-cli autoprefixer
+      - name: Cache dependencies
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
-      - name: Hugo Deploy GitHub Pages
-        uses: benmatselby/hugo-deploy-gh-pages@master
-        env:
-          HUGO_VERSION: 0.74.3
-          HUGO_EXTENDED: true
-          TARGET_REPO: FSHSchool/FSHSchool.github.io
-          TOKEN: ${{ secrets.TOKEN }}
-          CNAME: fshschool.org
+      - run: npm ci
+      - run: hugo --minify
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.TOKEN }}
+          external_repository: FSHSchool/FSHSchool.github.io
+          publish_branch: master
+          publish_dir: ./public
