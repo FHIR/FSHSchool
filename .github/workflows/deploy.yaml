@@ -42,3 +42,4 @@ jobs:
           external_repository: FSHSchool/FSHSchool.github.io
           publish_branch: master
           publish_dir: ./public
+          cname: fshschool.org
