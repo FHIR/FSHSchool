@@ -40,9 +40,9 @@ Now that you have SUSHI installed and a minimal FSH tank, open up a command wind
 {{< terminal >}} sushi .
 ```
 
-{{% notice tip %}}
+{{% alert title="Note" color="primary" %}}
 The dot (.) represents "this directory," the location of the FSH files. You can also specify the location explicitly by replacing the dot with a directory path.
-{{% /notice %}}
+{{% /alert %}}
 
 Running SUSHI will create a **FishExample/build/input/resources** directory, and populate it with the files needed to create the IG using the HL7 FHIR IG Publisher tool.
 
@@ -75,13 +75,13 @@ Now change working directory of the command window to the **build** directory. A
 
 This will download the latest version of the HL7 FHIR IG Publisher tool into **./build/input-cache**. _This step can be skipped if you already have run the command recently, and have the latest version of the IG Publisher tool._
 
-{{% notice tip %}}
+{{% alert title="Tip" color="success" %}}
 If you are blocked by a firewall, or if for any reason `_updatePublisher` fails to execute, download the current IG Publisher jar file [here](https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar). When the file has downloaded, move it into the directory **/FishExample/build/input-cache** (creating the directory if necessary).
-{{% /notice %}}
+{{% /alert %}}
 
-{{% notice warning %}}
+{{% alert title="Warning" color="warning" %}}
 Before proceeding to the next command: If you have never run the IG Publisher, you may need to install Jekyll first. See [Installing the IG Publisher](https://confluence.hl7.org/display/FHIR/IG+Publisher+Documentation) for details.
-{{% /notice %}}
+{{% /alert %}}
 
 Now run:
 
@@ -132,9 +132,9 @@ Title:       "Fish Species"
 Description: "The species of the fish."
 ```
 
-{{% notice tip %}}
+{{% alert title="Tip" color="success" %}}
 FSH ignores extra whitespace, so authors can choose to use whitespace for improved visual alignment, as in the extension definition above.
-{{% /notice %}}
+{{% /alert %}}
 
 Run SUSHI again (`sushi .`). The count of Extensions should now be 1.
 
@@ -159,9 +159,9 @@ Description: "Codes describing various species of fish, taken from SNOMED-CT."
 * codes from system http://snomed.info/sct where concept is-a SCT#90580008  "Fish (organism)"
 ```
 
-{{% notice info %}}
+{{% alert title="Info" color="info" %}}
 The rule in the value set definition above selects all codes from SNOMED-CT that are children of the concept "Fish (organism)".
-{{% /notice %}}
+{{% /alert %}}
 
 Run SUSHI again. The count of ValueSets should now be 1. Try generating the IG by changing directories to **build** and running `_genonce` again. Open the file **/FishExample/build/output/index.html** to see the resulting IG.
 
@@ -185,9 +185,9 @@ and then replace the last line in the FishSpeciesValueSet with:
 * codes from system SCT where concept is-a #90580008  "Fish (organism)"
 ```
 
-{{% notice tip %}}
+{{% alert title="Tip" color="success" %}}
 Using aliases has no effect on the IG; it simply makes the FSH code a bit neater.
-{{% /notice %}}
+{{% /alert %}}
 
 ### Step 10: Create an Instance of FishPatient
 

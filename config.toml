@@ -1,34 +1,130 @@
-baseURL = "http://fshschool.org/"
-languageCode = "en-us"
+baseURL = "/"
 title = "FSH School"
 
-# Use the Learn theme: https://learn.netlify.app/en/
-theme = "learn"
+enableRobotsTXT = true
 
-[[menu.shortcuts]]
-  name = "<i class='fas fa-fire fa-fw'></i> FHIR<sup>&reg;</sup> R4"
-  url = "http://hl7.org/fhir/R4/"
-  weight = 10
+# Hugo allows theme composition (and inheritance). The precedence is from left to right.
+theme = ["docsy"]
 
-[[menu.shortcuts]]
-  name = "<i class='fas fa-fish fa-fw'></i> FHIR<sup>&reg;</sup> Shorthand"
-  url = "https://build.fhir.org/ig/HL7/fhir-shorthand/"
-  weight = 15
+# Will give values to .Lastmod etc.
+enableGitInfo = true
 
-[[menu.shortcuts]]
-  name = "<i class='fas fa-comment-dots fa-fw'></i> #shorthand"
-  url = "https://chat.fhir.org/#narrow/stream/215610-shorthand"
-  weight = 20
+# Language settings
+contentDir = "content"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+# Useful when translating.
+enableMissingTranslationPlaceholders = true
+
+disableKinds = ["taxonomy", "taxonomyTerm"]
+
+# Highlighting config
+pygmentsCodeFences = true
+pygmentsUseClasses = false
+# Use the new Chroma Go highlighter in Hugo.
+pygmentsUseClassic = false
+#pygmentsOptions = "linenos=table"
+# See https://help.farbox.com/pygments.html
+pygmentsStyle = "tango"
+
+# Configure how URLs look like per section.
+[permalinks]
+blog = "/:section/:year/:month/:day/:slug/"
+
+## Configuration for BlackFriday markdown parser: https://github.com/russross/blackfriday
+[blackfriday]
+plainIDAnchors = true
+hrefTargetBlank = true
+angledQuotes = false
+latexDashes = true
+
+# Image processing configuration.
+[imaging]
+resampleFilter = "CatmullRom"
+quality = 75
+anchor = "smart"
+
+[services]
+[services.googleAnalytics]
+# Comment out the next line to disable GA tracking. Also disables the feature described in [params.ui.feedback].
+id = "UA-00000000-0"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+      # See a complete list of available styles at https://xyproto.github.io/splash/docs/all.html
+      style = "tango"
+      # Uncomment if you want your chosen highlight style used for code blocks without a specified language
+      # guessSyntax = "true"
+
+# Everything below this are Site Params
 
 [params]
-  disableInlineCopyToClipBoard = true
-  # disableNextPrev = true
-  themeVariant = "blue"
-  # custom_css = ["css/foo.css", "css/bar.css"]
+copyright = "The MITRE Corporation"
 
-[markup.goldmark.renderer]
-  unsafe= true
+# Repository configuration (URLs for in-page links to opening issues and suggesting changes)
+github_repo = "https://github.com/FSHSchool/site"
+# An optional link to a related project repo. For example, the sibling repository where your product code lives.
+github_project_repo = "https://github.com/fhir/sushi"
 
-# For search functionality
-[outputs]
-  home = [ "HTML", "RSS", "JSON"]
+# Google Custom Search Engine ID. Remove or comment out to disable search.
+# gcs_engine_id = "011737558837375720776:fsdu1nryfng"
+
+# Enable Algolia DocSearch
+algolia_docsearch = false
+
+# Enable Lunr.js offline search
+offlineSearch = true
+
+# User interface configuration
+[params.ui]
+# Enable to show the side bar menu in its compact state.
+sidebar_menu_compact = false
+#  Set to true to disable breadcrumb navigation.
+breadcrumb_disable = false
+#  Set to true to hide the sidebar search box (the top nav search box will still be displayed if search is enabled)
+sidebar_search_disable = false
+#  Set to false if you don't want to display a logo (/assets/icons/logo.svg) in the top nav bar
+navbar_logo = false
+# Set to true to disable the About link in the site footer
+footer_about_disable = false
+
+# Adds a reading time to the top of each doc.
+# If you want this feature, but occasionally need to remove the Reading time from a single page, 
+# add "hide_readingtime: true" to the page's front matter
+[params.ui.readingtime]
+enable = false
+
+
+[params.links]
+# End user relevant links. These will show up on left side of footer and in the community page if you have one.
+[[params.links.user]]
+	name = "Zulip"
+	url = "https://chat.fhir.org/#narrow/stream/215610-shorthand"
+	icon = "fas fa-comments"
+  desc = "Participate, ask, or answer questions on the Zulip #shorthand stream."
+[[params.links.user]]
+	name ="Issues"
+	url = "https://github.com/FHIR/sushi/issues"
+	icon = "fab fa-github"
+  desc = "File a SUSHI bug report or feature request."
+[[params.links.user]]
+	name = "Jira"
+	url = "https://jira.hl7.org/issues/?jql=project%20%3D%20FHIR%20AND%20Specification%20%3D%20%22Shorthand%20(FHIR)%20%5BFHIR-shorthand%5D%22"
+	icon = "fab fa-jira"
+  desc = "File a FSH comment or suggestion on the FHIR Jira."
+# Developer relevant links. These will show up on right side of footer and in the community page if you have one.
+[[params.links.developer]]
+	name = "FSH School"
+	url = "https://github.com/FSHSchool/site"
+	icon = "fab fa-github"
+  desc = "Development of this site takes place here."
+[[params.links.developer]]
+	name = "SUSHI"
+	url = "https://github.com/FHIR/sushi/"
+	icon = "fab fa-github"
+  desc = "Check out the source for the SUSHI compiler."
+
+

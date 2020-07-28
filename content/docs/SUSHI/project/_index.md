@@ -19,9 +19,9 @@ The **config.yaml** file provides project configuration data to SUSHI. It is des
 
 Each FSH file can contain multiple FSH definitions of varying types. FSH file names are not significant, but must end with the **.fsh** extension. In addition, FSH files can be organized into subdirectories. This provides authors the flexibility to organize their FSH definitions in whatever way makes sense to then.
 
-{{% notice tip %}}
+{{% alert title="Tip" color="success" %}}
 A simple FSH project like the one shown above can be used with a minimal **config.yaml** file to create a bare-bones IG . It can also be used to generate only the FHIR resources by specifying the `FSHOnly` flag in **config.yaml**. Most authors who want to develop an IG using SUSHI, however, will also use an **ig-data** directory. Continue reading for more details.
-{{% /notice %}}
+{{% /alert %}}
 
 ### Using a fsh Subdirectory with the HL7 IG Publisher and Auto-Builder
 
@@ -40,9 +40,9 @@ When the IG Publisher detects a **fsh** subdirectory, it will automatically run 
 
 This approach allows a GitHub repository to be configured such that whenever changes to FSH files are pushed to GitHub, the [Auto-Builder](https://github.com/FHIR/auto-ig-builder/blob/master/README.md) will pick them up, run the SUSHI/IG Publisher process, and publish the resulting IG to [http://build.fhir.org](http://build.fhir.org).
 
-{{% notice note %}}
+{{% alert title="Note" color="primary" %}}
 Using a **fsh** subdirectory is not required, but since many authors prefer this option, the remaining documentation assumes a **fsh** subdirectory in its file structures.
-{{% /notice %}}
+{{% /alert %}}
 
 ## IG Projects
 
@@ -91,6 +91,6 @@ You can populate your project (under **fsh** above) as follows:
 * **ig-data/input/{supported-resource-input-directory}/\*** (not shown above): JSON files in [supported resource directories](https://build.fhir.org/ig/FHIR/ig-guidance/using-templates.html#root.input) (e.g., **profiles**, **extensions**, **examples**, etc.) will be be copied to the corresponding locations in the IG input and processed as additional (non-FSH) IG resources. This feature is not expected to be commonly used.
 * **ig-data/package-list.json**: This optional file, described [here](https://confluence.hl7.org/display/FHIR/FHIR+IG+PackageList+doco), should contain the version history of your IG. If present and no `history` property is specified in **config.yaml**, it will be used instead of a generated **package-list.json**.
 
-{{% notice tip %}}
+{{% alert title="Tip" color="success" %}}
 Examples of **package.json**, **ig.ini**, **package-list.json**, **ignoreWarnings.txt** and **menu.xml** files can be found in the [sample IG project](https://github.com/FHIR/sample-ig) provided for this purpose. In addition, more general guidance can be found in [Guidance for HL7 IG Creation](https://build.fhir.org/ig/FHIR/ig-guidance/). For a real-world example of a populated **ig-data** directory, see the [mCODE Implementation Guide](https://github.com/standardhealth/fsh-mcode).
-{{% /notice %}}
+{{% /alert %}}

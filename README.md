@@ -13,6 +13,10 @@ To develop this site locally:
    ```bash
    $ git clone git@github.com:FSHSchool/site.git
    ```
+   and add submodules
+   ```bash
+   $ git submodule update --init --recursive
+   ```
 2. [Install Hugo](https://gohugo.io/getting-started/installing/)
 3. Add and edit content, refferring to the [Hugo documentation](https://gohugo.io/documentation/)
    as needed

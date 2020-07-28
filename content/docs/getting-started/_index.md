@@ -1,7 +1,6 @@
 ---
 title: "Getting Started"
 weight: 5
-pre: "<b>0. </b>"
 ---
 
 [FHIR Shorthand](https://build.fhir.org/ig/HL7/fhir-shorthand/reference.html) ("FSH" or "Shorthand") is a specially-designed language for defining the content of Health Level Seven (HL7®) [Fast Healthcare Interoperability Resources (FHIR®)](https://www.hl7.org/fhir/R4/overview.html) Implementation Guides (IGs). It is simple and compact, with tools to produce Fast Healthcare Interoperability Resources (FHIR) profiles, extensions and IGs.
