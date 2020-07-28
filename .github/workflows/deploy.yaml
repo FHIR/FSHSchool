@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          submodules: recursive 
+          submodules: recursive
           fetch-depth: 0
 
       - name: Setup Hugo
@@ -33,7 +33,7 @@ jobs:
             ${{ runner.os }}-node-
 
       - run: npm ci
-      - run: hugo --minify
+      - run: hugo
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
