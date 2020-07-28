@@ -20,7 +20,7 @@ jobs:
           node-version: 12.x
 
       - name: Install docsy prerequisites
-        run: npm install -g postcss-cli autoprefixer
+        run: npm install postcss-cli autoprefixer
 
       - name: Hugo Deploy GitHub Pages
         uses: benmatselby/hugo-deploy-gh-pages@master
