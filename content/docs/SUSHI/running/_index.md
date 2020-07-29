@@ -51,38 +51,6 @@ While SUSHI is running, it will print status messages as it processes your proje
 ╚═════════════════════════════════════════════════════════════════╝
 ```
 
-### Initializing SUSHI Project
-The `--init` option is particularly useful. This option will cause SUSHI to create a new SUSHI project with a default configuration and project structure. This provides a simple way to get started with FHIR Shorthand and SUSHI.
-
-When `sushi --init` is run, SUSHI will request high-level project information from the user:
-```text
-Name (Default: ExampleIG): NewIG
-Id (Default: fhir.example): my.id
-Canonical (Default: http://example.org): http://myid.org
-Status (Default: draft): active
-Version (Default: 0.1.0): 2.0.0
-Initialize SUSHI project in C:\Users\shorty\dev\NewIG? [y/n]: y
-```
-These values are used to generate a simple config.yaml file and a corresponding IG-Publisher-compatible project structure:
-```text
-NewIG
-├── .gitignore
-├── _genonce.bat     
-├── _genonce.sh           
-├── _updatePublisher.bat  
-├── _updatePublisher.sh 
-├── _gencontinuous.bat 
-├── _gencontinuous.sh  
-└── fsh
-    ├── config.yaml   
-    ├── ig-data
-    │   └── input
-    │       └── pagecontent
-    │           └── index.md  
-    └── patient.fsh    
-```
-From this point on, the author can modify the configuration and definitions as necessary.
-
 ### Error Messages
 
 In the process of developing your IG using FSH, you may encounter SUSHI error messages (written to the command console). Most error messages point to a specific line or lines in a `.fsh` file. If possible, SUSHI will continue, despite errors, to produce FHIR artifacts, but those artifacts may omit problematic rules. SUSHI should always exit gracefully. If SUSHI crashes, please report the issue using the [SUSHI issue tracker](https://github.com/FHIR/sushi/issues).

@@ -94,3 +94,35 @@ You can populate your project (under **fsh** above) as follows:
 {{% alert title="Tip" color="success" %}}
 Examples of **package.json**, **ig.ini**, **package-list.json**, **ignoreWarnings.txt** and **menu.xml** files can be found in the [sample IG project](https://github.com/FHIR/sample-ig) provided for this purpose. In addition, more general guidance can be found in [Guidance for HL7 IG Creation](https://build.fhir.org/ig/FHIR/ig-guidance/). For a real-world example of a populated **ig-data** directory, see the [mCODE Implementation Guide](https://github.com/standardhealth/fsh-mcode).
 {{% /alert %}}
+
+### Initializing a SUSHI Project
+Setting up this project structure manually can be complex, so to simplify that process, SUSHI provides an `--init` option. Running `sushi --init` will cause SUSHI to create a new SUSHI project with a default configuration and project structure. This provides a simple way to get started with FHIR Shorthand and SUSHI.
+
+When `sushi --init` is run, SUSHI will request high-level project information from the user:
+```text
+Name (Default: ExampleIG): NewIG
+Id (Default: fhir.example): my.id
+Canonical (Default: http://example.org): http://myid.org
+Status (Default: draft): active
+Version (Default: 0.1.0): 2.0.0
+Initialize SUSHI project in C:\Users\shorty\dev\NewIG? [y/n]: y
+```
+These values are used to generate a simple config.yaml file and a corresponding IG-Publisher-compatible project structure:
+```text
+NewIG
+├── .gitignore
+├── _genonce.bat     
+├── _genonce.sh           
+├── _updatePublisher.bat  
+├── _updatePublisher.sh 
+├── _gencontinuous.bat 
+├── _gencontinuous.sh  
+└── fsh
+    ├── config.yaml   
+    ├── ig-data
+    │   └── input
+    │       └── pagecontent
+    │           └── index.md  
+    └── patient.fsh    
+```
+In addition to the contents of the `fsh` folder, `--init` adds several `.bat` and `.sh` scripts which allow you to [run the IG Publisher](/docs/sushi/running/#downloading-the-ig-publisher), and a default `.gitignore` file for a FSH project. From this point on, the author can modify the configuration and definitions as necessary.

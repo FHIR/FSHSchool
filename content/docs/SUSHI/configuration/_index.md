@@ -45,6 +45,10 @@ At a minimum, the **config.yaml** file must provide a few high-level metadata va
   * `normative+trial-use`: official release with mixture of trial use and normative content
 * The `template` value consists of a template id and version separated by `#`. This value will be reflected in the generated **ig.ini** file for your project. For the most up-to-date list of templates, see the [Guidance for FHIR IG Creation](https://build.fhir.org/ig/FHIR/ig-guidance/#technical-details).
 
+{{% alert title="Tip" color="success" %}}
+SUSHI can generate a simple configuration file for you with the `--init` [option](/docs/sushi/project/#initializing-a-sushi-project)
+{{% /alert %}}
+
 #### FSH-Only
 
 If an author wants SUSHI only to build the FHIR definition files, and _not_ to do any additional Implementation Guide (IG) processing, then the author should add a `FSHOnly` flag to the configuration and set its value to `true`:
