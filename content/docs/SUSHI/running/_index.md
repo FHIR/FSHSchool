@@ -21,6 +21,7 @@ where options include the following (in any order):
 -o, --out <out>   the path to the output directory (default: ./build)
 -s, --snapshot    generate snapshot in StructureDefinition output (default: false)
 -d, --debug       output extra debugging information (default: false)
+-i, --init        initialize a SUSHI project
 -v, --version     output SUSHI version and implemented FSH specification version
 -h, --help        output usage information
 ```
@@ -50,7 +51,7 @@ While SUSHI is running, it will print status messages as it processes your proje
 ╚═════════════════════════════════════════════════════════════════╝
 ```
 
-#### Error Messages
+### Error Messages
 
 In the process of developing your IG using FSH, you may encounter SUSHI error messages (written to the command console). Most error messages point to a specific line or lines in a `.fsh` file. If possible, SUSHI will continue, despite errors, to produce FHIR artifacts, but those artifacts may omit problematic rules. SUSHI should always exit gracefully. If SUSHI crashes, please report the issue using the [SUSHI issue tracker](https://github.com/FHIR/sushi/issues).
 

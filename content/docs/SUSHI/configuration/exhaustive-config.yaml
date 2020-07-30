@@ -79,7 +79,7 @@ global:
 # The resources property corresponds to IG.definition.resource.
 # SUSHI can auto-generate all of the resource entries based on
 # the FSH definitions and/or information in any user-provided
-# JSON resource files. If the generated entries are not
+# JSON or XML resource files. If the generated entries are not
 # sufficient or complete, however, the author can add entries
 # here. If the reference matches a generated entry, it will
 # replace the generated entry. If it doesn't match any generated

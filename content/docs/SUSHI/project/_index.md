@@ -88,9 +88,41 @@ You can populate your project (under **fsh** above) as follows:
   * **N\_pagename.xml\|md**: If present, these files will be generated as individual pages in the IG. The leading integer (N) determines the order of the pages in the table of contents. These numbers are stripped and do not appear in the actual page URLs.
   * **{artifact-file-name}-intro.xml\|md**: If present, the contents of the file will be placed on the relevant page _before_ the artifact's definition.
   * **{artifact-file-name}-notes.xml\|md**: If present, the contents of the file will be placed on the relevant page _after_ the artifact's definition.
-* **ig-data/input/{supported-resource-input-directory}/\*** (not shown above): JSON files in [supported resource directories](https://build.fhir.org/ig/FHIR/ig-guidance/using-templates.html#root.input) (e.g., **profiles**, **extensions**, **examples**, etc.) will be be copied to the corresponding locations in the IG input and processed as additional (non-FSH) IG resources. This feature is not expected to be commonly used.
+* **ig-data/input/{supported-resource-input-directory}/\*** (not shown above): JSON or XML files in [supported resource directories](https://build.fhir.org/ig/FHIR/ig-guidance/using-templates.html#root.input) (e.g., **profiles**, **extensions**, **examples**, etc.) will be be copied to the corresponding locations in the IG input and processed as additional (non-FSH) IG resources. This feature is not expected to be commonly used.
 * **ig-data/package-list.json**: This optional file, described [here](https://confluence.hl7.org/display/FHIR/FHIR+IG+PackageList+doco), should contain the version history of your IG. If present and no `history` property is specified in **config.yaml**, it will be used instead of a generated **package-list.json**.
 
 {{% alert title="Tip" color="success" %}}
 Examples of **package.json**, **ig.ini**, **package-list.json**, **ignoreWarnings.txt** and **menu.xml** files can be found in the [sample IG project](https://github.com/FHIR/sample-ig) provided for this purpose. In addition, more general guidance can be found in [Guidance for HL7 IG Creation](https://build.fhir.org/ig/FHIR/ig-guidance/). For a real-world example of a populated **ig-data** directory, see the [mCODE Implementation Guide](https://github.com/standardhealth/fsh-mcode).
 {{% /alert %}}
+
+### Initializing a SUSHI Project
+Setting up this project structure manually can be complex, so to simplify that process, SUSHI provides an `--init` option. Running `sushi --init` will cause SUSHI to create a new SUSHI project with a default configuration and project structure. This provides a simple way to get started with FHIR Shorthand and SUSHI.
+
+When `sushi --init` is run, SUSHI will request high-level project information from the user:
+```text
+Name (Default: ExampleIG): NewIG
+Id (Default: fhir.example): my.id
+Canonical (Default: http://example.org): http://myid.org
+Status (Default: draft): active
+Version (Default: 0.1.0): 2.0.0
+Initialize SUSHI project in C:\Users\shorty\dev\NewIG? [y/n]: y
+```
+These values are used to generate a simple config.yaml file and a corresponding IG-Publisher-compatible project structure:
+```text
+NewIG
+├── .gitignore
+├── _genonce.bat     
+├── _genonce.sh           
+├── _updatePublisher.bat  
+├── _updatePublisher.sh 
+├── _gencontinuous.bat 
+├── _gencontinuous.sh  
+└── fsh
+    ├── config.yaml   
+    ├── ig-data
+    │   └── input
+    │       └── pagecontent
+    │           └── index.md  
+    └── patient.fsh    
+```
+In addition to the contents of the `fsh` folder, `--init` adds several `.bat` and `.sh` scripts which allow you to [run the IG Publisher](/docs/sushi/running/#downloading-the-ig-publisher), and a default `.gitignore` file for a FSH project. From this point on, the author can modify the configuration and definitions as necessary.

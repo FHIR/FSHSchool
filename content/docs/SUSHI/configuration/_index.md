@@ -45,6 +45,10 @@ At a minimum, the **config.yaml** file must provide a few high-level metadata va
   * `normative+trial-use`: official release with mixture of trial use and normative content
 * The `template` value consists of a template id and version separated by `#`. This value will be reflected in the generated **ig.ini** file for your project. For the most up-to-date list of templates, see the [Guidance for FHIR IG Creation](https://build.fhir.org/ig/FHIR/ig-guidance/#technical-details).
 
+{{% alert title="Tip" color="success" %}}
+SUSHI can generate a simple configuration file for you with the `--init` [option](/docs/sushi/project/#initializing-a-sushi-project)
+{{% /alert %}}
+
 #### FSH-Only
 
 If an author wants SUSHI only to build the FHIR definition files, and _not_ to do any additional Implementation Guide (IG) processing, then the author should add a `FSHOnly` flag to the configuration and set its value to `true`:
@@ -104,7 +108,7 @@ The table below lists all configuration properties that can be used in SUSHI's *
 | dependencies | dependsOn | A `key: value` pair, where key is the package id and value is the version (or `dev`/`current`). For advanced use cases, the value can be an object with keys for `uri` and `version`.|
 | global | global | Key is the type and value is the profile |
 | groups | definition.grouping | A `key: value` pair, where key is the name of the group and value is the description of the group |
-| resources | definition.resource | SUSHI can auto-generate a list of resources based on FSH definitions and provided JSON resources, but this property can be used to add additional entries or override generated entries. SUSHI uses the {resource type}/{resource name} format as the YAML key (corresponding to IG.definition.resource.reference). Authors can specify the value "omit" to omit a FSH-generated resource from the resource list. `groupingId` can be used, but top-level groups syntax may be a better option. |
+| resources | definition.resource | SUSHI can auto-generate a list of resources based on FSH definitions and provided JSON or XML resources, but this property can be used to add additional entries or override generated entries. SUSHI uses the {resource type}/{resource name} format as the YAML key (corresponding to IG.definition.resource.reference). Authors can specify the value "omit" to omit a FSH-generated resource from the resource list. `groupingId` can be used, but top-level groups syntax may be a better option. |
 | pages | definition.page | SUSHI can auto-generate pages, but authors can manage pages through this property. If this property is used, SUSHI will not generate any page entries. The YAML key is the file name containing the page. The title key-value pair provides the title for the page. If a title is not provided, then the title will be generated from the file name. If a generation value (corresponding to definition.page.generation) is not provided, it will be inferred from the file name extension. In the IG resource, pages can contain sub-pages; so in the config file, any sub-properties that are valid filenames with supported extensions (e.g., .md/.xml) will be treated as sub-pages. |
 | parameters | definition.parameter | The key is the code. If a parameter allows repeating values, the value in the YAML may be a sequence/array. |
 | templates | definition.template | As specified in the IG resource |
