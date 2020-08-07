@@ -11,7 +11,7 @@ resources:
 
 ### Step 1: Review Getting Started
 
-If you haven't done so already, please read or review the [Getting Started](/getting-started/) documentation to gain an understanding of the conventions used in this tutorial and the resources available to you.
+If you haven't done so already, please read or review the [Getting Started](/docs/getting-started/) documentation to gain an understanding of the conventions used in this tutorial and the resources available to you.
 
 ### Step 2: Install Node.js and Sushi
 
