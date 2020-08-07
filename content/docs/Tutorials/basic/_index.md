@@ -15,7 +15,7 @@ If you haven't done so already, please read or review the [Getting Started](/doc
 
 ### Step 2: Install Node.js and Sushi
 
-If you have not already installed SUSHI, follow the [SUSHI Installation](/sushi/installation) instructions.
+If you have not already installed SUSHI, follow the [SUSHI Installation](/docs/sushi/installation) instructions.
 
 ### Step 3: Download Sample FSH Tank
 
