@@ -15,7 +15,7 @@ simple-project
 └── file3.fsh
 ```
 
-The **config.yaml** file provides project configuration data to SUSHI. It is described further in the [Configuration](/sushi/configuration/) documentation.
+The **config.yaml** file provides project configuration data to SUSHI. It is described further in the [Configuration](/docs/sushi/configuration/) documentation.
 
 Each FSH file can contain multiple FSH definitions of varying types. FSH file names are not significant, but must end with the **.fsh** extension. In addition, FSH files can be organized into subdirectories. This provides authors the flexibility to organize their FSH definitions in whatever way makes sense to then.
 
@@ -77,7 +77,7 @@ customized-ig
 
 You can populate your project (under **fsh** above) as follows:
 
-* **config.yaml**: This required file provides project configuration data to SUSHI. It is described further in the [Configuration](/sushi/configuration/) documentation.
+* **config.yaml**: This required file provides project configuration data to SUSHI. It is described further in the [Configuration](/docs/sushi/configuration/) documentation.
 * **\*.fsh**: FSH files contain the FHIR Shorthand definitions for all the resources and examples in your IG.
 * **ig-data/ig.ini**: If present and no `template` property is specified in **config.yaml**, the user-provided file will be used instead of a generated one.
 * **ig-data/input/ignoreWarnings.txt**: If present, this file can be used to suppress specific QA warnings and information messages during the FHIR IG publication process.

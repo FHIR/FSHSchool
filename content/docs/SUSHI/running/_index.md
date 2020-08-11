@@ -60,13 +60,13 @@ Here are some general tips for debugging:
 * **Parsing (syntax) errors should be fixed first.** A single syntax error can ballooon into many other errors, so you should always eliminate syntax errors first. Syntax error messages may include `extraneous input {x} expecting {y}`, `mismatched input {x} expecting {y}` and `no viable alternative at {x}`. These messages indicate that the line in question is not a valid FSH statement.
 * **The order of keywords matters.** The declarations must start with the type of item you are creating (e.g., Profile, Instance, ValueSet).
 * **The order of rules usually doesn't matter, but there are exceptions.** Slices and extensions must be created before they are constrained.
-* **Rules must contain valid paths.** The `No element found at path` error means that although the overall grammar of the rule may be correct, SUSHI could not find the FHIR element you are referring to in the rule. Make sure there are no spelling errors, the element names in the path are correct, and you are using the [path grammar]([reference.html#fsh-paths](https://build.fhir.org/ig/HL7/fhir-shorthand/reference.html#fsh-paths)) correctly.
+* **Rules must contain valid paths.** The `No element found at path` error means that although the overall grammar of the rule may be correct, SUSHI could not find the FHIR element you are referring to in the rule. Make sure there are no spelling errors, the element names in the path are correct, and you are using the [path grammar](https://build.fhir.org/ig/HL7/fhir-shorthand/reference.html#fsh-paths) correctly.
 * **The community can help.** If you are getting an error you can't resolve, you can ask for help on the [#shorthand chat channel](https://chat.fhir.org/#narrow/stream/215610-shorthand).
 
 
 ## SUSHI Outputs
 
-Based on the inputs in FSH files, **config.yaml**, and the **ig-data** directory, SUSHI populates the output directory. For example, the customized-ig project from the [Project Structure](/sushi/project/) section would result in output like the following:
+Based on the inputs in FSH files, **config.yaml**, and the **ig-data** directory, SUSHI populates the output directory. For example, the customized-ig project from the [Project Structure](/docs/sushi/project/) section would result in output like the following:
 
 ```text
 customized-ig
