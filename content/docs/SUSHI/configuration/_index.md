@@ -23,7 +23,7 @@ SUSHI offers the same functionality in a single **config.yaml** file, allowing a
 
 ## Minimum Configuration
 
-At a minimum, the **config.yaml** file must provide a few high-level metadata values for the FSH project:
+At a minimum, the **config.yaml** file must provide a few high-level metadata values for the FSH project, if the author wishes for SUSHI to do additional Implementation Guide (IG) processing:
 
 {{% show-file src="minimum" download="bottom" %}}
 
@@ -34,7 +34,7 @@ At a minimum, the **config.yaml** file must provide a few high-level metadata va
   * `retired`: The IG has been withdrawn or superseded and should no longer be used.
   * `unknown`: It is not know which of the status values currently applies for the IG. This should be rare.
 * Since SUSHI currently supports only FHIR R4, the `fhirVersion` should always be `4.0.1`.
-* Valid values for the `releaseLable` include:
+* Valid values for the `releaseLabel` include:
   * `ci-build`: the continuous integration build release (not stable)
   * `draft`: draft version
   * `qa-preview`: frozen snapshot for non-ballot feedback
@@ -51,11 +51,24 @@ SUSHI can generate a simple configuration file for you with the `--init` [option
 
 #### FSH-Only
 
-If an author wants SUSHI only to build the FHIR definition files, and _not_ to do any additional Implementation Guide (IG) processing, then the author should add a `FSHOnly` flag to the configuration and set its value to `true`:
+If an author wants SUSHI only to build the FHIR definition files, and _not_ to do any additional IG processing, and if the project contains an **ImplementationGuide** resource, then the author does not need to provide a **config.yaml** at all. If there is no **config.yaml**, SUSHI will automatically attempt to extract the following information from an **ImplementationGuide** resource:
+* `canonical`
+* `fhirVersion`
+* `version`
+* `dependencies`
+
+SUSHI will then run in FSH-Only mode to produce FHIR definition files only.
+
+When attempting to extract information from an **ImplementationGuide** resource, SUSHI assumes the project structure required by the [template-based IG Publisher](https://build.fhir.org/ig/FHIR/ig-guidance/). The following approach is used to find the **ImplementationGuide** resource:
+* Look for `<root>/ig.ini`, where `<root>` is the folder containing the **fsh** subdirectory. If the **ig.ini** file exists, it will have an `ig` property which gives the path to the **ImplementationGuide** resource, so SUSHI will use this path to find the resource.
+* If there is no **ig.ini** in the root folder, SUSHI will search the `<root>/input` folder for an **ImplementationGuide** resource, and if exactly one resource is found, SUSHI will extract the above properties from it.
+
+If an author does not have an **ImplementationGuide** resource, but still wants SUSHI to build FHIR definition files only, the author should add a `FSHOnly` flag to the **config.yaml** and set its value to `true`:
 
 ```yaml
 FSHOnly: true
 ```
+However, the author will also at least need to provide a `canonical` and `fhirVersion` in the configuration for FSH-Only processing to succeed.
 
 ## Recommended Configuration
 
