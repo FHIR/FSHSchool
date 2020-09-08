@@ -1,0 +1,7 @@
+id: go.fsh.example
+canonical: http://example.org/goFSH
+name: GoFSH Example
+version: 1.0.0
+fhirVersion: 4.0.1
+status: active
+FSHOnly: true
