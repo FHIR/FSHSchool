@@ -5,12 +5,6 @@ menu:
     weight: 50
 ---
 
-<!-- {{% blocks/lead color="primary"%}}
-# Resources
-Check out the resources below for more information on using SUSHI.
-{{% /blocks/lead %}} -->
-
-
 {{% blocks/section type="section" color="white"%}}
 # Downloads
 ##### HL7 FHIR Connectathon, September 2020
