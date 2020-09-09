@@ -1,5 +1,5 @@
 ---
-title: "Basic Tutorial"
+title: "Basic SUSHI Tutorial"
 weight: 10
 resources:
 - name: starter
