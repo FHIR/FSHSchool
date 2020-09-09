@@ -35,6 +35,10 @@ The dot (.) represents "this directory," the location of the files. You can also
 
 Running GoFSH will create a **fsh/** directory, and populate it with **resources.fsh**, a file containing the FSH definitions corresponding to the input files. If you open up **resources.fsh**, you should see two FSH definitions, a `Profile` called "GeneticSpecimen", and an `Extension` called "Laterality".
 
+{{% alert title="Note" color="primary" %}}
+The current pre-release of GoFSH does not always produce the most efficient FSH representation possible. For example, the `Laterality` extension produced by GoFSH contains slicing directives that are not strictly necessary, as this slicing is inferred when the `valueCodeableConcept` path is used in a rule. While the explicit slicing directives are not incorrect, future versions of GoFSH will recognize them as redundant and omit them.
+{{% /alert %}}
+
 ### Step 5: Run SUSHI (Optional)
 
 Now that you have generated FSH definitions, you can run SUSHI on those definitions to recreate your original input to GoFSH. First, ensure you have [SUSHI installed](/docs/sushi/installation), then download the **config.yaml** file given below:
@@ -46,4 +50,4 @@ and place that file into the **fsh/** output directory that was created by GoFSH
 {{< terminal >}} sushi .
 ```
 
-This command will run SUSHI on **resources.fsh**, and generated the output into a directory called **build/**. You can then compare the output from running GoFSH and then SUSHI to the original **StructureDefinition-mcode-genetic-specimen.json** and **StructureDefinition-mcode-laterality.json** files.
+This command will run SUSHI on **resources.fsh**, and generate the output into a directory called **build/**. You can then compare the output from running GoFSH and then SUSHI to the original **StructureDefinition-mcode-genetic-specimen.json** and **StructureDefinition-mcode-laterality.json** files.

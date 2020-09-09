@@ -36,6 +36,10 @@ Use `gofsh -v` to display the installed version of GoFSH and the version of the 
 * **MINOR**: Contains new or modified features, while maintaining backwards compatibility within the major version.
 * **PATCH**: Contains minor updates and bug fixes, while maintaining backwards compatibility within the major version.
 
+{{% alert title="Warning" color="warning" %}}
+Releases prior to 1.0.0 are considered pre-releases, and may introduce breaking changes in minor version increments.
+{{% /alert %}}
+
 ## Updating or Reverting GoFSH
 
 To update GoFSH to the latest version, re-run:

@@ -25,13 +25,13 @@ While GoFSH is running, it will print status messages as it processes your proje
 
 ## GoFSH Inputs
 
-As input, GoFSH takes FHIR StructureDefinitions. GoFSH requires that these files be JSON. Every JSON file contained in the input directory, or its subdirectories, will be processed by GoFSH into FSH.
+GoFSH takes FHIR StructureDefinitions and other FHIR conformance definitions (e.g., ValueSets, CodeSystems) as input. GoFSH requires that these files be JSON. Every JSON file contained in the input directory, or its subdirectories, will be processed by GoFSH into FSH.
 
 {{% alert title="Warning" color="warning" %}}
 GoFSH is still under development, and can not generate FSH for all FHIR artifacts. Please see the section below on [limitations](#limitations-on-inputs) for more details.
 {{% /alert %}}
 
-GoFSH does not require any configuration, but if the input FHIR artifacts depend on FHIR artifacts not contained in FHIR R4, these dependencies should be specified with the `-d` flag. For example, the [mCODE Implementation Guide](http://hl7.org/fhir/us/mcode/) contains definitions which are derived from the [US Core Implementation Guide](http://hl7.org/fhir/us/core/), see [mcode-cancer-patient](http://hl7.org/fhir/us/mcode/StructureDefinition-mcode-cancer-patient.html), which is derived from [us-core-patient](http://hl7.org/fhir/us/core/STU3.1/StructureDefinition-us-core-patient.html). If you wanted to use GoFSH to convert the mcode-cancer-patient profile to FSH, you should specify US Core as a dependency:
+GoFSH does not require any configuration, but if the input FHIR artifacts depend on FHIR artifacts not contained in FHIR R4, these dependencies should be specified with the `-d` flag. For example, the [mcode-cancer-patient](http://hl7.org/fhir/us/mcode/StructureDefinition-mcode-cancer-patient.html) profile in the [mCODE Implementation Guide](http://hl7.org/fhir/us/mcode/) is derived from the [us-core-patient](http://hl7.org/fhir/us/core/STU3.1/StructureDefinition-us-core-patient.html) profile in the [US Core Implementation Guide](http://hl7.org/fhir/us/core/). If you wanted to use GoFSH to convert the mcode-cancer-patient profile to FSH, you should specify US Core as a dependency:
 ```shell
 {{< terminal >}} gofsh ./mcode-definitions -d hl7.fhir.us.core@3.1.0
 ```
