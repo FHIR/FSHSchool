@@ -55,4 +55,4 @@ Note that GoFSH is not complete, and cannot be applied to all FHIR artifacts. Th
 
 ## GoFSH Outputs
 
-GoFSH populates its output directory with a single file, called **resources.fsh**, which contains FSH definitions for all of the input FHIR StructureDefinitions. These definitions are ready to use with SUSHI, all you have to do is add a [configuration file](/docs/sushi/configuration).
+GoFSH populates an output directory, called **fsh/** by default, with a **resources.fsh** file, which contains FSH definitions for all of the input FHIR StructureDefinitions. These definitions are ready to use with SUSHI, all you have to do is add a [configuration file](/docs/sushi/configuration).
