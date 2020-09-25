@@ -1,6 +1,6 @@
 ---
-title: "Configuration"
-weight: 15
+title: "Legacy Configuration"
+toc_hide: true
 resources:
 - name: minimum
   src: minimum-config.yaml
@@ -14,10 +14,12 @@ resources:
 ---
 
 {{% alert title="Warning" color="warning" %}}
-This documentation is for SUSHI 1.0.0, and this version contains significant changes to the configuration file structure. For documentation on configuration in older versions of SUSHI, see the [legacy documentation](/docs/sushi/configuration-legacy).
+This documentation is for pre-1.0.0 versions of SUSHI. If you are using a SUSHI version greater than 1.0.0, see the most [up-to-date documentation](/docs/sushi/configuration).
 {{% /alert %}}
 
-SUSHI is configured by a single **sushi-config.yaml** file. This file is written using [YAML](https://yaml.org/). Authors unfamiliar with [YAML](https://learnxinyminutes.com/docs/yaml/) should note that:
+The HL7 FHIR IG Publisher relies on several configuration files, including **ig.ini**, **package-list.json**, **menu.xml**, and an instance of the ImplementationGuide resource. Splitting information among multiple files and managing different formats makes IG configuration difficult to manage.
+
+SUSHI offers the same functionality in a single **config.yaml** file, allowing all configuration to be in a consistent format with no duplication of information. This file is written using [YAML](https://yaml.org/). Authors unfamiliar with [YAML](https://learnxinyminutes.com/docs/yaml/) should note that:
 * White space (new lines and indentation) is significant
 * Information is presented in `key: value` pairs
 * Strings do not have to be quoted unless they contain reserved characters, such as colon (:)
@@ -25,7 +27,7 @@ SUSHI is configured by a single **sushi-config.yaml** file. This file is written
 
 ## Minimum Configuration
 
-At a minimum, the **sushi-config.yaml** file must provide a few high-level metadata values for the FSH project, if the author wishes for SUSHI to do additional Implementation Guide (IG) processing:
+At a minimum, the **config.yaml** file must provide a few high-level metadata values for the FSH project, if the author wishes for SUSHI to do additional Implementation Guide (IG) processing:
 
 {{% show-file src="minimum" download="bottom" %}}
 
@@ -45,14 +47,15 @@ At a minimum, the **sushi-config.yaml** file must provide a few high-level metad
   * `release`: official release for use
   * `update`: official release with 'trial use' status - posted as an un-balloted STU update
   * `normative+trial-use`: official release with mixture of trial use and normative content
+* The `template` value consists of a template id and version separated by `#`. This value will be reflected in the generated **ig.ini** file for your project. For the most up-to-date list of templates, see the [Guidance for FHIR IG Creation](https://build.fhir.org/ig/FHIR/ig-guidance/#technical-details).
 
 {{% alert title="Tip" color="success" %}}
-SUSHI can generate a simple configuration file for you with the `--init` [option](/docs/sushi/project/#initializing-a-sushi-project)
+SUSHI can generate a simple configuration file for you with the `--init` [option](/docs/sushi/project-legacy/#initializing-a-sushi-project)
 {{% /alert %}}
 
 #### FSH-Only
 
-If an author wants SUSHI only to build the FHIR definition files, and _not_ to do any additional IG processing, and if the project contains an **ImplementationGuide** resource, then the author does not need to provide a **sushi-config.yaml** at all. If there is no **sushi-config.yaml**, SUSHI will automatically attempt to extract the following information from an **ImplementationGuide** resource:
+If an author wants SUSHI only to build the FHIR definition files, and _not_ to do any additional IG processing, and if the project contains an **ImplementationGuide** resource, then the author does not need to provide a **config.yaml** at all. If there is no **config.yaml**, SUSHI will automatically attempt to extract the following information from an **ImplementationGuide** resource:
 * `canonical`
 * `fhirVersion`
 * `version`
@@ -64,7 +67,7 @@ When attempting to extract information from an **ImplementationGuide** resource,
 * Look for `<root>/ig.ini`, where `<root>` is the folder containing the **fsh** subdirectory. If the **ig.ini** file exists, it will have an `ig` property which gives the path to the **ImplementationGuide** resource, so SUSHI will use this path to find the resource.
 * If there is no **ig.ini** in the root folder, SUSHI will search the `<root>/input` folder for an **ImplementationGuide** resource, and if exactly one resource is found, SUSHI will extract the above properties from it.
 
-If an author does not have an **ImplementationGuide** resource, but still wants SUSHI to build FHIR definition files only, the author should add a `FSHOnly` flag to the **sushi-config.yaml** and set its value to `true`:
+If an author does not have an **ImplementationGuide** resource, but still wants SUSHI to build FHIR definition files only, the author should add a `FSHOnly` flag to the **config.yaml** and set its value to `true`:
 
 ```yaml
 FSHOnly: true
@@ -91,7 +94,7 @@ In addition to the minimum configuration requirements shown above, most IG autho
 
 ## Full Configuration
 
-The table below lists all configuration properties that can be used in SUSHI's **sushi-config.yaml** file. Most SUSHI configuration properties come directly from the [Implementation Guide resource](https://www.hl7.org/fhir/R4/implementationguide.html#resource) and will be translated into the generated ImplementationGuide resource for your project. Differences between the **sushi-config.yaml** properties and ImplementationGuide properties are noted below.
+The table below lists all configuration properties that can be used in SUSHI's **config.yaml** file. Most SUSHI configuration properties come directly from the [Implementation Guide resource](https://www.hl7.org/fhir/R4/implementationguide.html#resource) and will be translated into the generated ImplementationGuide resource for your project. Differences between the **config.yaml** properties and ImplementationGuide properties are noted below.
 
 | Property  | Corresponding IG element | Usage   |
 | :---------------------- | :-------------------------- |:---------|
@@ -129,11 +132,14 @@ The table below lists all configuration properties that can be used in SUSHI's *
 | copyrightYear or copyrightyear | N/A | Used to add a `copyrightyear` parameter to `IG.definition.parameter` |
 | releaseLabel or releaselabel | N/A | Used to add a `releaseLabel` parameter to `IG.definition.parameter` |
 | canonical | N/A | The canonical URL to be used throughout the IG |
-| menu | N/A | Used to generate the input/index.md file. The key is the menu item name and the value is the URL. Menus can contain sub-menus, but the IG Publisher currently only supports sub-menus one level deep. <br><br> Authors can provide their own `menu.xml` by removing this property and placing a `menu.xml` file in `/input/includes` |
+| template | N/A | Template used in `ig.ini` file. <br><br> Authors can provide their own `ig.ini` file by removing this property and placing an `igi.ini` file in the `ig-data` directory. |
+| menu | N/A | Used to generate the input/index.md file. The key is the menu item name and the value is the URL. Menus can contain sub-menus, but the IG Publisher currently only supports sub-menus one level deep. <br><br> Authors can provide their own `menu.xml` by removing this property and placing a `menu.xml` file in `ig-data/input/includes` |
+| history | N/A | Used to create a `package-list.json`. SUSHI will use the existing top-level properties in its config to populate the top-level package-list.json properties: package-id, canonical, title, and introduction. Authors who wish to provide different values can supply them as properties under history. All other properties under history are assumed to be versions. <br><br> Additionally, the current version is special. If the author provides only a single string value, it is assumed to be the URL path to the current build. The following default values will then be used: `desc: Continuous Integration Build` (latest in version control), `status: ci-build`, and `current: true`. <br><br> Authors can provide their own `package-list.json` by removing this property and placing a `package-list.json` file in `ig-data`. |
+| indexPageContent | N/A | This property is provided for backwards compatibility reasons, and its use is discouraged. It was used to specify the content of `index.md`, however, authors should provide their own index file by not using this property and placing an `index.md` or `index.html` file in `input/pages` or `input/pagecontent`.  |
 | FSHOnly | N/A | When this flag is set to `true`, no IG specific content will be generated, SUSHI will only convert FSH definitions to JSON files. When false or unset, IG content is generated.
 
 ## Exhaustive Example
 
-The following provides an exhaustive example **sushi-config.yaml** covering many of the properties discussed above.
+The following provides an exhaustive example **config.yaml** covering many of the properties discussed above.
 
 {{% show-file src="exhaustive" download="bottom" %}}

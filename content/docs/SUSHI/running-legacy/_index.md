@@ -1,12 +1,11 @@
 ---
-title: "Running SUSHI"
-weight: 20
+title: "Running Legacy SUSHI"
+toc_hide: true
 ---
 
 {{% alert title="Warning" color="warning" %}}
-This documentation is for SUSHI 1.0.0, and this version contains changes to the process of running SUSHI. For documentation on running older versions of SUSHI, see the [legacy documentation](/docs/sushi/running-legacy).
+This documentation is for pre-1.0.0 versions of SUSHI. If you are using a SUSHI version greater than 1.0.0, see the most [up-to-date documentation](/docs/sushi/running).
 {{% /alert %}}
-
 
 {{% alert title="Note" color="primary" %}}
 This documentation assumes you have a SUSHI-compliant project structure and configuration as discussed in the previous sections.
@@ -32,7 +31,7 @@ where options include the following (in any order):
 ```
 
 {{% alert title="Tip" color="success" %}}
-If you run SUSHI from your FSH project directory, and accept the defaults, the command can be shortened to `sushi .`
+If you run SUSHI from your FSH project directory, and accept the defaults, the command can be shortened to `sushi .`. _NOTE: If your FSH project has a **fsh** subdirectory, SUSHI will default to **fsh** as the input location and **fsh**'s parent directory as the output location. This behavior is to support the IG Publisher integration._
 {{% /alert %}}
 
 
@@ -71,22 +70,20 @@ Here are some general tips for debugging:
 
 ## SUSHI Outputs
 
-Based on the inputs in FSH files, **sushi-config.yaml**, and the IG project directory, SUSHI populates the output directory. For example, the customized-ig project from the [Project Structure](/docs/sushi/project/) section would result in output like the following:
+Based on the inputs in FSH files, **config.yaml**, and the **ig-data** directory, SUSHI populates the output directory. For example, the customized-ig project from the [Project Structure](/docs/sushi/project-legacy/) section would result in output like the following:
 
 ```text
 customized-ig
+├── fsh
+│   └── (fsh files)
 ├── ig.ini
 ├── input
-|   ├── fsh
-│   |   └── (fsh files)
-|   ├── fsh-generated
-|   |   ├── CodeSystem-myCodeSystem.json
-|   |   ├── Patient-myPatient-example.json
-|   |   ├── StructureDefinition-myExtension.json
-|   |   ├── StructureDefinition-myProfile.json
-|   |   ├── ValueSet-myValueSet.json
-│   |   └── ImplementationGuide-myIG.json
+│   ├── ImplementationGuide-myIG.json
 │   ├── ignoreWarnings.txt
+│   ├── examples
+│   │   └── Patient-myPatient-example.json
+│   ├── extensions
+│   │   └── StructureDefinition-myExtension.json
 │   ├── images
 │   │   ├── myDocument.pdf
 │   │   ├── myGraphic.png
@@ -98,22 +95,27 @@ customized-ig
 │   │   ├── mySecondPage.md
 │   │   ├── myThirdPage.md
 │   │   └── myFourthPage.md
+│   ├── profiles
+│   │   └── StructureDefinition-myProfile.json
+│   └── vocabulary
+│       ├── ValueSet-myValueSet.json
+│       └── CodeSystem-myCodeSystem.json
 └── package-list.json
 ```
 
 {{% alert title="Info" color="info" %}}
-SUSHI generates _output_ into a directory called **input/fsh-generated**, because it is generating _input_ files for the IG Publisher.  The IG Publisher requires this directory to be named as such.
+SUSHI generates _output_ into a directory called **input**, because it is generating _input_ files for the IG Publisher.  The IG Publisher requires this directory to be named **input**.
 {{% /alert %}}
 
 Note the following files and directories from the output:
 
-* **ig.ini**: Specified by the author and unchanged by SUSHI.
-* **input/ignoreWarnings.txt**: Specified by the author and unchanged by SUSHI.
-* **input/fsh-generated\***: Generated from the definitions in the **input/fsh/\*.fsh** files.
-* **input/images/\***: Specified by the author and unchanged by SUSHI.
-* **input/includes/menu.xml**: Specified by the author and unchanged by SUSHI, but can alternately be specified via the `menu` property in **sushi-config.yaml**.
-* **input/pagecontent/\***: Specified by the author, numeric prefixed are used by SUSHI in generating the **ImplementationGuide-myIG.json** file.
-* **package-list.json**: Specified by the author and unchanged by SUSHI.
+* **ig.ini**: Copied from the **fsh/ig-data** directory, but can alternately be specified via the `template` property in **fsh/config.yaml**.
+* **input/ignoreWarnings.txt**: Copied from the **fsh/ig-data/input** directory, but will be generated as a blank file if it isn't found.
+* **input/examples\***, **input/extensions\***, **input/profiles\***, **input/vocabulary\***: Generated from the definitions in the **fsh/\*.fsh** files.
+* **input/images/\***: Copied from the **fsh/ig-data/input/images** directory.
+* **input/includes/menu.xml**: Copied from the **fsh/ig-data/input/includes** directory, but can alternately be specified via the `menu` property in **fsh/config.yaml**.
+* **input/pagecontent/\***: Copied from the **fsh/ig-data/input/pagecontent** directory. Filenames with numeric prefixes will have the prefixes removed.
+* **package-list.json**: Copied from the **fsh/ig-data** directory, but can alternately be specified via the `history` property in **fsh/config.yaml**.
 
 ### Downloading the IG Publisher
 
