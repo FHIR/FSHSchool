@@ -75,17 +75,17 @@ Based on the inputs in FSH files, **sushi-config.yaml**, and the IG project dire
 
 ```text
 customized-ig
+├── fsh-generated
+|   ├── CodeSystem-myCodeSystem.json
+|   ├── Patient-myPatient-example.json
+|   ├── StructureDefinition-myExtension.json
+|   ├── StructureDefinition-myProfile.json
+|   ├── ValueSet-myValueSet.json
+|   └── ImplementationGuide-myIG.json
 ├── ig.ini
 ├── input
 |   ├── fsh
 │   |   └── (fsh files)
-|   ├── fsh-generated
-|   |   ├── CodeSystem-myCodeSystem.json
-|   |   ├── Patient-myPatient-example.json
-|   |   ├── StructureDefinition-myExtension.json
-|   |   ├── StructureDefinition-myProfile.json
-|   |   ├── ValueSet-myValueSet.json
-│   |   └── ImplementationGuide-myIG.json
 │   ├── ignoreWarnings.txt
 │   ├── images
 │   │   ├── myDocument.pdf
@@ -102,14 +102,14 @@ customized-ig
 ```
 
 {{% alert title="Info" color="info" %}}
-SUSHI generates _output_ into a directory called **input/fsh-generated**, because it is generating _input_ files for the IG Publisher.  The IG Publisher requires this directory to be named as such.
+SUSHI generates _output_ into a directory called **fsh-generated**, because it is generating _input_ files for the IG Publisher.  The IG Publisher requires this directory to be named as such.
 {{% /alert %}}
 
 Note the following files and directories from the output:
 
 * **ig.ini**: Specified by the author and unchanged by SUSHI.
 * **input/ignoreWarnings.txt**: Specified by the author and unchanged by SUSHI.
-* **input/fsh-generated\***: Generated from the definitions in the **input/fsh/\*.fsh** files.
+* **fsh-generated\***: Generated from the definitions in the **input/fsh/\*.fsh** files.
 * **input/images/\***: Specified by the author and unchanged by SUSHI.
 * **input/includes/menu.xml**: Specified by the author and unchanged by SUSHI, but can alternately be specified via the `menu` property in **sushi-config.yaml**.
 * **input/pagecontent/\***: Specified by the author, numeric prefixed are used by SUSHI in generating the **ImplementationGuide-myIG.json** file.
