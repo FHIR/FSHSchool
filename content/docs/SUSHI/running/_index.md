@@ -98,12 +98,9 @@ customized-ig
 │   │   ├── mySecondPage.md
 │   │   ├── myThirdPage.md
 │   │   └── myFourthPage.md
-└── package-list.json
+├── package-list.json
+└── sushi-config.json
 ```
-
-{{% alert title="Info" color="info" %}}
-SUSHI generates _output_ into a directory called **fsh-generated**, because it is generating _input_ files for the IG Publisher.  The IG Publisher requires this directory to be named as such.
-{{% /alert %}}
 
 Note the following files and directories from the output:
 
@@ -131,7 +128,7 @@ After running SUSHI, change directories to the output directory (if necessary). 
 {{< apple >}} {{< terminal >}} ./_updatePublisher.sh
 ```
 
-This will download the latest version of the HL7 FHIR IG Publisher tool into the **/build/input-cache** directory. _This step can be skipped if you already have the latest version of the IG Publisher tool in **input-cache**._
+This will download the latest version of the HL7 FHIR IG Publisher tool into the **/input-cache** directory. _This step can be skipped if you already have the latest version of the IG Publisher tool in **input-cache**._
 
 {{% alert title="Tip" color="success" %}}
 If you are blocked by a firewall, or if for any reason `_updatePublisher` fails to execute, download the current IG Publisher jar file [here](https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar). When the file has downloaded, move it into the **input-cache** directory (which you may need to create as a _sibling_ to the **input** directory).

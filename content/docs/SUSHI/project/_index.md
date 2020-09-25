@@ -66,7 +66,7 @@ customized-ig
 You can populate your project as follows:
 
 * **sushi-config.yaml**: This file provides project configuration data to SUSHI. It is described further in the [Configuration](/docs/sushi/configuration/) documentation.
-* **input/\*.fsh**: FSH files contain the FHIR Shorthand definitions for all the resources and examples in your IG.
+* **input/fsh/\*.fsh**: FSH files contain the FHIR Shorthand definitions for all the resources and examples in your IG.
 * **ig.ini**: Configuration file required for the FHIR IG Publication process.
 * **input/ignoreWarnings.txt**: If present, this file can be used to suppress specific QA warnings and information messages during the FHIR IG publication process.
 * **input/images/\***: Put anything that is not a page in the IG, such as images, spreadsheets or zip files, in the **input/images** subdirectory. These files can be referenced by user-provided pages or menus.
