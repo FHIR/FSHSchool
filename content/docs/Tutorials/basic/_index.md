@@ -56,7 +56,6 @@ While running SUSHI, there will be a series of informational message. When SUSHI
 ║ │    2     │     0      │     0     │      0      │     0     │ ║
 ║ ╰──────────┴────────────┴───────────┴─────────────┴───────────╯ ║
 ║                                                                 ║
-║ See SUSHI-GENERATED-FILES.md for details on generated IG files. ║
 ╠═════════════════════════════════════════════════════════════════╣
 ║ Nice! You're totally krilling it!      0 Errors      0 Warnings ║
 ╚═════════════════════════════════════════════════════════════════╝

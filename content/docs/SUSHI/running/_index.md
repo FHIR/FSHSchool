@@ -50,7 +50,6 @@ While SUSHI is running, it will print status messages as it processes your proje
 ║ │    1     │     1      │     1     │      1      │     1     │ ║
 ║ ╰──────────┴────────────┴───────────┴─────────────┴───────────╯ ║
 ║                                                                 ║
-║ See SUSHI-GENERATED-FILES.md for details on generated IG files. ║
 ╠═════════════════════════════════════════════════════════════════╣
 ║ O-fish-ally error free!                0 Errors      0 Warnings ║
 ╚═════════════════════════════════════════════════════════════════╝
