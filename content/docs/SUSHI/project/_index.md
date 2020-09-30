@@ -105,10 +105,11 @@ NewIG
 ├── _updatePublisher.sh 
 ├── ig.ini
 ├── input
+|   ├── ignoreWarnings.txt
 |   ├── fsh
 |   |   └── patient.fsh
 |   └── pagecontent
 |       └── index.md
 └── sushi-config.yaml
 ```
-In addition to the contents of the `input/fsh` folder, `--init` adds several `.bat` and `.sh` scripts which allow you to [run the IG Publisher](/docs/sushi/running/#downloading-the-ig-publisher), and a default `.gitignore` file for a FSH project. From this point on, the author can modify the configuration and definitions as necessary.
+In addition to the contents of the `input/fsh` folder, `--init` adds several `.bat` and `.sh` scripts which allow you to [run the IG Publisher](/docs/sushi/running/#downloading-the-ig-publisher), a default `.gitignore` file for a FSH project, and two files (`ig.ini` and `ignoreWarnings.txt`) required by the template-based IG Publisher. From this point on, the author can modify the configuration and definitions as necessary.
