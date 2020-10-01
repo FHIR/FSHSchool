@@ -54,4 +54,4 @@ To revert to a previous version of SUSHI, run:
 {{< terminal >}} npm install -g fsh-sushi@{version}
 ```
 
-where the `{version}` is replaced by the desired MAJOR.MINOR.PATCH version (e.g., `npm install -g fsh-sushi@0.16.0`).
+where the `{version}` is replaced by the desired MAJOR.MINOR.PATCH version (e.g., `npm install -g fsh-sushi@0.14.0`).
