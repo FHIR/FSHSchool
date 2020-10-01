@@ -1,13 +1,13 @@
 ---
 title: "Documentation - Beta"
-linkTitle: "Docs - SUSHI 1.0.0-beta.1"
+linkTitle: "Docs - SUSHI 1.0 Beta"
 menu:
   main:
     weight: 1
 ---
 
 {{% alert title="Warning" color="warning" %}}
-This documentation is for SUSHI 1.0.0-beta.1, and this version contains significant changes. Head to the [Docs](/docs) tab for documentation on previous versions of SUSHI.
+This documentation is for the SUSHI 1.0 Beta, and this version contains significant changes. Head to the [Docs](/docs) tab for documentation on previous versions of SUSHI.
 {{% /alert %}}
 
 Here you will find documentation on how to get started using FSH to create Implementation Guides. Head to [Getting Started](/docs-beta/getting-started) for
