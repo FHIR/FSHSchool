@@ -6,11 +6,11 @@ resources:
   src: gofsh-tutorial.zip
   title: GoFSH Tutorial
 - name: config
-  src: config.yaml
+  src: sushi-config.yaml
   title: Configuration
 ---
 
-This tutorial will walk you through an example of using [GoFSH](/docs/gofsh) to turn FHIR artifacts into FSH definitions. This tutorial assumes you have already installed [GoFSH](/docs/gofsh/installation).
+This tutorial will walk you through an example of using [GoFSH](/docs-beta/gofsh) to turn FHIR artifacts into FSH definitions. This tutorial assumes you have already installed [GoFSH](/docs-beta/gofsh/installation).
 
 ### Step 1: Download Sample FHIR Artifacts
 
@@ -41,7 +41,7 @@ The current pre-release of GoFSH does not always produce the most efficient FSH 
 
 ### Step 5: Run SUSHI (Optional)
 
-Now that you have generated FSH definitions, you can run SUSHI on those definitions to recreate your original input to GoFSH. First, ensure you have [SUSHI installed](/docs/sushi/installation), then download the **config.yaml** file given below:
+Now that you have generated FSH definitions, you can run SUSHI on those definitions to recreate your original input to GoFSH. First, ensure you have [SUSHI installed](/docs-beta/sushi/installation), then download the **sushi-config.yaml** file given below:
 {{% show-file src="config" download="bottom" %}}
 
 and place that file into the **fsh/** output directory that was created by GoFSH. Then, navigate the command line to the **fsh/** directory, and run:
@@ -50,4 +50,8 @@ and place that file into the **fsh/** output directory that was created by GoFSH
 {{< terminal >}} sushi .
 ```
 
-This command will run SUSHI on **resources.fsh**, and generate the output into a directory called **build/**. You can then compare the output from running GoFSH and then SUSHI to the original **StructureDefinition-mcode-genetic-specimen.json** and **StructureDefinition-mcode-laterality.json** files.
+This command will run SUSHI on **resources.fsh**, and generate the output of that FSH into a directory called **build/input/profiles**. You can then compare the output from running GoFSH and then SUSHI to the original **StructureDefinition-mcode-genetic-specimen.json** and **StructureDefinition-mcode-laterality.json** files.
+
+{{% alert title="Note" color="primary" %}}
+Newer versions of SUSHI (>= 1.0.0) may emit warnings related to project structure. The process of aligning GoFSH output with SUSHI input is ongoing, and for now those warnings can be safely ignored.
+{{% /alert %}}

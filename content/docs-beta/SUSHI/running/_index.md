@@ -1,11 +1,8 @@
 ---
-title: "Running Legacy SUSHI"
-toc_hide: true
+title: "Running SUSHI"
+weight: 20
 ---
 
-{{% alert title="Warning" color="warning" %}}
-This documentation is for pre-1.0.0 versions of SUSHI. If you are using a SUSHI version greater than 1.0.0, see the most [up-to-date documentation](/docs/sushi/running).
-{{% /alert %}}
 
 {{% alert title="Note" color="primary" %}}
 This documentation assumes you have a SUSHI-compliant project structure and configuration as discussed in the previous sections.
@@ -22,16 +19,16 @@ SUSHI is executed from the command line. The general form of the SUSHI execution
 where options include the following (in any order):
 
 ```text
--o, --out <out>   the path to the output directory (default: ./build)
--s, --snapshot    generate snapshot in StructureDefinition output (default: false)
--d, --debug       output extra debugging information (default: false)
--i, --init        initialize a SUSHI project
--v, --version     output SUSHI version and implemented FSH specification version
--h, --help        output usage information
+-o, --out <out>  the path to the output folder
+-d, --debug      output extra debugging information
+-s, --snapshot   generate snapshot in Structure Definition output (default: false)
+-i, --init       initialize a SUSHI project
+-v, --version    print SUSHI version
+-h, --help       output usage information
 ```
 
 {{% alert title="Tip" color="success" %}}
-If you run SUSHI from your FSH project directory, and accept the defaults, the command can be shortened to `sushi .`. _NOTE: If your FSH project has a **fsh** subdirectory, SUSHI will default to **fsh** as the input location and **fsh**'s parent directory as the output location. This behavior is to support the IG Publisher integration._
+If you run SUSHI from your FSH project directory, and accept the defaults, the command can be shortened to `sushi .`
 {{% /alert %}}
 
 
@@ -49,7 +46,6 @@ While SUSHI is running, it will print status messages as it processes your proje
 ║ │    1     │     1      │     1     │      1      │     1     │ ║
 ║ ╰──────────┴────────────┴───────────┴─────────────┴───────────╯ ║
 ║                                                                 ║
-║ See SUSHI-GENERATED-FILES.md for details on generated IG files. ║
 ╠═════════════════════════════════════════════════════════════════╣
 ║ O-fish-ally error free!                0 Errors      0 Warnings ║
 ╚═════════════════════════════════════════════════════════════════╝
@@ -70,20 +66,23 @@ Here are some general tips for debugging:
 
 ## SUSHI Outputs
 
-Based on the inputs in FSH files, **config.yaml**, and the **ig-data** directory, SUSHI populates the output directory. For example, the customized-ig project from the [Project Structure](/docs/sushi/project-legacy/) section would result in output like the following:
+Based on the inputs in FSH files, **sushi-config.yaml**, and the IG project directory, SUSHI populates the output directory. For example, the customized-ig project from the [Project Structure](/docs-beta/sushi/project/) section would result in output like the following:
 
 ```text
 customized-ig
-├── fsh
-│   └── (fsh files)
+├── fsh-generated
+|   └── resources
+|       ├── CodeSystem-myCodeSystem.json
+|       ├── Patient-myPatient-example.json
+|       ├── StructureDefinition-myExtension.json
+|       ├── StructureDefinition-myProfile.json
+|       ├── ValueSet-myValueSet.json
+|       └── ImplementationGuide-myIG.json
 ├── ig.ini
 ├── input
-│   ├── ImplementationGuide-myIG.json
+|   ├── fsh
+│   |   └── (fsh files)
 │   ├── ignoreWarnings.txt
-│   ├── examples
-│   │   └── Patient-myPatient-example.json
-│   ├── extensions
-│   │   └── StructureDefinition-myExtension.json
 │   ├── images
 │   │   ├── myDocument.pdf
 │   │   ├── myGraphic.png
@@ -92,30 +91,22 @@ customized-ig
 │   │   └── menu.xml
 │   ├── pagecontent
 │   │   ├── index.md
-│   │   ├── mySecondPage.md
-│   │   ├── myThirdPage.md
-│   │   └── myFourthPage.md
-│   ├── profiles
-│   │   └── StructureDefinition-myProfile.json
-│   └── vocabulary
-│       ├── ValueSet-myValueSet.json
-│       └── CodeSystem-myCodeSystem.json
-└── package-list.json
+│   │   ├── 2_mySecondPage.md
+│   │   ├── 3_myThirdPage.md
+│   │   └── 4_myFourthPage.md
+├── package-list.json
+└── sushi-config.json
 ```
-
-{{% alert title="Info" color="info" %}}
-SUSHI generates _output_ into a directory called **input**, because it is generating _input_ files for the IG Publisher.  The IG Publisher requires this directory to be named **input**.
-{{% /alert %}}
 
 Note the following files and directories from the output:
 
-* **ig.ini**: Copied from the **fsh/ig-data** directory, but can alternately be specified via the `template` property in **fsh/config.yaml**.
-* **input/ignoreWarnings.txt**: Copied from the **fsh/ig-data/input** directory, but will be generated as a blank file if it isn't found.
-* **input/examples\***, **input/extensions\***, **input/profiles\***, **input/vocabulary\***: Generated from the definitions in the **fsh/\*.fsh** files.
-* **input/images/\***: Copied from the **fsh/ig-data/input/images** directory.
-* **input/includes/menu.xml**: Copied from the **fsh/ig-data/input/includes** directory, but can alternately be specified via the `menu` property in **fsh/config.yaml**.
-* **input/pagecontent/\***: Copied from the **fsh/ig-data/input/pagecontent** directory. Filenames with numeric prefixes will have the prefixes removed.
-* **package-list.json**: Copied from the **fsh/ig-data** directory, but can alternately be specified via the `history` property in **fsh/config.yaml**.
+* **fsh-generated\***: Generated from the definitions in the **input/fsh/\*.fsh** files.
+* **ig.ini**: Specified by the author and unchanged by SUSHI.
+* **input/ignoreWarnings.txt**: Specified by the author and unchanged by SUSHI.
+* **input/images/\***: Specified by the author and unchanged by SUSHI.
+* **input/includes/menu.xml**: Specified by the author and unchanged by SUSHI, but can alternately be specified via the `menu` property in **sushi-config.yaml**. If the `menu` configuration property is used, the output is generated to **fsh-generated/includes/menu.xml**.
+* **input/pagecontent/\***: Specified by the author, numeric prefixes are used by SUSHI in generating the **ImplementationGuide-myIG.json** file.
+* **package-list.json**: Specified by the author and unchanged by SUSHI.
 
 ### Downloading the IG Publisher
 
@@ -133,7 +124,7 @@ After running SUSHI, change directories to the output directory (if necessary). 
 {{< apple >}} {{< terminal >}} ./_updatePublisher.sh
 ```
 
-This will download the latest version of the HL7 FHIR IG Publisher tool into the **/build/input-cache** directory. _This step can be skipped if you already have the latest version of the IG Publisher tool in **input-cache**._
+This will download the latest version of the HL7 FHIR IG Publisher tool into the **/input-cache** directory. _This step can be skipped if you already have the latest version of the IG Publisher tool in **input-cache**._
 
 {{% alert title="Tip" color="success" %}}
 If you are blocked by a firewall, or if for any reason `_updatePublisher` fails to execute, download the current IG Publisher jar file [here](https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar). When the file has downloaded, move it into the **input-cache** directory (which you may need to create as a _sibling_ to the **input** directory).
