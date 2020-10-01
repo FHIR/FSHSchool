@@ -23,12 +23,12 @@ SUSHI is executed from the command line. The general form of the SUSHI execution
 where options include the following (in any order):
 
 ```text
--o, --out <out>   the path to the output directory (default: ./build)
--s, --snapshot    generate snapshot in StructureDefinition output (default: false)
--d, --debug       output extra debugging information (default: false)
--i, --init        initialize a SUSHI project
--v, --version     output SUSHI version and implemented FSH specification version
--h, --help        output usage information
+-o, --out <out>  the path to the output folder
+-d, --debug      output extra debugging information
+-s, --snapshot   generate snapshot in Structure Definition output (default: false)
+-i, --init       initialize a SUSHI project
+-v, --version    print SUSHI version
+-h, --help       output usage information
 ```
 
 {{% alert title="Tip" color="success" %}}
@@ -75,12 +75,13 @@ Based on the inputs in FSH files, **sushi-config.yaml**, and the IG project dire
 ```text
 customized-ig
 ├── fsh-generated
-|   ├── CodeSystem-myCodeSystem.json
-|   ├── Patient-myPatient-example.json
-|   ├── StructureDefinition-myExtension.json
-|   ├── StructureDefinition-myProfile.json
-|   ├── ValueSet-myValueSet.json
-|   └── ImplementationGuide-myIG.json
+|   └── resources
+|       ├── CodeSystem-myCodeSystem.json
+|       ├── Patient-myPatient-example.json
+|       ├── StructureDefinition-myExtension.json
+|       ├── StructureDefinition-myProfile.json
+|       ├── ValueSet-myValueSet.json
+|       └── ImplementationGuide-myIG.json
 ├── ig.ini
 ├── input
 |   ├── fsh
@@ -94,21 +95,21 @@ customized-ig
 │   │   └── menu.xml
 │   ├── pagecontent
 │   │   ├── index.md
-│   │   ├── mySecondPage.md
-│   │   ├── myThirdPage.md
-│   │   └── myFourthPage.md
+│   │   ├── 2_mySecondPage.md
+│   │   ├── 3_myThirdPage.md
+│   │   └── 4_myFourthPage.md
 ├── package-list.json
 └── sushi-config.json
 ```
 
 Note the following files and directories from the output:
 
+* **fsh-generated\***: Generated from the definitions in the **input/fsh/\*.fsh** files.
 * **ig.ini**: Specified by the author and unchanged by SUSHI.
 * **input/ignoreWarnings.txt**: Specified by the author and unchanged by SUSHI.
-* **fsh-generated\***: Generated from the definitions in the **input/fsh/\*.fsh** files.
 * **input/images/\***: Specified by the author and unchanged by SUSHI.
-* **input/includes/menu.xml**: Specified by the author and unchanged by SUSHI, but can alternately be specified via the `menu` property in **sushi-config.yaml**.
-* **input/pagecontent/\***: Specified by the author, numeric prefixed are used by SUSHI in generating the **ImplementationGuide-myIG.json** file.
+* **input/includes/menu.xml**: Specified by the author and unchanged by SUSHI, but can alternately be specified via the `menu` property in **sushi-config.yaml**. If the `menu` configuration property is used, the output is generated to **fsh-generated/includes/menu.xml**.
+* **input/pagecontent/\***: Specified by the author, numeric prefixes are used by SUSHI in generating the **ImplementationGuide-myIG.json** file.
 * **package-list.json**: Specified by the author and unchanged by SUSHI.
 
 ### Downloading the IG Publisher

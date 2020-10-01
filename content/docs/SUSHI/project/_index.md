@@ -29,9 +29,9 @@ Each FSH file can contain multiple FSH definitions of varying types. FSH file na
 A simple FSH project like the one shown above can be used with a minimal **sushi-config.yaml** file to create a bare-bones IG . It can also be used to generate only the FHIR resources by specifying the `FSHOnly` flag in **sushi-config.yaml**.
 {{% /alert %}}
 
-### Using a fsh Subdirectory with the HL7 IG Publisher and Auto-Builder
+### Using the HL7 IG Publisher and Auto-Builder
 
-This project structure integrates with the HL7 IG Publisher [Auto-Builder](https://github.com/FHIR/auto-ig-builder/blob/master/README.md). When the IG Publisher detects an **input/fsh** subdirectory, it will automatically run SUSHI on that directory and output the SUSHI results to an **fsh-generated** directory (e.g., **simple-ig/fsh-generated** in the example above). It will then continue with the normal IG Publisher process.
+This project structure integrates with the HL7 IG Publisher [Auto-Builder](https://github.com/FHIR/auto-ig-builder/blob/master/README.md). When the IG Publisher detects an **input/fsh** subdirectory, it will automatically run SUSHI on that directory and output the SUSHI results to a **fsh-generated** directory (e.g., **simple-project/fsh-generated** in the example above). It will then continue with the normal IG Publisher process.
 
 This approach allows a GitHub repository to be configured such that whenever changes to FSH files are pushed to GitHub, the [Auto-Builder](https://github.com/FHIR/auto-ig-builder/blob/master/README.md) will pick them up, run the SUSHI/IG Publisher process, and publish the resulting IG to [http://build.fhir.org](http://build.fhir.org).
 

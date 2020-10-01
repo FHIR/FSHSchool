@@ -6,7 +6,7 @@ resources:
   src: gofsh-tutorial.zip
   title: GoFSH Tutorial
 - name: config
-  src: config.yaml
+  src: sushi-config.yaml
   title: Configuration
 ---
 
