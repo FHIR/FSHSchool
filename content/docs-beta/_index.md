@@ -1,6 +1,6 @@
 ---
-title: "Documentation - Beta"
-linkTitle: "Docs - SUSHI 1.0 Beta"
+title: "Documentation [SUSHI 1.0 Beta]"
+linkTitle: "Docs [SUSHI 1.0 Beta]"
 menu:
   main:
     weight: 1
