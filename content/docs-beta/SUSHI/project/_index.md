@@ -29,6 +29,11 @@ This approach allows a GitHub repository to be configured such that whenever cha
 
 ## IG Projects
 
+{{% alert title="Warning" color="warning" %}}
+As of the SUSHI 1.0 Beta release, the **ig.ini** MUST use a template based on `fhir.base.template#current`. See the detailed description of **ig.ini** below for a more in depth list of allowed templates.
+{{% /alert %}}
+
+
 SUSHI provides support for several of the files and directories required by the [template-based IG Publisher](https://build.fhir.org/ig/FHIR/ig-guidance/) for building Implementation Guides. Some IG customizations can be configured using additional properties in the **sushi-config.yaml** file. A FSH project integrated into the template-based IG Publisher may look like this:
 
 ```text
@@ -59,7 +64,12 @@ You can populate your project as follows:
 
 * **sushi-config.yaml**: This file provides project configuration data to SUSHI. It is described further in the [Configuration](/docs-beta/sushi/configuration/) documentation.
 * **input/fsh/\*.fsh**: FSH files contain the FHIR Shorthand definitions for all the resources and examples in your IG.
-* **ig.ini**: Configuration file required for the FHIR IG Publication process. NOTE: This file MUST use the `#current` version of the `fhir.base.template` (or a template that extends this version). So to use the `fhir.base.template`, the `template` property in **ig.ini** will be `template = fhir.base.template#current`.
+* **ig.ini**: Configuration file required for the FHIR IG Publication process. NOTE: As of the SUSHI 1.0 Beta release, this file MUST use a template based on `fhir.base.template#current`. Specific template versions (i.e., other than `#current`) are expected to work in the future.  For now, any of the following should work:
+  * `template = fhir.base.template#current`
+  * `template = hl7.base.template#current`
+  * `template = hl7.fhir.template#current`
+  * `template = hl7.davinci.template#current`
+  * `template = hl7.cda.template#current`
 * **input/ignoreWarnings.txt**: This file is used to suppress specific QA warnings and information messages during the FHIR IG publication process.
 * **input/images/\***: Put anything that is not a page in the IG, such as images, spreadsheets or zip files, in the **input/images** subdirectory. These files can be referenced by user-provided pages or menus.
 * **input/includes/menu.xml**: If present, this file will be used for the IG's main menu layout. Note that the presence of this file will block usage of the `menu` property in **sushi-config.yaml**.
