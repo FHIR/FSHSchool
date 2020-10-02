@@ -23,6 +23,10 @@ Each FSH file can contain multiple FSH definitions of varying types. FSH file na
 
 ### Using the HL7 IG Publisher and Auto-Builder
 
+{{% alert title="Warning" color="warning" %}}
+The two paragraphs below describe how Auto-Builder integration will work once SUSHI 1.0 is officially released. Currently, the HL7 IG Auto-Builder still uses SUSHI 0.16.0 for auto-builds, so it is not compatible w/ the new SUSHI 1.0 Beta file structure. The SUSHI team is currently working with the Auto-Builder team to provide a way to indicate that a different version of SUSHI should be used.
+{{% /alert %}}
+
 This project structure integrates with the HL7 IG Publisher [Auto-Builder](https://github.com/FHIR/auto-ig-builder/blob/master/README.md). When the IG Publisher detects an **input/fsh** subdirectory, it will automatically run SUSHI on that directory and output the SUSHI results to a **fsh-generated** directory (e.g., **simple-project/fsh-generated** in the example above). It will then continue with the normal IG Publisher process.
 
 This approach allows a GitHub repository to be configured such that whenever changes to FSH files are pushed to GitHub, the [Auto-Builder](https://github.com/FHIR/auto-ig-builder/blob/master/README.md) will pick them up, run the SUSHI/IG Publisher process, and publish the resulting IG to [http://build.fhir.org](http://build.fhir.org).
@@ -101,10 +105,10 @@ These values are used to generate a simple **sushi-config.yaml** file and a corr
 ```text
 NewIG
 ├── .gitignore
-├── _genonce.bat     
-├── _genonce.sh           
-├── _updatePublisher.bat  
-├── _updatePublisher.sh 
+├── _genonce.bat
+├── _genonce.sh
+├── _updatePublisher.bat
+├── _updatePublisher.sh
 ├── ig.ini
 ├── input
 |   ├── ignoreWarnings.txt
