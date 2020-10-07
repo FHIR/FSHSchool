@@ -42,10 +42,16 @@ Some users may experience one of these issues when running the IG Publisher on t
 
 This usually means that the IG Publisher is not using the correct template.  _First_, check to ensure your your **ig.ini** specifies the `#current` version of one of the supported templates (or a template that extends one of the supported templates).  See step 5 for the list of supported templates.
 
-If you've confirmed you are using a `#current` version of a supported template, then the IG Publisher likely failed to download the updated template in your FHIR cache.  This may be due to corporate firewalls, network issues, or restrictive file permissions in your FHIR cache.  Usually, users can resolve this issue by deleting the base template from their FHIR cache:
+If you've confirmed you are using a `#current` version of a supported template, then the IG Publisher likely failed to download the updated template in your FHIR cache.  This may be due to corporate firewalls, network issues, or restrictive file permissions in your FHIR cache.  Sometimes, you can resolve this issue by deleting the base template from your FHIR cache:
 
 &nbsp;&nbsp;&nbsp;&nbsp;{{< windows >}} `C:\Users\{user}\.fhir\packages\fhir.base.template#current`
 
 &nbsp;&nbsp;&nbsp;&nbsp;{{< apple >}} `/Users/{user}/.fhir/packages/fhir.base.template#current`
 
 substituting `{user}` with your username on your operating system.
+
+{{% alert title="Note" color="primary" %}}
+If there is a general problem with downloading the template (as opposed to overwriting it), deleting the template will not fix it. Instead the problem will just become more obvious. If this is the case, you may need to disconnect from your VPN (if applicable) and try again or contact your network administrator for assistance.
+
+For this reason, you may choose to temporarily _move_ your **fhir.base.template#current** folder rather than _deleting_ it.  This way, if the new template still fails to download, you can move the old template back and continue using it for other IGs (for which the new template may not be necessary).
+{{% /alert %}}
