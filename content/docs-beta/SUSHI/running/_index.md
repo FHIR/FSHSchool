@@ -108,13 +108,13 @@ SUSHI creates only the **fsh-generated** folder, but some of the files shown abo
 * **input/pagecontent/\***: Specified by the author, numeric prefixes are used by SUSHI in generating the **ImplementationGuide-myIG.json** file.
 * **package-list.json**: Specified by the author and unchanged by SUSHI.
 
+### Downloading the IG Publisher Scripts
+
+To run the IG Publisher, we recommend downloading the **\_updatePublisher.bat|sh** and **\_genonce.bat|sh** scripts provided by the sample-ig project. To get these scripts, [download the sample-ig project](https://github.com/FHIR/sample-ig/archive/master.zip), unzip it, and copy _all_ of the **.bat** and **.sh** files to the directory containing the **fsh-generated** folder (**customized-ig** in the example above).
+
 ### Downloading the IG Publisher
 
-{{% alert title="Note" color="primary" %}}
-The following steps require the **\_updatePublisher.bat|sh** and **\_genonce.bat|sh** scripts in the output directory that SUSHI writes to. If these scripts are not present there, you will need to download them from the sample-ig project. The easiest way to do this is to [download the sample-ig project](https://github.com/FHIR/sample-ig/archive/master.zip), unzip it, and copy _all_ of the **.bat** and **.sh** files to the directory that SUSHI writes to.
-{{% /alert %}}
-
-After running SUSHI, change directories to the output directory (if necessary). At the command prompt, enter:
+After copying these, change directories in the command prompt to the directory conaining the **fsh-generated** folder. At the command prompt, enter:
 
 ```shell
 {{< windows >}} {{< terminal >}} _updatePublisher
