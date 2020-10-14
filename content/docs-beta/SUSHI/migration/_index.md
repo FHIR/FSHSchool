@@ -72,7 +72,7 @@ You must specify a template based on `fhir.base.template#current`. Older templat
 
 Another error message you might receive concerns the `history` property in **sushi-config.yaml**. If you get that message, remove that property and create the **package-list.json** file as instructed.
 
-When you get a clean build with SUSHI, try running the IG Publisher (use the `_genonce` script). This will verify that all files needed by the IG Publisher are in the right place.
+When you get a clean build with SUSHI, try running the IG Publisher using your customary method (e.g., using the `_genonce` script). This will verify that all files needed by the IG Publisher are in the right place.
 
 ### 5 - Update .gitignore
 If you are using Git for version control, update your **.gitignore** file. 
