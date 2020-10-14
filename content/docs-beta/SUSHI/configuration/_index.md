@@ -77,12 +77,13 @@ In addition to the minimum configuration requirements shown above, most IG autho
 * The `dependencies` value is a YAML object for which the keys are each dependency's package id and the values are the dependency versions. In addition to standard version identifiers, the following two special versions are supported:
   * `dev`: indicates that the dependency should be loaded from the local FHIR cache
   * `current`: indicates that the dependency should be loaded from the last successful auto-build.
-* The `dependencies` property also supports an advanced syntax that allows you to directly specify the dependency URI if necessary. For example:
+* The `dependencies` property also supports an advanced syntax that allows you to directly specify the dependency id and/or URI if necessary. For example:
   ```yaml
   dependencies:
-    hl7.fhir.us.mcode:
-      uri: http://hl7.org/fhir/us/mcode
-      version: 1.0.0
+    hl7.fhir.us.core:
+      id: uscore
+      uri: http://hl7.org/fhir/us/core/ImplementationGuide/hl7.fhir.us.core
+      version: 3.1.0
   ```
 
 ## Full Configuration
@@ -115,7 +116,7 @@ The table below lists all configuration properties that can be used in SUSHI's *
 | packageId | packageI | As specified in the IG resource. If not specified, defaults to `id`. |
 | license | license | As specified in the IG resource |
 | fhirVersion | fhirVersion | As specified in the IG resource |
-| dependencies | dependsOn | A `key: value` pair, where key is the package id and value is the version (or `dev`/`current`). For advanced use cases, the value can be an object with keys for `uri` and `version`.|
+| dependencies | dependsOn | A `key: value` pair, where key is the package id and value is the version (or `dev`/`current`). For advanced use cases, the value can be an object with keys for `id`, `uri` and `version`.|
 | global | global | Key is the type and value is the profile |
 | groups | definition.grouping | A `key: value` pair, where key is the name of the group and value is the description of the group |
 | resources | definition.resource | SUSHI can auto-generate a list of resources based on FSH definitions and provided JSON or XML resources, but this property can be used to add additional entries or override generated entries. SUSHI uses the {resource type}/{resource name} format as the YAML key (corresponding to IG.definition.resource.reference). Authors can specify the value "omit" to omit a FSH-generated resource from the resource list. `groupingId` can be used, but top-level groups syntax may be a better option. |

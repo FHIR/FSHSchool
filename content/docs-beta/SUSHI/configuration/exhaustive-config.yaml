@@ -59,7 +59,8 @@ jurisdiction: urn:iso:std:iso:3166#US "United States of America"
 dependencies:
   hl7.fhir.us.core: 3.1.0
   hl7.fhir.us.mcode:
-    uri: http://hl7.org/fhir/us/mcode
+    id: mcode
+    uri: http://hl7.org/fhir/us/mcode/ImplementationGuide/hl7.fhir.us.mcode
     version: 1.0.0
 
 # The global property corresponds to the IG.global property, but it
