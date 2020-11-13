@@ -1,7 +1,0 @@
-id: go.fsh.example
-canonical: http://hl7.org/fhir/us/mcode # The definitions originally come from mCODE
-name: GoFSH Example
-version: 1.0.0
-fhirVersion: 4.0.1
-status: active
-FSHOnly: true

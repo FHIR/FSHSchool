@@ -40,13 +40,7 @@ Use `sushi -v` to display the installed version of SUSHI and the version of the 
 For the most up-to-date information and latest releases of SUSHI, check the [release history and release notes](https://github.com/FHIR/sushi/releases).
 {{% /alert %}}
 
-## Updating or Reverting SUSHI
-
-To update SUSHI to the latest version, re-run:
-
-```shell
-{{< terminal >}} npm install -g fsh-sushi
-```
+## Reverting SUSHI
 
 To revert to a previous version of SUSHI, run:
 
@@ -54,4 +48,4 @@ To revert to a previous version of SUSHI, run:
 {{< terminal >}} npm install -g fsh-sushi@{version}
 ```
 
-where the `{version}` is replaced by the desired MAJOR.MINOR.PATCH version (e.g., `npm install -g fsh-sushi@0.14.0`).
+where the `{version}` is replaced by the desired MAJOR.MINOR.PATCH version (e.g., `npm install -g fsh-sushi@0.16.0`).
