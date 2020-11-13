@@ -15,4 +15,3 @@ publisher:
   email: usrsc@lists.HL7.org
 dependencies:
   hl7.fhir.us.core: 3.1.0
-template: hl7.fhir.template#0.0.5
