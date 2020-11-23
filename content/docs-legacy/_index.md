@@ -1,6 +1,6 @@
 ---
-title: "Documentation [Legacy]"
-linkTitle: "Docs [Legacy]"
+title: "Documentation [Pre-1.0]"
+linkTitle: "Docs [Pre-1.0]"
 menu:
   main:
     weight: 1
