@@ -147,3 +147,12 @@ After the IG Publisher has been successfully downloaded, execute the following c
 ```
 
 This will run the HL7 IG Publisher, which may take several minutes to complete. After the publisher is finished, open the file **/output/index.html** in a browser to see the resulting IG.
+
+{{% alert title="Tip" color="success" %}}
+When running SUSHI, the IG Publisher will look for an optional **fsh.ini** control file in the root directory of the project (the same directory that contains **ig.ini**). This file should have `[FSH]` on the first line, and can include a `sushi-version` property, used to specify which version of SUSHI the IG Publisher should use, and a `timeout` property, used to set a timeout for SUSHI (in seconds). The default timeout is 60 seconds. An example **fsh.ini** file is provided below.
+```text
+[FSH]
+sushi-version = 0.16.0
+timeout = 120
+```
+{{% /alert %}}
