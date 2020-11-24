@@ -58,16 +58,18 @@ Move the **./input/fsh/config.yaml** file to the top-level folder, and rename it
 
 You can now run SUSHI 1.0. You may get further instructions in the form of error messages.
 
-One error message concerns the `template` property in **sushi-config.yaml**. If you get that error, follow the instructions to remove that property from **sushi-config.yaml** and create an **./ig.ini** file.
+One error message concerns the `template` property in **sushi-config.yaml**. If you get that error, follow the instructions to remove that property from **sushi-config.yaml** and create an **./ig.ini** file. 
 
 {{% alert title="Warning" color="warning" %}}
-You must specify a template based on `fhir.base.template#current`. Older templates will not work with SUSHI 1.0. Any of the following should work:
+**Carefully consider the contents of ig.ini**. You must specify a `template` property based on `fhir.base.template#current`. Older templates will not work with SUSHI 1.0. Any of the following should work:
 
   * `template = fhir.base.template#current`
   * `template = hl7.base.template#current`
   * `template = hl7.fhir.template#current`
   * `template = hl7.davinci.template#current`
   * `template = hl7.cda.template#current`
+
+The `ig` property must point to an ImplementationGuide resource. If SUSHI is generating your ImplementationGuide resource, it will be generated to **fsh-generated/resources/ImplementationGuide-{ig-id}.json**.
 {{% /alert %}}
 
 Another error message you might receive concerns the `history` property in **sushi-config.yaml**. If you get that message, remove that property and create the **package-list.json** file as instructed.
