@@ -2,7 +2,7 @@
 title: Downloads
 menu:
   main:
-    weight: 5
+    weight: 50
 ---
 
 {{% blocks/section type="section" color="white"%}}

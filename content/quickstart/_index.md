@@ -2,7 +2,7 @@
 title: Quick Start
 menu:
   main:
-    weight: 1
+    weight: 10
 ---
 {{ define "main" }}
 
