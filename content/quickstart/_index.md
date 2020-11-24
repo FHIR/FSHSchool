@@ -4,8 +4,6 @@ menu:
   main:
     weight: 1
 ---
-{{ define "main" }}
-
 <a class="td-offset-anchor"></a>
 <section class="row td-box td-box--1 position-relative td-box--gradient td-box--height-auto">
 	<div class="container text-center td-arrow-down">
