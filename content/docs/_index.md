@@ -3,7 +3,7 @@ title: "Documentation"
 linkTitle: "Documentation"
 menu:
   main:
-    weight: 2
+    weight: 20
 ---
 
 Here you will find documentation on how to get started using FSH to create Implementation Guides. Head to [Introduction](/docs/introduction) for

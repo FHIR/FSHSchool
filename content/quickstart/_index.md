@@ -2,7 +2,7 @@
 title: Quick Start
 menu:
   main:
-    weight: 1
+    weight: 10
 ---
 <a class="td-offset-anchor"></a>
 <section class="row td-box td-box--1 position-relative td-box--gradient td-box--height-auto">

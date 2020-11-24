@@ -1,6 +1,10 @@
 ---
 title: "Migrating from Older Versions"
+linkTitle: "Update to 1.0"
 weight: 30
+menu:
+  main:
+    weight: 60
 ---
 
 ## Migrating from pre-1.0.0 Projects
