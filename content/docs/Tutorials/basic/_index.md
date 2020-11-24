@@ -9,9 +9,9 @@ resources:
 
 [FHIR Shorthand](/about) (FSH) is a specially-designed language for defining the content of FHIR Implementation Guides (IGs). It is simple and compact, with tools to produce Fast Healthcare Interoperability Resources (FHIR) profiles, extensions and IGs. FSH is compiled from text files to FHIR artifacts using [SUSHI](/docs/sushi). To get started using FSH, you need to install and run SUSHI using the steps below.
 
-### Step 1: Review Getting Started
+### Step 1: Review Introduction
 
-If you haven't done so already, please read or review the [Getting Started](/docs/getting-started/) documentation to gain an understanding of the conventions used in this tutorial and the resources available to you.
+If you haven't done so already, please read or review the [Introduction](/docs/introduction/) documentation to gain an understanding of the conventions used in this tutorial and the resources available to you.
 
 ### Step 2: Install Node.js and Sushi
 
