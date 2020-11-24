@@ -1,0 +1,9 @@
+id: fhir.us.example
+canonical: http://hl7.org/fhir/us/example
+name: ExampleIG
+status: draft
+version: 0.1.0
+fhirVersion: 4.0.1
+copyrightYear: 2020+
+releaseLabel: ci-build
+template: hl7.fhir.template#0.0.5
