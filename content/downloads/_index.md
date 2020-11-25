@@ -18,7 +18,7 @@ menu:
 * <a href="sept-2020-fsh-tutorial-part-1.pdf">Introduction to FHIR Shorthand</a>
 * <a href="sept-2020-fsh-tutorial-part-2.pdf">Advanced FHIR Shorthand</a>
 * <a href="sept-2020-fsh-tutorial-part-3.pdf">Wicked FHIR Shorthand (Version 2 Plans)</a>
-* <a href="sept-2020-fshing-equipment.pdf">FSHing Equipment (Tools)</a>
+* <a href="sept-2020-fshing-equipment.pdf">FSHing Equipment (Overview of FSH Tools)</a>
 
 
 {{% /blocks/section %}}
