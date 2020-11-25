@@ -36,5 +36,5 @@ GoFSH is a converter that takes FHIR artifacts (e.g., profiles, extensions, valu
 * If you are looking for specific information, you can search the documentation using the search box in the upper right corner.
 
 {{% alert title="Warning" color="warning" %}}
-Search will return hits in both the current and legacy (pre-1.0) documentation. Legacy documentation is flagged by a warning on the page and light-greenish background.
+Search will return hits in both the current and legacy (pre-1.0) documentation. Legacy documentation is flagged by a warning on the page and reddish background.
 {{% /alert %}}
