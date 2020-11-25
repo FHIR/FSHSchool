@@ -6,7 +6,35 @@ menu:
     weight: 20
 ---
 
-Here you will find documentation on how to get started using FSH to create Implementation Guides. Head to [Introduction](/docs/introduction) for
-some background information on FSH and FHIR. If you're ready to start writing some FSH, go to [SUSHI](/docs/sushi) to learn about the SUSHI compiler for FSH.
-If you want to dive right into creating an Implementation Guide, check out the [Tutorials](/docs/tutorials) for full instructions on making an Implementation
-Guide using FSH and SUSHI.
+
+{{% alert title="Note" color="success" %}}
+**Documentation of the FHIR Shorthand language standard is found on [the official HL7 site](http://hl7.org/fhir/uv/shorthand). The [Language Reference](http://hl7.org/fhir/uv/shorthand/reference.html) has details on FSH grammar. This site covers SUSHI and GoFSH and creation of FHIR Implementation Guides using these tools.**
+{{% /alert %}}
+
+### What is SUSHI?
+
+SUSHI (**S**USHI **U**nshortens **Sh**ortHand **I**nputs) is a FSH compiler. SUSHI converts FSH language to FHIR artifacts. SUSHI can run in stand-alone mode or as part of the [HL7 IG Publisher](https://confluence.hl7.org/display/FHIR/IG+Publisher+Documentation).
+
+### What is GoFSH?
+
+GoFSH is a converter that takes FHIR artifacts (e.g., profiles, extensions, value sets, instances) and produces equivalent FSH. GoFSH is essentially the opposite of SUSHI. GoFSH helps you transition to FSH if you have an existing Implementation Guide produced by other methods.
+
+### Navigating the Documentation
+
+* Head to [Introduction](/docs/introduction) for some background information on FSH and FHIR.
+
+* If you want to dive right into creating an Implementation Guide, check out the [Tutorials](/docs/tutorials) for hands-on exercises.
+
+* If you're ready to start writing some FSH, but first want an overview, consult the latest presentations in [Downloads](/downloads).
+
+* Go to [SUSHI](/docs/sushi) to learn about the SUSHI compiler for FSH. 
+
+* If you already have an Implementation Guide and want to switch over to FSH, consult the [GoFSH documentation](docs/gofsh).
+
+* If you are still using a pre-release version of SUSHI (version 0.16 or earlier), you should [migrate to the latest released version](/docs/sushi/migration). Documentation for pre-release versions of SUSHI is preserved [here](/docs/docs-legacy).
+
+* If you are looking for specific information, you can search the documentation using the search box in the upper right corner.
+
+{{% alert title="Warning" color="warning" %}}
+Search will return hits in both the current and legacy (pre-1.0) documentation. Legacy documentation is flagged by a warning on the page and reddish background.
+{{% /alert %}}
