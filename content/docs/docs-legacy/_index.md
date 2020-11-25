@@ -1,5 +1,5 @@
 ---
-title: "Documentation [Pre-1.0]"
+title: "Legacy Documentation [Pre-1.0]"
 weight: 100
 ---
 

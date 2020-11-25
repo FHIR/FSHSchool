@@ -11,8 +11,6 @@ body {background-color: #E2F0D9;}
 This documentation is for Legacy versions of SUSHI (pre-1.0.0). Head to the [Documentation](/docs) tab for documentation on the current version of SUSHI.
 {{% /alert %}}
 
-
-
 [FHIR Shorthand](https://build.fhir.org/ig/HL7/fhir-shorthand/reference.html) ("FSH" or "Shorthand") is a specially-designed language for defining the content of Health Level Seven (HL7®) [Fast Healthcare Interoperability Resources (FHIR®)](https://www.hl7.org/fhir/R4/overview.html) Implementation Guides (IGs). It is simple and compact, with tools to produce Fast Healthcare Interoperability Resources (FHIR) profiles, extensions and IGs.
 
 [SUSHI](/docs/docs-legacy/sushi/) ("SUSHI Unshortens ShortHand Inputs") is a reference implementation of an interpreter/compiler for the FSH language. SUSHI produces FHIR profiles, extensions, and other artifacts needed to create FHIR Implementation Guides (IG).
