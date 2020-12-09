@@ -33,7 +33,7 @@ Keep in mind that if you created FHIR artifacts NOT using SUSHI, those files mus
 
 ### 2 - Rearrange Directories
 
-Move the entire contents of **./fsh/ig-data** directory to the top level (do not move the **/ig-data** directory, just its contents). 
+Move the entire contents of **./fsh/ig-data** directory to the top level (do not move the **/ig-data** directory, just its contents).
 
 {{% alert title="Note" color="primary" %}}
 If after the cleanup, you still have a top-level **./input** directory, then _merge_ the contents of **./fsh/ig-data/input** into that directory (rather than replacing it).
@@ -54,15 +54,45 @@ Your directory structure should now look something like this:
 └── (other directories such as input-cache, output, temp, template)
 ```
 
-### 3 - Move and Rename config.yaml
+### 3 - Adjust Page Names or Links
+
+SUSHI no longer removes numeric prefixes from the file names of pages. If you did not use numeric prefixes on page files you can skip to step 4. Otherwise, you will need to rename your page files or fix your existing links to these pages.
+
+**3.1 Rename Page Files**
+
+To maintain the same page names and locations in your IG, remove the numeric prefixes from your page file names.  For example, rename `3_downloads.md` to `downloads.md`. Then add a `pages` property to `sushi-config.yaml` to specify the desired page order in the table of contents. For example:
+```yaml
+pages:
+  index.md:
+    title: Home
+  conformance.md:
+    title: Conformance
+  implementation.md:
+    title: Implementation
+  downloads.md:
+    title: Downloads
+```
+
+**3.2 Fix Existing Links to Pages**
+
+If you want to continue specifying page order using numeric prefixes on file names instead, you will need to fix all existing links to _include_ the numeric prefix.  For example, the link
+```md
+[Downloads](downloads.html)  (or <a href="downloads.html">Downloads</a>)
+```
+should become:
+```md
+[Downloads](3_downloads.html) (or <a href="3_downloads.html">Downloads</a>)
+```
+
+### 4 - Move and Rename config.yaml
 
 Move the **./input/fsh/config.yaml** file to the top-level folder, and rename it **sushi-config.yaml**.
 
-### 4 - Run SUSHI and Follow Instructions
+### 5 - Run SUSHI and Follow Instructions
 
 You can now run SUSHI 1.0. You may get further instructions in the form of error messages.
 
-One error message concerns the `template` property in **sushi-config.yaml**. If you get that error, follow the instructions to remove that property from **sushi-config.yaml** and create an **./ig.ini** file. 
+One error message concerns the `template` property in **sushi-config.yaml**. If you get that error, follow the instructions to remove that property from **sushi-config.yaml** and create an **./ig.ini** file.
 
 {{% alert title="Warning" color="warning" %}}
 **Carefully consider the contents of ig.ini**. You must specify a `template` property based on `fhir.base.template#current`. Older templates will not work with SUSHI 1.0. Any of the following should work:
@@ -80,8 +110,8 @@ Another error message you might receive concerns the `history` property in **sus
 
 When you get a clean build with SUSHI, try running the IG Publisher using your customary method (e.g., using the `_genonce` script). This will verify that all files needed by the IG Publisher are in the right place.
 
-### 5 - Update .gitignore
-If you are using Git for version control, update your **.gitignore** file. 
+### 6 - Update .gitignore
+If you are using Git for version control, update your **.gitignore** file.
 
 * Remove entries for **ig.ini**, **package-list.json**, and the **input** directory, if present. These two files and the entire **./input** folder should now be under source code control.
 
