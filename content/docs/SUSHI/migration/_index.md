@@ -56,37 +56,11 @@ Your directory structure should now look something like this:
 
 ### 3 - Adjust Page Names or Links
 
-In pre-1.0.0 projects, authors could use numeric prefixes on page names to indicate the order that the pages should appear in the table of contents. When SUSHI copied the page files to the IG source, it removed the prefixes from the file names (e.g., `3_downloads.md` was copied as `downloads.md`). Since SUSHI now uses the page files directly from `input/pagecontent` or `input/pages`, it cannot rename them. As a result, any existing links to these pages will be broken.
+SUSHI no longer removes numeric prefixes from the file names of pages. If you did not use numeric prefixes on page files you can skip to step 4. Otherwise, you will need to rename your page files or fix your existing links to these pages.
 
-If you did not use numeric prefixes on your pages' file names, you can skip to step 4. If you did use numeric prefixes on your pages file names, there are two ways you can potentially fix this:
-* remove the numeric prefixes from you pages' file names and specify page order in `sushi-config.yaml`, _or_
-* fix all existing links to reference the pages _with_ their numeric prefixes
+**3.1 Rename Page Files**
 
-For both of these approaches, we will use these pages as an example:
-```
-.
-└── input
-    └── pagecontent
-        ├── index.md
-        ├── 1_conformance.md
-        ├── 2_implementation.md
-        └── 3_downloads.md
-```
-
-**3.1 Rename and Reconfigure Pages**
-
-To maintain the same page names and locations in your IG, you should rename your pages such that they no longer have the numeric prefixes. Using our example pages, you would rename them as below:
-```
-.
-└── input
-    └── pagecontent
-        ├── conformance.md
-        ├── downloads.md
-        ├── implementation.md
-        └── index.md
-```
-
-To ensure your pages appear in the table of contents in the correct order, add a `pages` property to your `sushi-config.yaml` file using the following format (continuing to follow our example pages):
+To maintain the same page names and locations in your IG, remove the numeric prefixes from your page file names.  For example, rename `3_downloads.md` to `downloads.md`. Then add a `pages` property to `sushi-config.yaml` to specify the desired page order in the table of contents. For example:
 ```yaml
 pages:
   index.md:
@@ -99,15 +73,13 @@ pages:
     title: Downloads
 ```
 
-Note that this has the added benefit of allowing you to specify your page titles independent of the page names. Also note, however, that if you add pages in the future, you'll need to add them here as well.
-
 **3.2 Fix Existing Links to Pages**
 
-If you are not concerned about maintaining the locations of your pages, and you do not want to manually control pages in the `sushi-config.yaml`, you can continue using numeric prefixes to indicate page order, but you should fix all existing links to _include_ the numeric prefix.  For example, the link
+If you want to continue specifying page order using numeric prefixes on file names instead, you will need to fix all existing links to _include_ the numeric prefix.  For example, the link
 ```md
 [Downloads](downloads.html)  (or <a href="downloads.html">Downloads</a>)
 ```
-should be changed to:
+should become:
 ```md
 [Downloads](3_downloads.html) (or <a href="3_downloads.html">Downloads</a>)
 ```
