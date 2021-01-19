@@ -57,7 +57,7 @@ While running SUSHI, there will be a series of informational messages. When SUSH
 ║ ╰──────────┴────────────┴───────────┴─────────────┴───────────╯ ║
 ║                                                                 ║
 ╠═════════════════════════════════════════════════════════════════╣
-║ Nice! You're totally krilling it!      0 Errors      0 Warnings ║
+║ Nice! You're totally killing it!      0 Errors      0 Warnings ║
 ╚═════════════════════════════════════════════════════════════════╝
 ```
 
