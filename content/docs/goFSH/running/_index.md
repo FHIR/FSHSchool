@@ -18,18 +18,28 @@ where options include the following (in any order):
 -l, --log-level <level>           specify the level of log messages: error, warn, info (default), debug
 -d, --dependency <dependency...>  specify dependencies to be loaded using format dependencyId@version (FHIR R4 included by default)
 -v, --version                     print goFSH version
+-s, --style                       specify how the output is organized into files: group-by-fsh-type (default), group-by-profile, single-file, file-per-definition
+-f, --fshing-trip                 run SUSHI on the output of GoFSH and generate a comparison of the round trip results
+-i, --installed-sushi             use the locally installed version of SUSHI when generating comparisons with the "-f" option
 -h, --help                        output usage information
 ```
 
-While GoFSH is running, it will print status messages as it processes your project files.
+While GoFSH is running, it will print status messages as it processes your project files. The following sections give further detail on using certain options.
+
+### `style`
+The `style` option has four values:
+* `group-by-fsh-type`: Definitions are written to files based on what type of FSH definition they are (Alias, Profile, Extension, etc.). This is the default choice.
+* `group-by-profile`:  Profiles are each written to an individual file. Instances and Invariants that pertain only to a certain Profile are then included in the same file as that Profile. The remaining definitions are grouped as in the `group-by-fsh-type` option.
+* `single-file`: All definitions are written to one file.
+* `file-per-definition`: Each standalone FSH definition is written to an individual file. Only Aliases are combined into one `aliases.fsh` file.
+
+### `fshing-trip`
+If this flag is added, after GoFSH runs, SUSHI will run on the output of GoFSH. The output of SUSHI will then be compared to the original input to GoFSH (FHIR is compared to FHIR), and a visualization of differences between the original input and the SUSHI output will be created in `<output-folder>/fshing-trip-comparison.html`. If the `--installed-sushi` flag is set, then this process will use whichever version of SUSHI you have globally installed. Otherwise GoFSH will use SUSHI version 1.1.0.
 
 ## GoFSH Inputs
 
 GoFSH takes FHIR StructureDefinitions and other FHIR conformance definitions (e.g., ValueSets, CodeSystems) as input. GoFSH requires that these files be JSON. Every JSON file contained in the input directory, or its subdirectories, will be processed by GoFSH into FSH.
 
-{{% alert title="Warning" color="warning" %}}
-GoFSH is still under development, and can not generate FSH for all FHIR artifacts. Please see the section below on [limitations](#limitations-on-inputs) for more details.
-{{% /alert %}}
 
 GoFSH does not require any configuration, but if the input FHIR artifacts depend on FHIR artifacts not contained in FHIR R4, these dependencies should be specified with the `-d` flag. For example, the [mcode-cancer-patient](http://hl7.org/fhir/us/mcode/StructureDefinition-mcode-cancer-patient.html) profile in the [mCODE Implementation Guide](http://hl7.org/fhir/us/mcode/) is derived from the [us-core-patient](http://hl7.org/fhir/us/core/STU3.1/StructureDefinition-us-core-patient.html) profile in the [US Core Implementation Guide](http://hl7.org/fhir/us/core/). If you wanted to use GoFSH to convert the mcode-cancer-patient profile to FSH, you should specify US Core as a dependency:
 ```shell
@@ -40,16 +50,10 @@ GoFSH does not require any configuration, but if the input FHIR artifacts depend
 GoFSH can still generate FSH when dependencies are omitted, but the resulting FSH will be incomplete.
 {{% /alert %}}
 
-### Limitations on Inputs
+{{% alert title="Warning" color="warning" %}}
+GoFSH cannot generate FSH from XML inputs, only JSON is allowed.
+{{% /alert %}}
 
-Note that GoFSH is not complete, and cannot be applied to all FHIR artifacts. The capabilities and limitations of GoFSH are given below.
-
-* GoFSH outputs valid FSH for most profiles and extensions.
-  * Generated profile and extension definitions should be technically correct, but may not use the most efficient FSH representation or follow FSH authoring best practices.
-* GoFSH does not output the content of Code System definitions; it declares them using keywords, but does not generate any of their rules.
-* GoFSH does not output ValueSet definitions.
-* GoFSH does not output Instance definitions (this includes examples, as well as any definitions that must be created in FSH using the Instance keyword).
-* GoFSH does not support generating FSH from FHIR XML definitions.
 
 ## GoFSH Outputs
 
