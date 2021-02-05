@@ -34,7 +34,7 @@ The `style` option has four values:
 * `file-per-definition`: Each standalone FSH definition is written to an individual file. Only Aliases are combined into one `aliases.fsh` file.
 
 ### `fshing-trip`
-If this flag is added, after GoFSH runs, SUSHI will run on the output of GoFSH. The output of SUSHI will then be compared to the original input to GoFSH (FHIR is compared to FHIR), and a visualization of differences between the original input and the SUSHI output will be created in `<output-folder>/fshing-trip-comparison.html`. If the `--installed-sushi` flag is set, then this process will use whichever version of SUSHI you have globally installed. Otherwise GoFSH will use SUSHI version 1.1.0.
+If this flag is added, after GoFSH runs, SUSHI will run on the output of GoFSH. The output of SUSHI will then be compared to the original input to GoFSH (FHIR is compared to FHIR), and a visualization of differences between the original input and the SUSHI output will be created in `<output-folder>/fshing-trip-comparison.html`. If the `--installed-sushi` flag is set, then this process will use whichever version of SUSHI you have globally installed. Otherwise GoFSH will use its own built-in version of SUSHI (which may not be the latest version available).
 
 ## GoFSH Inputs
 
@@ -49,11 +49,6 @@ GoFSH does not require any configuration, but if the input FHIR artifacts depend
 {{% alert title="Info" color="info" %}}
 GoFSH can still generate FSH when dependencies are omitted, but the resulting FSH will be incomplete.
 {{% /alert %}}
-
-{{% alert title="Warning" color="warning" %}}
-GoFSH cannot generate FSH from XML inputs, only JSON is allowed.
-{{% /alert %}}
-
 
 ## GoFSH Outputs
 

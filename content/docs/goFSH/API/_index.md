@@ -14,7 +14,7 @@ fhirToFsh(fhir[, options])
 `fhir` - An array of FHIR resources, represented either as strings or JSON.
 
 `options` - An object which can have any combindation of the following attributes:
-* `dependencies` - An array of strings used to specify dependencies required for processing the FHIR. Dependencies should use the format `<packageId>#<version>` (example: `hl7.fhir.us.core#3.0.1`).
+* `dependencies` - An array of strings used to specify dependencies required for processing the FHIR. Dependencies should use the format `<packageId>@<version>` (example: `hl7.fhir.us.core@3.0.1`).
 * `logLevel` - A string that specifies what level of logging to use when processing FHIR. Options are `silent`, `debug`, `info`, `warn`, and `error`.
 * `style` - A string representing how the returned output is styled. The options are:
   * `string` - The generated FSH will be returned in one single string. This is the default.
@@ -39,8 +39,8 @@ fhirToFsh(fhir[, options])
 An object with the following attributes:
 * `fsh` - The generated FSH, styled according to the `style` parameter.
 * `configuration` - An object representing the `sushi-config.yaml` file that would be generated if GoFSH was running in a command line interface.
-* `errors` - An array containing any errors detected during processing.
-* `warnings` - An array containing any warnings detected during processing.
+* `errors` - An array of strings containing any errors detected during processing.
+* `warnings` - An array of strings containing any warnings detected during processing.
 
 ## Usage
 To use `fhirToFsh`, you must first install `gofsh` as a dependency of your project:
@@ -52,6 +52,16 @@ Once `gofsh` is installed as a dependency of your project, you can `import` and 
 ```javascript
 import { gofshClient } from 'gofsh';
 
+// Example basic usage
 gofshClient.fhirToFsh(['Your FHIR here']);
+
+// Example usage with options
+gofshClient.fhirToFsh(
+  ['Your FHIR here'], 
+  {
+    dependencies: ["hl7.fhir.us.mcode@1.0.0"],
+    style: "map",
+    logLevel: "silent"
+  });
 ```
 
