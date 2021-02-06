@@ -20,6 +20,7 @@ where options include the following (in any order):
 -v, --version                     print goFSH version
 -s, --style                       specify how the output is organized into files: group-by-fsh-type (default), group-by-profile, single-file, file-per-definition
 -f, --fshing-trip                 run SUSHI on the output of GoFSH and generate a comparison of the round trip results
+-t, --file-type                   specify which file types GoFSH should accept as input: json-only (default), xml-only, json-and-xml
 -i, --installed-sushi             use the locally installed version of SUSHI when generating comparisons with the "-f" option
 -h, --help                        output usage information
 ```
