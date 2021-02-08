@@ -16,7 +16,7 @@ fshToFhir(fshString[, options])
 `options` - An object which can have any combination of the following attributes:
 * `canonical` - A string used to specify the canonical URL.
 * `version` - A string used to specify the version.
-* `fhirVersion` - A string used to specify the version of FHIR to use.
+* `fhirVersion` - A string used to specify the version of FHIR to use. Note that SUSHI only supports FHIR R4 and R5.
 * `dependencies` - An array of objects used to specify dependencies required for processing the FSH. Each object should have a `packageId` and `version`, and optionally a `uri`.
 * `logLevel` - A string that specifies what level of logging to use when processing FSH. Options are `silent`, `debug`, `info`, `warn`, and `error`.
 
@@ -48,6 +48,7 @@ sushiClient.fshToFhir(
   {
     canonical: 'http://example.com',
     version: '1.2.3',
+    fhirVersion: '4.0.1',
     dependencies: [{ packageId: 'hl7.fhir.us.core', version: '3.1.0' }],
     logLevel: 'error'
   });
