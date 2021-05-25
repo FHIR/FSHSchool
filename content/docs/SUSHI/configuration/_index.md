@@ -31,7 +31,7 @@ At a minimum, the **sushi-config.yaml** file must provide a few high-level metad
   * `active`: The IG is ready for normal use.
   * `retired`: The IG has been withdrawn or superseded and should no longer be used.
   * `unknown`: It is not know which of the status values currently applies for the IG. This should be rare.
-* Since SUSHI currently supports only FHIR R4, the `fhirVersion` should always be `4.0.1`.
+* Since SUSHI currently supports only FHIR R4 and R5, the `fhirVersion` should always be `4.0.0` or above.
 * Valid values for the `releaseLabel` include:
   * `ci-build`: the continuous integration build release (not stable)
   * `draft`: draft version
@@ -91,7 +91,7 @@ The `dependencies` property also supports an advanced syntax that allows you to 
       version: 3.1.0
   ```
 
-SUSHI also supports [extensions for converting between versions of FHIR](http://build.fhir.org/versions.html#extensions). To get extensions that represent elements from other versions of FHIR, a package of the form `hl7.fhir.extensions.<extension-version>:<package-version>` is used. The `<extension-version>` should be one of `r2`, `r3`, or `r4` to indicate which version of FHIR the element represented by the extension is defined in. The `<package-version>` represents which version of FHIR the extension will be used in, and since SUSHI only supports FHIR R4, this should always be `4.0.1`. So for example, if an author wanted to represent the `Patient.animal.species` [element](http://hl7.org/fhir/STU3/patient-definitions.html#Patient.animal.species) as defined in R3, the dependencies should be specified as:
+SUSHI also supports [extensions for converting between versions of FHIR](http://build.fhir.org/versions.html#extensions). To get extensions that represent elements from other versions of FHIR, a package of the form `hl7.fhir.extensions.<extension-version>:<package-version>` is used. The `<extension-version>` should be one of `r2`, `r3`, or `r4` to indicate which version of FHIR the element represented by the extension is defined in. The `<package-version>` represents which version of FHIR the extension will be used in. For an IG defined using FHIR R4, this would be `4.0.1`. As an example, if an author wanted to represent the `Patient.animal.species` [element](http://hl7.org/fhir/STU3/patient-definitions.html#Patient.animal.species) as defined in R3, the dependencies should be specified as:
 ```yaml
   dependencies:
     hl7.fhir.extensions.r3: 4.0.1
