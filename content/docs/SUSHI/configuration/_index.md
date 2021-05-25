@@ -73,11 +73,16 @@ In addition to the minimum configuration requirements shown above, most IG autho
 
 {{% show-file src="recommended" download="bottom" hl_lines=["4-5",7,"12-17"] %}}
 
-* The `license` value should come from the [SPDX Licence Value Set](http://hl7.org/fhir/R4/valueset-spdx-license.html), although most FHIR IGs use the `CC0-1.0` (Creative Commons Zero v1.0 Universal) license.
-* The `dependencies` value is a YAML object for which the keys are each dependency's package id and the values are the dependency versions. In addition to standard version identifiers, the following two special versions are supported:
+{{% alert title="Note" color="primary" %}}
+The `license` value should come from the [SPDX Licence Value Set](http://hl7.org/fhir/R4/valueset-spdx-license.html), although most FHIR IGs use the `CC0-1.0` (Creative Commons Zero v1.0 Universal) license.
+{{% /alert %}}
+
+### Dependencies
+The `dependencies` value is a YAML object for which the keys are each dependency's package id and the values are the dependency versions. In addition to standard version identifiers, the following two special versions are supported:
   * `dev`: indicates that the dependency should be loaded from the local FHIR cache
   * `current`: indicates that the dependency should be loaded from the last successful auto-build.
-* The `dependencies` property also supports an advanced syntax that allows you to directly specify the dependency id and/or URI if necessary. For example:
+
+The `dependencies` property also supports an advanced syntax that allows you to directly specify the dependency id and/or URI if necessary. For example:
   ```yaml
   dependencies:
     hl7.fhir.us.core:
@@ -85,6 +90,13 @@ In addition to the minimum configuration requirements shown above, most IG autho
       uri: http://hl7.org/fhir/us/core/ImplementationGuide/hl7.fhir.us.core
       version: 3.1.0
   ```
+
+SUSHI also supports [extensions for converting between versions of FHIR](http://build.fhir.org/versions.html#extensions). To get extensions that represent elements from other versions of FHIR, a package of the form `hl7.fhir.extensions.<extension-version>:<package-version>` is used. The `<extension-version>` should be one of `r2`, `r3`, or `r4` to indicate which version of FHIR the element represented by the extension is defined in. The `<package-version>` represents which version of FHIR the extension will be used in, and since SUSHI only supports FHIR R4, this should always be `4.0.1`. So for example, if an author wanted to represent the `Patient.animal.species` [element](http://hl7.org/fhir/STU3/patient-definitions.html#Patient.animal.species) as defined in R3, the dependencies should be specified as:
+```yaml
+  dependencies:
+    hl7.fhir.extensions.r3: 4.0.1
+```
+And then reference the extension using the URL: `http://hl7.org/fhir/3.0/StructureDefinition/extension-Patient.animal.species`.
 
 ## Full Configuration
 
