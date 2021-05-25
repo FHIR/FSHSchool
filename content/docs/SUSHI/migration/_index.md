@@ -1,6 +1,6 @@
 ---
 title: "Migrating from Older Versions"
-linkTitle: "Update to 1.0"
+linkTitle: "Migration"
 weight: 30
 menu:
   main:
