@@ -19,12 +19,13 @@ SUSHI is executed from the command line. The general form of the SUSHI execution
 where options include the following (in any order):
 
 ```text
--o, --out <out>  the path to the output folder
--d, --debug      output extra debugging information
--s, --snapshot   generate snapshot in Structure Definition output (default: false)
--i, --init       initialize a SUSHI project
--v, --version    print SUSHI version
--h, --help       output usage information
+-o, --out <out>     the path to the output folder
+-d, --debug         output extra debugging information
+-p, --preprocessed  output FSH produced by preprocessing steps
+-s, --snapshot      generate snapshot in Structure Definition output (default: false)
+-i, --init          initialize a SUSHI project
+-v, --version       print SUSHI version
+-h, --help          output usage information
 ```
 
 {{% alert title="Tip" color="success" %}}
@@ -156,3 +157,45 @@ sushi-version = 0.16.0
 timeout = 120
 ```
 {{% /alert %}}
+
+
+### Preprocessed FSH
+When running SUSHI, the `-p` or `--preprocessed` flag can be used to to create a **_preprocessed** folder in SUSHI's output folder (**customized-ig/_preprocessed** in the example above). This folder will contain representations of the input FSH after several preprocessing steps have taken place. These steps include resolution of [`Alias` values](http://build.fhir.org/ig/HL7/fhir-shorthand/branches/master/reference.html#defining-aliases), insertion of [`RuleSet` rules](http://build.fhir.org/ig/HL7/fhir-shorthand/branches/master/reference.html#defining-rule-sets), and resolution of [soft indexing](http://build.fhir.org/ig/HL7/fhir-shorthand/branches/master/reference.html#soft-indexing). This is mainly provided as a debugging tool, for the author to verify that SUSHI is preprocessing the input FSH in an expected way, and to help trace errors in the output of SUSHI back to their source.
+
+The example below shows a FSH snippet and a preprocessed version of that snippet. In this snippet, a `Profile` is defined using a `RuleSet` and an `Alias`, and below an `Instance` is defined which uses soft indexing.
+```
+Alias: CAT = http://hl7.org/fhir/ValueSet/observation-category
+
+Profile: ObservationProfile
+Parent: Observation
+* insert Metadata
+* category from CAT (required)
+
+RuleSet: Metadata
+* ^version = "1.2.3"
+* ^publisher = "Example publisher"
+
+Instance: PatientInstance
+InstanceOf: Patient
+* name.given[+] = "John"
+* name.given[+] = "Q"
+```
+The preprocessed version of the above FSH is shown below. The `CAT` alias has been resolved to its full URL, the rules contained in the `RuleSet` have been inserted onto the `ObservationProfile`, and the `RuleSet` itself has been removed, and the rules on the `PatientInstance` have been resolved to fully specified paths, which do not use soft indexing.
+```
+Alias: CAT = http://hl7.org/fhir/ValueSet/observation-category
+
+// Originally defined on lines 3 - 6
+Profile: ObservationProfile
+Parent: Observation
+Id: ObservationProfile
+* ^version = "1.2.3"
+* ^publisher = "Example publisher"
+* category from http://hl7.org/fhir/ValueSet/observation-category (required)
+
+// Originally defined on lines 12 - 15
+Instance: PatientInstance
+InstanceOf: Patient
+Usage: #example
+* name.given[0] = "John"
+* name.given[1] = "Q"
+```
