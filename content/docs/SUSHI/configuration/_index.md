@@ -96,7 +96,7 @@ SUSHI also supports [extensions for converting between versions of FHIR](http://
   dependencies:
     hl7.fhir.extensions.r3: 4.0.1
 ```
-And then reference the extension using the URL: `http://hl7.org/fhir/3.0/StructureDefinition/extension-Patient.animal.species`.
+An author can then reference the extension using the URL, for the `Patient.animal.species` element, the URL would be: `http://hl7.org/fhir/3.0/StructureDefinition/extension-Patient.animal.species`.
 
 ## Full Configuration
 
