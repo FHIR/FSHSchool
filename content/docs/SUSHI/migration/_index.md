@@ -92,6 +92,11 @@ Move the **./input/fsh/config.yaml** file to the top-level folder, and rename it
 
 You can now run SUSHI 1.0. You may get further instructions in the form of error messages.
 
+{{% alert title="Note" color="primary" %}}
+Although SUSHI 2.0 is available for use, if you are migrating from a pre-1.0.0 version of SUSHI, we recommend first updating to the latest SUSHI 1.0 version of SUSHI (this is [SUSHI 1.3.2](https://github.com/FHIR/sushi/releases/tag/v1.3.2)). After resolving all errors and warnings in that version, only then should you migrate to a SUSHI 2.0 release.
+{{% /alert %}}
+
+
 One error message concerns the `template` property in **sushi-config.yaml**. If you get that error, follow the instructions to remove that property from **sushi-config.yaml** and create an **./ig.ini** file.
 
 {{% alert title="Warning" color="warning" %}}
