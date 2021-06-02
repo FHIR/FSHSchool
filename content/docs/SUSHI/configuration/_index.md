@@ -57,7 +57,7 @@ If an author wants SUSHI only to build the FHIR definition files, and _not_ to d
 SUSHI will then run in FSH-Only mode to produce FHIR definition files only.
 
 When attempting to extract information from an **ImplementationGuide** resource, SUSHI assumes the project structure required by the [template-based IG Publisher](https://build.fhir.org/ig/FHIR/ig-guidance/). The following approach is used to find the **ImplementationGuide** resource:
-* Look for `<root>/ig.ini`, where `<root>` is the folder containing the **input/fsh** subdirectory. If the **ig.ini** file exists, it will have an `ig` property which gives the path to the **ImplementationGuide** resource, so SUSHI will use this path to find the resource.
+* Look for `<root>/ig.ini`, where `<root>` is the folder containing the **input** folder. If the **ig.ini** file exists, it will have an `ig` property which gives the path to the **ImplementationGuide** resource, so SUSHI will use this path to find the resource.
 * If there is no **ig.ini** in the root folder, SUSHI will search the `<root>/input` folder for an **ImplementationGuide** resource, and if exactly one resource is found, SUSHI will extract the above properties from it.
 
 If an author does not have an **ImplementationGuide** resource, but still wants SUSHI to build FHIR definition files only, the author should add a `FSHOnly` flag to the **sushi-config.yaml** and set its value to `true`:
