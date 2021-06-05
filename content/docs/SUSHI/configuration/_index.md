@@ -31,7 +31,7 @@ At a minimum, the **sushi-config.yaml** file must provide a few high-level metad
   * `active`: The IG is ready for normal use.
   * `retired`: The IG has been withdrawn or superseded and should no longer be used.
   * `unknown`: It is not know which of the status values currently applies for the IG. This should be rare.
-* Since SUSHI currently supports only FHIR R4, the `fhirVersion` should always be `4.0.1`.
+* Since SUSHI currently supports only FHIR R4 and R5, the `fhirVersion` should always be `4.0.0` or above.
 * Valid values for the `releaseLabel` include:
   * `ci-build`: the continuous integration build release (not stable)
   * `draft`: draft version
@@ -57,7 +57,7 @@ If an author wants SUSHI only to build the FHIR definition files, and _not_ to d
 SUSHI will then run in FSH-Only mode to produce FHIR definition files only.
 
 When attempting to extract information from an **ImplementationGuide** resource, SUSHI assumes the project structure required by the [template-based IG Publisher](https://build.fhir.org/ig/FHIR/ig-guidance/). The following approach is used to find the **ImplementationGuide** resource:
-* Look for `<root>/ig.ini`, where `<root>` is the folder containing the **fsh** subdirectory. If the **ig.ini** file exists, it will have an `ig` property which gives the path to the **ImplementationGuide** resource, so SUSHI will use this path to find the resource.
+* Look for `<root>/ig.ini`, where `<root>` is the folder containing the **input** folder. If the **ig.ini** file exists, it will have an `ig` property which gives the path to the **ImplementationGuide** resource, so SUSHI will use this path to find the resource.
 * If there is no **ig.ini** in the root folder, SUSHI will search the `<root>/input` folder for an **ImplementationGuide** resource, and if exactly one resource is found, SUSHI will extract the above properties from it.
 
 If an author does not have an **ImplementationGuide** resource, but still wants SUSHI to build FHIR definition files only, the author should add a `FSHOnly` flag to the **sushi-config.yaml** and set its value to `true`:
@@ -73,11 +73,16 @@ In addition to the minimum configuration requirements shown above, most IG autho
 
 {{% show-file src="recommended" download="bottom" hl_lines=["4-5",7,"12-17"] %}}
 
-* The `license` value should come from the [SPDX Licence Value Set](http://hl7.org/fhir/R4/valueset-spdx-license.html), although most FHIR IGs use the `CC0-1.0` (Creative Commons Zero v1.0 Universal) license.
-* The `dependencies` value is a YAML object for which the keys are each dependency's package id and the values are the dependency versions. In addition to standard version identifiers, the following two special versions are supported:
+{{% alert title="Note" color="primary" %}}
+The `license` value should come from the [SPDX Licence Value Set](http://hl7.org/fhir/R4/valueset-spdx-license.html), although most FHIR IGs use the `CC0-1.0` (Creative Commons Zero v1.0 Universal) license.
+{{% /alert %}}
+
+### Dependencies
+The `dependencies` value is a YAML object for which the keys are each dependency's package id and the values are the dependency versions. In addition to standard version identifiers, the following two special versions are supported:
   * `dev`: indicates that the dependency should be loaded from the local FHIR cache
   * `current`: indicates that the dependency should be loaded from the last successful auto-build.
-* The `dependencies` property also supports an advanced syntax that allows you to directly specify the dependency id and/or URI if necessary. For example:
+
+The `dependencies` property also supports an advanced syntax that allows you to directly specify the dependency id and/or URI if necessary. For example:
   ```yaml
   dependencies:
     hl7.fhir.us.core:
@@ -85,6 +90,13 @@ In addition to the minimum configuration requirements shown above, most IG autho
       uri: http://hl7.org/fhir/us/core/ImplementationGuide/hl7.fhir.us.core
       version: 3.1.0
   ```
+
+SUSHI also supports [extensions for converting between versions of FHIR](http://build.fhir.org/versions.html#extensions). To get extensions that represent elements from other versions of FHIR, a package of the form `hl7.fhir.extensions.<extension-version>:<package-version>` is used. The `<extension-version>` should be one of `r2`, `r3`, or `r4` to indicate which version of FHIR the element represented by the extension is defined in. The `<package-version>` represents which version of FHIR the extension will be used in. For an IG defined using FHIR R4, this would be `4.0.1`. As an example, if an author wanted to represent the `Patient.animal.species` [element](http://hl7.org/fhir/STU3/patient-definitions.html#Patient.animal.species) as defined in R3, the dependencies should be specified as:
+```yaml
+  dependencies:
+    hl7.fhir.extensions.r3: 4.0.1
+```
+An author can then reference the extension using a URL following the format defined in the FHIR specification linked above. For example, the extension referring to the R3 `Patient.animal.species` element would be: `http://hl7.org/fhir/3.0/StructureDefinition/extension-Patient.animal.species`.
 
 ## Full Configuration
 

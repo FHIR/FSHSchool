@@ -7,7 +7,7 @@ resources:
   title: FSH Tutorial Starter
 ---
 
-[FHIR Shorthand](/about) (FSH) is a specially-designed language for defining the content of FHIR Implementation Guides (IGs). It is simple and compact, with tools to produce Fast Healthcare Interoperability Resources (FHIR) profiles, extensions and IGs. FSH is compiled from text files to FHIR artifacts using [SUSHI](/docs/sushi). To get started using FSH, you need to install and run SUSHI using the steps below.
+[FHIR Shorthand](https://build.fhir.org/ig/HL7/fhir-shorthand/index.html) (FSH) is a specially-designed language for defining the content of FHIR Implementation Guides (IGs). It is simple and compact, with tools to produce Fast Healthcare Interoperability Resources (FHIR) profiles, extensions and IGs. FSH is compiled from text files to FHIR artifacts using [SUSHI](/docs/sushi). To get started using FSH, you need to install and run SUSHI using the steps below.
 
 ### Step 1: Review Introduction
 
