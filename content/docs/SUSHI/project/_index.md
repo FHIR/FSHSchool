@@ -21,6 +21,20 @@ The **sushi-config.yaml** file provides project configuration data to SUSHI. It 
 
 Each FSH file can contain multiple FSH definitions of varying types. FSH file names are not significant, but must end with the **.fsh** extension. In addition, FSH files can be organized into subdirectories. This provides authors the flexibility to organize their FSH definitions in whatever way makes sense to then.
 
+### Ignoring Warnings
+
+SUSHI may log warnings based on the content of the project, and these warnings can be ignored with an optional **sushi-ignoreWarnings.txt** file. Note that the contents of this file can only be used to ignore warnings. Errors and informational logs from SUSHI cannot be ignored. This file should be placed either at the root of the project (e.g., **simple-project/sushi-ignoreWarnings.txt** in the example above), or within the **input** directory (e.g., **simple-project/input/sushi-ignoreWarnings.txt**). Each line in the **sushi-ignoreWarnings.txt** file specifies warnings to ignore.  Warnings will be ignored if they completely match the contents of any line in the **sushi-ignoreWarnings.txt** file. The warning to ignore must be specified on only one line, and the match is case-sensitive. Additionally, regular expressions can be specified in the **sushi-ignoreWarnings.txt** file. Each regular expression must be on only one line, and a regular expression is indicated by starting and ending the line with `/`. For example, if the **sushi-ignoreWarnings.txt** file was as follows:
+```
+Instance PatientExample1 is not an instance of a resource, so it should only be used inline on other instances, and it will not be exported to a standalone file. Specify "Usage: #inline" to remove this warning.
+/Detected the following non-conformant Resource definitions.*/   
+```
+Then any warning which exactly matches the contents of the first line will be ignored, and any warning which starts with the text `Detected the following non-conformant Resource definitions` will be ignored.
+
+{{% alert title="Tip" color="success" %}}
+SUSHI does log several multi-line warnings, but these warnings cannot be specified directly in the **sushi-ignoreWarnings.txt** file, since the warnings to ignore must be specified line by line. To ignore these warnings, a regular expression should be used.
+{{% /alert %}}
+
+
 ### Using the HL7 IG Publisher and Auto-Builder
 
 This project structure integrates with the HL7 IG Publisher [Auto-Builder](https://github.com/FHIR/auto-ig-builder/blob/master/README.md). When the IG Publisher detects an **input/fsh** subdirectory, it will automatically run SUSHI on the project directory and output the SUSHI results to a **fsh-generated** directory (e.g., **simple-project/fsh-generated** in the example above). It will then continue with the normal IG Publisher process.
@@ -57,6 +71,7 @@ customized-ig
 │       ├── 3_myFourthPage.md
 │       └── index.md
 ├── package-list.json
+├── sushi-ignoreWarnings.txt
 └── sushi-config.yaml
 ```
 
@@ -80,6 +95,7 @@ You can populate your project as follows:
   * **{artifact-file-name}-notes.xml\|md**: If present, the contents of the file will be placed on the relevant page _after_ the artifact's definition.
 * **input/{supported-resource-input-directory}/\*** (not shown above): JSON or XML files in [supported resource directories](https://build.fhir.org/ig/FHIR/ig-guidance/using-templates.html#root.input) (e.g., **profiles**, **extensions**, **examples**, etc.) can be referenced by FHIR artifacts defined in FSH, and will be added to the generated **ImplementationGuide.json** file.
 * **package-list.json**: This optional file, described [here](https://confluence.hl7.org/display/FHIR/FHIR+IG+PackageList+doco), should contain the version history of your IG.
+* **sushi-ignoreWarnings.txt**: This optional file described [above](#ignoring-warnings) can be used to suppress warnings logged by SUSHI.
 
 {{% alert title="Tip" color="success" %}}
 Examples of **package.json**, **ig.ini**, **package-list.json**, **ignoreWarnings.txt** and **menu.xml** files can be found in the [sample IG project](https://github.com/FHIR/sample-ig) provided for this purpose. In addition, more general guidance can be found in [Guidance for HL7 IG Creation](https://build.fhir.org/ig/FHIR/ig-guidance/).
