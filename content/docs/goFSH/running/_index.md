@@ -14,15 +14,17 @@ GoFSH is executed from the command line. The general form of the GoFSH execution
 where options include the following (in any order):
 
 ```text
--o, --out <out>                   the path to the output directory (default: ./fsh)
+-o, --out <out>                   the path to the output folder
 -l, --log-level <level>           specify the level of log messages: error, warn, info (default), debug
 -d, --dependency <dependency...>  specify dependencies to be loaded using format dependencyId@version (FHIR R4 included by default)
--v, --version                     print goFSH version
--s, --style                       specify how the output is organized into files: group-by-fsh-type (default), group-by-profile, single-file, file-per-definition
+-s, --style <style>               specify how the output is organized into files: file-per-definition (default), group-by-fsh-type, group-by-profile, single-file
 -f, --fshing-trip                 run SUSHI on the output of GoFSH and generate a comparison of the round trip results
--t, --file-type                   specify which file types GoFSH should accept as input: json-only (default), xml-only, json-and-xml
 -i, --installed-sushi             use the locally installed version of SUSHI when generating comparisons with the "-f" option
--h, --help                        output usage information
+-t, --file-type <type>            specify which file types GoFSH should accept as input: json-only (default), xml-only, json-and-xml
+--indent                          output FSH with indented rules using context paths
+--meta-profile <mode>             specify how meta.profile on Instances should be applied to the InstanceOf keyword: only-one (default), first, none
+-v, --version                     print goFSH version
+-h, --help                        display help for command
 ```
 
 While GoFSH is running, it will print status messages as it processes your project files. The following sections give further detail on using certain options.
@@ -36,6 +38,15 @@ The `style` option has four values:
 
 ### `fshing-trip`
 If this flag is added, after GoFSH runs, SUSHI will run on the output of GoFSH. The output of SUSHI will then be compared to the original input to GoFSH (FHIR is compared to FHIR), and a visualization of differences between the original input and the SUSHI output will be created in `<output-folder>/fshing-trip-comparison.html`. If the `--installed-sushi` flag is set, then this process will use whichever version of SUSHI you have globally installed. Otherwise GoFSH will use its own built-in version of SUSHI (which may not be the latest version available).
+
+### `indent`
+When the `--indent` option is specified, the output FSH will take advantage of [indented rules](http://build.fhir.org/ig/HL7/fhir-shorthand/branches/master/reference.html#indented-rules) when applicable. This will also cause `CodeSystem` definitions to utilize indentation in [hierarchical codes](http://build.fhir.org/ig/HL7/fhir-shorthand/branches/master/reference.html#defining-code-systems-with-hierarchical-codes), `Concept` designations, and `Concept` properties when applicable.
+
+### `meta-profile`
+The `--meta-profile` option can be used to control how `meta.profile` on instances should be applied to the `InstanceOf` keyword. The option has the following three values:
+* `only-one` (default): If there is exactly one entry in the `meta.profile` array of a definition, this value will be used to set `InstanceOf`. If there is not exactly one entry in the `meta.profile` array, the `resourceType` of the definition will be used for `InstanceOf`, and any contents of the `meta.profile` array will be specified with `^` rules.
+* `first`: If there is at least one entry in the `meta.profile` array, it will be used to set `InstanceOf`. Additional entries will be specified with `^` rules.
+* `none`: The `meta.profile` array will not be used to determine `InstanceOf`.
 
 ## GoFSH Inputs
 
