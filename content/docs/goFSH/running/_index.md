@@ -40,7 +40,7 @@ The `style` option has four values:
 If this flag is added, after GoFSH runs, SUSHI will run on the output of GoFSH. The output of SUSHI will then be compared to the original input to GoFSH (FHIR is compared to FHIR), and a visualization of differences between the original input and the SUSHI output will be created in `<output-folder>/fshing-trip-comparison.html`. If the `--installed-sushi` flag is set, then this process will use whichever version of SUSHI you have globally installed. Otherwise GoFSH will use its own built-in version of SUSHI (which may not be the latest version available).
 
 ### `indent`
-When the `--indent` option is specified, the output FSH will take advantage of [indented rules](http://build.fhir.org/ig/HL7/fhir-shorthand/branches/master/reference.html#indented-rules) when applicable. This will also cause `CodeSystem` definitions to include [hierarchical codes](http://build.fhir.org/ig/HL7/fhir-shorthand/branches/master/reference.html#defining-code-systems-with-hierarchical-codes) when applicable.
+When the `--indent` option is specified, the output FSH will take advantage of [indented rules](http://build.fhir.org/ig/HL7/fhir-shorthand/branches/master/reference.html#indented-rules) when applicable. This will also cause `CodeSystem` definitions to utilize indentation in [hierarchical codes](http://build.fhir.org/ig/HL7/fhir-shorthand/branches/master/reference.html#defining-code-systems-with-hierarchical-codes), `Concept` designations, and `Concept` properties when applicable.
 
 ### `meta-profile`
 The `--meta-profile` option can be used to control how `meta.profile` on instances should be applied to the `InstanceOf` keyword. The option has the following three values:
