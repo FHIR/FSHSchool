@@ -69,13 +69,14 @@ GoFSH populates an output directory, called **gofsh** by default. This directory
 
 ## GoFSH Best Practices
 
-There are a few best practices that GoFSH users should follow in order to achieve the best results.
+There are a few best practices that are recommended for all GoFSH users. Following these suggestions will help eliminate errors from GoFSH and will produce more accurate FSH.
 
 * For best results, run GoFSH in `json-only` mode (which is the default) against FHIR definitions that are complete (i.e., have snapshots) and have been validated. This might include:
   * a package downloaded from an IG or FHIR registry (after unzipping it),
   * a package in your local FHIR cache, or
   * an IG project's **output** folder after it has been built by the IG Publisher.
-* If running GoFSH against a fully built package is not possible, run GoFSH against only the **input** folder, rather than against the entire IG source folder. In this case be sure to use the proper flags depending on if your source has JSON, XML, or both.
+
+  If running GoFSH against a fully built package using one of the above approaches is not possible, run GoFSH against only the **input** folder, rather than against the entire IG source folder. In this case be sure to use the proper flags depending on if your source has JSON, XML, or both.
 * When possible, avoid running GoFSH on folders that contain:
   * duplicate files (i.e. definitions that are present in both **input** and **output**),
   * incomplete files (i.e. definitions without a snapshot), or
