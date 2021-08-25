@@ -69,20 +69,26 @@ GoFSH populates an output directory, called **gofsh** by default. This directory
 
 ## GoFSH Best Practices
 
-There are a few best practices that GoFSH users should follow in order to achieve the best results.
+The following are a few tips to get the best results from GoFSH. Following these suggestions will help eliminate errors from GoFSH and will produce more accurate FSH.
 
-* For best results, run GoFSH in `json-only` mode (which is the default) against FHIR definitions that are complete (i.e., have snapshots) and have been validated. This might include:
-  * a package downloaded from an IG or FHIR registry (after unzipping it),
-  * a package in your local FHIR cache, or
-  * an IG project's **output** folder after it has been built by the IG Publisher.
-* If running GoFSH against a fully built package is not possible, run GoFSH against only the **input** folder, rather than against the entire IG source folder. In this case be sure to use the proper flags depending on if your source has JSON, XML, or both.
-* When possible, avoid running GoFSH on folders that contain:
-  * duplicate files (i.e. definitions that are present in both **input** and **output**),
-  * incomplete files (i.e. definitions without a snapshot), or
-  * extra files that are not intended to be translated to FSH (e.g, **menu.xml**, files in the **input-cache** directory).
-* Be aware that SUSHI may be more strict than the IG Publisher.  As a result:
-  * IGs with errors in the QA report often result in FSH that does not compile cleanly,
-  * sometimes issues that were not flagged by the IG Publisher may be flagged by SUSHI, and
-  * occasionally technically valid constructs may result in inefficient or confusing FSH.
-* Use the `--fishing-trip` option to run SUSHI on the output of GoFSH and compare the round trip results.
-* Always review the results of GoFSH to ensure that they are correct and complete.
+1. For best results, run GoFSH against FHIR definitions that are complete (i.e., have snapshots) and have been validated. The best sources are:
+    * a package downloaded from an IG or FHIR registry (after unzipping it),
+    * a package in your local FHIR cache, or
+    * an IG project's **output** folder after it has been built by the IG Publisher.
+
+1. If running GoFSH against a fully built package is not possible, run GoFSH against the project's **input** folder, rather than against the entire IG source folder.
+
+1. Be sure to use the proper flag to indicate whether GoFSH should process JSON or XML files in the target directory (or both). When in doubt, use the `json-only` mode, which is the default.
+
+1. When possible, avoid running GoFSH on folders that contain:
+    * duplicate files (i.e. definitions that are present in both **input** and **output**),
+    * incomplete files (i.e. definitions without a snapshot), or
+    * extra files that are not intended to be translated to FSH (e.g, **menu.xml**, files in the **input-cache** directory).
+
+1. Be aware that IGs with errors in the FHIR Publisher's QA report may result in FSH that does not compile cleanly.
+
+1. SUSHI may be more strict than the IG Publisher.  As a result, issues that were not flagged by the IG Publisher may be flagged by SUSHI, and occasionally, technically valid constructs may result in inefficient or confusing FSH.
+
+1. Use the `--fishing-trip` option to run SUSHI on the output of GoFSH and compare the round trip results.
+
+1. Always review the results of GoFSH to ensure that they are correct and complete.
