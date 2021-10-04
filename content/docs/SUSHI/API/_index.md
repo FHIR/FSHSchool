@@ -24,7 +24,7 @@ fshToFhir(fshString[, options])
 See the [configuration](/docs/sushi/configuration/#full-configuration) documentation for more information on `canonical`, `version`, `fhirVersion`, and `dependencies`. These properties correspond to the properties of the same name that are used in `sushi-config.yaml`.
 
 ## Return Value
-An object with the following attributes:
+A `Promise` that resolves to an object with the following attributes:
 * `fhir` - An array of FHIR definitions generated from the input FSH.
 * `errors` - An array of strings containing any errors detected during processing.
 * `warnings` - An array of strings containing any warnings detected during processing.
@@ -40,17 +40,29 @@ Once `fsh-sushi` is installed as a dependency of your project, you can `import` 
 import { sushiClient } from 'fsh-sushi';
 
 // Example basic usage
-sushiClient.fshToFhir('Your FSH here');
+sushiClient
+  .fshToFhir('Your FSH here')
+  .then((results) => {
+    // handle results
+  })
+  .catch((err) => {
+    // handle thrown errors
+  });
 
 // Example usage with options
-sushiClient.fshToFhir(
-  'Your FSH here',
-  {
-    canonical: 'http://example.com',
-    version: '1.2.3',
-    fhirVersion: '4.0.1',
-    dependencies: [{ packageId: 'hl7.fhir.us.core', version: '3.1.0' }],
-    logLevel: 'error'
+sushiClient
+  .fshToFhir('Your FSH here', {
+    canonical: "http://example.com",
+    version: "1.2.3",
+    fhirVersion: "4.0.1",
+    dependencies: [{ packageId: "hl7.fhir.us.core", version: "3.1.0" }],
+    logLevel: "error",
+  })
+  .then((results) => {
+    // handle results
+  })
+  .catch((err) => {
+    // handle thrown errors
   });
 ```
 

@@ -27,7 +27,7 @@ fhirToFsh(fhir[, options])
     * `instances` - A `Map` containing all `Instance` definitions as values.
     * `invariants` - A `Map` containing all `Invariant` definitions as values.
     * `mappings` - A `Map` containing all `Mapping` definitions as values.
-    
+
     For each `Map`, the keys are the name of the FSH definition. For example, if the definition was:
     ```
     Profile: MyPatient
@@ -36,7 +36,7 @@ fhirToFsh(fhir[, options])
     The key would be `MyPatient`.
 
 ## Return Value
-An object with the following attributes:
+A `Promise` that resolves to an object with the following attributes:
 * `fsh` - The generated FSH, styled according to the `style` parameter.
 * `configuration` - An object representing the `sushi-config.yaml` file that would be generated if GoFSH was running in a command line interface.
 * `errors` - An array of strings containing any errors detected during processing.
@@ -53,15 +53,27 @@ Once `gofsh` is installed as a dependency of your project, you can `import` and 
 import { gofshClient } from 'gofsh';
 
 // Example basic usage
-gofshClient.fhirToFsh(['Your FHIR here']);
+gofshClient
+  .fhirToFsh(['{ Your FHIR here }'])
+  .then((results) => {
+    // handle results
+  })
+  .catch((err) => {
+    // handle thrown errors
+  });
 
 // Example usage with options
-gofshClient.fhirToFsh(
-  ['Your FHIR here'], 
-  {
+gofshClient
+  .fhirToFsh(['{ Your FHIR here }'], {
     dependencies: ["hl7.fhir.us.mcode@1.0.0"],
     style: "map",
-    logLevel: "silent"
+    logLevel: "silent",
+  })
+  .then((results) => {
+    // handle results
+  })
+  .catch((err) => {
+    // handle thrown errors
   });
 ```
 
