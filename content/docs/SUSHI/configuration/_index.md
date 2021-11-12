@@ -141,6 +141,7 @@ The table below lists all configuration properties that can be used in SUSHI's *
 | menu | N/A | Used to generate the `fsh-generated/includes/menu.xml` file. The key is the menu item name and the value is the URL. Menus can contain sub-menus, but the IG Publisher currently only supports sub-menus one level deep. <br><br> Authors can provide their own `menu.xml` by removing this property and placing a `menu.xml` file in `/input/includes` |
 | FSHOnly | N/A | When this flag is set to `true`, no IG specific content will be generated, SUSHI will only convert FSH definitions to JSON files. When false or unset, IG content is generated.
 | applyExtensionMetadataToRoot | N/A | When set to true, the "short" and "definition" field on the root element of an Extension will be set to the "Title" and "Description" of that Extension. Default is true.
+| instanceOptions | N/A | A `key: value` pair, where key can be `setMetaProfile` (options are `always`, `never`, `inline-only`, `standalone-only`) or `setId` (options are `always` or `standalone-only`). 
 
 ## Exhaustive Example
 
