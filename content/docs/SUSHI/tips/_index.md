@@ -24,9 +24,6 @@ When SUSHI loads a dependency that does not have an ImplementationGuide resource
 
 As the error suggests, you need to update your `sushi-config.yaml` file so the dependency declaration includes both the `uri` and `version`. The `uri` is intended to point to an ImplementationGuide resource, but in this case there is no ImplementationGuide resource to point to.
 
-We recommend using the root canonical for the dependency package as the `uri` value. If you don't know the root canonical, you can sometimes guess it by reviewing several of the package's resources to see if there is a common base URL. For example, after reviewing the files in the [de.basisprofil.r4 package](https://simplifier.net/packages/de.basisprofil.r4/1.1.0/~files), you might choose `http://fhir.de` as its `uri`.
+The FHIR core team has recently looked into this and now recommends using a `uri` with the following format when a package has no IG resource: `http://fhir.org/packages/${packageId}/ImplementationGuide/${packageId}`. In the example above, authors should provide the `uri` value: `http://fhir.org/packages/de.basisprofil.r4/ImplementationGuide/de.basisprofil.r4`.
 
-{{% alert title="Note" color="primary" %}}
-When you use the root canonical (or another URI) as the dependency URI, the IG Publisher may report the following error in the QA: _The canonical URL for an Implementation Guide must point directly to the implementation guide resource, not to the Implementation Guide as a whole_. Since the dependency does not have an ImplementationGuide resource, you can safely ignore and/or suppress the warning.
-{{% /alert %}}
-
+In the near future, SUSHI will be updated to automatically apply this guidance so that authors will no longer receive this error and will not need to take any action.
