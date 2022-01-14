@@ -27,3 +27,28 @@ As the error suggests, you need to update your `sushi-config.yaml` file so the d
 The FHIR core team has recently looked into this and now recommends using a `uri` with the following format when a package has no IG resource: `http://fhir.org/packages/${packageId}/ImplementationGuide/${packageId}`. In the example above, authors should provide the `uri` value: `http://fhir.org/packages/de.basisprofil.r4/ImplementationGuide/de.basisprofil.r4`.
 
 In the near future, SUSHI will be updated to automatically apply this guidance so that authors will no longer receive this error and will not need to take any action.
+
+### Structure Definition is missing snapshot
+
+Some non-HL7 FHIR packages are distributed without snapshot elements in their profiles. If your IG uses one of these profiles, SUSHI will report an error like the following:
+
+> Structure Definition http://fhir.de/StructureDefinition/observation-de-vitalsign is missing snapshot. Snapshot is required for import.
+
+Since SUSHI does not implement its own snapshot generator, you must update the package in your FHIR cache so that its profiles include snapshot elements. Luckily, the [Firely Terminal](https://fire.ly/products/firely-terminal/) provides a way to do this.
+
+First, you must install Firely Terminal:
+1. Install the [.NET Core 3.1](https://dotnet.microsoft.com/en-us/download/dotnet/3.1) SDK for your operating system.
+2. Confirm that the .NET Core 3.1 SDK is properly installed by running the command: `dotnet -v`.
+    * If the command fails, exit your terminal and start a new terminal session. Then try step 2 again.
+3. Run the command: `dotnet tool install --global firely.terminal --version 2.5.0-beta-7`.
+4. Confirm that Firely Terminal is properly installed by running the command: `fhir --version`.
+    * If the command fails, you may need to add the .NET tools folder to your path. On Mac, run the following command: `export PATH=$PATH:~/.dotnet/tools`. Then try step 4 again.
+
+Then use Firely Terminal to populate the snapshot elements in the dependency package.
+1. Run the command: `fhir bake --package  <packagename>`, substituting the dependency package ID for `<packagename>`.
+    * E.g., `fhir bake --package de.basisprofil.r4`
+2. Run SUSHI again. The error about missing snapshots should no longer be displayed.
+
+{{% alert title="Tip" color="success" %}}
+You can see a list of the available Firely Terminal versions [here](https://www.nuget.org/packages/Firely.Terminal). If there is a later version than 2.5.0-beta-7, we recommend that. We do not recommend the 2.4.2 version because it contains a bug in the snapshot generator that adversely affects SUSHI processing.
+{{% /alert %}}
