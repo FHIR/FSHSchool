@@ -18,7 +18,7 @@ When SUSHI loads a dependency that does not have an ImplementationGuide resource
 > ```yaml
 > dependencies:
 >   de.basisprofil.r4:
->     uri: http://my-fhir-ig.org/ImplementationGuide/123
+>     uri: http://fhir.org/packages/de.basisprofil.r4/ImplementationGuide/de.basisprofil.r4
 >     version: 1.1.0
 > ```
 
