@@ -38,8 +38,9 @@ Since SUSHI does not implement its own snapshot generator, you must update the p
 
 First, you must install Firely Terminal:
 1. Install the [.NET Core 3.1](https://dotnet.microsoft.com/en-us/download/dotnet/3.1) SDK for your operating system.
-2. Confirm that the .NET Core 3.1 SDK is properly installed by running the command: `dotnet -v`.
+2. Confirm that the .NET Core 3.1 SDK is properly installed by running the command: `dotnet --version`.
     * If the command fails, exit your terminal and start a new terminal session. Then try step 2 again.
+    * If `dotnet --version` reports a different version than the 3.1 SDK, you will need to follow the instructions to [select the .NET version to use](https://docs.microsoft.com/en-us/dotnet/core/versions/selection#the-sdk-uses-the-latest-installed-version). When creating the _global.json_ file, be sure to specify the full SDK version number (e.g., `3.1.416`).
 3. Run the command: `dotnet tool install --global firely.terminal --version 2.5.0-beta-7`.
 4. Confirm that Firely Terminal is properly installed by running the command: `fhir --version`.
     * If the command fails, you may need to add the .NET tools folder to your path. On Mac, run the following command: `export PATH=$PATH:~/.dotnet/tools`. Then try step 4 again.
