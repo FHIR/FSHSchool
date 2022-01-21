@@ -1,6 +1,6 @@
 ---
 title: "API"
-weight: 25
+weight: 30
 ---
 
 SUSHI exposes a `fshToFhir` function that can be used to convert FSH strings to FHIR JSON.

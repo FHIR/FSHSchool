@@ -26,6 +26,7 @@ At a minimum, the **sushi-config.yaml** file must provide a few high-level metad
 {{% show-file src="minimum" download="bottom" %}}
 
 * For an official HL7 project, the `id` and `canonical` will typically be assigned by the [FHIR Product Director](mailto:fhir-director@hl7.org).
+* `canonical` refers to the _canonical base_ of the IG, not the canonical URL of the IG resource (e.g., `http://hl7.org/fhir/us/example`, _not_ `http://hl7.org/fhir/us/example/ImplementationGuide/fhir.us.example`).
 * Valid values for `status` include:
   * `draft`: The IG is still under development and is not yet considered to be ready for normal use.
   * `active`: The IG is ready for normal use.
@@ -137,11 +138,11 @@ The table below lists all configuration properties that can be used in SUSHI's *
 | templates | definition.template | As specified in the IG resource |
 | copyrightYear or copyrightyear | N/A | Used to add a `copyrightyear` parameter to `IG.definition.parameter` |
 | releaseLabel or releaselabel | N/A | Used to add a `releaseLabel` parameter to `IG.definition.parameter` |
-| canonical | N/A | The canonical URL to be used throughout the IG |
+| canonical | N/A | The canonical base URL to be used throughout the IG |
 | menu | N/A | Used to generate the `fsh-generated/includes/menu.xml` file. The key is the menu item name and the value is the URL. Menus can contain sub-menus, but the IG Publisher currently only supports sub-menus one level deep. <br><br> Authors can provide their own `menu.xml` by removing this property and placing a `menu.xml` file in `/input/includes` |
 | FSHOnly | N/A | When this flag is set to `true`, no IG specific content will be generated, SUSHI will only convert FSH definitions to JSON files. When false or unset, IG content is generated.
 | applyExtensionMetadataToRoot | N/A | When set to true, the "short" and "definition" field on the root element of an Extension will be set to the "Title" and "Description" of that Extension. Default is true.
-| instanceOptions | N/A | A `key: value` pair, where key can be `setMetaProfile` (options are `always`, `never`, `inline-only`, `standalone-only`) or `setId` (options are `always` or `standalone-only`). 
+| instanceOptions | N/A | A `key: value` pair, where key can be `setMetaProfile` (options are `always`, `never`, `inline-only`, `standalone-only`) or `setId` (options are `always` or `standalone-only`).
 
 ## Exhaustive Example
 
