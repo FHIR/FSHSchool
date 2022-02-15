@@ -43,6 +43,7 @@ For full instructions and prerequisites, see [GoFSH Installation](/docs/gofsh/in
   * Slides <a href="20210610_Chris_Moesel_Advanced_FSH_And_Tools.pdf">here</a>
 * <a href="https://youtu.be/OmcSuAMf20s">Create an Implementation Guide with FHIR Shorthand</a>, from FHIR DevDays, June 2021
   * Slides <a href="20210608_Mark_Kramer_Create_an_IG_with_FSH.pdf">here</a>
-  * <a href="https://youtu.be/0JSp-IOul20">Let's Build - Create an Implementation Guide</a>
+* <a href="https://youtu.be/0JSp-IOul20">Let's Build - Create an Implementation Guide</a>, from FHIR DevDays, June 2021
+  * Slides <a href="20210617_MarkKramer_Lets_Build_Create_an_IG_with_FSH.pdf">here</a>
 
 {{% /blocks/section %}}
