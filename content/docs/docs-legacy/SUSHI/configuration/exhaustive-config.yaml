@@ -176,6 +176,7 @@ menu:
 parameters:
   excludettl: true
   validation: [allow-any-extensions, no-broken-links]
+  show-inherited-invariants: false
 
 # The history property corresponds to package-list.json. SUSHI will
 # use the existing top-level properties in its config to populate the
