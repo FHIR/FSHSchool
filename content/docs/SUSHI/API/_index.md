@@ -25,9 +25,10 @@ See the [configuration](/docs/sushi/configuration/#full-configuration) documenta
 
 ## Return Value
 A `Promise` that resolves to an object with the following attributes:
+
 * `fhir` - An array of FHIR definitions generated from the input FSH.
-* `errors` - An array of strings containing any errors detected during processing.
-* `warnings` - An array of strings containing any warnings detected during processing.
+* `errors` - An array of objects containing any errors detected during processing. Each object has a `message` with the error message and optionally has `input` and `location` properties with additional information.
+* `warnings` - An array of objects containing any warnings detected during processing. Each object has a `message` with the warning message and optionally has `input` and `location` properties with additional information.
 
 ## Usage
 To use `fshToFhir`, you must first install `fsh-sushi` as a dependency of your project:
