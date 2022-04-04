@@ -208,9 +208,9 @@ Run SUSHI again, and re-generate the IG.
 
 Now, add constraints and/or extensions to the Veterinarian profile:
 
-* Add qualifications consistent with a Veterinary practice. Qualifications are taken from code system http://nucc.org/provider-taxonomy, and the code is 174M00000X, for "Veterinarian".
+* Add qualifications consistent with a Veterinary practice. Qualifications are taken from code system `http://nucc.org/provider-taxonomy`, and the code is `174M00000X`, for "Veterinarian".
 
-* In addition, slice the `identifier` array, making a license number required. The code system is http://terminology.hl7.org/CodeSystem/v2-0203 and the code is LN, for "License number".
+* In addition, slice the `identifier` array, making a license number required. The code system is `http://terminology.hl7.org/CodeSystem/v2-0203` and the code is `LN`, for "License number".
 
 If you need help with this, you can refer to the [assignment rules](https://build.fhir.org/ig/HL7/fhir-shorthand/reference.html#assignment-rules) and [slicing rules](https://build.fhir.org/ig/HL7/fhir-shorthand/reference.html#contains-rules-for-slicing) sections of the specification. If you still need help, you can peek at the FSH files in the **FishExampleComplete** directory.
 
