@@ -33,7 +33,7 @@ Now that you have GoFSH installed and sample FHIR artifacts, open up a command w
 The dot (.) represents "this directory," the location of the files. You can also specify the location explicitly by replacing the dot with a directory path.
 {{% /alert %}}
 
-Running GoFSH will create a **gofsh** directory, and populate it with **input/fsh**, a directory containing several FSH files which define the original input files. If you open up **profiles.fsh**, you should see a FSH definition for a `Profile` called "GeneticSpecimen", and if you open up **extensions.fsh**, you should see an `Extension` called "Laterality".
+Running GoFSH will create a **gofsh** directory, and populate it with **input/fsh**, a directory containing several files which define the original input files. Within **input/fsh**, there will be two subdirectories, **profiles** and **extensions**. If you open up **profiles/GeneticSpecimen.fsh**, you should see a FSH definition for a `Profile` called "GeneticSpecimen", and if you open up **extensions/Laterality.fsh**, you should see an `Extension` called "Laterality".
 
 ### Step 3: Run SUSHI (Optional)
 

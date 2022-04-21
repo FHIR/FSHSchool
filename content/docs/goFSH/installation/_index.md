@@ -51,4 +51,4 @@ To revert to a previous version of GoFSH, run:
 {{< terminal >}} npm install -g gofsh@{version}
 ```
 
-where the `{version}` is replaced by the desired MAJOR.MINOR.PATCH version (e.g., `npm install -g gofsh@0.1.0`).
+where the `{version}` is replaced by the desired MAJOR.MINOR.PATCH version (e.g., `npm install -g gofsh@1.5.0`).

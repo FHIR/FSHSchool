@@ -77,10 +77,9 @@ global:
 # the FSH definitions and/or information in any user-provided
 # JSON or XML resource files. If the generated entries are not
 # sufficient or complete, however, the author can add entries
-# here. If the reference matches a generated entry, it will
-# replace the generated entry. If it doesn't match any generated
-# entries, it will be added to the generated entries. The format
-# follows IG.definition.resource with the following differences:
+# here. If a generated entry matches the reference, it will
+# not be added to SUSHI output. The format follows IG.definition.resource
+# with the following differences:
 #   * use IG.definition.resource.reference.reference as the YAML key
 #   * specify "omit" to omit a FSH-generated resource from the
 #     resource list.
@@ -106,14 +105,14 @@ groups:
     name: Group A
     description: The Alpha Group
     resources:
-    - StructureDefinition/animal-patient
-    - StructureDefinition/arm-procedure
+      - StructureDefinition/animal-patient
+      - StructureDefinition/arm-procedure
   GroupB:
     name: Group B
     description: The Beta Group
     resources:
-    - StructureDefinition/bark-control
-    - StructureDefinition/bee-sting
+      - StructureDefinition/bark-control
+      - StructureDefinition/bee-sting
 
 # The pages property corresponds to IG.definition.page. SUSHI can
 # auto-generate the page list, but if the author includes pages in
@@ -195,7 +194,7 @@ instanceOptions:
   # - standalone-only: Set meta.profile for only Instances of profiles where Usage is any value other than #inline
   setMetaProfile: always
   # Determines for which types of Instances SUSHI will automatically set id
-  # if InstanceOf references a profile. Options are: 
+  # if InstanceOf references a profile. Options are:
   # - always: Set id for all Instances (default)
   # - standalone-only: Set id for only Instances where Usage is any value other than #inline
   setId: always
