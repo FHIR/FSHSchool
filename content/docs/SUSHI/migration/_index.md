@@ -1,7 +1,7 @@
 ---
 title: "Migrating from Older Versions"
 linkTitle: "Migration"
-weight: 35
+weight: 40
 menu:
   main:
     weight: 60
