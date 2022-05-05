@@ -50,10 +50,15 @@ SUSHI can generate a simple configuration file for you with the `--init` [option
 #### FSH-Only
 
 If an author wants SUSHI only to build the FHIR definition files, and _not_ to do any additional IG processing, and if the project contains an **ImplementationGuide** resource, then the author does not need to provide a **sushi-config.yaml** at all. If there is no **sushi-config.yaml**, SUSHI will automatically attempt to extract the following information from an **ImplementationGuide** resource:
+* `id`
 * `canonical`
+* `url`
+* `name`
+* `packageId`
 * `fhirVersion`
 * `version`
 * `dependencies`
+* `parameters`
 
 SUSHI will then run in FSH-Only mode to produce FHIR definition files only.
 
