@@ -31,8 +31,6 @@ GoFSH is a converter that takes FHIR artifacts (e.g., profiles, extensions, valu
 
 * If you already have an Implementation Guide and want to switch over to FSH, consult the [GoFSH documentation](docs/gofsh).
 
-* If you are still using a pre-release version of SUSHI (version 0.16 or earlier), you should [migrate to the latest released version](/docs/sushi/migration). Documentation for pre-release versions of SUSHI is preserved [here](/docs/docs-legacy).
-
 * If you are looking for specific information, you can search the documentation using the search box in the upper right corner.
 
 {{% alert title="Warning" color="warning" %}}
