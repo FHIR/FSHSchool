@@ -79,11 +79,14 @@ The `license` value should come from the [SPDX Licence Value Set](http://hl7.org
 {{% /alert %}}
 
 ### Dependencies
+
 The `dependencies` value is a YAML object for which the keys are each dependency's package id and the values are the dependency versions. In addition to standard version identifiers, the following two special versions are supported:
+
   * `dev`: indicates that the dependency should be loaded from the local FHIR cache
   * `current`: indicates that the dependency should be loaded from the last successful auto-build.
 
 The `dependencies` property also supports an advanced syntax that allows you to directly specify the dependency id and/or URI if necessary. For example:
+
   ```yaml
   dependencies:
     hl7.fhir.us.core:
@@ -92,11 +95,20 @@ The `dependencies` property also supports an advanced syntax that allows you to 
       version: 3.1.0
   ```
 
+Some dependency packages do not contain an ImplementationGuide resource. SUSHI needs the ImplementationGuide URL to specify the dependency in its own generated ImplementationGuide (per FHIR requirements). The FHIR community has determined that packages without an ImplementationGuide should use a virtual IG URL of the format `http://fhir.org/packages/${packageId}/ImplementationGuide/${packageId}`. Using that guidance, SUSHI can now infer IG URLs for dependency packages without an IG; meaning that authors no longer need to fully specify such dependencies. Starting with this release, authors can simply declare an IG-less dependency like all other dependencies, e.g.,
+
+```yaml
+dependencies:
+  de.basisprofil.r4: 1.1.0
+```
+
 SUSHI also supports [extensions for converting between versions of FHIR](http://build.fhir.org/versions.html#extensions). To get extensions that represent elements from other versions of FHIR, a package of the form `hl7.fhir.extensions.<extension-version>:<package-version>` is used. The `<extension-version>` should be one of `r2`, `r3`, or `r4` to indicate which version of FHIR the element represented by the extension is defined in. The `<package-version>` represents which version of FHIR the extension will be used in. For an IG defined using FHIR R4, this would be `4.0.1`. As an example, if an author wanted to represent the `Patient.animal.species` [element](http://hl7.org/fhir/STU3/patient-definitions.html#Patient.animal.species) as defined in R3, the dependencies should be specified as:
+
 ```yaml
   dependencies:
     hl7.fhir.extensions.r3: 4.0.1
 ```
+
 An author can then reference the extension using a URL following the format defined in the FHIR specification linked above. For example, the extension referring to the R3 `Patient.animal.species` element would be: `http://hl7.org/fhir/3.0/StructureDefinition/extension-Patient.animal.species`.
 
 ## Full Configuration
@@ -113,10 +125,10 @@ The table below lists all configuration properties that can be used in SUSHI's *
 | copyrightYear or copyrightyear | N/A | Used to add a `copyrightyear` parameter to `IG.definition.parameter` |
 | date | date | As specified in the IG resource |
 | description | description | As specified in the IG resource |
-| dependencies | dependsOn | A `key: value` pair, where key is the package id and value is the version (or `dev`/`current`). For advanced use cases, the value can be an object with keys for `id`, `uri` and `version`.|
+| dependencies | dependsOn | A `key: value` pair, where key is the package id and value is the version (or `dev`/`current`). For advanced use cases, the value can be an object with keys for `id`, `uri` and `version`. |
 | experimental | experimental | As specified in the IG resource |
 | extension | extension | As specified in the IG resource |
-| fhirVersion | fhirVersion | As specified in the IG resource |
+| fhirVersion | fhirVersion | As specified in the IG resource. SUSHI supports FHIR versions in the R4 or R5 sequences, as given in the [FHIR Publication History](http://hl7.org/fhir/directory.html). 5.0.0-snapshot1. Projects that wish to use a 5.0.0 pre-release can specify the version in their sushi-config.yaml file, e.g., `fhirVersion: 5.0.0-snapshot1`. |
 | FSHOnly | N/A | When this flag is set to `true`, no IG-specific content will be generate. SUSHI will only convert FSH definitions to JSON files. The author at least needs to provide a `canonical` and `fhirVersion` for FSHOnly processing to succeed. When FSHOnly is false or unspecified, IG content is generated.|
 | global | global | Key is the type and value is the profile |
 | groups | definition.grouping | A `key: value` pair, where key is the group id and value is the description of the group. For advanced use cases, the value can be an object with keys for `name`, `description`, and `resources`. See the [Exhaustive Example](#exhaustive-example) for details. |
@@ -132,7 +144,7 @@ The table below lists all configuration properties that can be used in SUSHI's *
 | name | name | As specified in the IG resource |
 | packageId | packageId | As specified in the IG resource. If unspecified, defaults to `id`. |
 | pages | definition.page | SUSHI can auto-generate pages, but authors can manage pages through this property. If this property is used, SUSHI will not generate any page entries. The YAML key is the file name containing the page. The title key-value pair provides the title for the page. If a title is not provided, then the title will be generated from the file name. If a generation value (corresponding to definition.page.generation) is not provided, it will be inferred from the file name extension. In the IG resource, pages can contain sub-pages; so in the config file, any sub-properties that are valid filenames with supported extensions (e.g., .md/.xml) will be treated as sub-pages. See the [Exhaustive Example](#exhaustive-example) for details. |
-| parameters | definition.parameter | The key is the code. If a parameter allows repeating values, the value in the YAML may be a sequence/array. |
+| parameters | definition.parameter | Consists of key-value pairs where the keys are values of `definition.parameter.code`. If a parameter allows repeating values, the value in the YAML may be a sequence/array. For example, the `path-resource` parameter specifies relative paths to additional folders that contain predefined resources (see [Specifying Additional Resource Paths](tips#specifying-additional-resource-paths)). |
 | publisher | publisher, with cardinality changed to 0..* | Publisher can be a single item or a list, each with a name and optional url and/or email. The first publisher's name will be used as IG.publisher.  The contact details and/or additional publishers will be translated into IG.contact values |
 | releaseLabel or releaselabel | N/A | Used to add a `releaseLabel` parameter to `IG.definition.parameter` |
 | resources | definition.resource | SUSHI can auto-generate a list of resources based on FSH definitions and provided JSON or XML resources, but this property can be used to add additional entries or override generated entries. SUSHI uses the {resource type}/{resource name} format as the YAML key (corresponding to IG.definition.resource.reference). Authors can specify the value "omit" to omit a FSH-generated resource from the resource list. `groupingId` can be used, but top-level groups syntax may be a better option. |

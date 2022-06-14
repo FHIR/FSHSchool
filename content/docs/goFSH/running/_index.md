@@ -19,7 +19,7 @@ where options include the following (in any order):
 -f, --fshing-trip                 run SUSHI on the output of GoFSH and generate a comparison of the round trip results
 -h, --help                        display help for command
 --indent                          output FSH with indented rules using context paths
--i, --installed-sushi             use the locally installed version of SUSHI when generating comparisons with the "-f" option
+-i, --installed-sushi             use the locally installed version of SUSHI when generating comparisons with the `-f` option
 -l, --log-level <level>           specify the level of log messages: error, warn, info (default), debug
 --meta-profile <mode>             specify how meta.profile on Instances should be applied to the InstanceOf keyword: only-one (default), first, none
 --no-alias                        output FSH without generating Aliases
