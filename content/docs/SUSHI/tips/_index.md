@@ -3,6 +3,87 @@ title: "Tips and Tricks"
 weight: 25
 ---
 
+## Extensions for Representing Elements From Other Versions of FHIR
+
+The FHIR specification defines behavior for a feature they refer to as [extensions for converting between versions](http://hl7.org/fhir/versions.html#extensions) (also known as "implied extensions"). This feature allows authors to represent specific elements from past and future versions of FHIR using a specific extension URL format (as described in the spec linked above). These extensions are not available in any physical package, but rather, are understood and processed conceptually.
+
+To use this feature in SUSHI, authors must specify a dependency on a package using an id and version of the form `hl7.fhir.extensions.<extension-version>: <package-version>`, where valid extension-versions are `r2`, `r3`, `r4`, and `r5`. As an example, if an author wanted to represent the `Patient.animal.species` [element](http://hl7.org/fhir/STU3/patient-definitions.html#Patient.animal.species) as defined in STU3, the dependencies should be specified as:
+
+```yaml
+  dependencies:
+    hl7.fhir.extensions.r3: 4.0.1
+```
+
+An author can then reference the extension using a URL following the format defined in the FHIR specification linked above. For example, the extension referring to the R3 `Patient.animal.species` element would be: `http://hl7.org/fhir/3.0/StructureDefinition/extension-Patient.animal.species`.
+
+See the following documentation for additional details:
+* [Dependencies](https://fshschool.org/docs/sushi/configuration/#dependencies) from the FSH School SUSHI documentation
+* [Extensions for Converting Between Versions](http://hl7.org/fhir/versions.html#extensions) from the current FHIR specification
+
+## Extension for Profiling BackboneElements
+
+The `profile-element` extension can be used to profile a BackboneElement by pointing at another BackboneElement defined elsewhere. This is typically used to indicate that constraints on the target of a contentReference should be applied to all the references as well. For example, the following snippet indicates the all recursive references to `Questionnaire.item` (e.g., `Questionnaire.item.item`) should conform to the same constraints as the original `Questionnaire.item` in this profile:
+```
+Profile: MyQuestionnaire
+Parent: Questionnaire
+* item ^type.profile = http://example.org/StructureDefinition/MyQuestionnaire
+* item ^type.profile.extension.url = http://hl7.org/fhir/StructureDefinition/elementdefinition-profile-element
+* item ^type.profile.extension.valueString = "Questionnaire.item"
+// ...
+```
+
+See the following documentation for additional details:
+* [Extension: profile-element](https://www.hl7.org/fhir/extension-elementdefinition-profile-element.html) from the FHIR specification
+* [Clarification on contentReference](https://chat.fhir.org/#narrow/stream/179252-IG-creation/topic/Clarification.20on.20contentReference/near/187852552) discussion on Zulip
+
+
+## Instances of Logical Models
+
+The IG Publisher added support for including instances of logical models as binary resources. This feature was announced and discussed in a [Logical Model Examples](https://chat.fhir.org/#narrow/stream/179252-IG-creation/topic/Logical.20Model.20Examples) thread on chat.fhir.org.  The basic steps an author needs to take in order to include logical model examples in a SUSHI project are:
+
+1. Add the example to the `input/resources` or `input/examples` folder
+    a. The file name of the example should be `Binary-{id}.json` or `Binary-{id}.xml` (substituting `{id}` for the real id)
+2. Add an entry for the example in the `sushi-config.yaml` `resources` property
+    a. Specify a `name`
+    b. Specify `exampleCanonical` pointing to the canonical of your logical model
+    c. Add an extension w/ the proper resource format (`application/fhir+json` or `application/xml`)
+
+For example, given the following simple logical model definition in an IG w/ IG canonical root `http://example.org`:
+```
+Logical: MyLM
+Id: MyLM
+Title: "My LM"
+Description: "This is mine"
+* important 1..1 SU boolean "Is this resource important"
+```
+
+Create the file `input/examples/Binary-my-logical-example.json`:
+```json
+{
+  "resourceType": "MyLM",
+  "id": "my-logical-example",
+  "important": true
+}
+```
+
+And add the following in your `sushi-config.yaml`:
+```yaml
+resources:
+  Binary/my-logical-example:
+    extension:
+      - url: http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format
+        valueCode: application/fhir+json
+    name: Example of LM
+    exampleCanonical: http://example.org/StructureDefinition/MyLM
+```
+
+This will result in your logical model example being listed and displayed as a proper example of the logical model.
+
+{{% alert title="Note" color="success" %}}
+This does not allow/support using the `Instance` keyword for creating examples of logical models. Authors must created the example as raw JSON or XML.  Support for the `Instance` keyword may come in future versions of SUSHI.
+{{% /alert %}}
+
+
 ## Resolving Issues with Dependency IGs
 
 Sometimes authors need to take additional steps when depending on non-HL7 package dependencies (e.g., packages from Simplifier). The following sections describe common problems and their solutions.
