@@ -1,6 +1,6 @@
 ---
 title: "Running GoFSH"
-weight: 10
+weight: 25
 ---
 
 ## Running GoFSH
@@ -14,7 +14,7 @@ GoFSH is executed from the command line. The general form of the GoFSH execution
 where options include the following (in any order):
 
 ```text
--a, --alias-file <alias-filePath> specify an existing FSH file containing aliases to be loaded.
+-a, --alias-file <path>           specify an existing FSH file containing aliases to be loaded.
 -d, --dependency <dependency...>  specify dependencies to be loaded using format dependencyId@version (FHIR R4 included by default)
 -f, --fshing-trip                 run SUSHI on the output of GoFSH and generate a comparison of the round trip results
 -h, --help                        display help for command
@@ -22,14 +22,24 @@ where options include the following (in any order):
 -i, --installed-sushi             use the locally installed version of SUSHI when generating comparisons with the `-f` option
 -l, --log-level <level>           specify the level of log messages: error, warn, info (default), debug
 --meta-profile <mode>             specify how meta.profile on Instances should be applied to the InstanceOf keyword: only-one (default), first, none
---no-alias                        output FSH without generating Aliases
+--no-alias                        output FSH without generating aliases
 -o, --out <out>                   the path to the output folder
 -s, --style <style>               specify how the output is organized into files: file-per-definition (default), group-by-fsh-type, group-by-profile, single-file
 -t, --file-type <type>            specify which file types GoFSH should accept as input: json-only (default), xml-only, json-and-xml
+-u, --useFHIRVersion <version>    indicate which FHIR version to use, if it cannot be determined from inputs (e.g., 4.3.0)
 -v, --version                     print the goFSH version
 ```
 
 While GoFSH is running, it will print status messages as it processes your project files. The following sections give further detail on using certain options.
+
+### `--alias-file`
+Use this option to provide GoFSH with an existing alias file. The <path> can be relative or absolute. Typically, GoFSH will automatically generate an **aliases.fsh** file based on the content and URLs it encounters during processing. Using the `--alias-file` (`-a`) option, the user can specify an existing FSH (.fsh) file that contains desired user-defined aliases.
+
+Example usage:
+
+  ```
+  gofsh /path/to/my/ig --alias-file /different/path/to/aliases.fsh
+  ```
 
 ### `--style`
 The `style` option has four values:
