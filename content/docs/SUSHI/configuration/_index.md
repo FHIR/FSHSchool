@@ -19,7 +19,21 @@ SUSHI is configured by a single **sushi-config.yaml** file. This file is written
 * Strings do not have to be quoted unless they contain reserved characters, such as colon (:)
 * Arrays/sequences are created using `-`
 
-## No Configuration (FSH Only)
+
+## FSH Only: Minimum Configuration
+
+If an author does not have an **ImplementationGuide** resource, and wants SUSHI to build FHIR definition files and _not_ to do any additional IG processing, the author should create a **sushi-config.yaml** with the keys `FSHOnly` (with value `true`), `canonical`, and `fhirVersion`. For example:
+
+```yaml
+FSHOnly: true
+fhirVersion: 4.0.1
+canonical: http://hl7.org/fhir/us/example
+```
+
+The **sushi-config.yaml** file should be located in the project's root folder.
+
+
+## FSH Only: Existing ImplementationGuide Resource
 
 If an author wants SUSHI only to build the FHIR definition files and _not_ to do any additional IG processing, AND the project contains an **ImplementationGuide** resource, then the author does not need to provide a **sushi-config.yaml** file. If there is no **sushi-config.yaml** file, SUSHI will attempt to extract the following information from the **ImplementationGuide** resource:
 
@@ -40,7 +54,7 @@ To locate the **ImplementationGuide** resource, SUSHI assumes the project struct
 * Look for `<root>/ig.ini`, where `<root>` is the folder containing the **input** folder. If the **ig.ini** file exists, it will have an `ig` property which gives the path to the **ImplementationGuide** resource, so SUSHI will use this path to find the resource.
 * If there is no **ig.ini** in the root folder, SUSHI will search the `<root>/input` folder for an **ImplementationGuide** resource, and if exactly one resource is found, SUSHI will extract the above properties from it.
 
-## Minimum Configuration
+## FSH and IG Processing: Minimum Configuration
 
 If the author wants SUSHI to do additional Implementation Guide (IG) processing, then the **sushi-config.yaml** file must provide some metadata values for the FSH project. Here is an example of a minimal configuration:
 
@@ -68,7 +82,7 @@ If the author wants SUSHI to do additional Implementation Guide (IG) processing,
 SUSHI can generate a simple configuration file for you with the `--init` [option](/docs/sushi/project/#initializing-a-sushi-project)
 {{% /alert %}}
 
-## Recommended Configuration
+## FSH and IG Processing: Recommended Configuration
 
 In addition to the minimum configuration requirements shown above, most IG authors will also want to provide a `title`, `description`, `license`, `publisher`, and `dependencies`:
 
@@ -80,7 +94,14 @@ The `license` value should come from the [SPDX Licence Value Set](http://hl7.org
 
 ### Dependencies
 
-The `dependencies` value is a YAML object for which the keys are each dependency's package id and the values are the dependency versions. In addition to standard version identifiers, the following two special versions are supported:
+The `dependencies` value is a YAML object for which the keys are each dependency's package id and the values are the dependency versions. The typical format is:
+
+  ```yaml
+  dependencies:
+      hl7.fhir.us.core: 3.1.0
+  ```
+
+In addition to standard version identifiers, the following two special versions are supported:
 
   * `dev`: indicates that the dependency should be loaded from the local FHIR cache
   * `current`: indicates that the dependency should be loaded from the last successful auto-build.
@@ -95,13 +116,6 @@ The `dependencies` property also supports an advanced syntax that allows you to 
       version: 3.1.0
   ```
 
-Some dependency packages do not contain an ImplementationGuide resource. SUSHI needs the ImplementationGuide URL to specify the dependency in its own generated ImplementationGuide (per FHIR requirements). The FHIR community has determined that packages without an ImplementationGuide should use a virtual IG URL of the format `http://fhir.org/packages/${packageId}/ImplementationGuide/${packageId}`. Using that guidance, SUSHI can now infer IG URLs for dependency packages without an IG; meaning that authors no longer need to fully specify such dependencies. Starting with this release, authors can simply declare an IG-less dependency like all other dependencies, e.g.,
-
-```yaml
-dependencies:
-  de.basisprofil.r4: 1.1.0
-```
-
 SUSHI also supports [extensions for converting between versions of FHIR](http://build.fhir.org/versions.html#extensions). To get extensions that represent elements from other versions of FHIR, a package of the form `hl7.fhir.extensions.<extension-version>:<package-version>` is used. The `<extension-version>` should be one of `r2`, `r3`, or `r4` to indicate which version of FHIR the element represented by the extension is defined in. The `<package-version>` represents which version of FHIR the extension will be used in. For an IG defined using FHIR R4, this would be `4.0.1`. As an example, if an author wanted to represent the `Patient.animal.species` [element](http://hl7.org/fhir/STU3/patient-definitions.html#Patient.animal.species) as defined in R3, the dependencies should be specified as:
 
 ```yaml
@@ -111,7 +125,7 @@ SUSHI also supports [extensions for converting between versions of FHIR](http://
 
 An author can then reference the extension using a URL following the format defined in the FHIR specification linked above. For example, the extension referring to the R3 `Patient.animal.species` element would be: `http://hl7.org/fhir/3.0/StructureDefinition/extension-Patient.animal.species`.
 
-## Full Configuration
+## FSH and IG Processing: Full Configuration
 
 The table below lists all configuration properties that can be used in SUSHI's **sushi-config.yaml** file. Most SUSHI configuration properties come directly from the [Implementation Guide resource](https://www.hl7.org/fhir/R4/implementationguide.html#resource) and will be translated into the generated ImplementationGuide resource for your project. Differences between the **sushi-config.yaml** properties and ImplementationGuide properties are noted below.
 

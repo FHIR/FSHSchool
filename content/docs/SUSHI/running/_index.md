@@ -152,10 +152,10 @@ You can see a list of the available Firely Terminal versions [here](https://www.
 
 ## SUSHI Outputs
 
-Based on the inputs in FSH files, **sushi-config.yaml**, and the IG project directory, SUSHI populates the **fsh-generated** directory. For example, running SUSHI on the customized-ig project from the [Project Structure](/docs/sushi/project/) section would add a **fsh-generated** folder as shown below:
+Based on the inputs in FSH files, **sushi-config.yaml**, and the IG project directory, SUSHI populates the **fsh-generated** directory. For example, running SUSHI on the my-project project from the [Project Structure](/docs/sushi/project/) section would add a **fsh-generated** folder as shown below:
 
 ```text
-customized-ig
+my-project
 ├── fsh-generated
 |   └── resources
 |       ├── CodeSystem-myCodeSystem.json
@@ -196,7 +196,7 @@ SUSHI creates only the **fsh-generated** folder, but some of the files shown abo
 
 ### Downloading the IG Publisher Scripts
 
-To run the IG Publisher, we recommend downloading the **\_updatePublisher.bat|sh** and **\_genonce.bat|sh** scripts provided by the sample-ig project. To get these scripts, [download the sample-ig project](https://github.com/FHIR/sample-ig/archive/master.zip), unzip it, and copy _all_ of the **.bat** and **.sh** files to the directory above the **fsh-generated** directory (**customized-ig** in the example above).
+To run the IG Publisher, we recommend downloading the **\_updatePublisher.bat|sh** and **\_genonce.bat|sh** scripts provided by the sample-ig project. To get these scripts, [download the sample-ig project](https://github.com/FHIR/sample-ig/archive/master.zip), unzip it, and copy _all_ of the **.bat** and **.sh** files to the directory above the **fsh-generated** directory (**my-project** in the example above).
 
 ### Downloading the IG Publisher
 

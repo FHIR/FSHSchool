@@ -6,14 +6,17 @@ weight: 25
 ## Specifying Additional Resource Paths
 
 Sometimes authors may wish to put predefined resources in folders other than the normally supported `input` sub-folders. To support this, SUSHI now recognizes the [ImplementationGuide parameter](https://confluence.hl7.org/display/FHIR/Implementation+Guide+Parameters) `path-resource`. Authors can include this parameter in `sushi-config.yaml` to specify relative paths to additional folders that contain predefined resources. For example, the following can now be used in `sushi-config.yaml` to include resources from the sub-folder `predefined-resources`:
+
   ```yaml
   parameters:
     path-resource:
       - input/predefined-resources
-  ``` 
+  ```
+
 Note that the value of `path-resource` is an array (or sequence) formatted in the standard YAML style.
 
 For SUSHI users who manage their own ImplementationGuide resource (i.e. _FSHOnly_ IGs), SUSHI will use the parameter from the ImplementationGuide resource:
+
   ```json
   "parameter": [
     {
