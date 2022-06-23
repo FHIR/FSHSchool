@@ -21,7 +21,7 @@ Here is an example of syntax highlighting:
 
 To install VS Code on macOS, Windows, or Linux, follow the [instructions here](https://code.visualstudio.com/Download).
 
-To install the FHIR Shorthand extension, run VS Code, and navigate `View > Extensions` or select the icon on the far left that looks like four little squares. Then search for "FHIR Shorthand" and make sure you pick the extension with the fish icon, "FHIR Shorthand (FSH) Language Support by MITRE". Click on the associated gear icon and then "install".
+To install the FHIR Shorthand extension, run VS Code, and navigate to `View > Extensions` or select the icon on the far left that looks like four little squares. Then search for "FHIR Shorthand" and make sure you pick the extension with the fish icon, "FHIR Shorthand (FSH) Language Support by MITRE". Click on the associated gear icon and then "install".
 
 ## Full Documentation
 
