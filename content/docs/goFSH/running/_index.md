@@ -33,7 +33,7 @@ where options include the following (in any order):
 While GoFSH is running, it will print status messages as it processes your project files. The following sections give further detail on using certain options.
 
 ### `--alias-file`
-Use this option to provide GoFSH with an existing alias file. The <path> can be relative or absolute. Typically, GoFSH will automatically generate an **aliases.fsh** file based on the content and URLs it encounters during processing. Using the `--alias-file` (`-a`) option, the user can specify an existing FSH (.fsh) file that contains desired user-defined aliases.
+Use this option to provide GoFSH with an existing alias file. The `<path>` can be relative or absolute. Typically, GoFSH will automatically generate an **aliases.fsh** file based on the content and URLs it encounters during processing. Using the `--alias-file` (`-a`) option, the user can specify an existing FSH (.fsh) file that contains desired user-defined aliases.
 
 Example usage:
 

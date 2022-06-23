@@ -198,6 +198,8 @@ SUSHI creates only the **fsh-generated** folder, but some of the files shown abo
 
 To run the IG Publisher, we recommend downloading the **\_updatePublisher.bat|sh** and **\_genonce.bat|sh** scripts provided by the sample-ig project. To get these scripts, [download the sample-ig project](https://github.com/FHIR/sample-ig/archive/master.zip), unzip it, and copy _all_ of the **.bat** and **.sh** files to the directory above the **fsh-generated** directory (**my-project** in the example above).
 
+If you used `sushi --init` then these scripts were already downloaded and added to your project.
+
 ### Downloading the IG Publisher
 
 After copying these, change directories in the command prompt to the directory above the **fsh-generated** directory. At the command prompt, enter:
