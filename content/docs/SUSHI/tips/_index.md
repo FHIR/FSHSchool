@@ -98,7 +98,7 @@ See the following documentation for additional details:
 
 ## Instances of Logical Models
 
-The IG Publisher added support for including instances of logical models as binary resources. This feature was announced and discussed in a [Logical Model Examples](https://chat.fhir.org/#narrow/stream/179252-IG-creation/topic/Logical.20Model.20Examples) thread on chat.fhir.org.  The basic steps an author needs to take in order to include logical model examples in a SUSHI project are:
+The IG Publisher supports including instances of logical models as binary resources. This feature was announced and discussed in a [Logical Model Examples](https://chat.fhir.org/#narrow/stream/179252-IG-creation/topic/Logical.20Model.20Examples/near/251192344) thread on chat.fhir.org.  The basic steps an author needs to take in order to include logical model examples in a SUSHI project are:
 
 1. Add the example to the `input/resources` or `input/examples` folder
     a. The file name of the example should be `Binary-{id}.json` or `Binary-{id}.xml` (substituting `{id}` for the real id)
