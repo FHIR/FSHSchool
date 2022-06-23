@@ -81,7 +81,7 @@ See the following documentation for additional details:
 
 ## Extension for Profiling BackboneElements
 
-The `profile-element` extension can be used to profile a BackboneElement by pointing at another BackboneElement defined elsewhere. This is typically used to indicate that constraints on the target of a contentReference should be applied to all the references as well. For example, the following snippet indicates the all recursive references to `Questionnaire.item` (e.g., `Questionnaire.item.item`) should conform to the same constraints as the original `Questionnaire.item` in this profile:
+The `profile-element` extension can be used to profile a BackboneElement by pointing at another BackboneElement defined elsewhere. This is typically used to indicate that constraints on the target of a contentReference should be applied to all the references as well. For example, the following snippet indicates that all recursive references to `Questionnaire.item` (e.g., `Questionnaire.item.item`) should conform to the same constraints as the original `Questionnaire.item` in this profile:
 
 ```
 Profile: MyQuestionnaire
