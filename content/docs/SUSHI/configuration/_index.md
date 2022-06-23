@@ -98,7 +98,7 @@ The `dependencies` value is a YAML object for which the keys are each dependency
 
   ```yaml
   dependencies:
-      hl7.fhir.us.core: 3.1.0
+    hl7.fhir.us.core: 3.1.0
   ```
 
 In addition to standard version identifiers, the following two special versions are supported:

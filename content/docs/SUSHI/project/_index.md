@@ -55,11 +55,13 @@ my-project
 └── sushi-config.yaml
 ```
 
-In addition to the **input/fsh** folder, `--init` creates a **input/pagecontent** folder containing a dummy home page for your IG. The files **ig.ini** and **ignoreWarnings.txt** are required by the [template-based IG Publisher](https://build.fhir.org/ig/FHIR/ig-guidance/using-templates.html). The `.bat` and `.sh` scripts which allow you to [run the IG Publisher](/docs/sushi/running/#downloading-the-ig-publisher) from your command line. Finally, a default `.gitignore` file for integration with GitHub is provided. From this point on, you can modify the configuration and definitions as necessary.
+In addition to the **input/fsh** folder, `--init` creates an **input/pagecontent** folder containing a dummy home page for your IG. The files **ig.ini** and **ignoreWarnings.txt** are required by the [template-based IG Publisher](https://build.fhir.org/ig/FHIR/ig-guidance/using-templates.html). The `.bat` and `.sh` scripts which allow you to [run the IG Publisher](/docs/sushi/running/#downloading-the-ig-publisher) from your command line. Finally, a default `.gitignore` file for integration with GitHub is provided. From this point on, you can modify the configuration and definitions as necessary.
 
 ## Using the HL7 IG Publisher and Auto-Builder
 
 This project structure integrates with the HL7 IG Publisher [Auto-Builder](https://github.com/FHIR/auto-ig-builder/blob/master/README.md). When the IG Publisher detects an **input/fsh** subdirectory, it will automatically run SUSHI on the project directory and output the SUSHI results to a **fsh-generated** directory (e.g., **my-project/fsh-generated** in the example above). It will then continue with the normal IG Publisher process.
+
+
 
 This approach allows a GitHub repository to be configured such that whenever changes to FSH files are pushed to GitHub, the [Auto-Builder](https://github.com/FHIR/auto-ig-builder/blob/master/README.md) will pick them up, run the SUSHI/IG Publisher process, and publish the resulting IG to [http://build.fhir.org](http://build.fhir.org).
 
