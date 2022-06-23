@@ -19,23 +19,83 @@ SUSHI is executed from the command line. The general form of the SUSHI execution
 where options include the following (in any order):
 
 ```text
--o, --out <out>     the path to the output folder
 -d, --debug         output extra debugging information
--p, --preprocessed  output FSH produced by preprocessing steps
--s, --snapshot      generate snapshot in Structure Definition output (default: false)
--i, --init          initialize a SUSHI project
--v, --version       print SUSHI version
 -h, --help          output usage information
+-i, --init          initialize a SUSHI project
+-o, --out <out>     the path to the **fsh-generated** folder
+-p, --preprocessed  output FSH produced by preprocessing steps
+--require-latest    indicate that SUSHI should halt if the latest SUSHI version is not installed
+-s, --snapshot      generate snapshot in Structure Definition output (default: false)
+-v, --version       print SUSHI version
 ```
 
 {{% alert title="Tip" color="success" %}}
-If you run SUSHI from your FSH project directory, and accept the defaults, the command can be shortened to `sushi .`
+If you run SUSHI from your FSH project directory, and accept the defaults, the command can be shortened to `sushi .` or simply `sushi`.
 {{% /alert %}}
 
+### Command Line Argument Details
+
+The following sections give further detail on using certain command line options.
+
+### `--out`
+
+The `--out` or `-o` flag specifies where SUSHI's output, the **fsh-generated** folder, should be written. By default, the folder will be written to the root folder, i.e., parallel to the **input** folder. When SUSHI begins, any existing content in the designated location is deleted. Within the **fsh-generated** folder, SUSHI generates file names based on the resource id (i.e., ${resourceType}-${resourceId}.json). If the id contains one or more path separators, SUSHI will sanitize file names to assure all files are written to the target directory. (_Note: the `--out` option does not refer to the output folder written by the IG Publisher_).
+
+### `--preprocessed`
+
+The `--preprocessed` or `-p` flag can be used to to create a folder named **_preprocessed** in SUSHI's output folder. This folder will contain representations of the input FSH after several preprocessing steps have taken place. These steps include resolution of [`Alias` values](http://build.fhir.org/ig/HL7/fhir-shorthand/branches/master/reference.html#defining-aliases), insertion of [`RuleSet` rules](http://build.fhir.org/ig/HL7/fhir-shorthand/branches/master/reference.html#defining-rule-sets), and resolution of [soft indexing](http://build.fhir.org/ig/HL7/fhir-shorthand/branches/master/reference.html#soft-indexing). This is mainly provided as a debugging tool, for the author to verify that SUSHI is preprocessing the input FSH in an expected way, and to help trace errors in the output of SUSHI back to their source. For example, if the IG Publisher reports an error on element Bundle.entry[56].resource, it may be difficult to identify the problematic entry in your FSH source if you used soft-indexing. It is much easier, however, to identify the problematic element in the preprocessed FSH that contains explicit indices.
+
+The example below shows a FSH snippet and a preprocessed version of that snippet. In this snippet, a `Profile` is defined using a `RuleSet` and an `Alias`, and below an `Instance` is defined which uses soft indexing.
+
+```
+Alias: $CAT = http://hl7.org/fhir/ValueSet/observation-category
+
+Profile: ObservationProfile
+Parent: Observation
+* insert Metadata
+* category from $CAT (required)
+
+RuleSet: Metadata
+* ^version = "1.2.3"
+* ^publisher = "Example publisher"
+
+Instance: PatientInstance
+InstanceOf: Patient
+* name.given[+] = "John"
+* name.given[+] = "Q"
+```
+
+The preprocessed version of the above FSH is shown below. The `$CAT` alias has been resolved to its full URL, the rules contained in the `RuleSet` have been inserted onto the `ObservationProfile`, and the `RuleSet` itself has been removed, and the rules on the `PatientInstance` have been resolved to fully specified paths, which do not use soft indexing.
+
+```
+Alias: $CAT = http://hl7.org/fhir/ValueSet/observation-category
+
+// Originally defined on lines 3 - 6
+Profile: ObservationProfile
+Parent: Observation
+Id: ObservationProfile
+* ^version = "1.2.3"
+* ^publisher = "Example publisher"
+* category from http://hl7.org/fhir/ValueSet/observation-category (required)
+
+// Originally defined on lines 12 - 15
+Instance: PatientInstance
+InstanceOf: Patient
+Usage: #example
+* name.given[0] = "John"
+* name.given[1] = "Q"
+```
 
 {{% alert title="Note" color="primary" %}}
-By default, SUSHI only generates the [profile differential](https://www.hl7.org/fhir/R4/profiling.html#snapshot), allowing the IG Publisher to create the [profile snapshot](https://www.hl7.org/fhir/R4/profiling.html#snapshot). This is the approach recommended by HL7 FHIR leadership. If authors prefer, the `-s` option can be used to cause SUSHI to generate the snapshot without having to run the IG Publisher.
+Once you have finished reviewing your preprocessed FSH, we recommend deleting the **_preprocessed** folder to avoid potential confusion related to multiple versions of FSH files in your project. For this same reason, we do not recommend committing your preprocessed FSH to source control.
 {{% /alert %}}
+
+### `--snapshot`
+
+By default, SUSHI only generates the [profile differential](https://www.hl7.org/fhir/R4/profiling.html#snapshot), allowing the IG Publisher to create the [profile snapshot](https://www.hl7.org/fhir/R4/profiling.html#snapshot). This is the approach recommended by HL7 FHIR leadership. If authors prefer, the `--snapshot` (or `-s`) option can be used to cause SUSHI to generate the snapshot without having to run the IG Publisher.
+
+
+## Status Messages
 
 While SUSHI is running, it will print status messages as it processes your project files. When SUSHI has completed, you should receive a summary like the following:
 
@@ -57,25 +117,45 @@ While SUSHI is running, it will print status messages as it processes your proje
 ╚═════════════════════════════════════════════════════════════════╝
 ```
 
-### Error Messages
+{{% alert title="Note" color="primary" %}} The following message is expected, and should be ignored:(node:46420) Warning: Accessing non-existent property 'INVALID_ALT_NUMBER' of module exports inside circular dependency (Use `node --trace-warnings ...` to show where the warning was created)
+
+## Error Messages
 
 In the process of developing your IG using FSH, you may encounter SUSHI error messages (written to the command console). Most error messages point to a specific line or lines in a `.fsh` file. If possible, SUSHI will continue, despite errors, to produce FHIR artifacts, but those artifacts may omit problematic rules. SUSHI should always exit gracefully. If SUSHI crashes, please report the issue using the [SUSHI issue tracker](https://github.com/FHIR/sushi/issues).
 
 Here are some general tips for debugging:
 
-* **Parsing (syntax) errors should be fixed first.** A single syntax error can ballooon into many other errors, so you should always eliminate syntax errors first. Syntax error messages may include `extraneous input {x} expecting {y}`, `mismatched input {x} expecting {y}` and `no viable alternative at {x}`. These messages indicate that the line in question is not a valid FSH statement.
+* **Parsing (syntax) errors should be fixed first.** A single syntax error can balloon into many other errors, so you should always eliminate syntax errors first. Syntax error messages may include `extraneous input {x} expecting {y}`, `mismatched input {x} expecting {y}` and `no viable alternative at {x}`. These messages indicate that the line in question is not a valid FSH statement.
 * **The order of keywords matters.** The declarations must start with the type of item you are creating (e.g., Profile, Instance, ValueSet).
 * **The order of rules usually doesn't matter, but there are exceptions.** Slices and extensions must be created before they are constrained.
 * **Rules must contain valid paths.** The `No element found at path` error means that although the overall grammar of the rule may be correct, SUSHI could not find the FHIR element you are referring to in the rule. Make sure there are no spelling errors, the element names in the path are correct, and you are using the [path grammar](https://build.fhir.org/ig/HL7/fhir-shorthand/reference.html#fsh-paths) correctly.
 * **The community can help.** If you are getting an error you can't resolve, you can ask for help on the [#shorthand chat channel](https://chat.fhir.org/#narrow/stream/215610-shorthand).
 
+### Structure Definition is Missing Snapshot Error
+
+Some non-HL7 FHIR packages are distributed without snapshot elements in their profiles. If your IG uses one of these profiles, SUSHI will report an error like the following:
+
+> Structure Definition http://fhir.de/StructureDefinition/observation-de-vitalsign is missing snapshot. Snapshot is required for import.
+
+Since SUSHI does not implement its own snapshot generator, you must update the package in your FHIR cache so that its profiles include snapshot elements. Fortunately, the [Firely Terminal](https://fire.ly/products/firely-terminal/) provides a way to do this.
+
+First, you must [install Firely Terminal](https://docs.fire.ly/projects/Firely-Terminal/InstallingFirelyTerminal.html). Then use Firely Terminal to populate the snapshot elements in the dependency package.
+
+1. Run the command: `fhir bake --package  <packagename>`, substituting the dependency package ID for `<packagename>`.
+    * E.g., `fhir bake --package de.basisprofil.r4`
+2. Run SUSHI again. The error about missing snapshots should no longer be displayed.
+
+{{% alert title="Tip" color="success" %}}
+You can see a list of the available Firely Terminal versions [here](https://www.nuget.org/packages/Firely.Terminal#versions-body-tab). Version than 2.5.0-beta-7 or higher is recommended. Version 2.4.2 is not recommended because it contains a bug in the snapshot generator that adversely affects SUSHI processing.
+{{% /alert %}}
+
 
 ## SUSHI Outputs
 
-Based on the inputs in FSH files, **sushi-config.yaml**, and the IG project directory, SUSHI populates the **fsh-generated** directory. For example, running SUSHI on the customized-ig project from the [Project Structure](/docs/sushi/project/) section would add a **fsh-generated** folder as shown below:
+Based on the inputs in FSH files, **sushi-config.yaml**, and the IG project directory, SUSHI populates the **fsh-generated** directory. For example, running SUSHI on the my-project project from the [Project Structure](/docs/sushi/project/) section would add a **fsh-generated** folder as shown below:
 
 ```text
-customized-ig
+my-project
 ├── fsh-generated
 |   └── resources
 |       ├── CodeSystem-myCodeSystem.json
@@ -116,7 +196,9 @@ SUSHI creates only the **fsh-generated** folder, but some of the files shown abo
 
 ### Downloading the IG Publisher Scripts
 
-To run the IG Publisher, we recommend downloading the **\_updatePublisher.bat|sh** and **\_genonce.bat|sh** scripts provided by the sample-ig project. To get these scripts, [download the sample-ig project](https://github.com/FHIR/sample-ig/archive/master.zip), unzip it, and copy _all_ of the **.bat** and **.sh** files to the directory above the **fsh-generated** directory (**customized-ig** in the example above).
+To run the IG Publisher, we recommend downloading the **\_updatePublisher.bat|sh** and **\_genonce.bat|sh** scripts provided by the sample-ig project. To get these scripts, [download the sample-ig project](https://github.com/FHIR/sample-ig/archive/master.zip), unzip it, and copy _all_ of the **.bat** and **.sh** files to the directory above the **fsh-generated** directory (**my-project** in the example above).
+
+If you used `sushi --init` then these scripts were already downloaded and added to your project.
 
 ### Downloading the IG Publisher
 
@@ -161,50 +243,4 @@ When running SUSHI, the IG Publisher will look for an optional **fsh.ini** contr
 sushi-version = 0.16.0
 timeout = 120
 ```
-{{% /alert %}}
-
-
-### Preprocessed FSH
-When running SUSHI, the `-p` or `--preprocessed` flag can be used to to create a **_preprocessed** folder in SUSHI's output folder (**customized-ig/_preprocessed** in the example above). This folder will contain representations of the input FSH after several preprocessing steps have taken place. These steps include resolution of [`Alias` values](http://build.fhir.org/ig/HL7/fhir-shorthand/branches/master/reference.html#defining-aliases), insertion of [`RuleSet` rules](http://build.fhir.org/ig/HL7/fhir-shorthand/branches/master/reference.html#defining-rule-sets), and resolution of [soft indexing](http://build.fhir.org/ig/HL7/fhir-shorthand/branches/master/reference.html#soft-indexing). This is mainly provided as a debugging tool, for the author to verify that SUSHI is preprocessing the input FSH in an expected way, and to help trace errors in the output of SUSHI back to their source. For example, if the IG Publisher reports an error on element Bundle.entry[56].resource, it may be difficult to identify the problematic entry in your FSH source if you used soft-indexing. It is much easier, however, to identify the problematic element in the preprocessed FSH that contains explicit indices.
-
-The example below shows a FSH snippet and a preprocessed version of that snippet. In this snippet, a `Profile` is defined using a `RuleSet` and an `Alias`, and below an `Instance` is defined which uses soft indexing.
-```
-Alias: CAT = http://hl7.org/fhir/ValueSet/observation-category
-
-Profile: ObservationProfile
-Parent: Observation
-* insert Metadata
-* category from CAT (required)
-
-RuleSet: Metadata
-* ^version = "1.2.3"
-* ^publisher = "Example publisher"
-
-Instance: PatientInstance
-InstanceOf: Patient
-* name.given[+] = "John"
-* name.given[+] = "Q"
-```
-The preprocessed version of the above FSH is shown below. The `CAT` alias has been resolved to its full URL, the rules contained in the `RuleSet` have been inserted onto the `ObservationProfile`, and the `RuleSet` itself has been removed, and the rules on the `PatientInstance` have been resolved to fully specified paths, which do not use soft indexing.
-```
-Alias: CAT = http://hl7.org/fhir/ValueSet/observation-category
-
-// Originally defined on lines 3 - 6
-Profile: ObservationProfile
-Parent: Observation
-Id: ObservationProfile
-* ^version = "1.2.3"
-* ^publisher = "Example publisher"
-* category from http://hl7.org/fhir/ValueSet/observation-category (required)
-
-// Originally defined on lines 12 - 15
-Instance: PatientInstance
-InstanceOf: Patient
-Usage: #example
-* name.given[0] = "John"
-* name.given[1] = "Q"
-```
-
-{{% alert title="Note" color="primary" %}}
-Once you have finished reviewing your preprocessed FSH, we recommend deleting the **_preprocessed** folder to avoid potential confusion related to multiple versions of FSH files in your project. For this same reason, we do not recommend committing your preprocessed FSH to source control.
 {{% /alert %}}

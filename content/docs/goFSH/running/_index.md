@@ -1,6 +1,6 @@
 ---
 title: "Running GoFSH"
-weight: 10
+weight: 25
 ---
 
 ## Running GoFSH
@@ -14,24 +14,34 @@ GoFSH is executed from the command line. The general form of the GoFSH execution
 where options include the following (in any order):
 
 ```text
--o, --out <out>                   the path to the output folder
--l, --log-level <level>           specify the level of log messages: error, warn, info (default), debug
+-a, --alias-file <path>           specify an existing FSH file containing aliases to be loaded.
 -d, --dependency <dependency...>  specify dependencies to be loaded using format dependencyId@version (FHIR R4 included by default)
--s, --style <style>               specify how the output is organized into files: file-per-definition (default), group-by-fsh-type, group-by-profile, single-file
 -f, --fshing-trip                 run SUSHI on the output of GoFSH and generate a comparison of the round trip results
--i, --installed-sushi             use the locally installed version of SUSHI when generating comparisons with the "-f" option
--t, --file-type <type>            specify which file types GoFSH should accept as input: json-only (default), xml-only, json-and-xml
---indent                          output FSH with indented rules using context paths
---meta-profile <mode>             specify how meta.profile on Instances should be applied to the InstanceOf keyword: only-one (default), first, none
--a, --alias-file <alias-filePath> specify an existing FSH file containing aliases to be loaded.
---no-alias                        output FSH without generating Aliases
--v, --version                     print goFSH version
 -h, --help                        display help for command
+--indent                          output FSH with indented rules using context paths
+-i, --installed-sushi             use the locally installed version of SUSHI when generating comparisons with the `-f` option
+-l, --log-level <level>           specify the level of log messages: error, warn, info (default), debug
+--meta-profile <mode>             specify how meta.profile on Instances should be applied to the InstanceOf keyword: only-one (default), first, none
+--no-alias                        output FSH without generating aliases
+-o, --out <out>                   the path to the output folder
+-s, --style <style>               specify how the output is organized into files: file-per-definition (default), group-by-fsh-type, group-by-profile, single-file
+-t, --file-type <type>            specify which file types GoFSH should accept as input: json-only (default), xml-only, json-and-xml
+-u, --useFHIRVersion <version>    indicate which FHIR version to use, if it cannot be determined from inputs (e.g., 4.3.0)
+-v, --version                     print the goFSH version
 ```
 
 While GoFSH is running, it will print status messages as it processes your project files. The following sections give further detail on using certain options.
 
-### `style`
+### `--alias-file`
+Use this option to provide GoFSH with an existing alias file. The `<path>` can be relative or absolute. Typically, GoFSH will automatically generate an **aliases.fsh** file based on the content and URLs it encounters during processing. Using the `--alias-file` (`-a`) option, the user can specify an existing FSH (.fsh) file that contains desired user-defined aliases.
+
+Example usage:
+
+  ```
+  gofsh /path/to/my/ig --alias-file /different/path/to/aliases.fsh
+  ```
+
+### `--style`
 The `style` option has four values:
 
 * `file-per-definition`: Each standalone FSH definition is written to an individual file that is grouped in a folder according to the type of FSH definition it is. Only Aliases are combined into one `aliases.fsh` file. This is the default choice.
@@ -39,14 +49,36 @@ The `style` option has four values:
 * `group-by-profile`:  Profiles are each written to an individual file. Instances and Invariants that pertain only to a certain Profile are then included in the same file as that Profile. The remaining definitions are grouped as in the `group-by-fsh-type` option.
 * `single-file`: All definitions are written to one file.
 
-### `fshing-trip`
-If this flag is added, after GoFSH runs, SUSHI will run on the output of GoFSH. The output of SUSHI will then be compared to the original input to GoFSH (FHIR is compared to FHIR), and a visualization of differences between the original input and the SUSHI output will be created in `<output-folder>/fshing-trip-comparison.html`. If the `--installed-sushi` flag is set, then this process will use whichever version of SUSHI you have globally installed. Otherwise GoFSH will use its own built-in version of SUSHI (which may not be the latest version available).
+### `--fshing-trip`
+Use this flag if you would like to make sure GoFSH isn't missing anything, by doing a round-trip from FHIR to FSH and back. When this flag is present, after GoFSH runs, SUSHI will run on the output of GoFSH. The output of SUSHI will then be compared to the original input to GoFSH (FHIR is compared to FHIR), and a visualization of differences between the original input and the SUSHI output will be created in `<output-folder>/fshing-trip-comparison.html`. If the `--installed-sushi` flag is set, then this process will use whichever version of SUSHI you have globally installed. Otherwise GoFSH will use its own built-in version of SUSHI (which may not be the latest version available).
 
-### `indent`
+### `--indent`
 When the `--indent` option is specified, the output FSH will take advantage of [indented rules](http://build.fhir.org/ig/HL7/fhir-shorthand/branches/master/reference.html#indented-rules) when applicable. This will also cause `CodeSystem` definitions to utilize indentation in [hierarchical codes](http://build.fhir.org/ig/HL7/fhir-shorthand/branches/master/reference.html#defining-code-systems-with-hierarchical-codes), `Concept` designations, and `Concept` properties when applicable.
 
-### `meta-profile`
-The `--meta-profile` option can be used to control how `meta.profile` on instances should be applied to the `InstanceOf` keyword. The option has the following three values:
+For example, without the `--indent` option, GoFSH will generate this:
+```
+* test[0].id = "01-ReadPatient-Destination1"
+* test[=].name = "ReadPatient-Destination1"
+* test[=].description = "Read a Patient from the first destination test system using the user defined dynamic variable ${Dest1PatientResourceId}. Perform basic validation."
+* test[=].action[0].operation.type = http://hl7.org/fhir/restful-interaction#read
+* test[=].action[=].operation.resource = #Patient
+```
+If the `--indent` option is used, GoFSH will generate this:
+```
+* test[0]
+  * id = "01-ReadPatient-Destination1"
+  * name = "ReadPatient-Destination1"
+  * description = "Read a Patient from the first destination test system using the user defined dynamic variable ${Dest1PatientResourceId}. Perform basic validation."
+  * action[0].operation
+    * type = http://hl7.org/fhir/restful-interaction#read
+    * resource = #Patient
+```
+
+### `--meta-profile`
+The `--meta-profile` option can be used to control how values of `meta.profile` present in FHIR instances are applied to the `InstanceOf` keyword in FSH. In FHIR, the value of `meta.profile` represents a claim that the instance conforms to the given profile(s). One interpretation of `meta.profile` is that the generated FSH instance is an `InstanceOf` that profile, which would subsequently result in SUSHI checking to make sure the instance followed the rules of that profile. A potential complication is that `meta.profile` can have multiple values, but in FSH, an instance can be `InstanceOf` at most one profile. A different interpretation is that `meta.profile` is only a hint that adds no concrete information, and thus the FSH instance should ignore `meta.profile` and should be `InstanceOf` a native FHIR resource. Both interpretations are permissible in FHIR.
+
+The option has the following three values:
+
 * `only-one` (default): If there is exactly one entry in the `meta.profile` array of a definition, this value will be used to set `InstanceOf`. If there is not exactly one entry in the `meta.profile` array, the `resourceType` of the definition will be used for `InstanceOf`, and any contents of the `meta.profile` array will be specified with `^` rules.
 * `first`: If there is at least one entry in the `meta.profile` array, it will be used to set `InstanceOf`. Additional entries will be specified with `^` rules.
 * `none`: The `meta.profile` array will not be used to determine `InstanceOf`.

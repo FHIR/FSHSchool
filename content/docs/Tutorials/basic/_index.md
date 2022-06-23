@@ -17,9 +17,9 @@ If you haven't done so already, please read or review the [Introduction](/docs/i
 
 If you have not already installed SUSHI, follow the [SUSHI Installation](/docs/sushi/installation) instructions.
 
-### Step 3: Download Sample FSH Tank
+### Step 3: Download Sample FSH Project
 
-To start with some working examples of FSH files and a skeleton FSH tank, {{% download-file pre="download the" src="starter" %}} and unzip it into a directory of your choice.
+To start with some working examples of FSH files and a skeleton FSH project, {{% download-file pre="download the" src="starter" %}} and unzip it into a directory of your choice.
 
 After the file is unzipped, you should see two subdirectories:
 
@@ -34,7 +34,7 @@ Change the working directory to FishExample. There is a **sushi-config.yaml** fi
 In addition, there are several files for building the IG.
 
 ### Step 4: Run SUSHI
-Now that you have SUSHI installed and a minimal FSH tank, open up a command window, and navigate to the **FishExample** directory. Run SUSHI on those FSH files by executing:
+Now that you have SUSHI installed and a minimal FSH project, open up a command window, and navigate to the **FishExample** directory. Run SUSHI on those FSH files by executing:
 
 ```shell
 {{< terminal >}} sushi .
