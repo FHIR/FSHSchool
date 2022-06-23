@@ -81,7 +81,7 @@ See the following documentation for additional details:
 
 ## Extension for Profiling BackboneElements
 
-The `profile-element` extension can be used to profile a BackboneElement by pointing at another BackboneElement defined elsewhere. This is typically used to indicate that constraints on the target of a contentReference should be applied to all the references as well. For example, the following snippet indicates the all recursive references to `Questionnaire.item` (e.g., `Questionnaire.item.item`) should conform to the same constraints as the original `Questionnaire.item` in this profile:
+The `profile-element` extension can be used to profile a BackboneElement by pointing at another BackboneElement defined elsewhere. This is typically used to indicate that constraints on the target of a contentReference should be applied to all the references as well. For example, the following snippet indicates that all recursive references to `Questionnaire.item` (e.g., `Questionnaire.item.item`) should conform to the same constraints as the original `Questionnaire.item` in this profile:
 
 ```
 Profile: MyQuestionnaire
@@ -98,7 +98,7 @@ See the following documentation for additional details:
 
 ## Instances of Logical Models
 
-The IG Publisher added support for including instances of logical models as binary resources. This feature was announced and discussed in a [Logical Model Examples](https://chat.fhir.org/#narrow/stream/179252-IG-creation/topic/Logical.20Model.20Examples) thread on chat.fhir.org.  The basic steps an author needs to take in order to include logical model examples in a SUSHI project are:
+The IG Publisher supports including instances of logical models as binary resources. This feature was announced and discussed in a [Logical Model Examples](https://chat.fhir.org/#narrow/stream/179252-IG-creation/topic/Logical.20Model.20Examples/near/251192344) thread on chat.fhir.org.  The basic steps an author needs to take in order to include logical model examples in a SUSHI project are:
 
 1. Add the example to the `input/resources` or `input/examples` folder
     a. The file name of the example should be `Binary-{id}.json` or `Binary-{id}.xml` (substituting `{id}` for the real id)
