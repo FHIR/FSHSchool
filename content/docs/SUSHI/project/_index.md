@@ -1,6 +1,8 @@
 ---
 title: "Project Structure"
 weight: 10
+description: >
+  Description of the folder structure expected by SUSHI for a FSH project
 ---
 
 ## Minimal Project

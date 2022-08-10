@@ -1,6 +1,8 @@
 ---
 title: "API"
 weight: 25
+description: >
+  Instructions for using GoFSH's API in a JavaScript/TypeScript project
 ---
 
 GoFSH exposes a `fhirToFsh` function that can be used to convert FHIR to FSH.
