@@ -32,7 +32,3 @@ GoFSH is a converter that takes FHIR artifacts (e.g., profiles, extensions, valu
 * If you already have an Implementation Guide and want to switch over to FSH, consult the [GoFSH documentation](docs/gofsh).
 
 * If you are looking for specific information, you can search the documentation using the search box in the upper right corner.
-
-{{% alert title="Warning" color="warning" %}}
-Search will return hits in both the current and legacy (pre-1.0) documentation. Legacy documentation is flagged by a warning on the page and a salmon-colored background.
-{{% /alert %}}
