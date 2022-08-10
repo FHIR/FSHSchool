@@ -8,6 +8,8 @@ resources:
 - name: config
   src: sushi-config.yaml
   title: Configuration
+aliases:
+  - /docs/tutorials/gofsh/index.html
 ---
 
 This tutorial will walk you through an example of using [GoFSH](/docs/gofsh) to turn FHIR artifacts into FSH definitions. This tutorial assumes you have already installed [GoFSH](/docs/gofsh/installation).
