@@ -6,9 +6,8 @@
     "url": "https://github.com/FSHSchool/site.git"
   },
   "license": "Apache-2.0",
-  "dependencies": {},
   "devDependencies": {
-    "autoprefixer": "^9.8.5",
-    "postcss-cli": "^7.1.1"
+    "autoprefixer": "^9.8.8",
+    "postcss-cli": "^7.1.2"
   }
 }

@@ -1,6 +1,8 @@
 ---
 title: "Tips and Tricks"
 weight: 25
+description: >
+  Helpful tips and tricks that may be useful when running SUSHI on more complex FSH projects
 ---
 
 ## Specifying Additional Resource Paths

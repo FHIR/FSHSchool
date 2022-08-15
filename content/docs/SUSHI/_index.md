@@ -1,7 +1,8 @@
 ---
 title: "SUSHI"
 weight: 10
+description: >
+  This section contains the documentation for SUSHI, a tool that converts FSH language to FHIR artifacts
 ---
 
-This section contains documentation for SUSHI (**S**USHI **U**nshortens **S**hort**H**and **I**nputs),
-a reference implementation FSH compiler.
+For more information on FHIR, FSH, and SUSHI, please see the [documentation home page](/docs/).

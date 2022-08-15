@@ -1,6 +1,8 @@
 ---
 title: "Running SUSHI"
 weight: 20
+description: >
+  Instructions for running the SUSHI tool on a FSH project
 ---
 
 

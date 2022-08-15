@@ -1,6 +1,8 @@
 ---
 title: "Visual Studio Code Extension"
 weight: 25
+description: >
+  If you use Visual Studio Code (VS Code) as your editor, you can install this extension to provide FSH syntax highlighting and other producitvity enhancements
 ---
 
 Because FHIR Shorthand files are pure text, authors can use any text editor to create FSH content. However, if you choose the popular (and free) [Visual Studio Code (VS Code)](https://code.visualstudio.com/) editor, there is a FSH-specific extension that can greatly enhance your productivity through syntax highlighting, helping you navigate, and even running SUSHI and navigating directly to errors.

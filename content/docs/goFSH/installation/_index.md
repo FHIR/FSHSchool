@@ -1,6 +1,8 @@
 ---
 title: "Installation"
 weight: 5
+description: >
+  Instructions for installing the GoFSH tool on your system
 ---
 
 ## Step 1: Install Node.js

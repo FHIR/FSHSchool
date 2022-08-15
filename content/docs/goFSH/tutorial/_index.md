@@ -1,6 +1,6 @@
 ---
 title: "GoFSH Tutorial"
-weight: 20
+weight: 40
 resources:
 - name: tutorial
   src: gofsh-tutorial.zip
@@ -8,6 +8,10 @@ resources:
 - name: config
   src: sushi-config.yaml
   title: Configuration
+aliases:
+  - /docs/tutorials/gofsh/index.html
+description: >
+  An end-to-end tutorial showing how to run GoFSH using a sample set of FHIR resources
 ---
 
 This tutorial will walk you through an example of using [GoFSH](/docs/gofsh) to turn FHIR artifacts into FSH definitions. This tutorial assumes you have already installed [GoFSH](/docs/gofsh/installation).

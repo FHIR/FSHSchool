@@ -11,6 +11,8 @@ resources:
 - name: exhaustive
   src: exhaustive-config.yaml
   title: Exhaustive Configuration Example
+description: >
+  Description of the configuration options that may be set in **sushi-config.yaml**
 ---
 
 SUSHI is configured by a single **sushi-config.yaml** file. This file is written using [YAML](https://yaml.org/). Authors unfamiliar with [YAML](https://learnxinyminutes.com/docs/yaml/) should note that:

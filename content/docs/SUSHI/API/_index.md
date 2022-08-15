@@ -1,6 +1,8 @@
 ---
 title: "API"
-weight: 30
+weight: 60
+description: >
+  Instructions for using SUSHI's API in a JavaScript/TypeScript project
 ---
 
 SUSHI exposes a `fshToFhir` function that can be used to convert FSH strings to FHIR JSON.

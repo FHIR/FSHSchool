@@ -1,6 +1,8 @@
 ---
 title: "Running GoFSH"
 weight: 25
+description: >
+  Instructions for running the GoFSH tool
 ---
 
 ## Running GoFSH
