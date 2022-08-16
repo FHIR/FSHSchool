@@ -17,7 +17,7 @@ A "cheat sheet" with the entire [FSH Grammar at a glance](http://hl7.org/fhir/uv
 
 ### The Full FHIR Shorthand Specification
 
-A zip file containing the [entire formal specification](http://hl7.org/fhir/uv/shorthand/full-ig.zip) (Standard for Trial Use 1)
+A zip file containing the [entire formal specification](http://hl7.org/fhir/uv/shorthand/full-ig.zip)
 
 ### SUSHI Software
 
