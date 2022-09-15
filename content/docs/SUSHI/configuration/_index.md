@@ -138,10 +138,11 @@ The table below lists all configuration properties that can be used in SUSHI's *
 | contact | contact | As specified in the IG resource |
 | contained | contained | As specified in the IG resource |
 | copyright | copyright | As specified in the IG resource |
+| copyrightLabel| copyrightLabel | As specified in the IG resource - **Note:** this is an R5 IG element |
 | copyrightYear or copyrightyear | N/A | Used to add a `copyrightyear` parameter to `IG.definition.parameter` |
 | date | date | As specified in the IG resource |
 | description | description | As specified in the IG resource |
-| dependencies | dependsOn | A `key: value` pair, where key is the package id and value is the version (or `dev`/`current`). For advanced use cases, the value can be an object with keys for `id`, `uri` and `version`. |
+| dependencies | dependsOn | A `key: value` pair, where key is the package id and value is the version (or `dev`/`current`). For advanced use cases, the value can be an object with keys for `id`, `uri` and `version`. For R5 IG resources, the key `reason` can also be provided. |
 | experimental | experimental | As specified in the IG resource |
 | extension | extension | As specified in the IG resource |
 | fhirVersion | fhirVersion | As specified in the IG resource. SUSHI supports FHIR versions in the R4 or R5 sequences, as given in the [FHIR Publication History](http://hl7.org/fhir/directory.html). 5.0.0-snapshot1. Projects that wish to use a 5.0.0 pre-release can specify the version in their sushi-config.yaml file, e.g., `fhirVersion: 5.0.0-snapshot1`. |
@@ -160,7 +161,7 @@ The table below lists all configuration properties that can be used in SUSHI's *
 | name | name | As specified in the IG resource |
 | packageId | packageId | As specified in the IG resource. If unspecified, defaults to `id`. |
 | pages | definition.page | SUSHI can auto-generate pages, but authors can manage pages through this property. If this property is used, SUSHI will not generate any page entries. The YAML key is the file name containing the page. The title key-value pair provides the title for the page. If a title is not provided, then the title will be generated from the file name. If a generation value (corresponding to definition.page.generation) is not provided, it will be inferred from the file name extension. In the IG resource, pages can contain sub-pages; so in the config file, any sub-properties that are valid filenames with supported extensions (e.g., .md/.xml) will be treated as sub-pages. See the [Exhaustive Example](#exhaustive-example) for details. |
-| parameters | definition.parameter | Consists of key-value pairs where the keys are values of `definition.parameter.code`. If a parameter allows repeating values, the value in the YAML may be a sequence/array. For example, the `path-resource` parameter specifies relative paths to additional folders that contain predefined resources (see [Specifying Additional Resource Paths](tips/#specifying-additional-resource-paths)). |
+| parameters | definition.parameter | Consists of key-value pairs where the keys are values of `definition.parameter.code`. For R5 IG resources, the keys can be a FSH code that specifies the `code` and `system` values of `definition.parameter.code`, which is a Coding. See the [Exhaustive Example](#exhaustive-example) for details. If a parameter allows repeating values, the value in the YAML may be a sequence/array. For example, the `path-resource` parameter specifies relative paths to additional folders that contain predefined resources (see [Specifying Additional Resource Paths](tips/#specifying-additional-resource-paths)). |
 | publisher | publisher, with cardinality changed to 0..* | Publisher can be a single item or a list, each with a name and optional url and/or email. The first publisher's name will be used as IG.publisher.  The contact details and/or additional publishers will be translated into IG.contact values |
 | releaseLabel or releaselabel | N/A | Used to add a `releaseLabel` parameter to `IG.definition.parameter` |
 | resources | definition.resource | SUSHI can auto-generate a list of resources based on FSH definitions and provided JSON or XML resources, but this property can be used to add additional entries or override generated entries. SUSHI uses the {resource type}/{resource name} format as the YAML key (corresponding to IG.definition.resource.reference). Authors can specify the value "omit" to omit a FSH-generated resource from the resource list. `groupingId` can be used, but top-level groups syntax may be a better option. |
@@ -171,6 +172,8 @@ The table below lists all configuration properties that can be used in SUSHI's *
 | url | url | As specified in the IG resource. If unspecified, defaults to `{canonical}/ImplementationGuide/{id}`. |
 | useContext | useContext | As specified in the IG resource |
 | version | version | As specified in the IG resource |
+| versionAlgorithmString | versionAlgorithm[x] |  As specified in the IG resource - **Note:** this is an R5 IG element |
+| versionAlgorithmCoding | versionAlgorithm[x] |  As specified in the IG resource - **Note:** this is an R5 IG element |
 
 ## Exhaustive Example
 
