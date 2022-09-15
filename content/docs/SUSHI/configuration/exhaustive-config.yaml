@@ -139,7 +139,7 @@ groups:
 # sub-pages.
 #
 # For R5 ImplementationGuides, the IG.definition.page element now
-# now supports a source[x] element. SUSHI will generate sourceUrl
+# supports a source[x] element. SUSHI will generate sourceUrl
 # based on the name if it is not provided. To provide a source,
 # add a key/value pair subproperty with the type slice as the key.
 pages:
@@ -166,8 +166,9 @@ pages:
 # * copyright
 # * packageId
 
-# The R5 ImplementationGuide resource also defines properties that
-# can be used as is not represented above:
+# The R5 ImplementationGuide resource defines additional properties
+# not represented above. These properties can be used as-is and
+# should follow the format defined in ImplementationGuide:
 # * copyrightLabel
 # * versionAlgorithm[x], which should be specified with the type slice (e.g. versionAlgorithmString)
 
@@ -208,7 +209,7 @@ parameters:
 # parameters:
 #   generate-xml: true
 #   validation: [allow-any-extensions, no-broken-links]
-#    http://example.org/fhir/other-system#example: false
+#   http://example.org/fhir/other-system#example: false
 
 # The FSHOnly flag indicates if only FSH resources should be exported.
 # If set to true, no IG related content will be generated.
