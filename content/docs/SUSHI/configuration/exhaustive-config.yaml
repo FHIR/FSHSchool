@@ -56,6 +56,7 @@ jurisdiction: urn:iso:std:iso:3166#US "United States of America"
 # The dependencies property corresponds to IG.dependsOn. The key is the
 # package id and the value is the version (or dev/current). For advanced
 # use cases, the value can be an object with keys for `uri` and `version`.
+# For R5 ImplementationGuides, the object can also have a key for `reason`.
 dependencies:
   hl7.fhir.us.core: 3.1.0
   hl7.fhir.us.mcode:
@@ -93,6 +94,17 @@ resources:
     description: An example Patient
     exampleBoolean: true
   Patient/bad-example: omit
+# For R5 ImplementationGuides, the example[x] property was replaced
+# with isExample. A profile property is also included. These can be
+# specified directly in configuration. Profile can be a single item
+# or an array.
+# An example resources configuration for an R5 ImplementationGuide:
+# resources:
+#   Patient/my-example-patient:
+#     name: My Example Patient
+#     description: An example Patient
+#     isExample: true
+#     profile: http://example.org/fhir/StructureDefinition/my-patient-profile
 
 # Groups can control certain aspects of the IG generation.  The IG
 # documentation recommends that authors use the default groups that
@@ -124,6 +136,10 @@ groups:
 # file name extension.  Any subproperties that are valid filenames
 # with supported extensions (e.g., .md/.xml) will be treated as
 # sub-pages.
+# For R5 ImplementationGuides, the IG.definition.page element now
+# now supports a source[x] element. SUSHI will generate sourceUrl
+# based on the name if it is not provided. To provide a source,
+# add a key/value pair subproperty with the choice type as the key.
 pages:
   index.md:
     title: Example Home
@@ -147,6 +163,10 @@ pages:
 # * useContext
 # * copyright
 # * packageId
+# The R5 ImplementationGuide resource also defines properties that
+# can be used as is not represented above:
+# * copyrightLabel
+# * versionAlgorithm[x], which should be specified with the type slice (e.g. versionAlgorithmString)
 
 # The menu property will be used to generate the input/menu.xml file.
 # The menu is represented as a simple structure where the YAML key
@@ -173,6 +193,18 @@ parameters:
   excludettl: true
   validation: [allow-any-extensions, no-broken-links]
   show-inherited-invariants: false
+# For R5 ImplementationGuides, the IG.definition.parameter.code became a Coding
+# In this case, the YAML key becomes the code.code. If the code provided is in the
+# value set bound in the IG definition (see: http://hl7.org/fhir/2022Sep/valueset-guide-parameter-code.html),
+# that system is automatically set. If no system is provided, SUSHI will default the system
+# to the system for the IG Parameter Codes
+# (see: http://build.fhir.org/ig/FHIR/fhir-tools-ig/branches/master/CodeSystem-ig-parameters.html).
+# To use a different system, the YAML key can be a FSH code.
+# An example parameters configuration for an R5 ImplementationGuide:
+# parameters:
+#   generate-xml: true
+#   validation: [allow-any-extensions, no-broken-links]
+#    http://example.org/fhir/other-system#example: false
 
 # The FSHOnly flag indicates if only FSH resources should be exported.
 # If set to true, no IG related content will be generated.
