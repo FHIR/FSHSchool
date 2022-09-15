@@ -94,6 +94,7 @@ resources:
     description: An example Patient
     exampleBoolean: true
   Patient/bad-example: omit
+
 # For R5 ImplementationGuides, the example[x] property was replaced
 # with isExample. A profile property is also included. These can be
 # specified directly in configuration. Profile can be a single item
@@ -136,10 +137,11 @@ groups:
 # file name extension.  Any subproperties that are valid filenames
 # with supported extensions (e.g., .md/.xml) will be treated as
 # sub-pages.
+#
 # For R5 ImplementationGuides, the IG.definition.page element now
 # now supports a source[x] element. SUSHI will generate sourceUrl
 # based on the name if it is not provided. To provide a source,
-# add a key/value pair subproperty with the choice type as the key.
+# add a key/value pair subproperty with the type slice as the key.
 pages:
   index.md:
     title: Example Home
@@ -163,6 +165,7 @@ pages:
 # * useContext
 # * copyright
 # * packageId
+
 # The R5 ImplementationGuide resource also defines properties that
 # can be used as is not represented above:
 # * copyrightLabel
@@ -193,7 +196,8 @@ parameters:
   excludettl: true
   validation: [allow-any-extensions, no-broken-links]
   show-inherited-invariants: false
-# For R5 ImplementationGuides, the IG.definition.parameter.code became a Coding
+
+# For R5 ImplementationGuides, the IG.definition.parameter.code became a Coding.
 # In this case, the YAML key becomes the code.code. If the code provided is in the
 # value set bound in the IG definition (see: http://hl7.org/fhir/2022Sep/valueset-guide-parameter-code.html),
 # that system is automatically set. If no system is provided, SUSHI will default the system
