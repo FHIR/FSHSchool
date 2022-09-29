@@ -120,6 +120,7 @@ While SUSHI is running, it will print status messages as it processes your proje
 ```
 
 {{% alert title="Note" color="primary" %}} The following message is expected, and should be ignored:(node:46420) Warning: Accessing non-existent property 'INVALID_ALT_NUMBER' of module exports inside circular dependency (Use `node --trace-warnings ...` to show where the warning was created)
+{{% /alert %}}
 
 ## Error Messages
 
