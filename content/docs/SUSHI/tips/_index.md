@@ -146,3 +146,35 @@ This will result in your logical model example being listed and displayed as a p
 {{% alert title="Note" color="success" %}}
 This does not allow/support using the `Instance` keyword for creating examples of logical models. Authors must created the example as raw JSON or XML.  Support for the `Instance` keyword may come in future versions of SUSHI.
 {{% /alert %}}
+
+## Link References
+
+SUSHI creates the **fsh-generated/includes/fsh-link-references.md** file to make it easier to create links to resource definitions in other markdown pages. This file's contents are a list of markdown link definitions, with one link for each resource in your **ImplementationGuide.json** file. This will include resources defined in FSH, the `resources` configuration property, and predefined resources. For example:
+```markdown
+[MyPatient]: StructureDefinition-MyPatient.html
+[MyExtension]: StructureDefinition-MyExtension.html
+```
+
+The rules for determining what the link text will be for a given resource are as follows:
+* For resources defined in FSH:
+  * Non-instance resources use the _name_ of the resource.
+  * Instances use the _id_ of the resource.
+* For predefined resources:
+  * Resources in the `examples` folder use the _id_ of the resource.
+  * Resources in other folders attempt to use the _name_ of the resource if this is a string value, and otherwise use the _id_ of the resource.
+* For configured resources:
+  * The _name_ of the resource is used, if available.
+  * Otherwise, the _reference_ of the resource (which is the key used in **sushi-config.yaml**) is used, with the resource's type and first `/` removed. For example, a resource with reference `StructureDefinition/MyPatient` would have `MyPatient` as its link text.
+
+To use these generated links, include `fsh-generated-links.md` in your custom markdown pages. This can be done by including the following line at the bottom of your custom markdown page:
+```markdown
+{% include fsh-link-references.md %}
+```
+
+Then, you can create links by including the resource's link text within square brackets. For example, if you had a Profile named `MyPatient`, your custom markdown file could look like this:
+```markdown
+## Patients
+This IG provides [MyPatient] for patient information.
+
+{% include fsh-link-references.md %}
+```
