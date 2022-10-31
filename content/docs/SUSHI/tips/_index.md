@@ -144,5 +144,30 @@ resources:
 This will result in your logical model example being listed and displayed as a proper example of the logical model.
 
 {{% alert title="Note" color="success" %}}
-This does not allow/support using the `Instance` keyword for creating examples of logical models. Authors must created the example as raw JSON or XML.  Support for the `Instance` keyword may come in future versions of SUSHI.
+This does not allow/support using the `Instance` keyword for creating examples of logical models. Authors must create the example as raw JSON or XML.  Support for the `Instance` keyword may come in future versions of SUSHI.
 {{% /alert %}}
+
+## Manual Slice Ordering
+
+Starting in SUSHI `v3.0.0`, authors can exercise full manual control over the ordering of slice elements within Instances. Previous versions of SUSHI allowed for partial control of slice element ordering, but some ordering was determined by SUSHI's implementation and could not be affected by an author. In current version of SUSHI (`v3.0.0` or later), authors can configure their FSH projects to manually control slice ordering.
+
+Manual slice ordering follows the following rules:
+
+* slices appear on an Instance in the order of FSH rules
+* any required slices (`1..*`) that are not referenced in a FSH rule on the Instance appear after all referenced slices in the order in which they are defined on the Instance's StructureDefinition (the instance's `InstanceOf`)
+* a rule that references a sliced element must reference it using the slice name
+  * Note: when manual slice ordering is enabled, it is not possible to refer to an element with a slice name by numeric index only. Without this option, if an author knew which numeric index a slice would be at in the exported instance, that element could be accessed without using the slice name.
+  * e.g.: `* extension[my-slice].valueString = "hello"` must be used
+
+
+To use this ordering, add the following to `sushi-config.yaml`:
+
+```yaml
+instanceOptions:
+  manualSliceOrdering: true
+```
+
+Example (TODO)
+
+- should include needing to use a named slice vs accessing slice by index
+- should include needing to control manual order
