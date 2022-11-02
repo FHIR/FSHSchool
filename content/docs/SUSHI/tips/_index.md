@@ -149,15 +149,15 @@ This does not allow/support using the `Instance` keyword for creating examples o
 
 ## Manual Slice Ordering
 
-Starting in SUSHI `v3.0.0`, authors can exercise full manual control over the ordering of slice elements within Instances. Previous versions of SUSHI allowed for partial control of slice element ordering, but some ordering was determined by SUSHI's implementation and could not be affected by an author. In current version of SUSHI (`v3.0.0` or later), authors can configure their FSH projects to manually control slice ordering.
+Starting in SUSHI `v3.0.0`, authors can exercise full manual control over the ordering of slice elements within Instances. Previous versions of SUSHI allowed for partial control of slice element ordering, but some ordering was determined by SUSHI's implementation and could not be affected by an author. In current version of SUSHI (`v3.0.0` or later), authors can configure their FSH projects to manually control slice ordering. When using manual slice ordering, it is recommended to also make use of soft indexing, and to avoid using hard numeric indices.
 
 Manual slice ordering follows the following rules:
 
 * slices appear on an Instance in the order of FSH rules
 * any required slices (`1..*`) that are not referenced in a FSH rule on the Instance appear after all referenced slices in the order in which they are defined on the Instance's StructureDefinition (the instance's `InstanceOf`)
-* a rule that references a sliced element must reference it using the slice name
-  * Note: when manual slice ordering is enabled, it is not possible to refer to an element with a slice name by numeric index only. Without this option, if an author knew which numeric index a slice would be at in the exported instance, that element could be accessed without using the slice name.
-  * e.g.: `* extension[my-slice].valueString = "hello"` must be used
+* a rule that references a sliced element must reference it using the slice name if soft indices are used
+* when rule paths contain soft indices, the resolved numeric index will take into account named slices that have already been referenced by previous rule paths
+  * Note: when manual slice ordering is enabled, it is not possible to refer to an element with a slice name by soft numeric index only. If hard numeric indices are used (not recommended), they may still directly access named slices. This may lead to undesired output.
 
 
 To use this ordering, add the following to `sushi-config.yaml`:
@@ -170,7 +170,7 @@ instanceOptions:
 ### Examples
 
 ```
-Profile: ExampleObservation
+Profile: ExampleBPObservation
 Parent: Observation
 // slicing rules for component omitted for brevity
 * component contains systolicBP 1..1 MS and diastolicBP 1..1 MS
@@ -179,13 +179,13 @@ Parent: Observation
 When using this profile without manual slice ordering, the `systolicBP` slice will always be the first entry in the `component` element, and the `diastolicBP` slice will always be the second entry in the `component` element. So, the following two instances would have the same `component` elements:
 ```
 Instance: ExampleByName
-InstanceOf: ExampleObservation
+InstanceOf: ExampleBPObservation
 // some required elements omitted for brevity
 * component[systolicBP].valueQuantity = 108 'mm[Hg]'
 * component[diastolicBP].valueQuantity = 45 'mm[Hg]'
 
 Instance: ExampleByNumber
-InstanceOf: ExampleObservation
+InstanceOf: ExampleBPObservation
 // some required elements omitted for brevity
 * component[0].valueQuantity = 108 'mm[Hg]'
 * component[1].valueQuantity = 45 'mm[Hg]'
@@ -200,7 +200,7 @@ Alias: $ObservationCategoryCodes = http://terminology.hl7.org/CodeSystem/observa
 
 Profile: ExampleObservation
 Parent: Observation
-// slicing rules for component omitted for brevity
+// slicing rules for category omitted for brevity
 * category contains CategoryA 1..1 and CategoryB 1..1
 * category[CategoryA] = $ObservationCategoryCodes#vital-signs
 * category[CategoryB] = $ObservationCategoryCodes#survey
@@ -212,3 +212,15 @@ InstanceOf: ExampleObservation
 * category[CategoryA] = $ObservationCategoryCodes#vital-signs
 ```
 This instance's `category` element will have the `survey` code as the first entry and the `vital-signs` code as the second entry.
+
+Soft index resolution will account for named slices that have been referenced in previous rules:
+```
+Instance: SoftIndexExample
+InstanceOf: ExampleObservation
+// some required elements omitted for brevity
+* category[+] = $ObservationCategoryCodes#laboratory // this + will resolve to index 0
+* category[CategoryB] = $ObservationCategoryCodes#survey
+* category[+] = $ObservationCategoryCodes#exam // this + will resolve to index 2, since the CategoryB slice occupies index 1
+* category[CategoryA] = $ObservationCategoryCodes#vital-signs
+```
+This instance's `category` element will have four entries in the order specified: `laboratory`, `survey`, `exam`, `vital-signs`.
