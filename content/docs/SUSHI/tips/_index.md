@@ -167,7 +167,48 @@ instanceOptions:
   manualSliceOrdering: true
 ```
 
-Example (TODO)
+### Examples
 
-- should include needing to use a named slice vs accessing slice by index
-- should include needing to control manual order
+```
+Profile: ExampleObservation
+Parent: Observation
+// slicing rules for component omitted for brevity
+* component contains systolicBP 1..1 MS and diastolicBP 1..1 MS
+```
+
+When using this profile without manual slice ordering, the `systolicBP` slice will always be the first entry in the `component` element, and the `diastolicBP` slice will always be the second entry in the `component` element. So, the following two instances would have the same `component` elements:
+```
+Instance: ExampleByName
+InstanceOf: ExampleObservation
+// some required elements omitted for brevity
+* component[systolicBP].valueQuantity = 108 'mm[Hg]'
+* component[diastolicBP].valueQuantity = 45 'mm[Hg]'
+
+Instance: ExampleByNumber
+InstanceOf: ExampleObservation
+// some required elements omitted for brevity
+* component[0].valueQuantity = 108 'mm[Hg]'
+* component[1].valueQuantity = 45 'mm[Hg]'
+```
+
+When manual slice ordering is enabled, rules that set values on the `systolicBP` or `diastolicBP` slices _must_ use the slice name. With this option enabled, the `ExampleByName` instance would produce the same entries in `component`, but the `ExampleByNumber` instance would contain four entries in the `component` list: two entries that are not part of a named slice, followed by the `systolicBP` slice, and finally the `diastolicBP` slice.
+
+When manual slice ordering is enabled, if any required slices with required assigned values are not present in an instance's list of rules, they will be added in the order in which they are defined. If you want these slices to appear in a different order on the instance without adding any new information to the slices, add rules on the instance that reassign the existing values:
+
+```
+Alias: $ObservationCategoryCodes = http://terminology.hl7.org/CodeSystem/observation-category
+
+Profile: ExampleObservation
+Parent: Observation
+// slicing rules for component omitted for brevity
+* category contains CategoryA 1..1 and CategoryB 1..1
+* category[CategoryA] = $ObservationCategoryCodes#vital-signs
+* category[CategoryB] = $ObservationCategoryCodes#survey
+
+Instance: ReorderedExample
+InstanceOf: ExampleObservation
+// some required elements omitted for brevity
+* category[CategoryB] = $ObservationCategoryCodes#survey
+* category[CategoryA] = $ObservationCategoryCodes#vital-signs
+```
+This instance's `category` element will have the `survey` code as the first entry and the `vital-signs` code as the second entry.
