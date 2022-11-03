@@ -25,7 +25,7 @@ The **sushi-config.yaml** file provides project configuration data to SUSHI. It 
 
 ## Initializing a SUSHI Project
 
-Setting up a fully-featured FSH project can be complex, so SUSHI provides an `--init` option to do it automatically. When `sushi --init` is run, SUSHI will request project information from the user:
+Setting up a fully-featured FSH project can be complex, so SUSHI provides an `init` command to do it automatically. When `sushi init` is run, SUSHI will request project information from the user:
 
 ```text
 Name (Default: ExampleIG): my-project
@@ -57,7 +57,7 @@ my-project
 └── sushi-config.yaml
 ```
 
-In addition to the **input/fsh** folder, `--init` creates an **input/pagecontent** folder containing a dummy home page for your IG. The files **ig.ini** and **ignoreWarnings.txt** are required by the [template-based IG Publisher](https://build.fhir.org/ig/FHIR/ig-guidance/using-templates.html). The `.bat` and `.sh` scripts which allow you to [run the IG Publisher](/docs/sushi/running/#downloading-the-ig-publisher) from your command line. Finally, a default `.gitignore` file for integration with GitHub is provided. From this point on, you can modify the configuration and definitions as necessary.
+In addition to the **input/fsh** folder, `init` creates an **input/pagecontent** folder containing a dummy home page for your IG. The files **ig.ini** and **ignoreWarnings.txt** are required by the [template-based IG Publisher](https://build.fhir.org/ig/FHIR/ig-guidance/using-templates.html). The `.bat` and `.sh` scripts which allow you to [run the IG Publisher](/docs/sushi/running/#downloading-the-ig-publisher) from your command line. Finally, a default `.gitignore` file for integration with GitHub is provided. From this point on, you can modify the configuration and definitions as necessary.
 
 ## Using the HL7 IG Publisher and Auto-Builder
 

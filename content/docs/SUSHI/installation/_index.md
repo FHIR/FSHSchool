@@ -27,7 +27,7 @@ To install SUSHI, open up a command prompt and type the following command:
 Check the installation via the command below:
 
 ```shell
-{{< terminal >}} sushi -h
+{{< terminal >}} sushi help
 ```
 
 If the command outputs instructions on using the SUSHI command line interface (CLI), you're ready to run SUSHI.
