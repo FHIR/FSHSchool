@@ -103,11 +103,11 @@ See the following documentation for additional details:
 The IG Publisher supports including instances of logical models as binary resources. This feature was announced and discussed in a [Logical Model Examples](https://chat.fhir.org/#narrow/stream/179252-IG-creation/topic/Logical.20Model.20Examples/near/251192344) thread on chat.fhir.org.  The basic steps an author needs to take in order to include logical model examples in a SUSHI project are:
 
 1. Add the example to the `input/resources` or `input/examples` folder
-    a. The file name of the example should be `Binary-{id}.json` or `Binary-{id}.xml` (substituting `{id}` for the real id)
+    - The file name of the example should be `Binary-{id}.json` or `Binary-{id}.xml` (substituting `{id}` for the real id)
 2. Add an entry for the example in the `sushi-config.yaml` `resources` property
-    a. Specify a `name`
-    b. Specify `exampleCanonical` pointing to the canonical of your logical model
-    c. Add an extension w/ the proper resource format (`application/fhir+json` or `application/xml`)
+    - Specify a `name`
+    - Specify `exampleCanonical` pointing to the canonical of your logical model
+    - Add an extension w/ the proper resource format (`application/fhir+json` or `application/xml`)
 
 For example, given the following simple logical model definition in an IG w/ IG canonical root `http://example.org`:
 
