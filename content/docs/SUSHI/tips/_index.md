@@ -160,11 +160,11 @@ The rules for determining what the link text will be for a given resource are as
   * Non-instance resources use the _name_ of the resource.
   * Instances use the _id_ of the resource.
 * For predefined resources:
-  * Resources in the `examples` folder use the _id_ of the resource.
-  * Resources in other folders attempt to use the _name_ of the resource if this is a string value, and otherwise use the _id_ of the resource.
-* For configured resources:
+  * Resources in the `input/examples` folder use the _id_ of the resource.
+  * Resources in other sub-folders of `input` attempt to use the _name_ of the resource if this is a string value, and otherwise use the _id_ of the resource.
+* For resources that are manually configured in `sushi-config.yaml`:
   * The _name_ of the resource is used, if available.
-  * Otherwise, the _reference_ of the resource (which is the key used in **sushi-config.yaml**) is used, with the resource's type and first `/` removed. For example, a resource with reference `StructureDefinition/MyPatient` would have `MyPatient` as its link text.
+  * Otherwise, the _id_ of the resource is used.
 
 To use these generated links, include `fsh-generated-links.md` in your custom markdown pages. This can be done by including the following line at the bottom of your custom markdown page:
 ```markdown
