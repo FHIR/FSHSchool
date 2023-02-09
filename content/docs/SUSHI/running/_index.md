@@ -20,6 +20,10 @@ SUSHI is executed from the command line. The general form of the SUSHI execution
 
 Use `sushi --version` and `sushi help` to get basic information about the current SUSHI version.
 
+{{% alert title="Note" color="info" %}}
+Previous versions of SUSHI did not use sub-commands such as `build` and `init`. While SUSHI users are encouraged to use the new sub-commands, SUSHI will attempt to properly handle legacy usage when a sub-command is not provided.
+{{% /alert %}}
+
 ### SUSHI Commands
 
 SUSHI provides various commands to use with FSH projects. The following sections provide more details on each.
