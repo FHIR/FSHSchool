@@ -35,7 +35,7 @@ The `build` command is used to build a SUSHI project. It can be used as follows:
 where options include the following (in any order):
 
 ```text
--l, --log-level <level>  specify the level of log messages: error, warn, info (default), debug
+-l, --log-level <level>  specify the level of log messages (default: "info") (choices: "error", "warn", "info", "debug")
 -o, --out <out>          the path to the output folder
 -p, --preprocessed       output FSH produced by preprocessing steps
 -r, --require-latest     exit with error if this is not the latest version of SUSHI (default: false)
