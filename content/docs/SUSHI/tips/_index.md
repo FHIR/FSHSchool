@@ -224,3 +224,35 @@ InstanceOf: ExampleObservation
 * category[CategoryA] = $ObservationCategoryCodes#vital-signs
 ```
 This instance's `category` element will have four entries in the order specified: `laboratory`, `survey`, `exam`, `vital-signs`.
+
+## Link References
+
+SUSHI creates the **fsh-generated/includes/fsh-link-references.md** file to make it easier to create links to resource definitions in other markdown pages. This file's contents are a list of markdown link definitions, with one link for each resource in your **ImplementationGuide.json** file. This will include resources defined in FSH, the `resources` configuration property, and predefined resources. For example:
+```markdown
+[MyPatient]: StructureDefinition-MyPatient.html
+[MyExtension]: StructureDefinition-MyExtension.html
+```
+
+The rules for determining what the link text will be for a given resource are as follows:
+* For resources defined in FSH:
+  * Non-instance resources use the _name_ of the resource.
+  * Instances use the _id_ of the resource.
+* For predefined resources:
+  * Resources in the `input/examples` folder use the _id_ of the resource.
+  * Resources in other sub-folders of `input` attempt to use the _name_ of the resource if this is a string value, and otherwise use the _id_ of the resource.
+* For resources that are manually configured in `sushi-config.yaml`:
+  * The _name_ of the resource is used, if available.
+  * Otherwise, the _id_ of the resource is used.
+
+To use these generated links, include `fsh-generated-links.md` in your custom markdown pages. This can be done by including the following line at the bottom of your custom markdown page:
+```markdown
+{% include fsh-link-references.md %}
+```
+
+Then, you can create links by including the resource's link text within square brackets. For example, if you had a Profile named `MyPatient`, your custom markdown file could look like this:
+```markdown
+## Patients
+This IG provides [MyPatient] for patient information.
+
+{% include fsh-link-references.md %}
+```
