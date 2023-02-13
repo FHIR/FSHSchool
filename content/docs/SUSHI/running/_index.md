@@ -39,12 +39,12 @@ The `build` command is used to build a SUSHI project. It can be used as follows:
 where options include the following (in any order):
 
 ```text
--d, --debug           output extra debugging information
--o, --out <out>       the path to the output folder
--p, --preprocessed    output FSH produced by preprocessing steps
--r, --require-latest  exit with error if this is not the latest version of SUSHI (default: false)
--s, --snapshot        generate snapshot in Structure Definition output (default: false)
--h, --help            display help for command
+-l, --log-level <level>  specify the level of log messages (default: "info") (choices: "error", "warn", "info", "debug")
+-o, --out <out>          the path to the output folder
+-p, --preprocessed       output FSH produced by preprocessing steps
+-r, --require-latest     exit with error if this is not the latest version of SUSHI (default: false)
+-s, --snapshot           generate snapshot in Structure Definition output (default: false)
+-h, --help               display help for command
 ```
 
 Further information about each option can be found in [Build Command Option Details](#build-command-option-details).
