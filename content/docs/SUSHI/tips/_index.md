@@ -149,15 +149,16 @@ This does not allow/support using the `Instance` keyword for creating examples o
 
 ## Manual Slice Ordering
 
-Starting in SUSHI `v3.0.0`, authors can exercise full manual control over the ordering of slice elements within Instances. Previous versions of SUSHI allowed for partial control of slice element ordering, but some ordering was determined by SUSHI's implementation and could not be affected by an author. In current version of SUSHI (`v3.0.0` or later), authors can configure their FSH projects to manually control slice ordering. When using manual slice ordering, it is recommended to also make use of soft indexing, and to avoid using hard numeric indices.
+Starting in SUSHI `v3.0.0`, authors can exercise full manual control over the ordering of slice elements within Instances. Previous versions of SUSHI allowed for partial control of slice element ordering, but some ordering was determined by SUSHI's implementation and could not be affected by an author. In the current version of SUSHI (`v3.0.0` or later), authors can configure their FSH projects to manually control slice ordering. When using manual slice ordering, authors should use soft indexing and avoid using hard numeric indices.
 
 Manual slice ordering follows the following rules:
 
 * slices appear on an Instance in the order of FSH rules
 * any required slices (`1..*`) that are not referenced in a FSH rule on the Instance appear after all referenced slices in the order in which they are defined on the Instance's StructureDefinition (the instance's `InstanceOf`)
-* a rule that references a sliced element must reference it using the slice name if soft indices are used
-* when rule paths contain soft indices, the resolved numeric index will take into account named slices that have already been referenced by previous rule paths
-  * Note: when manual slice ordering is enabled, it is not possible to refer to an element with a slice name by soft numeric index only. If hard numeric indices are used (not recommended), they may still directly access named slices. This may lead to undesired output.
+* a rule that references a sliced element should reference it using the slice name
+* to reference multiple items in a slice, use hard or soft indices after the slice name (e.g., `component[myslice][0]`)
+* when rule paths use only a soft index (instead of a slice name), the resolved numeric index will take into account named slices that have already been referenced by previous rule paths. This should only be used to add items that do not belong to a defined slice.
+  * Note: when manual slice ordering is enabled, it is not possible to refer to an element with a slice name by soft numeric index only. If hard numeric indices are used (not recommended), they may still directly access previously referenced named slices. This may lead to undesired output.
 
 
 To use this ordering, add the following to `sushi-config.yaml`:
