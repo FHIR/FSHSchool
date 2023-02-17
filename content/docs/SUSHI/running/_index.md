@@ -47,11 +47,14 @@ where options include the following (in any order):
 -h, --help               display help for command
 ```
 
+> Note: For SUSHI versions prior to 3.0.0, use `sushi {fsh-project-directory} {options}` in place of `sushi build {fsh-project-directory} {options}`.
+
 Further information about each option can be found in [Build Command Option Details](#build-command-option-details).
 
 {{% alert title="Tip" color="success" %}}
 If you run SUSHI from your FSH project directory, and accept the defaults, the command can be shortened to `sushi build .` or simply `sushi build`.
 {{% /alert %}}
+
 #### `init`
 
 The `init` command is used to generate a project structure that is compatible with the FHIR IG Publisher. It can be used as follows:
@@ -60,9 +63,15 @@ The `init` command is used to generate a project structure that is compatible wi
 {{< terminal >}} sushi init
 ```
 
+> Note: For SUSHI versions prior to 3.0.0, use `sushi --init`.
+
 Further details on how to use this command can be found in [Initializing a SUSHI Project](/docs/sushi/project/#initializing-a-sushi-project).
 
 #### `update-dependencies`
+
+{{% small-pageinfo color="primary" %}}
+<span class="tag">SUSHI 3.0</span>The `update-dependencies` command is only available in SUSHI 3.0.0 and later.
+{{% /small-pageinfo %}}
 
 The `update-dependencies` command is used to update the FSH project's dependencies to the latest version. The command will check all dependencies defined in the `sushi-config.yaml` file to see if they are at the latest published version. SUSHI will output a list of all dependencies that have later versions and prompt the author whether to update. Choosing to update will directly modify the `sushi-config.yaml` file with the latest version and download the latest version of the dependency to the FHIR cache. Any dependency with a `current` or `dev` version will not be modified. This command can be used as follows:
 

@@ -48,6 +48,8 @@ Now that you have SUSHI installed and a minimal FSH project, open up a command w
 {{< terminal >}} sushi build .
 ```
 
+> Note: For SUSHI versions prior to 3.0.0, run `sushi .`.
+
 {{% alert title="Note" color="primary" %}}
 The dot (.) represents "this directory," the location of the FSH files. You can also specify the location explicitly by replacing the dot with a directory path.
 {{% /alert %}}
@@ -149,6 +151,8 @@ FSH ignores extra whitespace, so authors can choose to use whitespace for improv
 {{% /alert %}}
 
 Run SUSHI again (`sushi build .`). The count of Extensions should now be 1.
+
+> Note: For SUSHI versions prior to 3.0.0, run `sushi .`.
 
 ### Step 8: Define a Value Set for Fish Species
 

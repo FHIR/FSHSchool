@@ -30,6 +30,8 @@ Check the installation via the command below:
 {{< terminal >}} sushi help
 ```
 
+> Note: For SUSHI versions prior to 3.0.0, use `sushi --help`.
+
 If the command outputs instructions on using the SUSHI command line interface (CLI), you're ready to run SUSHI.
 
 Use `sushi -v` to display the installed version of SUSHI and the version of the FSH specification it supports. SUSHI follows the [semantic versioning](https://semver.org) convention (MAJOR.MINOR.PATCH):

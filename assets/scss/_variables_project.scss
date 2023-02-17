@@ -6,3 +6,34 @@ Add styles or override variables from the theme here.
 $success: #04a304 !default;
 $info:  #30638E !default;;
 $warning: #ff1e00 !default;
+
+
+/*
+Tags - CSS based on tags from docsy taxonomy tags
+*/
+.tag {
+  background: $info;
+  border-width: 0;
+  border-radius: 0 3px 3px 0;
+  color: #fff;
+  display: inline-block;
+  font-size: 0.8em;
+  line-height: 1.5em;
+  min-height: 1.5em;
+  max-width: 100%;
+  padding: 0 .5em 0 1.5em;
+  position: relative;
+  margin: 0 .5em 0 0;
+  text-decoration: none;
+  -webkit-transition: color .2s;
+  -webkit-clip-path: polygon(100% 0,100% 100%,.8em 100%,0 50%,.8em 0);
+  clip-path: polygon(100% 0,100% 100%,.8em 100%,0 50%,.8em 0);
+}
+
+// Decrease margin and padding from default page info
+.smaller-pageinfo-spacing {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding: 1rem !important;
+  padding-bottom:0 !important;
+}
