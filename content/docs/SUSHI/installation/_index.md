@@ -27,10 +27,12 @@ To install SUSHI, open up a command prompt and type the following command:
 Check the installation via the command below:
 
 ```shell
-{{< terminal >}} sushi help
+{{< terminal >}} sushi --help
 ```
 
-> Note: For SUSHI versions prior to 3.0.0, use `sushi --help`.
+{{% small-pageinfo color="primary" %}}
+<span class="tag">SUSHI 3.0</span>For SUSHI 3.0.0 and later, use `sushi help`.
+{{% /small-pageinfo %}}
 
 If the command outputs instructions on using the SUSHI command line interface (CLI), you're ready to run SUSHI.
 

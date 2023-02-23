@@ -25,7 +25,11 @@ The **sushi-config.yaml** file provides project configuration data to SUSHI. It 
 
 ## Initializing a SUSHI Project
 
-Setting up a fully-featured FSH project can be complex, so SUSHI provides an `init` command to do it automatically. When `sushi init` is run, SUSHI will request project information from the user:
+Setting up a fully-featured FSH project can be complex, so SUSHI provides an `--init` argument to do it automatically. When `sushi --init` is run, SUSHI will request project information from the user:
+
+{{% small-pageinfo color="primary" %}}
+<span class="tag">SUSHI 3.0</span>For SUSHI 3.0.0 and later, use `sushi init`.
+{{% /small-pageinfo %}}
 
 ```text
 Name (Default: ExampleIG): my-project
@@ -58,8 +62,6 @@ my-project
 ```
 
 In addition to the **input/fsh** folder, `init` creates an **input/pagecontent** folder containing a dummy home page for your IG. The files **ig.ini** and **ignoreWarnings.txt** are required by the [template-based IG Publisher](https://build.fhir.org/ig/FHIR/ig-guidance/using-templates.html). The `.bat` and `.sh` scripts which allow you to [run the IG Publisher](/docs/sushi/running/#downloading-the-ig-publisher) from your command line. Finally, a default `.gitignore` file for integration with GitHub is provided. From this point on, you can modify the configuration and definitions as necessary.
-
-> Note: For SUSHI versions prior to 3.0.0, use `sushi --init` in place of `sushi init`.
 
 ## Using the HL7 IG Publisher and Auto-Builder
 
@@ -124,7 +126,7 @@ You can populate your project as follows:
 
   ```
   Instance PatientExample1 is not an instance of a resource, so it should only be used inline on other instances, and it will not be exported to a standalone file. Specify "Usage: #inline" to remove this warning.
-  /Detected the following non-conformant Resource definitions.*/   
+  /Detected the following non-conformant Resource definitions.*/
   ```
   Any warning which exactly matches the contents of the first line will be ignored. The second line specifies that any warning beginning with `Detected the following non-conformant Resource definitions` will be ignored.
 
