@@ -55,7 +55,7 @@ where options include the following (in any order):
 
 ```text
 -o, --out <out>          the path to the output folder
--d, --debug           output extra debugging information
+-d, --debug              output extra debugging information
 -p, --preprocessed       output FSH produced by preprocessing steps
 -r, --require-latest     exit with error if this is not the latest version of SUSHI (default: false)
 -s, --snapshot           generate snapshot in Structure Definition output (default: false)
