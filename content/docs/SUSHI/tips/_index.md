@@ -144,5 +144,124 @@ resources:
 This will result in your logical model example being listed and displayed as a proper example of the logical model.
 
 {{% alert title="Note" color="success" %}}
-This does not allow/support using the `Instance` keyword for creating examples of logical models. Authors must created the example as raw JSON or XML.  Support for the `Instance` keyword may come in future versions of SUSHI.
+This does not allow/support using the `Instance` keyword for creating examples of logical models. Authors must create the example as raw JSON or XML.  Support for the `Instance` keyword may come in future versions of SUSHI.
 {{% /alert %}}
+
+## Manual Slice Ordering
+
+{{% small-pageinfo color="primary" %}}
+<span class="tag">SUSHI 3.0</span>The manual slice ordering option is only available in SUSHI 3.0.0 and later.
+{{% /small-pageinfo %}}
+
+Starting in SUSHI `v3.0.0`, authors can exercise full manual control over the ordering of slice elements within Instances. Previous versions of SUSHI allowed for partial control of slice element ordering, but some ordering was determined by SUSHI's implementation and could not be affected by an author. In the current version of SUSHI (`v3.0.0` or later), authors can configure their FSH projects to manually control slice ordering. When using manual slice ordering, authors should use soft indexing and avoid using hard numeric indices.
+
+Manual slice ordering follows the following rules:
+
+* slices appear on an Instance in the order of FSH rules
+* any required slices (`1..*`) that are not referenced in a FSH rule on the Instance appear after all referenced slices in the order in which they are defined on the Instance's StructureDefinition (the instance's `InstanceOf`)
+* a rule that references a sliced element should reference it using the slice name
+* to reference multiple items in a slice, use hard or soft indices after the slice name (e.g., `component[myslice][0]`)
+* when rule paths use only a soft index (instead of a slice name), the resolved numeric index will take into account named slices that have already been referenced by previous rule paths. This should only be used to add items that do not belong to a defined slice.
+  * Note: when manual slice ordering is enabled, it is not possible to refer to an element with a slice name by soft numeric index only. If hard numeric indices are used (not recommended), they may still directly access previously referenced named slices. This may lead to undesired output.
+
+
+To use this ordering, add the following to `sushi-config.yaml`:
+
+```yaml
+instanceOptions:
+  manualSliceOrdering: true
+```
+
+### Examples
+
+```
+Profile: ExampleBPObservation
+Parent: Observation
+// slicing rules for component omitted for brevity
+* component contains systolicBP 1..1 MS and diastolicBP 1..1 MS
+```
+
+When using this profile without manual slice ordering, the `systolicBP` slice will always be the first entry in the `component` element, and the `diastolicBP` slice will always be the second entry in the `component` element. So, the following two instances would have the same `component` elements:
+```
+Instance: ExampleByName
+InstanceOf: ExampleBPObservation
+// some required elements omitted for brevity
+* component[systolicBP].valueQuantity = 108 'mm[Hg]'
+* component[diastolicBP].valueQuantity = 45 'mm[Hg]'
+
+Instance: ExampleByNumber
+InstanceOf: ExampleBPObservation
+// some required elements omitted for brevity
+* component[0].valueQuantity = 108 'mm[Hg]'
+* component[1].valueQuantity = 45 'mm[Hg]'
+```
+
+When manual slice ordering is enabled, rules that set values on the `systolicBP` or `diastolicBP` slices _must_ use the slice name. With this option enabled, the `ExampleByName` instance would produce the same entries in `component`, but the `ExampleByNumber` instance would contain four entries in the `component` list: two entries that are not part of a named slice, followed by the `systolicBP` slice, and finally the `diastolicBP` slice.
+
+When manual slice ordering is enabled, if any required slices with required assigned values are not present in an instance's list of rules, they will be added in the order in which they are defined. If you want these slices to appear in a different order on the instance without adding any new information to the slices, add rules on the instance that reassign the existing values:
+
+```
+Alias: $ObservationCategoryCodes = http://terminology.hl7.org/CodeSystem/observation-category
+
+Profile: ExampleObservation
+Parent: Observation
+// slicing rules for category omitted for brevity
+* category contains CategoryA 1..1 and CategoryB 1..1
+* category[CategoryA] = $ObservationCategoryCodes#vital-signs
+* category[CategoryB] = $ObservationCategoryCodes#survey
+
+Instance: ReorderedExample
+InstanceOf: ExampleObservation
+// some required elements omitted for brevity
+* category[CategoryB] = $ObservationCategoryCodes#survey
+* category[CategoryA] = $ObservationCategoryCodes#vital-signs
+```
+This instance's `category` element will have the `survey` code as the first entry and the `vital-signs` code as the second entry.
+
+Soft index resolution will account for named slices that have been referenced in previous rules:
+```
+Instance: SoftIndexExample
+InstanceOf: ExampleObservation
+// some required elements omitted for brevity
+* category[+] = $ObservationCategoryCodes#laboratory // this + will resolve to index 0
+* category[CategoryB] = $ObservationCategoryCodes#survey
+* category[+] = $ObservationCategoryCodes#exam // this + will resolve to index 2, since the CategoryB slice occupies index 1
+* category[CategoryA] = $ObservationCategoryCodes#vital-signs
+```
+This instance's `category` element will have four entries in the order specified: `laboratory`, `survey`, `exam`, `vital-signs`.
+
+## Link References
+
+{{% small-pageinfo color="primary" %}}
+<span class="tag">SUSHI 3.0</span>Link references are only available in SUSHI 3.0.0 and later.
+{{% /small-pageinfo %}}
+
+SUSHI creates the **fsh-generated/includes/fsh-link-references.md** file to make it easier to create links to resource definitions in other markdown pages. This file's contents are a list of markdown link definitions, with one link for each resource in your **ImplementationGuide.json** file. This will include resources defined in FSH, the `resources` configuration property, and predefined resources. For example:
+```markdown
+[MyPatient]: StructureDefinition-MyPatient.html
+[MyExtension]: StructureDefinition-MyExtension.html
+```
+
+The rules for determining what the link text will be for a given resource are as follows:
+* For resources defined in FSH:
+  * Non-instance resources use the _name_ of the resource.
+  * Instances use the _id_ of the resource.
+* For predefined resources:
+  * Resources in the `input/examples` folder use the _id_ of the resource.
+  * Resources in other sub-folders of `input` attempt to use the _name_ of the resource if this is a string value, and otherwise use the _id_ of the resource.
+* For resources that are manually configured in `sushi-config.yaml`:
+  * The _name_ of the resource is used, if available.
+  * Otherwise, the _id_ of the resource is used.
+
+To use these generated links, include `fsh-generated-links.md` in your custom markdown pages. This can be done by including the following line at the bottom of your custom markdown page:
+```markdown
+{% include fsh-link-references.md %}
+```
+
+Then, you can create links by including the resource's link text within square brackets. For example, if you had a Profile named `MyPatient`, your custom markdown file could look like this:
+```markdown
+## Patients
+This IG provides [MyPatient] for patient information.
+
+{% include fsh-link-references.md %}
+```

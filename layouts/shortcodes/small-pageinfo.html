@@ -1,0 +1,6 @@
+{{/*  Same shortcode as docsy's pageinfo but with max-width-on-larger-screens and updates to margins and padding */}}
+{{ $_hugo_config := `{ "version": 1 }` }}
+{{ $color := .Get "color" | default "primary" }}
+<div class="pageinfo pageinfo-{{ $color }} td-max-width-on-larger-screens smaller-pageinfo-spacing">
+{{ .Inner }}
+</div>
