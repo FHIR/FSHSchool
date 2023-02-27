@@ -219,13 +219,18 @@ Since SUSHI does not implement its own snapshot generator, you must update the p
 
 First, you must [install Firely Terminal](https://docs.fire.ly/projects/Firely-Terminal/InstallingFirelyTerminal.html). Then use Firely Terminal to populate the snapshot elements in the dependency package.
 
-1. Run the command: `fhir bake --package  <packagename>`, substituting the dependency package ID for `<packagename>`.
-    * E.g., `fhir bake --package de.basisprofil.r4`
+1. Run the command: `fhir inflate --package  <packagename>`, substituting the dependency package ID for `<packagename>`.
+    * E.g., `fhir inflate --package de.basisprofil.r4`
 2. Run SUSHI again. The error about missing snapshots should no longer be displayed.
 
 {{% alert title="Tip" color="success" %}}
 You can see a list of the available Firely Terminal versions [here](https://www.nuget.org/packages/Firely.Terminal#versions-body-tab). Version than 2.5.0-beta-7 or higher is recommended. Version 2.4.2 is not recommended because it contains a bug in the snapshot generator that adversely affects SUSHI processing.
 {{% /alert %}}
+
+{{% alert title="Note" color="info" %}}
+For Firely Terminal versions prior to 3.1.0, use the command `bake` instead of `inflate` (e.g. `fhir bake --package <packagename>`).
+{{% /alert %}}
+
 
 
 ## SUSHI Outputs
