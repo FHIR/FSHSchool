@@ -227,6 +227,12 @@ First, you must [install Firely Terminal](https://docs.fire.ly/projects/Firely-T
 You can see a list of the available Firely Terminal versions [here](https://www.nuget.org/packages/Firely.Terminal#versions-body-tab). Version 3.1.0 or higher is required to use the `inflate` command. Versions prior to 3.1.0 offer similar functionality via a `bake` command, but they are no longer recommended.
 {{% /alert %}}
 
+{{% alert title="Firely Terminal Note" color="info" %}}
+Inflating a single package, as described here with `fhir inflate --package  <packagename>`, is a free option in Firely Terminal. Alternately, authors can use `fhir install <packagename>` to download, install, and automatically "inflate" the package. Using `fhir inflate` as a bulk option to inflate the current project and all its dependencies, however, requires a Simplifier license.
+
+The <a href="https://docs.fire.ly/projects/Firely-Terminal/Managing-Packages.html" target="_blank">Package Management section</a>  of the Firely Terminal documentation provides additional details.
+{{% /alert %}}
+
 ## SUSHI Outputs
 
 Based on the inputs in FSH files, **sushi-config.yaml**, and the IG project directory, SUSHI populates the **fsh-generated** directory. For example, running SUSHI on the my-project project from the [Project Structure](/docs/sushi/project/) section would add a **fsh-generated** folder as shown below:
