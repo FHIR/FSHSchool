@@ -228,7 +228,7 @@ You can see a list of the available Firely Terminal versions [here](https://www.
 {{% /alert %}}
 
 {{% alert title="Firely Terminal Note" color="info" %}}
-Inflating a single package, as described here with `fhir inflate --package  <packagename>`, is a free option in Firely Terminal. Alternately, authors can use `fhir install <packagename>` to download, install, and automatically "inflate" the package. Using `fhir inflate` as a bulk option to inflate the current project and all its dependencies, however, requires a Simplifier license.
+Inflating a single package, as described above with `fhir inflate --package  <packagename>`, is a free option in Firely Terminal. Alternately, authors can use `fhir install <packagename>` to download, install, and automatically "inflate" the package. Using `fhir inflate` as a bulk option to inflate the current project and all its dependencies, however, requires a Simplifier license.
 
 The <a href="https://docs.fire.ly/projects/Firely-Terminal/Managing-Packages.html" target="_blank">Package Management section</a>  of the Firely Terminal documentation provides additional details.
 {{% /alert %}}
