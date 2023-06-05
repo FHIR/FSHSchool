@@ -102,7 +102,7 @@ See the following documentation for additional details:
 
 The IG Publisher supports including instances of logical models as binary resources. This feature was announced and discussed in a [Logical Model Examples](https://chat.fhir.org/#narrow/stream/179252-IG-creation/topic/Logical.20Model.20Examples/near/251192344) thread on chat.fhir.org.
 
-Authors can use `Instance:` to create instances of logical models and instances of logical model profiles in the same way as all other FSH instances. These instances are exported using standard JSON serialization and automatically receive `id` and `meta.profile` values when the logical model and SUSHI configuration support those elements. These instances have filenames starting with `Binary-` and will be auto-encoded as part of the publishing process.
+Starting with SUSHI 3.0.0, authors can use `Instance:` to create instances of logical models and instances of logical model profiles in the same way as all other FSH instances. These instances are exported using standard JSON serialization and automatically receive `id` and `meta.profile` values when the logical model and SUSHI configuration support those elements. These instances have filenames starting with `Binary-` and will be auto-encoded as part of the publishing process.
 
 Alternatively, authors can provide their own instances of logical models without defining them in FSH. The basic steps an author needs to take in order to manually include logical model examples in a SUSHI project are:
 
