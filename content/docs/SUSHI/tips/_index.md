@@ -100,7 +100,11 @@ See the following documentation for additional details:
 
 ## Instances of Logical Models
 
-The IG Publisher supports including instances of logical models as binary resources. This feature was announced and discussed in a [Logical Model Examples](https://chat.fhir.org/#narrow/stream/179252-IG-creation/topic/Logical.20Model.20Examples/near/251192344) thread on chat.fhir.org.  The basic steps an author needs to take in order to include logical model examples in a SUSHI project are:
+The IG Publisher supports including instances of logical models as binary resources. This feature was announced and discussed in a [Logical Model Examples](https://chat.fhir.org/#narrow/stream/179252-IG-creation/topic/Logical.20Model.20Examples/near/251192344) thread on chat.fhir.org.
+
+Starting with SUSHI 3.0.0, authors can use `Instance:` to create instances of logical models and instances of logical model profiles in the same way as all other FSH instances. These instances are exported using standard JSON serialization and automatically receive `id` and `meta.profile` values when the logical model and SUSHI configuration support those elements. These instances have filenames starting with `Binary-` and will be auto-encoded as part of the publishing process.
+
+Alternatively, authors can provide their own instances of logical models without defining them in FSH. The basic steps an author needs to take in order to manually include logical model examples in a SUSHI project are:
 
 1. Add the example to the `input/resources` or `input/examples` folder
     - The file name of the example should be `Binary-{id}.json` or `Binary-{id}.xml` (substituting `{id}` for the real id)
@@ -141,11 +145,7 @@ resources:
     exampleCanonical: http://example.org/StructureDefinition/MyLM
 ```
 
-This will result in your logical model example being listed and displayed as a proper example of the logical model.
-
-{{% alert title="Note" color="success" %}}
-This does not allow/support using the `Instance` keyword for creating examples of logical models. Authors must create the example as raw JSON or XML.  Support for the `Instance` keyword may come in future versions of SUSHI.
-{{% /alert %}}
+Both approaches will result in your logical model example being listed and displayed as a proper example of the logical model.
 
 ## Manual Slice Ordering
 
