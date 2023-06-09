@@ -88,8 +88,8 @@ The `profile-element` extension can be used to profile a BackboneElement by poin
 ```
 Profile: MyQuestionnaire
 Parent: Questionnaire
-* item ^type.profile = http://example.org/StructureDefinition/MyQuestionnaire
-* item ^type.profile.extension.url = http://hl7.org/fhir/StructureDefinition/elementdefinition-profile-element
+* item ^type.profile = "http://example.org/StructureDefinition/MyQuestionnaire"
+* item ^type.profile.extension.url = "http://hl7.org/fhir/StructureDefinition/elementdefinition-profile-element"
 * item ^type.profile.extension.valueString = "Questionnaire.item"
 // ...
 ```
