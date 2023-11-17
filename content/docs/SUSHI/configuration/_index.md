@@ -103,10 +103,11 @@ The `dependencies` value is a YAML object for which the keys are each dependency
     hl7.fhir.us.core: 3.1.0
   ```
 
-In addition to standard version identifiers, the following two special versions are supported:
+In addition to standard version identifiers, the following three special versions are supported:
 
   * `dev`: indicates that the dependency should be loaded from the local FHIR cache
   * `current`: indicates that the dependency should be loaded from the last successful auto-build.
+  * `latest`: indicates that the dependency should be loaded using the version tagged as `latest` on the package server.
 
 The `dependencies` property also supports an advanced syntax that allows you to directly specify the dependency id and/or URI if necessary. For example:
 
