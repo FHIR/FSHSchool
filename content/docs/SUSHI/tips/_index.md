@@ -147,6 +147,11 @@ resources:
 
 Both approaches will result in your logical model example being listed and displayed as a proper example of the logical model.
 
+If the logical model does not have `resourceType` or `id`, the same steps as above can be used with a few small adjustments:
+
+- In step 1, the file name of the example can be any valid file name (e.g. `hook-example.json`)
+- In step 2, the key in the resources list should be `Binary/{filename}`, where `{filename}` matches the the file name of the example without the file extension (e.g. `Binary/hook-example`)
+
 ## Manual Slice Ordering
 
 {{% small-pageinfo color="primary" %}}
