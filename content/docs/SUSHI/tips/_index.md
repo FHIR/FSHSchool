@@ -139,7 +139,7 @@ And add the following in your `sushi-config.yaml`:
 resources:
   Binary/my-logical-example:
     extension:
-      - url: http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format
+      - url: http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-format
         valueCode: application/fhir+json
     name: Example of LM
     exampleCanonical: http://example.org/StructureDefinition/MyLM
