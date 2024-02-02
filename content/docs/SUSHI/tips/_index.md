@@ -120,14 +120,15 @@ Logical: MyLM
 Id: MyLM
 Title: "My LM"
 Description: "This is mine"
-* important 1..1 SU boolean "Is this resource important"
+* id 1..1 SU string "Identifier for the logical model"
+* important 1..1 SU boolean "Is this logical model important"
 ```
 
 Create the file `input/examples/Binary-my-logical-example.json`:
 
 ```json
 {
-  "resourceType": "MyLM",
+  "resourceType": "http://example.org/StructureDefinition/MyLM",
   "id": "my-logical-example",
   "important": true
 }
