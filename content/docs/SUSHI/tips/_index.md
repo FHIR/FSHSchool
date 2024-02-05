@@ -120,7 +120,7 @@ Logical: MyLM
 Id: MyLM
 Title: "My LM"
 Description: "This is mine"
-* id 1..1 SU string "Identifier for the logical model"
+* id 1..1 SU id "Identifier for the logical model"
 * important 1..1 SU boolean "Is this logical model important"
 ```
 
