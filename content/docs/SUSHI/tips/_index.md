@@ -120,14 +120,15 @@ Logical: MyLM
 Id: MyLM
 Title: "My LM"
 Description: "This is mine"
-* important 1..1 SU boolean "Is this resource important"
+* id 1..1 SU id "Identifier for the logical model"
+* important 1..1 SU boolean "Is this logical model important"
 ```
 
 Create the file `input/examples/Binary-my-logical-example.json`:
 
 ```json
 {
-  "resourceType": "MyLM",
+  "resourceType": "http://example.org/StructureDefinition/MyLM",
   "id": "my-logical-example",
   "important": true
 }
@@ -139,13 +140,18 @@ And add the following in your `sushi-config.yaml`:
 resources:
   Binary/my-logical-example:
     extension:
-      - url: http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format
+      - url: http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-format
         valueCode: application/fhir+json
     name: Example of LM
     exampleCanonical: http://example.org/StructureDefinition/MyLM
 ```
 
 Both approaches will result in your logical model example being listed and displayed as a proper example of the logical model.
+
+If the logical model does not have `resourceType` or `id`, the same steps as above can be used with a few small adjustments:
+
+- In step 1, the file name of the example can be any valid file name (e.g. `hook-example.json`)
+- In step 2, the key in the resources list should be `Binary/{filename}`, where `{filename}` matches the the file name of the example without the file extension (e.g. `Binary/hook-example`)
 
 ## Manual Slice Ordering
 
