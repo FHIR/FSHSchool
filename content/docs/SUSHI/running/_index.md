@@ -217,7 +217,7 @@ Some non-HL7 FHIR packages are distributed without snapshot elements in their pr
 
 Since SUSHI does not implement its own snapshot generator, you must update the package in your FHIR cache so that its profiles include snapshot elements. Fortunately, the [Firely Terminal](https://fire.ly/products/firely-terminal/) provides a way to do this.
 
-First, you must [install Firely Terminal](https://docs.fire.ly/projects/Firely-Terminal/InstallingFirelyTerminal.html). Then use Firely Terminal to populate the snapshot elements in the dependency package.
+First, you must [install Firely Terminal](https://docs.fire.ly/projects/Firely-Terminal/getting_started/InstallingFirelyTerminal.html). Then use Firely Terminal to populate the snapshot elements in the dependency package.
 
 1. Run the command: `fhir inflate --package  <packagename>`, substituting the dependency package ID for `<packagename>`.
     * E.g., `fhir inflate --package de.basisprofil.r4`
