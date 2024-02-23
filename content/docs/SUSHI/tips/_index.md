@@ -276,12 +276,13 @@ This IG provides [MyPatient] for patient information.
 
 To specify a certain edition of SNOMED CT - for example to ensure terminology validation works correctly - do the following:
 
-1. Add a new `parameters` section to your `sushi-config.yaml`:
+1. Add or modify the `parameters` section in your `sushi-config.yaml` to specify a `path-expansion-params` parameter.
 ```yml
 parameters:
   path-expansion-params: Parameters-expansion.json
 ```
-2. Create an `input/fsh/expansion.fsh` file. If you'd like to use the US edition of SNOMED, fill this in:
+
+2. Create an `input/fsh/expansion.fsh` file and define an instance of `Parameters` with the id `expansion`. Within the Parameters instance, specify a `system-version` parameter. For example, if you'd like to use the US edition of SNOMED, add this definition:
 ```
 Instance: expansion
 InstanceOf: Parameters
@@ -302,3 +303,5 @@ Usage: #definition
 * parameter[+].name = "system-version"
 * parameter[=].valueCanonical = "http://snomed.info/sct|http://snomed.info/sct/45991000052106"
 ```
+
+_Note: The `system-version` and `displayLanguage` parameters correspond to the parameters of the same name in FHIR's [$expand](https://hl7.org/fhir/valueset-operation-expand.html) operation._
