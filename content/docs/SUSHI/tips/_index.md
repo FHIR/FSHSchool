@@ -40,7 +40,7 @@ Content references are supported in `AddElementRules` by way of the `contentRefe
 
 ## Inferred Choice Path
 
-When assigning values to choice elements (e.g., value[x]) on an Instance, type-specific elements (e.g., valueBoolean) should always be used in assignment rules. However, if the choice element has been constrained to a single type, SUSHI will infer the correct type-specific element.  
+When assigning values to choice elements (e.g., value[x]) on an Instance, type-specific elements (e.g., valueBoolean) should always be used in assignment rules. However, if the choice element has been constrained to a single type, SUSHI will infer the correct type-specific element.
 
 For example, SUSHI will infer the last line is to be interpreted as `* valueBoolean = true` as the `Instance` is exported. Authors are encouraged to not depend on this behavior, and use type-specific elements in instances.
 
@@ -271,3 +271,37 @@ This IG provides [MyPatient] for patient information.
 
 {% include fsh-link-references.md %}
 ```
+
+## Choosing a SNOMED CT edition
+
+To specify a certain edition of SNOMED CT - for example to ensure terminology validation works correctly - do the following:
+
+1. Add or modify the `parameters` section in your `sushi-config.yaml` to specify a `path-expansion-params` parameter.
+```yml
+parameters:
+  path-expansion-params: Parameters-expansion.json
+```
+
+2. Create an `input/fsh/expansion.fsh` file and define an instance of `Parameters` with the id `expansion`. Within the Parameters instance, specify a `system-version` parameter. For example, if you'd like to use the US edition of SNOMED, add this definition:
+```
+Instance: expansion
+InstanceOf: Parameters
+Description: "SNOMED CT expansion parameter"
+Usage: #definition
+* parameter[+].name = "system-version"
+* parameter[=].valueCanonical = "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+```
+
+If you'd like to use another language, such as Swedish, choose this:
+```
+Instance: expansion
+InstanceOf: Parameters
+Description: "SNOMED CT Swedish expansion parameter"
+Usage: #definition
+* parameter[+].name = "displayLanguage"
+* parameter[=].valueCode = urn:ietf:bcp:47#se
+* parameter[+].name = "system-version"
+* parameter[=].valueCanonical = "http://snomed.info/sct|http://snomed.info/sct/45991000052106"
+```
+
+_Note: The `system-version` and `displayLanguage` parameters correspond to the parameters of the same name in FHIR's [$expand](https://hl7.org/fhir/valueset-operation-expand.html) operation._
