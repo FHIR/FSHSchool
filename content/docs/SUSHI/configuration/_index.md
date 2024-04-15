@@ -142,6 +142,7 @@ The table below lists all configuration properties that can be used in SUSHI's *
 | copyrightLabel| copyrightLabel | As specified in the IG resource - **Note:** this is an R5 IG element |
 | copyrightYear or copyrightyear | N/A | Used to add a `copyrightyear` parameter to `IG.definition.parameter` |
 | date | date | As specified in the IG resource |
+| definition <br> └ extension | definition.extension | <span class="tag">SUSHI 3.0</span>A list of extensions that apply to `IG.definition`. **Note:** the only property supported on the `definition` property is `extension`. |
 | description | description | As specified in the IG resource |
 | dependencies | dependsOn | A `key: value` pair, where key is the package id and value is the version (or `dev`/`current`). For advanced use cases, the value can be an object with keys for `id`, `uri` and `version`. For R5 IG resources, the key `reason` can also be provided. |
 | experimental | experimental | As specified in the IG resource |
