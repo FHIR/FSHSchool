@@ -25,11 +25,7 @@ The **sushi-config.yaml** file provides project configuration data to SUSHI. It 
 
 ## Initializing a SUSHI Project
 
-Setting up a fully-featured FSH project can be complex, so SUSHI provides an `--init` argument to do it automatically. When `sushi --init` is run, SUSHI will request project information from the user:
-
-{{% small-pageinfo color="primary" %}}
-<span class="tag">SUSHI 3.0</span>For SUSHI 3.0.0 and later, use `sushi init`.
-{{% /small-pageinfo %}}
+Setting up a fully-featured FSH project can be complex, so SUSHI provides an `init` command to do it automatically. When `sushi init` is run, SUSHI will request project information from the user:
 
 ```text
 Name (Default: ExampleIG): my-project

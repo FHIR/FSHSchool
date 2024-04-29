@@ -45,17 +45,8 @@ In addition, there are several files for building the IG.
 Now that you have SUSHI installed and a minimal FSH project, open up a command window, and navigate to the **FishExample** directory. Run SUSHI on those FSH files by executing:
 
 ```shell
-{{< terminal >}} sushi .
+{{< terminal >}} sushi build .
 ```
-
-{{% small-pageinfo color="primary" %}}
-<span class="tag">SUSHI 3.0</span>For SUSHI 3.0.0 and later, use the `build` command:
-
-```shell
-$ sushi build .
-```
-
-{{% /small-pageinfo %}}
 
 {{% alert title="Note" color="primary" %}}
 The dot (.) represents "this directory," the location of the FSH files. You can also specify the location explicitly by replacing the dot with a directory path.
@@ -157,7 +148,7 @@ Description: "The species of the fish."
 FSH ignores extra whitespace, so authors can choose to use whitespace for improved visual alignment, as in the extension definition above.
 {{% /alert %}}
 
-Run SUSHI again (`sushi .` or `sushi build .` for SUSHI 3.0). The count of Extensions should now be 1.
+Run SUSHI again (`sushi build .`). The count of Extensions should now be 1.
 
 ### Step 8: Define a Value Set for Fish Species
 
