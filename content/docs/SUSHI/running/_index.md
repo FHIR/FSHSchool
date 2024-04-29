@@ -38,10 +38,11 @@ where options include the following (in any order):
 
 ```text
 -l, --log-level <level>  specify the level of log messages (default: "info") (choices: "error", "warn", "info", "debug")
--o, --out <out>          the path to the output folder
+-o, --out <out>          the path to the output folder (default: "fsh-generated")
 -p, --preprocessed       output FSH produced by preprocessing steps
 -r, --require-latest     exit with error if this is not the latest version of SUSHI (default: false)
 -s, --snapshot           generate snapshot in Structure Definition output (default: false)
+-c, --config <config>    override elements in sushi-config.yaml (supported: 'version', 'status', 'releaselabel') (eg: --config status:draft)
 -h, --help               display help for command
 ```
 
@@ -130,6 +131,11 @@ Once you have finished reviewing your preprocessed FSH, we recommend deleting th
 
 By default, SUSHI only generates the [profile differential](https://www.hl7.org/fhir/R4/profiling.html#snapshot), allowing the IG Publisher to create the [profile snapshot](https://www.hl7.org/fhir/R4/profiling.html#snapshot). This is the approach recommended by HL7 FHIR leadership. If authors prefer, the `--snapshot` (or `-s`) option can be used to cause SUSHI to generate the snapshot without having to run the IG Publisher.
 
+### `--config`
+
+Typically, SUSHI uses the `sushi-config.yaml` file to define the configuration options it uses when processing FSH. However, in rare cases, it may be useful to override the values provided in `sushi-config.yaml` without changing the file itself. For these cases, the `--config` (or `-c`) option can be used to specify a configuration property and the override value for it. Currently, this option only allows `version`, `status`, and `releaselabel` to be overridden.
+
+For example, specifying `sushi build . --config status:active` can be used to specify that the status should be "active" for that particular build of SUSHI.
 
 ## Status Messages
 

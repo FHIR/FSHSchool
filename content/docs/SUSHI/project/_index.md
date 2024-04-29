@@ -33,6 +33,7 @@ Id (Default: fhir.example): my.id
 Canonical (Default: http://example.org): http://myid.org
 Status (Default: draft): active
 Version (Default: 0.1.0): 2.0.0
+Release Label (Default: ci-build): trial-use
 Publisher Name (Default: Example Publisher): MyPublisher
 Publisher Url (Default: http://example.org/example-publisher): http://my-publisher.org
 Initialize SUSHI project in C:\Users\shorty\dev\my-project? [y/n]: y
