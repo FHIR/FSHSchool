@@ -20,7 +20,7 @@ SUSHI is executed from the command line. The general form of the SUSHI execution
 
 Supported commands are `build`, `init`, `update-dependencies`, and `help`.
 
-Use `sushi --version` and `sushi help` to get basic information about the current SUSHI version.
+Use `sushi --version` to get basic information about the current SUSHI version. Use `sushi help` to get basic information about SUSHI, and use `sushi help {command}` to get information about a specific command and its options (e.g., `sushi help build`).
 
 ### SUSHI Commands
 
