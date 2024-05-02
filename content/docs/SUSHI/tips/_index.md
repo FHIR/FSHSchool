@@ -102,7 +102,7 @@ See the following documentation for additional details:
 
 The IG Publisher supports including instances of logical models as binary resources. This feature was announced and discussed in a [Logical Model Examples](https://chat.fhir.org/#narrow/stream/179252-IG-creation/topic/Logical.20Model.20Examples/near/251192344) thread on chat.fhir.org.
 
-Starting with SUSHI 3.0.0, authors can use `Instance:` to create instances of logical models and instances of logical model profiles in the same way as all other FSH instances. These instances are exported using standard JSON serialization and automatically receive `id` and `meta.profile` values when the logical model and SUSHI configuration support those elements. These instances have filenames starting with `Binary-` and will be auto-encoded as part of the publishing process.
+Authors can use `Instance:` to create instances of logical models and instances of logical model profiles in the same way as all other FSH instances. These instances are exported using standard JSON serialization and automatically receive `id` and `meta.profile` values when the logical model and SUSHI configuration support those elements. These instances have filenames starting with `Binary-` and will be auto-encoded as part of the publishing process.
 
 Alternatively, authors can provide their own instances of logical models without defining them in FSH. The basic steps an author needs to take in order to manually include logical model examples in a SUSHI project are:
 
@@ -155,11 +155,7 @@ If the logical model does not have `resourceType` or `id`, the same steps as abo
 
 ## Manual Slice Ordering
 
-{{% small-pageinfo color="primary" %}}
-<span class="tag">SUSHI 3.0</span>The manual slice ordering option is only available in SUSHI 3.0.0 and later.
-{{% /small-pageinfo %}}
-
-Starting in SUSHI `v3.0.0`, authors can exercise full manual control over the ordering of slice elements within Instances. Previous versions of SUSHI allowed for partial control of slice element ordering, but some ordering was determined by SUSHI's implementation and could not be affected by an author. In the current version of SUSHI (`v3.0.0` or later), authors can configure their FSH projects to manually control slice ordering. When using manual slice ordering, authors should use soft indexing and avoid using hard numeric indices.
+Authors can exercise full manual control over the ordering of slice elements within Instances. Previous versions of SUSHI allowed for partial control of slice element ordering, but some ordering was determined by SUSHI's implementation and could not be affected by an author. In the current version of SUSHI (`v3.0.0` or later), authors can configure their FSH projects to manually control slice ordering. When using manual slice ordering, authors should use soft indexing and avoid using hard numeric indices.
 
 Manual slice ordering follows the following rules:
 
@@ -237,10 +233,6 @@ InstanceOf: ExampleObservation
 This instance's `category` element will have four entries in the order specified: `laboratory`, `survey`, `exam`, `vital-signs`.
 
 ## Link References
-
-{{% small-pageinfo color="primary" %}}
-<span class="tag">SUSHI 3.0</span>Link references are only available in SUSHI 3.0.0 and later.
-{{% /small-pageinfo %}}
 
 SUSHI creates the **fsh-generated/includes/fsh-link-references.md** file to make it easier to create links to resource definitions in other markdown pages. This file's contents are a list of markdown link definitions, with one link for each resource in your **ImplementationGuide.json** file. This will include resources defined in FSH, the `resources` configuration property, and predefined resources. For example:
 ```markdown

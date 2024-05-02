@@ -15,20 +15,12 @@ This documentation assumes you have a SUSHI-compliant project structure and conf
 SUSHI is executed from the command line. The general form of the SUSHI execution command is as follows:
 
 ```shell
-{{< terminal >}} sushi {options}
+{{< terminal >}} sushi {command} {options}
 ```
 
-Use `sushi --version` and `sushi --help` to get basic information about the current SUSHI version.
+Supported commands are `build`, `init`, `update-dependencies`, and `help`.
 
-{{% small-pageinfo color="primary" %}}
-<span class="tag">SUSHI 3.0</span>For SUSHI 3.0.0 and later, the general form of the SUSHI execution command is:
-
-```shell
-$ sushi {command} {options}
-```
-
-Supported commands are `build`, `init`, `update-dependencies`, and `help` (which replaces `sushi --help`).
-{{% /small-pageinfo %}}
+Use `sushi --version` to get basic information about the current SUSHI version. Use `sushi help` to get basic information about SUSHI, and use `sushi help {command}` to get information about a specific command and its options (e.g., `sushi help build`).
 
 ### SUSHI Commands
 
@@ -39,44 +31,25 @@ SUSHI provides various commands to use with FSH projects. The following sections
 The `build` command is used to build a SUSHI project. In SUSHI 2.x, it is the default command and can be used as follows:
 
 ```shell
-{{< terminal >}} sushi {fsh-project-directory} {options}
+{{< terminal >}} sushi build {fsh-project-directory} {options}
 ```
-
-{{% small-pageinfo color="primary" %}}
-<span class="tag">SUSHI 3.0</span>For SUSHI 3.0.0 and later, use the `build` command:
-
-```shell
-$ sushi build {fsh-project-directory} {options}
-```
-
-{{% /small-pageinfo %}}
 
 where options include the following (in any order):
 
 ```text
--o, --out <out>          the path to the output folder
--d, --debug              output extra debugging information
+-l, --log-level <level>  specify the level of log messages (default: "info") (choices: "error", "warn", "info", "debug")
+-o, --out <out>          the path to the output folder (default: "fsh-generated")
 -p, --preprocessed       output FSH produced by preprocessing steps
 -r, --require-latest     exit with error if this is not the latest version of SUSHI (default: false)
 -s, --snapshot           generate snapshot in Structure Definition output (default: false)
+-c, --config <config>    override elements in sushi-config.yaml (supported: 'version', 'status', 'releaselabel') (eg: --config status:draft)
 -h, --help               display help for command
 ```
 
 Further information about each option can be found in [Build Command Option Details](#build-command-option-details).
 
-{{% small-pageinfo color="primary" %}}
-<span class="tag">SUSHI 3.0</span> SUSHI 3.0 replaces the `-d, --debug` argument with a new argument that provides more control over log output:
-
-```
--l, --log-level <level>  specify the level of log messages (default: "info") (choices: "error", "warn", "info", "debug")
-```
-
-{{% /small-pageinfo %}}
-
 {{% alert title="Tip" color="success" %}}
-If you run SUSHI from your FSH project directory, and accept the defaults, the command can be shortened to `sushi .` or simply `sushi`.
-
-<span class="tag">SUSHI 3.0</span> For SUSHI 3.0, you can use `sushi build .` or `sushi build`.
+If you run SUSHI from your FSH project directory, and accept the defaults, the command can be shortened to `sushi build .` or simply `sushi build`.
 {{% /alert %}}
 
 #### `init`
@@ -84,25 +57,12 @@ If you run SUSHI from your FSH project directory, and accept the defaults, the c
 The `init` command is used to generate a project structure that is compatible with the FHIR IG Publisher. In SUSHI 2.x, it can be used as follows:
 
 ```shell
-{{< terminal >}} sushi --init
+{{< terminal >}} sushi init
 ```
-
-{{% small-pageinfo color="primary" %}}
-<span class="tag">SUSHI 3.0</span>For SUSHI 3.0.0 and later, use the `init` command:
-
-```shell
-$ sushi init
-```
-
-{{% /small-pageinfo %}}
 
 Further details on how to use this command can be found in [Initializing a SUSHI Project](/docs/sushi/project/#initializing-a-sushi-project).
 
 #### `update-dependencies`
-
-{{% small-pageinfo color="primary" %}}
-<span class="tag">SUSHI 3.0</span>The `update-dependencies` command is only available in SUSHI 3.0.0 and later.
-{{% /small-pageinfo %}}
 
 The `update-dependencies` command is used to update the FSH project's dependencies to the latest version. The command will check all dependencies defined in the `sushi-config.yaml` file to see if they are at the latest published version. SUSHI will output a list of all dependencies that have later versions and prompt the author whether to update. Choosing to update will directly modify the `sushi-config.yaml` file with the latest version and download the latest version of the dependency to the FHIR cache. Any dependency with a `current` or `dev` version will not be modified. This command can be used as follows:
 
@@ -171,6 +131,11 @@ Once you have finished reviewing your preprocessed FSH, we recommend deleting th
 
 By default, SUSHI only generates the [profile differential](https://www.hl7.org/fhir/R4/profiling.html#snapshot), allowing the IG Publisher to create the [profile snapshot](https://www.hl7.org/fhir/R4/profiling.html#snapshot). This is the approach recommended by HL7 FHIR leadership. If authors prefer, the `--snapshot` (or `-s`) option can be used to cause SUSHI to generate the snapshot without having to run the IG Publisher.
 
+### `--config`
+
+Typically, SUSHI uses the `sushi-config.yaml` file to define the configuration options it uses when processing FSH. However, in rare cases, it may be useful to override the values provided in `sushi-config.yaml` without changing the file itself. For these cases, the `--config` (or `-c`) option can be used to specify a configuration property and the override value for it. Currently, this option only allows `version`, `status`, and `releaselabel` to be overridden.
+
+For example, specifying `sushi build . --config status:active` can be used to specify that the status should be "active" for that particular build of SUSHI.
 
 ## Status Messages
 
@@ -281,7 +246,7 @@ SUSHI creates only the **fsh-generated** folder, but some of the files shown abo
 
 To run the IG Publisher, we recommend downloading the **\_updatePublisher.bat|sh** and **\_genonce.bat|sh** scripts provided by the sample-ig project. To get these scripts, [download the sample-ig project](https://github.com/FHIR/sample-ig/archive/master.zip), unzip it, and copy _all_ of the **.bat** and **.sh** files to the directory above the **fsh-generated** directory (**my-project** in the example above).
 
-If you used `sushi --init` (or `sushi init` for SUSHI 3.0) then these scripts were already downloaded and added to your project.
+If you used `sushi init` then these scripts were already downloaded and added to your project.
 
 ### Downloading the IG Publisher
 

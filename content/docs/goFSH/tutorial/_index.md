@@ -44,7 +44,7 @@ Running GoFSH will create a **gofsh** directory, and populate it with **input/fs
 Now that you have generated FSH definitions, you can run SUSHI on those definitions to recreate your original input to GoFSH. First, ensure you have [SUSHI installed](/docs/sushi/installation). Then, navigate the command line to the **gofsh/** directory, and run:
 
 ```shell
-{{< terminal >}} sushi .
+{{< terminal >}} sushi build .
 ```
 
 This command will run SUSHI on the contents of **input/fsh**, and generate the output of that FSH into a directory called **fsh-generated/resources**. You can then compare the output from running GoFSH and then SUSHI to the original **StructureDefinition-mcode-genetic-specimen.json** and **StructureDefinition-mcode-laterality.json** files.

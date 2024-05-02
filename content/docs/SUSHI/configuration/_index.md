@@ -81,7 +81,7 @@ If the author wants SUSHI to do additional Implementation Guide (IG) processing,
   * `normative+trial-use`: official release with mixture of trial use and normative content
 
 {{% alert title="Tip" color="success" %}}
-SUSHI can generate a simple configuration file for you with the `--init` [option](/docs/sushi/project/#initializing-a-sushi-project)
+SUSHI can generate a simple configuration file for you with the `init` [command](/docs/sushi/project/#initializing-a-sushi-project)
 {{% /alert %}}
 
 ## FSH and IG Processing: Recommended Configuration
@@ -142,7 +142,7 @@ The table below lists all configuration properties that can be used in SUSHI's *
 | copyrightLabel| copyrightLabel | As specified in the IG resource - **Note:** this is an R5 IG element |
 | copyrightYear or copyrightyear | N/A | Used to add a `copyrightyear` parameter to `IG.definition.parameter` |
 | date | date | As specified in the IG resource |
-| definition <br> └ extension | definition.extension | <span class="tag">SUSHI 3.0</span>A list of extensions that apply to `IG.definition`. **Note:** the only property supported on the `definition` property is `extension`. |
+| definition <br> └ extension | definition.extension | A list of extensions that apply to `IG.definition`. **Note:** the only property supported on the `definition` property is `extension`. |
 | description | description | As specified in the IG resource |
 | dependencies | dependsOn | A `key: value` pair, where key is the package id and value is the version (or `dev`/`current`). For advanced use cases, the value can be an object with keys for `id`, `uri` and `version`. For R5 IG resources, the key `reason` can also be provided. |
 | experimental | experimental | As specified in the IG resource |
@@ -153,7 +153,7 @@ The table below lists all configuration properties that can be used in SUSHI's *
 | groups | definition.grouping | A `key: value` pair, where key is the group id and value is the description of the group. For advanced use cases, the value can be an object with keys for `name`, `description`, and `resources`. See the [Exhaustive Example](#exhaustive-example) for details. |
 | id | id | As specified in the IG resource |
 | implicitRules | implicitRules | As specified in the IG resource |
-| instanceOptions | N/A | `key: value` pairs, where keys are `setId`, `setMetaProfile`, and `manualSliceOrdering`. <ul><li>The `setId` value controls whether `id` is set on generated instances. Options are `always` (set `id` on all instances [the default]) or `standalone-only` (set `id` for instances where the `Usage` keyword is NOT `#inline`).</li><li>The `setMetaProfile` value controls whether `meta.profile` is set on generated instances. It can have the following values: `always` (set meta.profile for all instances [the default]), `never` (do not set meta.profile on any instances), `inline-only` (set `meta.profile` only for instances of profiles with `Usage` keyword set to `#inline`), or `standalone-only` (set `meta.profile` for instances where the `Usage` keyword is NOT `#inline`).</li><li><span class="tag">SUSHI 3.0</span>The `manualSliceOrdering` value controls whether slice ordering is determined exclusively by the order in which slices are referenced in an instance's FSH rules. When this flag is set to `true`, manual ordering is enabled (see [Manual Slice Ordering](/docs/sushi/tips/#manual-slice-ordering)).</li></ul> |
+| instanceOptions | N/A | `key: value` pairs, where keys are `setId`, `setMetaProfile`, and `manualSliceOrdering`. <ul><li>The `setId` value controls whether `id` is set on generated instances. Options are `always` (set `id` on all instances [the default]) or `standalone-only` (set `id` for instances where the `Usage` keyword is NOT `#inline`).</li><li>The `setMetaProfile` value controls whether `meta.profile` is set on generated instances. It can have the following values: `always` (set meta.profile for all instances [the default]), `never` (do not set meta.profile on any instances), `inline-only` (set `meta.profile` only for instances of profiles with `Usage` keyword set to `#inline`), or `standalone-only` (set `meta.profile` for instances where the `Usage` keyword is NOT `#inline`).</li><li>The `manualSliceOrdering` value controls whether slice ordering is determined exclusively by the order in which slices are referenced in an instance's FSH rules. When this flag is set to `true`, manual ordering is enabled (see [Manual Slice Ordering](/docs/sushi/tips/#manual-slice-ordering)).</li></ul> |
 | jurisdiction | jurisdiction | As specified in the IG resource |
 | language | language | As specified in the IG resource |
 | license | license | As specified in the IG resource |
