@@ -70,15 +70,12 @@ If the author wants SUSHI to do additional Implementation Guide (IG) processing,
   * `retired`: The IG has been withdrawn or superseded and should no longer be used.
   * `unknown`: It is not know which of the status values currently applies for the IG. This should be rare.
 * Since SUSHI currently supports only FHIR R4 and R5, the `fhirVersion` should always be `4.0.0` or above.
-* Valid values for the `releaseLabel` include:
-  * `ci-build`: the continuous integration build release (not stable)
-  * `draft`: draft version
-  * `qa-preview`: frozen snapshot for non-ballot feedback
-  * `ballot`: frozen snapshot for ballot
-  * `trial-use`: official release with 'trial use' status
-  * `release`: official release for use
-  * `update`: official release with 'trial use' status - posted as an un-balloted STU update
-  * `normative+trial-use`: official release with mixture of trial use and normative content
+* `releaseLabel` is a text label with no fixed set of values that describes the status of the publication to users. Recommended best practices include the following values, optionally suffixed with `Ballot`:
+  * `ci-build`
+  * `STU1`, `STU2`, etc.
+  * `STU 1.1`, `STU 1.1.0`, etc.
+  * `Normative 1`, etc.
+  * `Informative 1`, etc.
 
 {{% alert title="Tip" color="success" %}}
 SUSHI can generate a simple configuration file for you with the `init` [command](/docs/sushi/project/#initializing-a-sushi-project)
