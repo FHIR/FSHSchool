@@ -21,8 +21,14 @@ fshToFhir(fshString[, options])
 * `fhirVersion` - A string used to specify the version of FHIR to use. Note that SUSHI only supports FHIR R4 and R5.
 * `dependencies` - An array of objects used to specify dependencies required for processing the FSH. Each object should have a `packageId` and `version`, and optionally a `uri`.
 * `logLevel` - A string that specifies what level of logging to use when processing FSH. Options are `silent`, `debug`, `info`, `warn`, and `error`.
-* `snapshot` - A boolean that specifies whether to generate snapshot in Structure Definition output (default: false)
+* `snapshot` - (EXPERIMENTAL) A boolean that specifies whether to generate the `snapshot` data element in Structure Definition output (default: false)
 
+{{% alert title="Warning" color="warning" %}}
+The `snapshot` option, when set to true, triggers the generation of `StructureDefinition.snapshot` data elements.
+Use of this option should be considered EXPERIMENTAL! The `StructureDefinition.snapshot` data elements generated
+by SUSHI are likely not perfect and differ from the snapshots that the IG Publisher and/or Simplifier would create.
+If you plan to publish these resources, it would be better to use one of those other tools to generate the snapshots.
+{{% /alert %}}
 
 See the [configuration](/docs/sushi/configuration/#full-configuration) documentation for more information on `canonical`, `version`, `fhirVersion`, and `dependencies`. These properties correspond to the properties of the same name that are used in `sushi-config.yaml`.
 
