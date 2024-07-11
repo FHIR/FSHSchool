@@ -141,7 +141,7 @@ The table below lists all configuration properties that can be used in SUSHI's *
 | date | date | As specified in the IG resource |
 | definition <br> └ extension | definition.extension | A list of extensions that apply to `IG.definition`. **Note:** the only property supported on the `definition` property is `extension`. |
 | description | description | As specified in the IG resource |
-| dependencies | dependsOn | A `key: value` pair, where key is the package id and value is the version (or `dev`/`current`). For advanced use cases, the value can be an object with keys for `id`, `uri` and `version`. For R5 IG resources, the key `reason` can also be provided. |
+| dependencies | dependsOn | A `key: value` pair, where key is the package id and value is the version (or `dev`/`current`). For advanced use cases, the value can be an object with keys for `id`, `uri`, `version`, and `extension`. For R5 IG resources, the key `reason` can also be provided. |
 | experimental | experimental | As specified in the IG resource |
 | extension | extension | As specified in the IG resource |
 | fhirVersion | fhirVersion | As specified in the IG resource. SUSHI supports FHIR versions in the R4 or R5 sequences, as given in the [FHIR Publication History](http://hl7.org/fhir/directory.html). 5.0.0-snapshot1. Projects that wish to use a 5.0.0 pre-release can specify the version in their sushi-config.yaml file, e.g., `fhirVersion: 5.0.0-snapshot1`. |
