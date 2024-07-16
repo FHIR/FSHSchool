@@ -5,6 +5,15 @@ deployed to [http://fshschool.org/](http://fshschool.org/) and [https://fshschoo
 build the site and push its contents to the
 [FSHSchool.github.io](https://github.com/FSHSchool/FSHSchool.github.io) repository.
 
+## FHIR Foundation Project Statement
+
+- Maintainers: This project is maintained by The MITRE Corporation.
+- Issues / Discussion: For FSH School website issues, such as bug reports, comments, suggestions, questions, and feature requests, visit [FSH School website GitHub Issues](https://github.com/FSHSchool/site/issues). For discussion of FHIR Shorthand and its associated projects, visit the FHIR Community Chat @ https://chat.fhir.org. The [#shorthand stream](https://chat.fhir.org/#narrow/stream/215610-shorthand) is used for all FHIR Shorthand questions and discussion.
+- License: All contributions to this project will be released under the Apache 2.0 License, and a copy of this license can be found in [LICENSE](LICENSE).
+- Contribution Policy: The FSH School website Contribution Policy can be found in [CONTRIBUTING.md](CONTRIBUTING.md).
+- Security Information: The FSH School website Security Information can be found in [SECURITY.md](SECURITY.md).
+- Compliance Information: N/A.
+
 # Local Development
 
 To develop this site locally:
