@@ -13,6 +13,9 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
+      - name: Create Tutorial Zip
+        run: zip content/docs/SUSHI/tutorial/fsh-tutorial.zip fsh-tutorial/* -r -FS
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
