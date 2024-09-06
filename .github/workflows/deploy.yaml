@@ -13,9 +13,6 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
-      - name: Create Tutorial Zip
-        run: zip content/docs/SUSHI/tutorial/fsh-tutorial.zip fsh-tutorial/* -r -FS
-
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
@@ -36,6 +33,7 @@ jobs:
             ${{ runner.os }}-node-
 
       - run: npm ci
+      - run: npm run zip-tutorial
       - run: hugo
 
       - name: Deploy

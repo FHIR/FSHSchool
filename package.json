@@ -5,6 +5,9 @@
     "type": "git",
     "url": "https://github.com/FSHSchool/site.git"
   },
+  "scripts": {
+    "zip-tutorial": "zip -r content/docs/SUSHI/tutorial/fsh-tutorial.zip fsh-tutorial/*"
+  },
   "license": "Apache-2.0",
   "devDependencies": {
     "autoprefixer": "^9.8.8",
