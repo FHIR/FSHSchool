@@ -7,7 +7,7 @@ build the site and push its contents to the
 
 ## FHIR Foundation Project Statement
 
-- Maintainers: This project is maintained by The MITRE Corporation.
+- Maintainers: This project is maintained by the HL7 community.
 - Issues / Discussion: For FSH School website issues, such as bug reports, comments, suggestions, questions, and feature requests, visit [FSH School website GitHub Issues](https://github.com/FSHSchool/site/issues). For discussion of FHIR Shorthand and its associated projects, visit the FHIR Community Chat @ https://chat.fhir.org. The [#shorthand stream](https://chat.fhir.org/#narrow/stream/215610-shorthand) is used for all FHIR Shorthand questions and discussion.
 - License: All contributions to this project will be released under the Apache 2.0 License, and a copy of this license can be found in [LICENSE](LICENSE).
 - Contribution Policy: The FSH School website Contribution Policy can be found in [CONTRIBUTING.md](CONTRIBUTING.md).
@@ -27,7 +27,7 @@ To develop this site locally:
    $ git submodule update --init --recursive
    ```
 2. [Install Hugo](https://gohugo.io/getting-started/installing/)
-3. Add and edit content, refferring to the [Hugo documentation](https://gohugo.io/documentation/)
+3. Add and edit content, referring to the [Hugo documentation](https://gohugo.io/documentation/)
    as needed
 4. Run the Hugo server
    ```bash
@@ -59,7 +59,7 @@ standard HTTP server.
 
 # License
 
-Copyright 2020+ The MITRE Corporation
+Copyright 2020+ Health Level Seven International
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
