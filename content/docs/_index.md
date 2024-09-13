@@ -63,7 +63,7 @@ In addition, the following symbols are used in documented commands:
 
 ### FHIR and FHIR Profiling
 
-Most FSH School resources assume a basic understanding of FHIR and FHIR profiling. A good way to get started is to go through our [**self-service FSH Seminar course**: Getting Started with New Tools to Create Swimmingly Slick Implementation Guides](/courses/). This covers how to read FHIR IGs and how to use FSH for [FHIR Profiling](https://hl7.org/fhir/profiling.html).
+Most FSH School resources assume a basic understanding of FHIR and FHIR profiling. A good way to get started is to go through our [**self-service FSH Seminar course**: Getting Started with New Tools to Create Swimmingly Slick Implementation Guides](https://fshschool.github.io/courses/). This covers how to read FHIR IGs and how to use FSH for [FHIR Profiling](https://hl7.org/fhir/profiling.html).
 
 Readers who are new to FHIR should also view the [FHIR Specification](https://hl7.org/fhir/) (also linked in the right-hand sidebar). You may find the following more specific links helpful as well:
 
@@ -83,4 +83,4 @@ Additionally, these other resources may be of interest:
 
 We recommend new FSH authors start with the [overview](https://hl7.org/fhir/uv/shorthand/) and review the [language reference](https://hl7.org/fhir/uv/shorthand/reference.html) that are part of official FSH Specification when additional details are needed.
 
-Additionally, *all* FSH authors are strongly recommended to go on the [Deep Dive with FSH](https://fshschool.org/courses/fsh-seminar/04-deep-dive-with-fsh.html) (part of our [self-service FSH Seminar course](/courses/)).
+Additionally, *all* FSH authors are strongly recommended to go on the [Deep Dive with FSH](https://fshschool.github.io/courses/fsh-seminar/04-deep-dive-with-fsh.html) (part of our [self-service FSH Seminar course](https://fshschool.github.io/courses/)).

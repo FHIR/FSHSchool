@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "https://fshschool.org/"
 title = "FSH School"
 
 enableRobotsTXT = true
@@ -65,9 +65,9 @@ id = "UA-00000000-0"
 copyright = "Health Level Seven International"
 
 # Repository configuration (URLs for in-page links to opening issues and suggesting changes)
-github_repo = "https://github.com/FSHSchool/site"
+github_repo = "https://github.com/FHIR/FSHSchool"
 # An optional link to a related project repo. For example, the sibling repository where your product code lives.
-github_project_repo = "https://github.com/fhir/sushi"
+github_project_repo = "https://github.com/FHIR/sushi"
 
 # Google Custom Search Engine ID. Remove or comment out to disable search.
 # gcs_engine_id = "011737558837375720776:fsdu1nryfng"
@@ -122,7 +122,7 @@ enable = false
 # Developer relevant links. These will show up on right side of footer and in the community page if you have one.
 [[params.links.developer]]
 	name = "FSH School"
-	url = "https://github.com/FSHSchool/site"
+	url = "https://github.com/FHIR/FSHSchool"
 	icon = "fab fa-github"
   desc = "Development of this site takes place here."
 [[params.links.developer]]

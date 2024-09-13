@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "repository": {
     "type": "git",
-    "url": "https://github.com/FSHSchool/site.git"
+    "url": "https://github.com/FHIR/FSHSchool.git"
   },
   "license": "Apache-2.0",
   "devDependencies": {

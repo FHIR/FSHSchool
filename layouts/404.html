@@ -1,0 +1,23 @@
+{{ define "main" }}
+<main id="main">
+  <div id="content">
+    <h1 id="title">Not found</h1>
+    <p>Oops! This page doesn't exist. Try going back to our <a href="{{ "/" | relURL }}">home page</a>.</p>
+  </div>
+  <script>
+    window.onload = function () {
+      if (/^\/FSHOnline(\/|$)/i.test(window.location.pathname)) {
+        // redirect to the new location of courses
+        const newLocation = `${window.location.protocol}{{ "//fshonline.fshschool.org" | safeJS }}${window.location.pathname.replace(/^\/FSHOnline/i, '')}${window.location.hash || ''}`;
+        document.getElementById("content").innerHTML = `Redirecting to ${newLocation}`;
+        window.location.replace(newLocation);
+      } else if (/^\/(courses|fsh-finder)(\/|$)/i.test(window.location.pathname)) {
+        // redirect to the new location of courses or fsh-finder
+        const newLocation = `${window.location.protocol}{{ "//fshschool.github.io" | safeJS }}${window.location.pathname}${window.location.hash || ''}`;
+        document.getElementById("content").innerHTML = `Redirecting to ${newLocation}`;
+        window.location.replace(newLocation);
+      }
+    }
+  </script>
+</main>
+{{ end }}

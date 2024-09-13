@@ -1,14 +1,13 @@
 # FSH School
 
 The FSH School website is built using [Hugo](https://themes.gohugo.io/hugo-theme-learn/) and
-deployed to [http://fshschool.org/](http://fshschool.org/) and [https://fshschool.github.io/](https://fshschool.github.io/) via GitHub Actions that
-build the site and push its contents to the
-[FSHSchool.github.io](https://github.com/FSHSchool/FSHSchool.github.io) repository.
+deployed to [http://fshschool.org/](http://fshschool.org/) via GitHub Actions that build the site
+and push its contents to the [gh-pages](https://github.com/FHIR/FSHSchool/tree/gh-pages) branch.
 
 ## FHIR Foundation Project Statement
 
 - Maintainers: This project is maintained by the HL7 community.
-- Issues / Discussion: For FSH School website issues, such as bug reports, comments, suggestions, questions, and feature requests, visit [FSH School website GitHub Issues](https://github.com/FSHSchool/site/issues). For discussion of FHIR Shorthand and its associated projects, visit the FHIR Community Chat @ https://chat.fhir.org. The [#shorthand stream](https://chat.fhir.org/#narrow/stream/215610-shorthand) is used for all FHIR Shorthand questions and discussion.
+- Issues / Discussion: For FSH School website issues, such as bug reports, comments, suggestions, questions, and feature requests, visit [FSH School website GitHub Issues](https://github.com/FHIR/FSHSchool/issues). For discussion of FHIR Shorthand and its associated projects, visit the FHIR Community Chat @ https://chat.fhir.org. The [#shorthand stream](https://chat.fhir.org/#narrow/stream/215610-shorthand) is used for all FHIR Shorthand questions and discussion.
 - License: All contributions to this project will be released under the Apache 2.0 License, and a copy of this license can be found in [LICENSE](LICENSE).
 - Contribution Policy: The FSH School website Contribution Policy can be found in [CONTRIBUTING.md](CONTRIBUTING.md).
 - Security Information: The FSH School website Security Information can be found in [SECURITY.md](SECURITY.md).
@@ -20,7 +19,7 @@ To develop this site locally:
 
 1. Clone this repository
    ```bash
-   $ git clone git@github.com:FSHSchool/site.git
+   $ git clone git@github.com:FHIR/FSHSchool.git
    ```
    and add submodules
    ```bash
