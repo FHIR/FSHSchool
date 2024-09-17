@@ -1,0 +1,25 @@
+{
+  "package-id": "fish",
+  "canonical": "http://example.org/fhir/fish",
+  "title": "Fish Implementation Guide",
+  "introduction": "An example of how FSH can be used to create an IG about fish",
+  "list": [
+    {
+      "version": "current",
+      "desc": "Continuous Integration Build (latest in version control)",
+      "path": "http://build.fhir.org/ig/example/example-ig",
+      "status": "ci-build",
+      "current": true
+    },
+    {
+      "version": "0.0.1",
+      "date": "2099-01-01",
+      "desc": "Initial STU ballot (Mmm yyyy Ballot)",
+      "path": "http://example.org/fhir/STU1",
+      "status": "ballot",
+      "sequence": "STU 1",
+      "fhirversion": "4.0.1",
+      "current": true
+    }
+  ]
+}
