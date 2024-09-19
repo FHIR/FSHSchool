@@ -7,7 +7,7 @@ description: >
 
 Because FHIR Shorthand files are pure text, authors can use any text editor to create FSH content. However, if you choose the popular (and free) [Visual Studio Code (VS Code)](https://code.visualstudio.com/) editor, there is a FSH-specific extension that can greatly enhance your productivity through syntax highlighting, helping you navigate, and even running SUSHI and navigating directly to errors.
 
-The [VS Code FSH extension](https://marketplace.visualstudio.com/items?itemName=FHIR-Shorthand.vscode-language-fsh) (formally, MITRE-Health.vscode-language-fsh) offers the following features:
+The [VS Code FSH extension](https://marketplace.visualstudio.com/items?itemName=FHIR-Shorthand.vscode-fsh) (formally, MITRE-Health.vscode-language-fsh) offers the following features:
 
 * **Syntax highlighting.** Colorizing FSH text allows easier reading and writing of FHIR Shorthand.
 * **Autocomplete.** This feature makes contextually appropriate suggestions after when specifying a nested path, the `Parent` keyword, and when writing `obeys` rules.
