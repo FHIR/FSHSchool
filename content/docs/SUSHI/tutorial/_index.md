@@ -3,7 +3,7 @@ title: "SUSHI Tutorial"
 weight: 40
 resources:
 - name: starter
-  src: fsh-tutorial-master.zip
+  src: fsh-tutorial.zip
   title: FSH Tutorial Starter
 aliases:
   - /docs/tutorials/basic/index.html
