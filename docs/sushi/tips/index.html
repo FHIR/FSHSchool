@@ -1,0 +1,971 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.74.2" />
+
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+<link rel="alternate" type="application/rss&#43;xml" href="https://fshschool.org/docs/sushi/tips/index.xml">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Tips and Tricks | FSH School</title><meta property="og:title" content="Tips and Tricks" />
+<meta property="og:description" content="Helpful tips and tricks that may be useful when running SUSHI on more complex FSH projects
+" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://fshschool.org/docs/sushi/tips/" />
+
+<meta itemprop="name" content="Tips and Tricks">
+<meta itemprop="description" content="Helpful tips and tricks that may be useful when running SUSHI on more complex FSH projects
+"><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Tips and Tricks"/>
+<meta name="twitter:description" content="Helpful tips and tricks that may be useful when running SUSHI on more complex FSH projects
+"/>
+
+
+
+
+
+<link rel="preload" href="/scss/main.min.aa5d7a51632f7af0d6417c549b329fa5760a67d4a648167f545b8bb85f71174f.css" as="style">
+<link href="/scss/main.min.aa5d7a51632f7af0d6417c549b329fa5760a67d4a648167f545b8bb85f71174f.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+<script
+  src="https://unpkg.com/lunr@2.3.8/lunr.min.js"
+  integrity="sha384-vRQ9bDyE0Wnu+lMfm57BlYLO0/XauFuKpVsZPs7KEDwYKktWi5+Kz3MP8++DFlRY"
+  crossorigin="anonymous"></script>
+
+
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"></span><span class="text-uppercase font-weight-bold">FSH School</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/quickstart/" ><span>Quick Start</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/docs/" ><span class="active">Documentation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/about/" ><span>About</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/community/" ><span>Community</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/downloads/" ><span>Downloads</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+
+
+<input
+  type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.cd7464a1a4fe48b79dbbf020e58868011f15fdbc030db97d78785e00d7feec904532f3b91fbbfdb2063aa25832d61bee17a17550388e1227e3ad1a24a47951a8.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="10"
+>
+
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+
+
+
+
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+
+
+<input
+  type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.cd7464a1a4fe48b79dbbf020e58868011f15fdbc030db97d78785e00d7feec904532f3b91fbbfdb2063aa25832d61bee17a17550388e1227e3ad1a24a47951a8.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="10"
+>
+
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  
+  <nav class="collapse td-sidebar-nav" id="td-section-nav">
+    
+    
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Documentation</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docs">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/sushi/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">SUSHI</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docssushi">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/sushi/installation/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Installation</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docssushiinstallation">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/sushi/project/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Project Structure</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docssushiproject">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/sushi/configuration/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Configuration</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docssushiconfiguration">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/sushi/running/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Running SUSHI</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docssushirunning">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/sushi/tips/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Tips and Tricks</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docssushitips">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/sushi/tutorial/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">SUSHI Tutorial</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docssushitutorial">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/sushi/api/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">API</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docssushiapi">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/gofsh/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">GoFSH</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgofsh">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/gofsh/installation/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Installation</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgofshinstallation">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/gofsh/api/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">API</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgofshapi">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/gofsh/running/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Running GoFSH</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgofshrunning">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/gofsh/tutorial/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">GoFSH Tutorial</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgofshtutorial">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/vscode/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Visual Studio Code Extension</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsvscode">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+  </nav>
+</div>
+
+
+
+
+          </div>
+          <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
+            
+
+
+
+
+
+
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+
+
+
+
+
+
+
+<a href="https://github.com/FHIR/FSHSchool/issues/new?title=Tips%20and%20Tricks" target="_blank"><i class="fab fa-github fa-fw"></i> Report a documentation issue</a>
+<a href="https://github.com/FHIR/sushi/issues/new" target="_blank"><i class="fab fa-github fa-fw"></i> Report a SUSHI issue</a>
+
+<a href="https://www.hl7.org/fhir/" target="_blank"><i class="fas fa-fire fa-fw"></i> FHIR R4 Specification</a>
+<a href="http://build.fhir.org/ig/HL7/fhir-shorthand/" target="_blank"><i class="fas fa-fish fa-fw"></i> FHIR Shorthand</a>
+<a href="https://chat.fhir.org/#narrow/stream/215610-shorthand" target="_blank"><i class="fas fa-comments fa-fw"></i> #shorthand</a>
+
+</div>
+
+
+
+
+
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#specifying-additional-resource-paths">Specifying Additional Resource Paths</a></li>
+    <li><a href="#support-for-contentreference-elements">Support for contentReference Elements</a></li>
+    <li><a href="#inferred-choice-path">Inferred Choice Path</a></li>
+    <li><a href="#referencing-the-canonical-url-of-the-implementationguide">Referencing the Canonical URL of the ImplementationGuide</a></li>
+    <li><a href="#extensions-for-representing-elements-from-other-versions-of-fhir">Extensions for Representing Elements From Other Versions of FHIR</a></li>
+    <li><a href="#extension-for-profiling-backboneelements">Extension for Profiling BackboneElements</a></li>
+    <li><a href="#instances-of-logical-models">Instances of Logical Models</a></li>
+    <li><a href="#manual-slice-ordering">Manual Slice Ordering</a>
+      <ul>
+        <li><a href="#examples">Examples</a></li>
+      </ul>
+    </li>
+    <li><a href="#link-references">Link References</a></li>
+    <li><a href="#choosing-a-snomed-ct-edition">Choosing a SNOMED CT edition</a></li>
+  </ul>
+</nav>
+
+
+
+          </div>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://fshschool.org/docs/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://fshschool.org/docs/sushi/">SUSHI</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://fshschool.org/docs/sushi/tips/">Tips and Tricks</a>
+</li>
+
+	</ol>
+</nav	>
+
+            
+<div class="td-content">
+	<h1>Tips and Tricks</h1>
+        <div class="lead">Helpful tips and tricks that may be useful when running SUSHI on more complex FSH projects</div>
+	
+	<h2 id="specifying-additional-resource-paths">Specifying Additional Resource Paths</h2>
+<p>Sometimes authors may wish to put predefined resources in folders other than the normally supported <code>input</code> sub-folders. To support this, SUSHI now recognizes the <a href="http://build.fhir.org/codesystem-guide-parameter-code.html">ImplementationGuide parameter</a> <code>path-resource</code>. Authors can include this parameter in <code>sushi-config.yaml</code> to specify relative paths to additional folders that contain predefined resources. For example, the following can now be used in <code>sushi-config.yaml</code> to include resources from the sub-folder <code>predefined-resources</code>:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">parameters</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">path-resource</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span>- input/predefined-resources<span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><p>Note that the value of <code>path-resource</code> is an array (or sequence) formatted in the standard YAML style.</p>
+<p>For SUSHI users who manage their own ImplementationGuide resource (i.e. <em>FSHOnly</em> IGs), SUSHI will use the parameter from the ImplementationGuide resource:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#4e9a06">&#34;parameter&#34;</span><span style="color:#a40000">:</span> <span style="color:#000;font-weight:bold">[</span>
+  <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#204a87;font-weight:bold">&#34;code&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;path-resource&#34;</span><span style="color:#000;font-weight:bold">,</span>
+    <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;input/predefined-resource&#34;</span>
+  <span style="color:#000;font-weight:bold">}</span>
+<span style="color:#000;font-weight:bold">]</span>
+</code></pre></div><h2 id="support-for-contentreference-elements">Support for contentReference Elements</h2>
+<p>Content references allow ElementDefinitions to refer to be defined in terms of other elements. A typical application of a content reference is to prevent infinite regress in elements such as <code>Questionnaire.item.item</code>, whose the definition refers back to <code>Questionnaire.item</code> via a content reference.</p>
+<p>Content references are supported in <code>AddElementRules</code> by way of the <code>contentReference</code> keyword. This feature applies to Logical Models and custom Resources. To define an element of type <code>contentReference</code>, include <code>contentReference &lt;url-to-referenced-element&gt;</code> in the <code>AddElementRule</code> where the <code>type</code> would typically go. For example, the following <code>AddElementRule</code> will create an element <code>section.section</code> that is a contentReference to the element found at <code>http://example.org/StructureDefinition/Report#Report.section</code>.</p>
+<pre><code>* section.section 0..1 contentReference http://example.org/StructureDefinition/Report#Report.section &quot;A sub-section&quot;
+</code></pre><h2 id="inferred-choice-path">Inferred Choice Path</h2>
+<p>When assigning values to choice elements (e.g., value[x]) on an Instance, type-specific elements (e.g., valueBoolean) should always be used in assignment rules. However, if the choice element has been constrained to a single type, SUSHI will infer the correct type-specific element.</p>
+<p>For example, SUSHI will infer the last line is to be interpreted as <code>* valueBoolean = true</code> as the <code>Instance</code> is exported. Authors are encouraged to not depend on this behavior, and use type-specific elements in instances.</p>
+<pre><code>Profile: BooleanObservation
+Parent: Observation
+* value[x] only boolean
+
+Instance: MyObservation
+InstanceOf: BooleanObservation
+* status = #final
+* code = http://example#somecode
+* value[x] = true
+</code></pre><h2 id="referencing-the-canonical-url-of-the-implementationguide">Referencing the Canonical URL of the ImplementationGuide</h2>
+<p>There may be cases where an author needs to refer to the canonical URL of the ImplementationGuide resource they are creating. SUSHI now supports using the <code>Canonical</code> keyword with the IG&rsquo;s <code>id</code>, <code>packageId</code>, or <code>name</code> that is specified in <code>sushi-config.yaml</code>. For example, when creating a <code>CapabilityStatement</code>, the following Assignment Rule can be added:</p>
+<pre><code>* implementationGuide = Canonical(my-package-id)
+</code></pre><h2 id="extensions-for-representing-elements-from-other-versions-of-fhir">Extensions for Representing Elements From Other Versions of FHIR</h2>
+<p>The FHIR specification defines behavior for a feature they refer to as <a href="http://hl7.org/fhir/versions.html#extensions">extensions for converting between versions</a> (also known as &ldquo;implied extensions&rdquo;). This feature allows authors to represent specific elements from past and future versions of FHIR using a specific extension URL format (as described in the spec linked above). These extensions are not available in any physical package, but rather, are understood and processed conceptually.</p>
+<p>To use this feature in SUSHI, authors must specify a dependency on a package using an id and version of the form <code>hl7.fhir.extensions.&lt;extension-version&gt;: &lt;package-version&gt;</code>, where valid extension-versions are <code>r2</code>, <code>r3</code>, <code>r4</code>, and <code>r5</code>. As an example, if an author wanted to represent the <code>Patient.animal.species</code> <a href="http://hl7.org/fhir/STU3/patient-definitions.html#Patient.animal.species">element</a> as defined in STU3, the dependencies should be specified as:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">dependencies</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">hl7.fhir.extensions.r3</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">4.0.1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><p>An author can then reference the extension using a URL following the format defined in the FHIR specification linked above. For example, the extension referring to the R3 <code>Patient.animal.species</code> element would be: <code>http://hl7.org/fhir/3.0/StructureDefinition/extension-Patient.animal.species</code>.</p>
+<p>See the following documentation for additional details:</p>
+<ul>
+<li><a href="https://fshschool.org/docs/sushi/configuration/#dependencies">Dependencies</a> from the FSH School SUSHI documentation</li>
+<li><a href="http://hl7.org/fhir/versions.html#extensions">Extensions for Converting Between Versions</a> from the current FHIR specification</li>
+</ul>
+<h2 id="extension-for-profiling-backboneelements">Extension for Profiling BackboneElements</h2>
+<p>The <code>profile-element</code> extension can be used to profile a BackboneElement by pointing at another BackboneElement defined elsewhere. This is typically used to indicate that constraints on the target of a contentReference should be applied to all the references as well. For example, the following snippet indicates that all recursive references to <code>Questionnaire.item</code> (e.g., <code>Questionnaire.item.item</code>) should conform to the same constraints as the original <code>Questionnaire.item</code> in this profile:</p>
+<pre><code>Profile: MyQuestionnaire
+Parent: Questionnaire
+* item ^type.profile = &quot;http://example.org/StructureDefinition/MyQuestionnaire&quot;
+* item ^type.profile.extension.url = &quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-profile-element&quot;
+* item ^type.profile.extension.valueString = &quot;Questionnaire.item&quot;
+// ...
+</code></pre><p>See the following documentation for additional details:</p>
+<ul>
+<li><a href="https://www.hl7.org/fhir/extension-elementdefinition-profile-element.html">Extension: profile-element</a> from the FHIR specification</li>
+<li><a href="https://chat.fhir.org/#narrow/stream/179252-IG-creation/topic/Clarification.20on.20contentReference/near/187852552">Clarification on contentReference</a> discussion on Zulip</li>
+</ul>
+<h2 id="instances-of-logical-models">Instances of Logical Models</h2>
+<p>The IG Publisher supports including instances of logical models as binary resources. This feature was announced and discussed in a <a href="https://chat.fhir.org/#narrow/stream/179252-IG-creation/topic/Logical.20Model.20Examples/near/251192344">Logical Model Examples</a> thread on chat.fhir.org.</p>
+<p>Authors can use <code>Instance:</code> to create instances of logical models and instances of logical model profiles in the same way as all other FSH instances. These instances are exported using standard JSON serialization and automatically receive <code>id</code> and <code>meta.profile</code> values when the logical model and SUSHI configuration support those elements. These instances have filenames starting with <code>Binary-</code> and will be auto-encoded as part of the publishing process.</p>
+<p>Alternatively, authors can provide their own instances of logical models without defining them in FSH. The basic steps an author needs to take in order to manually include logical model examples in a SUSHI project are:</p>
+<ol>
+<li>Add the example to the <code>input/resources</code> or <code>input/examples</code> folder
+<ul>
+<li>The file name of the example should be <code>Binary-{id}.json</code> or <code>Binary-{id}.xml</code> (substituting <code>{id}</code> for the real id)</li>
+</ul>
+</li>
+<li>Add an entry for the example in the <code>sushi-config.yaml</code> <code>resources</code> property
+<ul>
+<li>Specify a <code>name</code></li>
+<li>Specify <code>exampleCanonical</code> pointing to the canonical of your logical model</li>
+<li>Add an extension w/ the proper resource format (<code>application/fhir+json</code> or <code>application/xml</code>)</li>
+</ul>
+</li>
+</ol>
+<p>For example, given the following simple logical model definition in an IG w/ IG canonical root <code>http://example.org</code>:</p>
+<pre><code>Logical: MyLM
+Id: MyLM
+Title: &quot;My LM&quot;
+Description: &quot;This is mine&quot;
+* id 1..1 SU id &quot;Identifier for the logical model&quot;
+* important 1..1 SU boolean &quot;Is this logical model important&quot;
+</code></pre><p>Create the file <code>input/examples/Binary-my-logical-example.json</code>:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#000;font-weight:bold">{</span>
+  <span style="color:#204a87;font-weight:bold">&#34;resourceType&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;http://example.org/StructureDefinition/MyLM&#34;</span><span style="color:#000;font-weight:bold">,</span>
+  <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;my-logical-example&#34;</span><span style="color:#000;font-weight:bold">,</span>
+  <span style="color:#204a87;font-weight:bold">&#34;important&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div><p>And add the following in your <code>sushi-config.yaml</code>:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">resources</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">Binary/my-logical-example</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">extension</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#204a87;font-weight:bold">url</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>http<span style="color:#000;font-weight:bold">:</span>//hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-format<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">valueCode</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>application/fhir+json<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>Example<span style="color:#f8f8f8;text-decoration:underline"> </span>of<span style="color:#f8f8f8;text-decoration:underline"> </span>LM<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">exampleCanonical</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>http<span style="color:#000;font-weight:bold">:</span>//example.org/StructureDefinition/MyLM<span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><p>Both approaches will result in your logical model example being listed and displayed as a proper example of the logical model.</p>
+<p>If the logical model does not have <code>resourceType</code> or <code>id</code>, the same steps as above can be used with a few small adjustments:</p>
+<ul>
+<li>In step 1, the file name of the example can be any valid file name (e.g. <code>hook-example.json</code>)</li>
+<li>In step 2, the key in the resources list should be <code>Binary/{filename}</code>, where <code>{filename}</code> matches the the file name of the example without the file extension (e.g. <code>Binary/hook-example</code>)</li>
+</ul>
+<h2 id="manual-slice-ordering">Manual Slice Ordering</h2>
+<p>Authors can exercise full manual control over the ordering of slice elements within Instances. Previous versions of SUSHI allowed for partial control of slice element ordering, but some ordering was determined by SUSHI&rsquo;s implementation and could not be affected by an author. In the current version of SUSHI (<code>v3.0.0</code> or later), authors can configure their FSH projects to manually control slice ordering. When using manual slice ordering, authors should use soft indexing and avoid using hard numeric indices.</p>
+<p>Manual slice ordering follows the following rules:</p>
+<ul>
+<li>slices appear on an Instance in the order of FSH rules</li>
+<li>any required slices (<code>1..*</code>) that are not referenced in a FSH rule on the Instance appear after all referenced slices in the order in which they are defined on the Instance&rsquo;s StructureDefinition (the instance&rsquo;s <code>InstanceOf</code>)</li>
+<li>a rule that references a sliced element should reference it using the slice name</li>
+<li>to reference multiple items in a slice, use hard or soft indices after the slice name (e.g., <code>component[myslice][0]</code>)</li>
+<li>when rule paths use only a soft index (instead of a slice name), the resolved numeric index will take into account named slices that have already been referenced by previous rule paths. This should only be used to add items that do not belong to a defined slice.
+<ul>
+<li>Note: when manual slice ordering is enabled, it is not possible to refer to an element with a slice name by soft numeric index only. If hard numeric indices are used (not recommended), they may still directly access previously referenced named slices. This may lead to undesired output.</li>
+</ul>
+</li>
+</ul>
+<p>To use this ordering, add the following to <code>sushi-config.yaml</code>:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">instanceOptions</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">manualSliceOrdering</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><h3 id="examples">Examples</h3>
+<pre><code>Profile: ExampleBPObservation
+Parent: Observation
+// slicing rules for component omitted for brevity
+* component contains systolicBP 1..1 MS and diastolicBP 1..1 MS
+</code></pre><p>When using this profile without manual slice ordering, the <code>systolicBP</code> slice will always be the first entry in the <code>component</code> element, and the <code>diastolicBP</code> slice will always be the second entry in the <code>component</code> element. So, the following two instances would have the same <code>component</code> elements:</p>
+<pre><code>Instance: ExampleByName
+InstanceOf: ExampleBPObservation
+// some required elements omitted for brevity
+* component[systolicBP].valueQuantity = 108 'mm[Hg]'
+* component[diastolicBP].valueQuantity = 45 'mm[Hg]'
+
+Instance: ExampleByNumber
+InstanceOf: ExampleBPObservation
+// some required elements omitted for brevity
+* component[0].valueQuantity = 108 'mm[Hg]'
+* component[1].valueQuantity = 45 'mm[Hg]'
+</code></pre><p>When manual slice ordering is enabled, rules that set values on the <code>systolicBP</code> or <code>diastolicBP</code> slices <em>must</em> use the slice name. With this option enabled, the <code>ExampleByName</code> instance would produce the same entries in <code>component</code>, but the <code>ExampleByNumber</code> instance would contain four entries in the <code>component</code> list: two entries that are not part of a named slice, followed by the <code>systolicBP</code> slice, and finally the <code>diastolicBP</code> slice.</p>
+<p>When manual slice ordering is enabled, if any required slices with required assigned values are not present in an instance&rsquo;s list of rules, they will be added in the order in which they are defined. If you want these slices to appear in a different order on the instance without adding any new information to the slices, add rules on the instance that reassign the existing values:</p>
+<pre><code>Alias: $ObservationCategoryCodes = http://terminology.hl7.org/CodeSystem/observation-category
+
+Profile: ExampleObservation
+Parent: Observation
+// slicing rules for category omitted for brevity
+* category contains CategoryA 1..1 and CategoryB 1..1
+* category[CategoryA] = $ObservationCategoryCodes#vital-signs
+* category[CategoryB] = $ObservationCategoryCodes#survey
+
+Instance: ReorderedExample
+InstanceOf: ExampleObservation
+// some required elements omitted for brevity
+* category[CategoryB] = $ObservationCategoryCodes#survey
+* category[CategoryA] = $ObservationCategoryCodes#vital-signs
+</code></pre><p>This instance&rsquo;s <code>category</code> element will have the <code>survey</code> code as the first entry and the <code>vital-signs</code> code as the second entry.</p>
+<p>Soft index resolution will account for named slices that have been referenced in previous rules:</p>
+<pre><code>Instance: SoftIndexExample
+InstanceOf: ExampleObservation
+// some required elements omitted for brevity
+* category[+] = $ObservationCategoryCodes#laboratory // this + will resolve to index 0
+* category[CategoryB] = $ObservationCategoryCodes#survey
+* category[+] = $ObservationCategoryCodes#exam // this + will resolve to index 2, since the CategoryB slice occupies index 1
+* category[CategoryA] = $ObservationCategoryCodes#vital-signs
+</code></pre><p>This instance&rsquo;s <code>category</code> element will have four entries in the order specified: <code>laboratory</code>, <code>survey</code>, <code>exam</code>, <code>vital-signs</code>.</p>
+<h2 id="link-references">Link References</h2>
+<p>SUSHI creates the <strong>fsh-generated/includes/fsh-link-references.md</strong> file to make it easier to create links to resource definitions in other markdown pages. This file&rsquo;s contents are a list of markdown link definitions, with one link for each resource in your <strong>ImplementationGuide.json</strong> file. This will include resources defined in FSH, the <code>resources</code> configuration property, and predefined resources. For example:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">[MyPatient]: StructureDefinition-MyPatient.html
+[MyExtension]: StructureDefinition-MyExtension.html
+</code></pre></div><p>The rules for determining what the link text will be for a given resource are as follows:</p>
+<ul>
+<li>For resources defined in FSH:
+<ul>
+<li>Non-instance resources use the <em>name</em> of the resource.</li>
+<li>Instances use the <em>id</em> of the resource.</li>
+</ul>
+</li>
+<li>For predefined resources:
+<ul>
+<li>Resources in the <code>input/examples</code> folder use the <em>id</em> of the resource.</li>
+<li>Resources in other sub-folders of <code>input</code> attempt to use the <em>name</em> of the resource if this is a string value, and otherwise use the <em>id</em> of the resource.</li>
+</ul>
+</li>
+<li>For resources that are manually configured in <code>sushi-config.yaml</code>:
+<ul>
+<li>The <em>name</em> of the resource is used, if available.</li>
+<li>Otherwise, the <em>id</em> of the resource is used.</li>
+</ul>
+</li>
+</ul>
+<p>To use these generated links, include <code>fsh-generated-links.md</code> in your custom markdown pages. This can be done by including the following line at the bottom of your custom markdown page:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">{% include fsh-link-references.md %}
+</code></pre></div><p>Then, you can create links by including the resource&rsquo;s link text within square brackets. For example, if you had a Profile named <code>MyPatient</code>, your custom markdown file could look like this:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown"><span style="color:#800080;font-weight:bold">## Patients
+</span><span style="color:#800080;font-weight:bold"></span>This IG provides [MyPatient] for patient information.
+
+{% include fsh-link-references.md %}
+</code></pre></div><h2 id="choosing-a-snomed-ct-edition">Choosing a SNOMED CT edition</h2>
+<p>To specify a certain edition of SNOMED CT - for example to ensure terminology validation works correctly - do the following:</p>
+<ol>
+<li>Add or modify the <code>parameters</code> section in your <code>sushi-config.yaml</code> to specify a <code>path-expansion-params</code> parameter.</li>
+</ol>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#204a87;font-weight:bold">parameters</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">path-expansion-params</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>Parameters-expansion.json<span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><ol start="2">
+<li>Create an <code>input/fsh/expansion.fsh</code> file and define an instance of <code>Parameters</code> with the id <code>expansion</code>. Within the Parameters instance, specify a <code>system-version</code> parameter. For example, if you&rsquo;d like to use the US edition of SNOMED, add this definition:</li>
+</ol>
+<pre><code>Instance: expansion
+InstanceOf: Parameters
+Description: &quot;SNOMED CT expansion parameter&quot;
+Usage: #definition
+* parameter[+].name = &quot;system-version&quot;
+* parameter[=].valueCanonical = &quot;http://snomed.info/sct|http://snomed.info/sct/731000124108&quot;
+</code></pre><p>If you&rsquo;d like to use another language, such as Swedish, choose this:</p>
+<pre><code>Instance: expansion
+InstanceOf: Parameters
+Description: &quot;SNOMED CT Swedish expansion parameter&quot;
+Usage: #definition
+* parameter[+].name = &quot;displayLanguage&quot;
+* parameter[=].valueCode = urn:ietf:bcp:47#se
+* parameter[+].name = &quot;system-version&quot;
+* parameter[=].valueCanonical = &quot;http://snomed.info/sct|http://snomed.info/sct/45991000052106&quot;
+</code></pre><p><em>Note: The <code>system-version</code> and <code>displayLanguage</code> parameters correspond to the parameters of the same name in FHIR&rsquo;s <a href="https://hl7.org/fhir/valueset-operation-expand.html">$expand</a> operation.</em></p>
+
+        <div class="section-index">
+    
+    
+    
+    
+    <hr class="panel-line">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    
+</div>
+
+	
+	
+	<div class="text-muted mt-5 pt-3 border-top">Last modified May 2, 2024: <a  href="https://github.com/FHIR/FSHSchool/commit/9513c199578d987428bf3007d79ec371c0951287">Remove specific tags for SUSHI 3.0.0 &#43; Document new CLI command options (#90) (9513c19)</a>
+</div>
+</div>
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Zulip" aria-label="Zulip">
+    <a class="text-white" target="_blank" href="https://chat.fhir.org/#narrow/stream/215610-shorthand">
+      <i class="fas fa-comments"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Issues" aria-label="Issues">
+    <a class="text-white" target="_blank" href="https://github.com/FHIR/sushi/issues">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Jira" aria-label="Jira">
+    <a class="text-white" target="_blank" href="https://jira.hl7.org/issues/?jql=project%20%3D%20FHIR%20AND%20Specification%20%3D%20%22Shorthand%20%28FHIR%29%20%5BFHIR-shorthand%5D%22">
+      <i class="fab fa-jira"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="FSH School" aria-label="FSH School">
+    <a class="text-white" target="_blank" href="https://github.com/FHIR/FSHSchool">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="SUSHI" aria-label="SUSHI">
+    <a class="text-white" target="_blank" href="https://github.com/FHIR/sushi/">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2024 Health Level Seven International All Rights Reserved. FHIR® is a registered trademark of Health Level Seven International.</small>
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.664f21bf5eb0c31ebc661e2616e6c63e0448cec6d5636d869957be423c3cb952.js" integrity="sha256-Zk8hv16wwx68Zh4mFubGPgRIzsbVY22GmVe&#43;Qjw8uVI=" crossorigin="anonymous"></script>
+
+
+
+  </body>
+</html>

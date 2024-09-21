@@ -1,0 +1,923 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.74.2" />
+
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+<link rel="alternate" type="application/rss&#43;xml" href="https://fshschool.org/docs/sushi/tutorial/index.xml">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>SUSHI Tutorial | FSH School</title><meta property="og:title" content="SUSHI Tutorial" />
+<meta property="og:description" content="An end-to-end tutorial showing how to run SUSHI using a sample FSH project
+" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://fshschool.org/docs/sushi/tutorial/" />
+
+<meta itemprop="name" content="SUSHI Tutorial">
+<meta itemprop="description" content="An end-to-end tutorial showing how to run SUSHI using a sample FSH project
+"><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SUSHI Tutorial"/>
+<meta name="twitter:description" content="An end-to-end tutorial showing how to run SUSHI using a sample FSH project
+"/>
+
+
+
+
+
+<link rel="preload" href="/scss/main.min.aa5d7a51632f7af0d6417c549b329fa5760a67d4a648167f545b8bb85f71174f.css" as="style">
+<link href="/scss/main.min.aa5d7a51632f7af0d6417c549b329fa5760a67d4a648167f545b8bb85f71174f.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+<script
+  src="https://unpkg.com/lunr@2.3.8/lunr.min.js"
+  integrity="sha384-vRQ9bDyE0Wnu+lMfm57BlYLO0/XauFuKpVsZPs7KEDwYKktWi5+Kz3MP8++DFlRY"
+  crossorigin="anonymous"></script>
+
+
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"></span><span class="text-uppercase font-weight-bold">FSH School</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/quickstart/" ><span>Quick Start</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/docs/" ><span class="active">Documentation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/about/" ><span>About</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/community/" ><span>Community</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/downloads/" ><span>Downloads</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+
+
+<input
+  type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.cd7464a1a4fe48b79dbbf020e58868011f15fdbc030db97d78785e00d7feec904532f3b91fbbfdb2063aa25832d61bee17a17550388e1227e3ad1a24a47951a8.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="10"
+>
+
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+
+
+
+
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+
+
+<input
+  type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.cd7464a1a4fe48b79dbbf020e58868011f15fdbc030db97d78785e00d7feec904532f3b91fbbfdb2063aa25832d61bee17a17550388e1227e3ad1a24a47951a8.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="10"
+>
+
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  
+  <nav class="collapse td-sidebar-nav" id="td-section-nav">
+    
+    
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Documentation</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docs">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/sushi/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">SUSHI</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docssushi">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/sushi/installation/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Installation</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docssushiinstallation">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/sushi/project/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Project Structure</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docssushiproject">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/sushi/configuration/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Configuration</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docssushiconfiguration">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/sushi/running/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Running SUSHI</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docssushirunning">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/sushi/tips/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Tips and Tricks</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docssushitips">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/sushi/tutorial/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">SUSHI Tutorial</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docssushitutorial">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/sushi/api/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">API</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docssushiapi">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/gofsh/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">GoFSH</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgofsh">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/gofsh/installation/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Installation</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgofshinstallation">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/gofsh/api/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">API</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgofshapi">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/gofsh/running/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Running GoFSH</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgofshrunning">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/gofsh/tutorial/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">GoFSH Tutorial</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgofshtutorial">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/vscode/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Visual Studio Code Extension</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsvscode">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+  </nav>
+</div>
+
+
+
+
+          </div>
+          <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
+            
+
+
+
+
+
+
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+
+
+
+
+
+
+
+<a href="https://github.com/FHIR/FSHSchool/issues/new?title=SUSHI%20Tutorial" target="_blank"><i class="fab fa-github fa-fw"></i> Report a documentation issue</a>
+<a href="https://github.com/FHIR/sushi/issues/new" target="_blank"><i class="fab fa-github fa-fw"></i> Report a SUSHI issue</a>
+
+<a href="https://www.hl7.org/fhir/" target="_blank"><i class="fas fa-fire fa-fw"></i> FHIR R4 Specification</a>
+<a href="http://build.fhir.org/ig/HL7/fhir-shorthand/" target="_blank"><i class="fas fa-fish fa-fw"></i> FHIR Shorthand</a>
+<a href="https://chat.fhir.org/#narrow/stream/215610-shorthand" target="_blank"><i class="fas fa-comments fa-fw"></i> #shorthand</a>
+
+</div>
+
+
+
+
+
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#step-1-review-introduction">Step 1: Review Introduction</a></li>
+        <li><a href="#step-2-install-nodejs-and-sushi">Step 2: Install Node.js and Sushi</a></li>
+        <li><a href="#step-3-download-sample-fsh-project">Step 3: Download Sample FSH Project</a></li>
+        <li><a href="#step-4-run-sushi">Step 4: Run SUSHI</a></li>
+        <li><a href="#step-5-generate-the-sample-ig">Step 5: Generate the Sample IG</a></li>
+        <li><a href="#step-6-setting-cardinalities-in-a-profile">Step 6: Setting Cardinalities in a Profile</a></li>
+        <li><a href="#step-7-create-a-species-extension-for-fishpatient">Step 7: Create a Species Extension for FishPatient</a></li>
+        <li><a href="#step-8-define-a-value-set-for-fish-species">Step 8: Define a Value Set for Fish Species</a></li>
+        <li><a href="#step-9-define-an-alias">Step 9: Define an Alias</a></li>
+        <li><a href="#step-10-create-an-instance-of-fishpatient">Step 10: Create an Instance of FishPatient</a></li>
+        <li><a href="#step-11-extend-the-veterinarian-profile">Step 11: Extend the Veterinarian Profile</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+          </div>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://fshschool.org/docs/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://fshschool.org/docs/sushi/">SUSHI</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://fshschool.org/docs/sushi/tutorial/">SUSHI Tutorial</a>
+</li>
+
+	</ol>
+</nav	>
+
+            
+<div class="td-content">
+	<h1>SUSHI Tutorial</h1>
+        <div class="lead">An end-to-end tutorial showing how to run SUSHI using a sample FSH project</div>
+	
+	<p><a href="https://build.fhir.org/ig/HL7/fhir-shorthand/index.html">FHIR Shorthand</a> (FSH) is a specially-designed language for defining the content of FHIR Implementation Guides (IGs). It is simple and compact, with tools to produce Fast Healthcare Interoperability Resources (FHIR) profiles, extensions and IGs. FSH is compiled from text files to FHIR artifacts using <a href="/docs/sushi">SUSHI</a>. To get started using FSH, you need to install and run SUSHI using the steps below.</p>
+
+
+<div class="alert alert-success" role="alert">
+<h4 class="alert-heading">Tip</h4>
+If you find this helpful, you may also want to look at our <a href="https://fshschool.github.io/courses/">self-service FSH Seminar course</a>, which includes a more extensive walkthrough of using SUSHI and FSH.
+</div>
+
+<h3 id="step-1-review-introduction">Step 1: Review Introduction</h3>
+<p>If you haven&rsquo;t done so already, please read or review the <a href="/docs/introduction/">Introduction</a> documentation to gain an understanding of the conventions used in this tutorial and the resources available to you.</p>
+<h3 id="step-2-install-nodejs-and-sushi">Step 2: Install Node.js and Sushi</h3>
+<p>If you have not already installed SUSHI, follow the <a href="/docs/sushi/installation">SUSHI Installation</a> instructions.</p>
+<h3 id="step-3-download-sample-fsh-project">Step 3: Download Sample FSH Project</h3>
+<p>To start with some working examples of FSH files and a skeleton FSH project, <a href="/docs/sushi/tutorial/fsh-tutorial.zip"><i class='fas fa-download fa-fw'></i> download the FSH Tutorial Starter</a> and unzip it into a directory of your choice.</p>
+<p>After the file is unzipped, you should see two subdirectories:</p>
+<ul>
+<li><strong>FishExample</strong></li>
+<li><strong>FishExampleComplete</strong></li>
+</ul>
+<p>Change the working directory to FishExample. There is a <strong>sushi-config.yaml</strong> file, and two FSH files within the <strong>/input/fsh</strong> subdirectory:</p>
+<ul>
+<li><strong>FishPatient.fsh</strong></li>
+<li><strong>Veterinarian.fsh</strong></li>
+</ul>
+<p>In addition, there are several files for building the IG.</p>
+<h3 id="step-4-run-sushi">Step 4: Run SUSHI</h3>
+<p>Now that you have SUSHI installed and a minimal FSH project, open up a command window, and navigate to the <strong>FishExample</strong> directory. Run SUSHI on those FSH files by executing:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><i class="fas fa-dollar-sign"></i> sushi build .
+</code></pre></div>
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+The dot (.) represents &ldquo;this directory,&rdquo; the location of the FSH files. You can also specify the location explicitly by replacing the dot with a directory path.
+</div>
+
+<p>Running SUSHI will create a <strong>FishExample/fsh-generated</strong> directory, and populate it with the files needed to create the IG using the HL7 FHIR IG Publisher tool.</p>
+<p>While running SUSHI, there will be a series of informational messages. When SUSHI completes, you should see a summary output similar this:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">╔════════════════════════ SUSHI RESULTS ══════════════════════════╗
+║ ╭───────────────┬──────────────┬──────────────┬───────────────╮ ║
+║ │    Profiles   │  Extensions  │   Logicals   │   Resources   │ ║
+║ ├───────────────┼──────────────┼──────────────┼───────────────┤ ║
+║ │       2       │      0       │      0       │       0       │ ║
+║ ╰───────────────┴──────────────┴──────────────┴───────────────╯ ║
+║ ╭────────────────────┬───────────────────┬────────────────────╮ ║
+║ │      ValueSets     │    CodeSystems    │     Instances      │ ║
+║ ├────────────────────┼───────────────────┼────────────────────┤ ║
+║ │         0          │         0         │         0          │ ║
+║ ╰────────────────────┴───────────────────┴────────────────────╯ ║
+║                                                                 ║
+╠═════════════════════════════════════════════════════════════════╣
+║ Fin-tastic job!                        0 Errors      0 Warnings ║
+╚═════════════════════════════════════════════════════════════════╝
+</code></pre></div><p>The files generated by SUSHI are located in the <strong>FishExample/fsh-generated</strong> directory. Check that the <strong>FishExample/fsh-generated/resources</strong> subdirectory contains two generated StructureDefinitions and a generated ImplementationGuide.</p>
+<h3 id="step-5-generate-the-sample-ig">Step 5: Generate the Sample IG</h3>
+<p>At the command prompt, enter:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><i class='fab fa-windows fa-fw'></i> <i class="fas fa-dollar-sign"></i> _updatePublisher
+<i class='fab fa-apple fa-fw'></i> <i class="fas fa-dollar-sign"></i> ./_updatePublisher.sh
+</code></pre></div><p>This will download the latest version of the HL7 FHIR IG Publisher tool into <strong>./input-cache</strong>. <em>This step can be skipped if you already have run the command recently, and have the latest version of the IG Publisher tool.</em></p>
+
+
+<div class="alert alert-success" role="alert">
+<h4 class="alert-heading">Tip</h4>
+If you are blocked by a firewall, or if for any reason <code>_updatePublisher</code> fails to execute, download the current IG Publisher jar file <a href="https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar">here</a>. When the file has downloaded, move it into the directory <strong>/FishExample/input-cache</strong> (creating the directory if necessary).
+</div>
+
+
+
+<div class="alert alert-warning" role="alert">
+<h4 class="alert-heading">Warning</h4>
+Before proceeding to the next command: If you have never run the IG Publisher, you may need to install Jekyll first. See <a href="https://confluence.hl7.org/display/FHIR/IG+Publisher+Documentation">Installing the IG Publisher</a> for details.
+</div>
+
+<p>Now run:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><i class='fab fa-windows fa-fw'></i> <i class="fas fa-dollar-sign"></i> _genonce
+<i class='fab fa-apple fa-fw'></i> <i class="fas fa-dollar-sign"></i> ./_genonce.sh
+</code></pre></div><p>This will run the HL7 FHIR IG generator, which may take several minutes to complete.</p>
+<p>After the publisher is finished, open the file <strong>/FishExample/output/index.html</strong> to see the resulting IG.</p>
+<p>If you click on the Artifacts Summary item in the menu, you will see that the IG contains two profiles, FishPatient and Veterinarian. If you look at each of them, you will notice that they have minimal differentials. The only way in which they differ from their base resource is that they require at least one name.</p>
+<h3 id="step-6-setting-cardinalities-in-a-profile">Step 6: Setting Cardinalities in a Profile</h3>
+<p>It is not widely known, but FHIR is designed to be used for veterinary medicine as well as human. For a non-human patient, we need to record the species. The Patients in this Tutorial are going to be various species of fish 🐟.</p>
+<p>Since fish don&rsquo;t get legally married (although some species do pair bond) and they don&rsquo;t communicate in a human language, the first thing we&rsquo;ll do in the FishPatient profile is eliminate these elements. To do this, open the file <strong>FishPatient.fsh</strong> in your favorite plain-text editor, and add the following rules after the last non-blank line in the file:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">* maritalStatus 0..0
+* communication 0..0
+</code></pre></div><p>Note that rules start with <code>*</code>. FSH expresses cardinality as, <code>{min}..{max}</code>, the same as FHIR.</p>
+<h3 id="step-7-create-a-species-extension-for-fishpatient">Step 7: Create a Species Extension for FishPatient</h3>
+<p>To specify the species of our aquatic patients, we&rsquo;ll need an <a href="https://www.hl7.org/fhir/R4/extensibility.html#extension">extension</a>.</p>
+<p>We have a choice of whether to make the extension <strong>inline</strong> or <strong>standalone</strong>. Inline extensions do not result in a separate StructureDefinition, and cannot be reused in other profiles. Standalone extensions are the opposite: they have independent StructureDefinitions, and can be reused. For this example, let&rsquo;s make a standalone extension.</p>
+<p>Extensions are created using the <code>contains</code> keyword. To add a standalone species extension, add the following rule after the cardinality rules:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">* extension contains FishSpecies named species 0..1
+</code></pre></div><p>This rule states that the <code>extension</code> array of the Patient resource will incorporate the <code>FishSpecies</code> extension with the local name <code>species</code>.</p>
+<p>To define the <code>FishSpecies</code> extension, add the following lines to the end of the <strong>FishPatient.fsh</strong> file:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Extension:   FishSpecies
+Id:          fish-species
+Title:       &#34;Fish Species&#34;
+Description: &#34;The species of the fish.&#34;
+</code></pre></div>
+
+<div class="alert alert-success" role="alert">
+<h4 class="alert-heading">Tip</h4>
+FSH ignores extra whitespace, so authors can choose to use whitespace for improved visual alignment, as in the extension definition above.
+</div>
+
+<p>Run SUSHI again (<code>sushi build .</code>). The count of Extensions should now be 1.</p>
+<h3 id="step-8-define-a-value-set-for-fish-species">Step 8: Define a Value Set for Fish Species</h3>
+<p>The FishSpecies extension doesn&rsquo;t quite do its job yet, because we haven&rsquo;t specified what type of values it might accept. To add this information, enter these lines following the description of FishSpecies:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">* value[x] only CodeableConcept
+* valueCodeableConcept from FishSpeciesValueSet (extensible)
+</code></pre></div><p>The first rule restricts the value[x] (a built-in element of every FHIR extension) to a CodeableConcept using the <code>only</code> keyword. The second binds it to a value set (yet to be defined) using the <code>from</code> keyword. The <a href="http://hl7.org/fhir/valueset-binding-strength.html">binding strength</a> will be <code>extensible</code>, meaning the codes in the FishSpeciesValueSet must be used except when the value set is missing a specific fish species.</p>
+<p>To define FishSpeciesValueSet, add the following lines to the same file:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">ValueSet:    FishSpeciesValueSet
+Title:       &#34;Fish Species Value Set&#34;
+Id:          fish-species-value-set
+Description: &#34;Codes describing various species of fish, taken from SNOMED-CT.&#34;
+* codes from system http://snomed.info/sct where concept is-a SCT#90580008  &#34;Fish (organism)&#34;
+</code></pre></div>
+
+<div class="alert alert-info" role="alert">
+<h4 class="alert-heading">Info</h4>
+The rule in the value set definition above selects all codes from SNOMED-CT that are children of the concept &ldquo;Fish (organism)&rdquo;.
+</div>
+
+<p>Run SUSHI again. The count of ValueSets should now be 1. Try generating the IG by running <code>_genonce</code> again. Open the file <strong>/FishExample/output/index.html</strong> to see the resulting IG.</p>
+<ul>
+<li>Do you see where the FishPatient profile is in the IG?</li>
+<li>Does the differential reflect your changes?</li>
+<li>How does FHIR render the value set you defined?</li>
+</ul>
+<h3 id="step-9-define-an-alias">Step 9: Define an Alias</h3>
+<p>An <code>Alias</code> is a way to define a shorthand for a URL or OID. For example, in the value set definition above, we could have defined an <code>Alias</code> to make referencing the <code>http://snomed.info/sct</code> URL easier, as shown below. Aliases are conventionally defined at the top of the file.</p>
+<p>Add this line at the top of the <strong>FishPatient.fsh</strong> file:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Alias:   SCT = http://snomed.info/sct
+</code></pre></div><p>and then replace the last line in the FishSpeciesValueSet with:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">* codes from system SCT where concept is-a #90580008  &#34;Fish (organism)&#34;
+</code></pre></div>
+
+<div class="alert alert-success" role="alert">
+<h4 class="alert-heading">Tip</h4>
+Using aliases has no effect on the IG; it simply makes the FSH code a bit neater.
+</div>
+
+<h3 id="step-10-create-an-instance-of-fishpatient">Step 10: Create an Instance of FishPatient</h3>
+<p>Every IG should provide examples of its profiles. Let&rsquo;s do that by introducing an example FishPatient named Shorty. Create this example instance using the <code>Instance</code> keyword, with <code>InstanceOf</code> set to <code>FishPatient</code> and <code>Usage</code> set to <code>Example</code>.</p>
+<p>Include the following information about Shorty in the instance:</p>
+<ul>
+<li>His given (first) name is &ldquo;Shorty&rdquo; and his family (last) name is &ldquo;Koi-Fish&rdquo;.</li>
+<li>Shorty is a Koi fish (Cyprinus rubrofuscus), represented as SNOMED-CT code 47978005 &ldquo;Carpiodes cyprinus (organism)&rdquo;.</li>
+</ul>
+<p>If you need help with this, you can reference the <a href="https://build.fhir.org/ig/HL7/fhir-shorthand/reference.html#defining-instances">Defining Instances</a> section of the specification. If you still need help, you can peek at the FSH files in the <strong>FishExampleComplete</strong> directory.</p>
+<p>Run SUSHI again, and re-generate the IG.</p>
+<ul>
+<li>Did it compile without errors?</li>
+<li>What does the IG look like now?</li>
+</ul>
+<h3 id="step-11-extend-the-veterinarian-profile">Step 11: Extend the Veterinarian Profile</h3>
+<p>Now, add constraints and/or extensions to the Veterinarian profile:</p>
+<ul>
+<li>
+<p>Add qualifications consistent with a Veterinary practice. Qualifications are taken from code system <code>http://nucc.org/provider-taxonomy</code>, and the code is <code>174M00000X</code>, for &ldquo;Veterinarian&rdquo;.</p>
+</li>
+<li>
+<p>In addition, slice the <code>identifier</code> array, making a license number required. The code system is <code>http://terminology.hl7.org/CodeSystem/v2-0203</code> and the code is <code>LN</code>, for &ldquo;License number&rdquo;.</p>
+</li>
+</ul>
+<p>If you need help with this, you can refer to the <a href="https://build.fhir.org/ig/HL7/fhir-shorthand/reference.html#assignment-rules">assignment rules</a> and <a href="https://build.fhir.org/ig/HL7/fhir-shorthand/reference.html#contains-rules-for-slicing">slicing rules</a> sections of the specification. If you still need help, you can peek at the FSH files in the <strong>FishExampleComplete</strong> directory.</p>
+<p>Run SUSHI again, and re-generate the IG.</p>
+<ul>
+<li>Did it compile without errors?</li>
+<li>What does the IG look like now?</li>
+</ul>
+<p>Congratulations! You&rsquo;ve completed the FSH tutorial. It might be time to feast on some sushi!</p>
+
+        <div class="section-index">
+    
+    
+    
+    
+    <hr class="panel-line">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    
+</div>
+
+	
+	
+	<div class="text-muted mt-5 pt-3 border-top">Last modified September 21, 2024: <a  href="https://github.com/FHIR/FSHSchool/commit/c94774e540b0cba7a33a078127d7e5fdbfcfbcc1">Move FSHSchool site to GitHub FHIR organization (#105) (c94774e)</a>
+</div>
+</div>
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Zulip" aria-label="Zulip">
+    <a class="text-white" target="_blank" href="https://chat.fhir.org/#narrow/stream/215610-shorthand">
+      <i class="fas fa-comments"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Issues" aria-label="Issues">
+    <a class="text-white" target="_blank" href="https://github.com/FHIR/sushi/issues">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Jira" aria-label="Jira">
+    <a class="text-white" target="_blank" href="https://jira.hl7.org/issues/?jql=project%20%3D%20FHIR%20AND%20Specification%20%3D%20%22Shorthand%20%28FHIR%29%20%5BFHIR-shorthand%5D%22">
+      <i class="fab fa-jira"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="FSH School" aria-label="FSH School">
+    <a class="text-white" target="_blank" href="https://github.com/FHIR/FSHSchool">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="SUSHI" aria-label="SUSHI">
+    <a class="text-white" target="_blank" href="https://github.com/FHIR/sushi/">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2024 Health Level Seven International All Rights Reserved. FHIR® is a registered trademark of Health Level Seven International.</small>
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.664f21bf5eb0c31ebc661e2616e6c63e0448cec6d5636d869957be423c3cb952.js" integrity="sha256-Zk8hv16wwx68Zh4mFubGPgRIzsbVY22GmVe&#43;Qjw8uVI=" crossorigin="anonymous"></script>
+
+
+
+  </body>
+</html>

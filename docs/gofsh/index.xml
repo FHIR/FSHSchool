@@ -1,0 +1,297 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>FSH School – GoFSH</title>
+    <link>https://fshschool.org/docs/gofsh/</link>
+    <description>Recent content in GoFSH on FSH School</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="https://fshschool.org/docs/gofsh/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Installation</title>
+      <link>https://fshschool.org/docs/gofsh/installation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://fshschool.org/docs/gofsh/installation/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;step-1-install-nodejs&#34;&gt;Step 1: Install Node.js&lt;/h2&gt;
+&lt;p&gt;GoFSH requires Node.js. To install Node.js, go to &lt;a href=&#34;https://nodejs.org/&#34;&gt;https://nodejs.org/&lt;/a&gt; and select the &amp;ldquo;LTS&amp;rdquo; download. If the download is not appropriate for your operating system, click the &amp;ldquo;Other Downloads&amp;rdquo; link to get a full list of downloads. Once the installer is downloaded, run it using the default options.&lt;/p&gt;
+&lt;p&gt;Ensure that Node.js is correctly installed by opening a command window and typing the following two commands. Each command should return a version number.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;i class=&#34;fas fa-dollar-sign&#34;&gt;&lt;/i&gt; node --version
+&lt;i class=&#34;fas fa-dollar-sign&#34;&gt;&lt;/i&gt; npm --version
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;step-2-install-gofsh&#34;&gt;Step 2: Install GoFSH&lt;/h2&gt;
+&lt;p&gt;To install GoFSH, open up a command prompt and type the following command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;i class=&#34;fas fa-dollar-sign&#34;&gt;&lt;/i&gt; npm install -g gofsh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Check the installation via the command below:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;i class=&#34;fas fa-dollar-sign&#34;&gt;&lt;/i&gt; gofsh --help
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If the command outputs instructions on using the GoFSH command line interface (CLI), you&amp;rsquo;re ready to run GoFSH.&lt;/p&gt;
+&lt;p&gt;Use &lt;code&gt;gofsh -v&lt;/code&gt; to display the installed version of GoFSH and the version of the FSH specification it supports. GoFSH follows the &lt;a href=&#34;https://semver.org&#34;&gt;semantic versioning&lt;/a&gt; convention (MAJOR.MINOR.PATCH):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;MAJOR&lt;/strong&gt;: A major release has significant new functionality and, potentially, grammar changes or other non-backward-compatible changes.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MINOR&lt;/strong&gt;: Contains new or modified features, while maintaining backwards compatibility within the major version.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PATCH&lt;/strong&gt;: Contains minor updates and bug fixes, while maintaining backwards compatibility within the major version.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;updating-or-reverting-gofsh&#34;&gt;Updating or Reverting GoFSH&lt;/h2&gt;
+&lt;p&gt;To update GoFSH to the latest version, re-run:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;i class=&#34;fas fa-dollar-sign&#34;&gt;&lt;/i&gt; npm install -g gofsh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To revert to a previous version of GoFSH, run:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;i class=&#34;fas fa-dollar-sign&#34;&gt;&lt;/i&gt; npm install -g gofsh@&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;version&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;where the &lt;code&gt;{version}&lt;/code&gt; is replaced by the desired MAJOR.MINOR.PATCH version (e.g., &lt;code&gt;npm install -g gofsh@1.5.0&lt;/code&gt;).&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: API</title>
+      <link>https://fshschool.org/docs/gofsh/api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://fshschool.org/docs/gofsh/api/</guid>
+      <description>
+        
+        
+        &lt;p&gt;GoFSH exposes a &lt;code&gt;fhirToFsh&lt;/code&gt; function that can be used to convert FHIR to FSH.&lt;/p&gt;
+&lt;h2 id=&#34;syntax&#34;&gt;Syntax&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;fhirToFsh&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;fhir&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;options&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;parameters&#34;&gt;Parameters&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;fhir&lt;/code&gt; - An array of FHIR resources, represented either as strings or JSON.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;options&lt;/code&gt; - An object which can have any combindation of the following attributes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;dependencies&lt;/code&gt; - An array of strings used to specify dependencies required for processing the FHIR. Dependencies should use the format &lt;code&gt;&amp;lt;packageId&amp;gt;@&amp;lt;version&amp;gt;&lt;/code&gt; (example: &lt;code&gt;hl7.fhir.us.core@3.0.1&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;logLevel&lt;/code&gt; - A string that specifies what level of logging to use when processing FHIR. Options are &lt;code&gt;silent&lt;/code&gt;, &lt;code&gt;debug&lt;/code&gt;, &lt;code&gt;info&lt;/code&gt;, &lt;code&gt;warn&lt;/code&gt;, and &lt;code&gt;error&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;style&lt;/code&gt; - A string representing how the returned output is styled. The options are:
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;string&lt;/code&gt; - The generated FSH will be returned in one single string. This is the default.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;map&lt;/code&gt; - The generated FSH will be returned as an object. The attributes on the object are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;aliases&lt;/code&gt; - A string containing all &lt;code&gt;Alias&lt;/code&gt; definitions.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;profiles&lt;/code&gt; - A &lt;code&gt;Map&lt;/code&gt; containing all &lt;code&gt;Profile&lt;/code&gt; definitions as values.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;extensions&lt;/code&gt; - A &lt;code&gt;Map&lt;/code&gt; containing all &lt;code&gt;Extension&lt;/code&gt; definitions as values.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;codeSystems&lt;/code&gt; - A &lt;code&gt;Map&lt;/code&gt; containing all &lt;code&gt;CodeSystem&lt;/code&gt; definitions as values.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;valueSets&lt;/code&gt; - A &lt;code&gt;Map&lt;/code&gt; containing all &lt;code&gt;ValueSet&lt;/code&gt; definitions as values.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;instances&lt;/code&gt; - A &lt;code&gt;Map&lt;/code&gt; containing all &lt;code&gt;Instance&lt;/code&gt; definitions as values.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;invariants&lt;/code&gt; - A &lt;code&gt;Map&lt;/code&gt; containing all &lt;code&gt;Invariant&lt;/code&gt; definitions as values.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mappings&lt;/code&gt; - A &lt;code&gt;Map&lt;/code&gt; containing all &lt;code&gt;Mapping&lt;/code&gt; definitions as values.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For each &lt;code&gt;Map&lt;/code&gt;, the keys are the name of the FSH definition. For example, if the definition was:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Profile: MyPatient
+Parent: Patient
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The key would be &lt;code&gt;MyPatient&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;return-value&#34;&gt;Return Value&lt;/h2&gt;
+&lt;p&gt;A &lt;code&gt;Promise&lt;/code&gt; that resolves to an object with the following attributes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;fsh&lt;/code&gt; - The generated FSH, styled according to the &lt;code&gt;style&lt;/code&gt; parameter.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;configuration&lt;/code&gt; - An object representing the &lt;code&gt;sushi-config.yaml&lt;/code&gt; file that would be generated if GoFSH was running in a command line interface.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;errors&lt;/code&gt; - An array of strings containing any errors detected during processing.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;warnings&lt;/code&gt; - An array of strings containing any warnings detected during processing.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
+&lt;p&gt;To use &lt;code&gt;fhirToFsh&lt;/code&gt;, you must first install &lt;code&gt;gofsh&lt;/code&gt; as a dependency of your project:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;i class=&#34;fas fa-dollar-sign&#34;&gt;&lt;/i&gt; npm install gofsh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Once &lt;code&gt;gofsh&lt;/code&gt; is installed as a dependency of your project, you can &lt;code&gt;import&lt;/code&gt; and use this function as shown:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;gofshClient&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;gofsh&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// Example basic usage
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;gofshClient&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;fhirToFsh&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;([&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;{ Your FHIR here }&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;])&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;then&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;((&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;results&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// handle results
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;})&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;catch&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;((&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;err&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// handle thrown errors
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// Example usage with options
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;gofshClient&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;fhirToFsh&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;([&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;{ Your FHIR here }&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;],&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;dependencies&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;hl7.fhir.us.mcode@1.0.0&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;],&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;style&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;map&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;logLevel&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;silent&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;})&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;then&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;((&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;results&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// handle results
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;})&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;catch&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;((&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;err&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// handle thrown errors
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Running GoFSH</title>
+      <link>https://fshschool.org/docs/gofsh/running/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://fshschool.org/docs/gofsh/running/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;running-gofsh&#34;&gt;Running GoFSH&lt;/h2&gt;
+&lt;p&gt;GoFSH is executed from the command line. The general form of the GoFSH execution command is as follows:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;i class=&#34;fas fa-dollar-sign&#34;&gt;&lt;/i&gt; gofsh &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;input-directory&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;options&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;where options include the following (in any order):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;-a, --alias-file &amp;lt;path&amp;gt;           specify an existing FSH file containing aliases to be loaded.
+-d, --dependency &amp;lt;dependency...&amp;gt;  specify dependencies to be loaded using format dependencyId@version (FHIR R4 included by default)
+-f, --fshing-trip                 run SUSHI on the output of GoFSH and generate a comparison of the round trip results
+-h, --help                        display help for command
+--indent                          output FSH with indented rules using context paths
+-i, --installed-sushi             use the locally installed version of SUSHI when generating comparisons with the `-f` option
+-l, --log-level &amp;lt;level&amp;gt;           specify the level of log messages: error, warn, info (default), debug
+--meta-profile &amp;lt;mode&amp;gt;             specify how meta.profile on Instances should be applied to the InstanceOf keyword: only-one (default), first, none
+--no-alias                        output FSH without generating aliases
+-o, --out &amp;lt;out&amp;gt;                   the path to the output folder
+-s, --style &amp;lt;style&amp;gt;               specify how the output is organized into files: file-per-definition (default), group-by-fsh-type, group-by-profile, single-file
+-t, --file-type &amp;lt;type&amp;gt;            specify which file types GoFSH should accept as input: json-only (default), xml-only, json-and-xml
+-u, --useFHIRVersion &amp;lt;version&amp;gt;    indicate which FHIR version to use, if it cannot be determined from inputs (e.g., 4.3.0)
+-v, --version                     print the goFSH version
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;While GoFSH is running, it will print status messages as it processes your project files. The following sections give further detail on using certain options.&lt;/p&gt;
+&lt;h3 id=&#34;--alias-file&#34;&gt;&lt;code&gt;--alias-file&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;Use this option to provide GoFSH with an existing alias file. The &lt;code&gt;&amp;lt;path&amp;gt;&lt;/code&gt; can be relative or absolute. Typically, GoFSH will automatically generate an &lt;strong&gt;aliases.fsh&lt;/strong&gt; file based on the content and URLs it encounters during processing. Using the &lt;code&gt;--alias-file&lt;/code&gt; (&lt;code&gt;-a&lt;/code&gt;) option, the user can specify an existing FSH (.fsh) file that contains desired user-defined aliases.&lt;/p&gt;
+&lt;p&gt;Example usage:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;gofsh /path/to/my/ig --alias-file /different/path/to/aliases.fsh
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;--style&#34;&gt;&lt;code&gt;--style&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;The &lt;code&gt;style&lt;/code&gt; option has four values:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;file-per-definition&lt;/code&gt;: Each standalone FSH definition is written to an individual file that is grouped in a folder according to the type of FSH definition it is. Only Aliases are combined into one &lt;code&gt;aliases.fsh&lt;/code&gt; file. This is the default choice.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;group-by-fsh-type&lt;/code&gt;: Definitions are written to files based on what type of FSH definition they are (Alias, Profile, Extension, etc.).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;group-by-profile&lt;/code&gt;:  Profiles are each written to an individual file. Instances and Invariants that pertain only to a certain Profile are then included in the same file as that Profile. The remaining definitions are grouped as in the &lt;code&gt;group-by-fsh-type&lt;/code&gt; option.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;single-file&lt;/code&gt;: All definitions are written to one file.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;--fshing-trip&#34;&gt;&lt;code&gt;--fshing-trip&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;Use this flag if you would like to make sure GoFSH isn&amp;rsquo;t missing anything, by doing a round-trip from FHIR to FSH and back. When this flag is present, after GoFSH runs, SUSHI will run on the output of GoFSH. The output of SUSHI will then be compared to the original input to GoFSH (FHIR is compared to FHIR), and a visualization of differences between the original input and the SUSHI output will be created in &lt;code&gt;&amp;lt;output-folder&amp;gt;/fshing-trip-comparison.html&lt;/code&gt;. If the &lt;code&gt;--installed-sushi&lt;/code&gt; flag is set, then this process will use whichever version of SUSHI you have globally installed. Otherwise GoFSH will use its own built-in version of SUSHI (which may not be the latest version available).&lt;/p&gt;
+&lt;h3 id=&#34;--indent&#34;&gt;&lt;code&gt;--indent&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;When the &lt;code&gt;--indent&lt;/code&gt; option is specified, the output FSH will take advantage of &lt;a href=&#34;http://build.fhir.org/ig/HL7/fhir-shorthand/branches/master/reference.html#indented-rules&#34;&gt;indented rules&lt;/a&gt; when applicable. This will also cause &lt;code&gt;CodeSystem&lt;/code&gt; definitions to utilize indentation in &lt;a href=&#34;http://build.fhir.org/ig/HL7/fhir-shorthand/branches/master/reference.html#defining-code-systems-with-hierarchical-codes&#34;&gt;hierarchical codes&lt;/a&gt;, &lt;code&gt;Concept&lt;/code&gt; designations, and &lt;code&gt;Concept&lt;/code&gt; properties when applicable.&lt;/p&gt;
+&lt;p&gt;For example, without the &lt;code&gt;--indent&lt;/code&gt; option, GoFSH will generate this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;* test[0].id = &amp;quot;01-ReadPatient-Destination1&amp;quot;
+* test[=].name = &amp;quot;ReadPatient-Destination1&amp;quot;
+* test[=].description = &amp;quot;Read a Patient from the first destination test system using the user defined dynamic variable ${Dest1PatientResourceId}. Perform basic validation.&amp;quot;
+* test[=].action[0].operation.type = http://hl7.org/fhir/restful-interaction#read
+* test[=].action[=].operation.resource = #Patient
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;If the &lt;code&gt;--indent&lt;/code&gt; option is used, GoFSH will generate this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;* test[0]
+  * id = &amp;quot;01-ReadPatient-Destination1&amp;quot;
+  * name = &amp;quot;ReadPatient-Destination1&amp;quot;
+  * description = &amp;quot;Read a Patient from the first destination test system using the user defined dynamic variable ${Dest1PatientResourceId}. Perform basic validation.&amp;quot;
+  * action[0].operation
+    * type = http://hl7.org/fhir/restful-interaction#read
+    * resource = #Patient
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;--meta-profile&#34;&gt;&lt;code&gt;--meta-profile&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;The &lt;code&gt;--meta-profile&lt;/code&gt; option can be used to control how values of &lt;code&gt;meta.profile&lt;/code&gt; present in FHIR instances are applied to the &lt;code&gt;InstanceOf&lt;/code&gt; keyword in FSH. In FHIR, the value of &lt;code&gt;meta.profile&lt;/code&gt; represents a claim that the instance conforms to the given profile(s). One interpretation of &lt;code&gt;meta.profile&lt;/code&gt; is that the generated FSH instance is an &lt;code&gt;InstanceOf&lt;/code&gt; that profile, which would subsequently result in SUSHI checking to make sure the instance followed the rules of that profile. A potential complication is that &lt;code&gt;meta.profile&lt;/code&gt; can have multiple values, but in FSH, an instance can be &lt;code&gt;InstanceOf&lt;/code&gt; at most one profile. A different interpretation is that &lt;code&gt;meta.profile&lt;/code&gt; is only a hint that adds no concrete information, and thus the FSH instance should ignore &lt;code&gt;meta.profile&lt;/code&gt; and should be &lt;code&gt;InstanceOf&lt;/code&gt; a native FHIR resource. Both interpretations are permissible in FHIR.&lt;/p&gt;
+&lt;p&gt;The option has the following three values:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;only-one&lt;/code&gt; (default): If there is exactly one entry in the &lt;code&gt;meta.profile&lt;/code&gt; array of a definition, this value will be used to set &lt;code&gt;InstanceOf&lt;/code&gt;. If there is not exactly one entry in the &lt;code&gt;meta.profile&lt;/code&gt; array, the &lt;code&gt;resourceType&lt;/code&gt; of the definition will be used for &lt;code&gt;InstanceOf&lt;/code&gt;, and any contents of the &lt;code&gt;meta.profile&lt;/code&gt; array will be specified with &lt;code&gt;^&lt;/code&gt; rules.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;first&lt;/code&gt;: If there is at least one entry in the &lt;code&gt;meta.profile&lt;/code&gt; array, it will be used to set &lt;code&gt;InstanceOf&lt;/code&gt;. Additional entries will be specified with &lt;code&gt;^&lt;/code&gt; rules.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;none&lt;/code&gt;: The &lt;code&gt;meta.profile&lt;/code&gt; array will not be used to determine &lt;code&gt;InstanceOf&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;gofsh-inputs&#34;&gt;GoFSH Inputs&lt;/h2&gt;
+&lt;p&gt;GoFSH takes FHIR StructureDefinitions and other FHIR conformance definitions (e.g., ValueSets, CodeSystems) as input. GoFSH requires that these files be JSON. Every JSON file contained in the input directory, or its subdirectories, will be processed by GoFSH into FSH.&lt;/p&gt;
+&lt;p&gt;GoFSH does not require any configuration, but if the input FHIR artifacts depend on FHIR artifacts not contained in FHIR R4, these dependencies should be specified with the &lt;code&gt;-d&lt;/code&gt; flag. For example, the &lt;a href=&#34;http://hl7.org/fhir/us/mcode/StructureDefinition-mcode-cancer-patient.html&#34;&gt;mcode-cancer-patient&lt;/a&gt; profile in the &lt;a href=&#34;http://hl7.org/fhir/us/mcode/&#34;&gt;mCODE Implementation Guide&lt;/a&gt; is derived from the &lt;a href=&#34;http://hl7.org/fhir/us/core/STU3.1/StructureDefinition-us-core-patient.html&#34;&gt;us-core-patient&lt;/a&gt; profile in the &lt;a href=&#34;http://hl7.org/fhir/us/core/&#34;&gt;US Core Implementation Guide&lt;/a&gt;. If you wanted to use GoFSH to convert the mcode-cancer-patient profile to FSH, you should specify US Core as a dependency:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;i class=&#34;fas fa-dollar-sign&#34;&gt;&lt;/i&gt; gofsh ./mcode-definitions -d hl7.fhir.us.core@3.1.0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&#34;alert alert-info&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Info&lt;/h4&gt;
+GoFSH can still generate FSH when dependencies are omitted, but the resulting FSH will be incomplete.
+&lt;/div&gt;
+
+&lt;h2 id=&#34;gofsh-outputs&#34;&gt;GoFSH Outputs&lt;/h2&gt;
+&lt;p&gt;GoFSH populates an output directory, called &lt;strong&gt;gofsh&lt;/strong&gt; by default. This directory will contain an &lt;strong&gt;input/fsh&lt;/strong&gt; directory. The &lt;strong&gt;input/fsh&lt;/strong&gt; directory will contain several &lt;strong&gt;.fsh&lt;/strong&gt; files organized according to the &lt;code&gt;file-per-definition&lt;/code&gt; style described &lt;a href=&#34;#style&#34;&gt;above&lt;/a&gt;. Additionally, the &lt;strong&gt;input/fsh&lt;/strong&gt; directory will contain an &lt;strong&gt;index.txt&lt;/strong&gt; file which describes which file contains each definition. The &lt;strong&gt;gofsh&lt;/strong&gt; directory will also contain a &lt;strong&gt;sushi-config.yaml&lt;/strong&gt; file. If the input to GoFSH includes an ImplementationGuide resource, it is used to generate the configuration. Otherwise the configuration is generated by inferring values from the input, or by using sensible defaults if no values can be inferred. These definitions and configuration are ready to use with SUSHI, all you have to do is &lt;a href=&#34;https://fshschool.org/docs/sushi/running&#34;&gt;run SUSHI&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;gofsh-best-practices&#34;&gt;GoFSH Best Practices&lt;/h2&gt;
+&lt;p&gt;The following are a few tips to get the best results from GoFSH. Following these suggestions will help eliminate errors from GoFSH and will produce more accurate FSH.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;For best results, run GoFSH against FHIR definitions that are complete (i.e., have snapshots) and have been validated. The best sources are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a package downloaded from an IG or FHIR registry (after unzipping it),&lt;/li&gt;
+&lt;li&gt;a package in your local FHIR cache, or&lt;/li&gt;
+&lt;li&gt;an IG project&amp;rsquo;s &lt;strong&gt;output&lt;/strong&gt; folder after it has been built by the IG Publisher.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If running GoFSH against a fully built package is not possible, run GoFSH against the project&amp;rsquo;s &lt;strong&gt;input&lt;/strong&gt; folder, rather than against the entire IG source folder.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Be sure to use the proper flag to indicate whether GoFSH should process JSON or XML files in the target directory (or both). When in doubt, use the &lt;code&gt;json-only&lt;/code&gt; mode, which is the default.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;When possible, avoid running GoFSH on folders that contain:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;duplicate files (i.e. definitions that are present in both &lt;strong&gt;input&lt;/strong&gt; and &lt;strong&gt;output&lt;/strong&gt;),&lt;/li&gt;
+&lt;li&gt;incomplete files (i.e. definitions without a snapshot), or&lt;/li&gt;
+&lt;li&gt;extra files that are not intended to be translated to FSH (e.g, &lt;strong&gt;menu.xml&lt;/strong&gt;, files in the &lt;strong&gt;input-cache&lt;/strong&gt; directory).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Be aware that IGs with errors in the FHIR Publisher&amp;rsquo;s QA report may result in FSH that does not compile cleanly.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;SUSHI may be more strict than the IG Publisher.  As a result, issues that were not flagged by the IG Publisher may be flagged by SUSHI, and occasionally, technically valid constructs may result in inefficient or confusing FSH.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Use the &lt;code&gt;--fishing-trip&lt;/code&gt; option to run SUSHI on the output of GoFSH and compare the round trip results.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Always review the results of GoFSH to ensure that they are correct and complete.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: GoFSH Tutorial</title>
+      <link>https://fshschool.org/docs/gofsh/tutorial/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://fshschool.org/docs/gofsh/tutorial/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This tutorial will walk you through an example of using &lt;a href=&#34;https://fshschool.org/docs/gofsh&#34;&gt;GoFSH&lt;/a&gt; to turn FHIR artifacts into FSH definitions. This tutorial assumes you have already installed &lt;a href=&#34;https://fshschool.org/docs/gofsh/installation&#34;&gt;GoFSH&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;step-1-download-sample-fhir-artifacts&#34;&gt;Step 1: Download Sample FHIR Artifacts&lt;/h3&gt;
+&lt;p&gt;To start with some example FHIR artifacts, &lt;a href=&#34;https://fshschool.org/docs/gofsh/tutorial/gofsh-tutorial.zip&#34;&gt;&lt;i class=&#39;fas fa-download fa-fw&#39;&gt;&lt;/i&gt; download the GoFSH Tutorial&lt;/a&gt; and unzip it into a directory of your choice.&lt;/p&gt;
+&lt;p&gt;After the file is unzipped, you should see two FHIR artifacts:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;StructureDefinition-mcode-genetic-specimen.json&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;StructureDefinition-mcode-laterality.json&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;step-2-run-gofsh&#34;&gt;Step 2: Run GoFSH&lt;/h3&gt;
+&lt;p&gt;Now that you have GoFSH installed and sample FHIR artifacts, open up a command window, and navigate to the directory containing the artifacts you downloaded. Run GoFSH on those files by executing:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;i class=&#34;fas fa-dollar-sign&#34;&gt;&lt;/i&gt; gofsh .
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
+The dot (.) represents &amp;ldquo;this directory,&amp;rdquo; the location of the files. You can also specify the location explicitly by replacing the dot with a directory path.
+&lt;/div&gt;
+
+&lt;p&gt;Running GoFSH will create a &lt;strong&gt;gofsh&lt;/strong&gt; directory, and populate it with &lt;strong&gt;input/fsh&lt;/strong&gt;, a directory containing several files which define the original input files. Within &lt;strong&gt;input/fsh&lt;/strong&gt;, there will be two subdirectories, &lt;strong&gt;profiles&lt;/strong&gt; and &lt;strong&gt;extensions&lt;/strong&gt;. If you open up &lt;strong&gt;profiles/GeneticSpecimen.fsh&lt;/strong&gt;, you should see a FSH definition for a &lt;code&gt;Profile&lt;/code&gt; called &amp;ldquo;GeneticSpecimen&amp;rdquo;, and if you open up &lt;strong&gt;extensions/Laterality.fsh&lt;/strong&gt;, you should see an &lt;code&gt;Extension&lt;/code&gt; called &amp;ldquo;Laterality&amp;rdquo;.&lt;/p&gt;
+&lt;h3 id=&#34;step-3-run-sushi-optional&#34;&gt;Step 3: Run SUSHI (Optional)&lt;/h3&gt;
+&lt;p&gt;Now that you have generated FSH definitions, you can run SUSHI on those definitions to recreate your original input to GoFSH. First, ensure you have &lt;a href=&#34;https://fshschool.org/docs/sushi/installation&#34;&gt;SUSHI installed&lt;/a&gt;. Then, navigate the command line to the &lt;strong&gt;gofsh/&lt;/strong&gt; directory, and run:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;i class=&#34;fas fa-dollar-sign&#34;&gt;&lt;/i&gt; sushi build .
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This command will run SUSHI on the contents of &lt;strong&gt;input/fsh&lt;/strong&gt;, and generate the output of that FSH into a directory called &lt;strong&gt;fsh-generated/resources&lt;/strong&gt;. You can then compare the output from running GoFSH and then SUSHI to the original &lt;strong&gt;StructureDefinition-mcode-genetic-specimen.json&lt;/strong&gt; and &lt;strong&gt;StructureDefinition-mcode-laterality.json&lt;/strong&gt; files.&lt;/p&gt;
+&lt;p&gt;Alternatively, you can automatically run SUSHI on the output of GoFSH using the &lt;code&gt;-f&lt;/code&gt; &lt;a href=&#34;https://fshschool.org/docs/gofsh/running/#fshing-trip&#34;&gt;option&lt;/a&gt;. The following command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;i class=&#34;fas fa-dollar-sign&#34;&gt;&lt;/i&gt; gofsh . -f
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;will run SUSHI on the output of GoFSH, and generate a comparison file in &lt;strong&gt;gofsh/fshing-trip-comparison.html&lt;/strong&gt; which displays differences between the original input, and the output of SUSHI.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

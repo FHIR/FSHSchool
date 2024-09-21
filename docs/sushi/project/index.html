@@ -1,0 +1,868 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.74.2" />
+
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+<link rel="alternate" type="application/rss&#43;xml" href="https://fshschool.org/docs/sushi/project/index.xml">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Project Structure | FSH School</title><meta property="og:title" content="Project Structure" />
+<meta property="og:description" content="Description of the folder structure expected by SUSHI for a FSH project
+" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://fshschool.org/docs/sushi/project/" />
+
+<meta itemprop="name" content="Project Structure">
+<meta itemprop="description" content="Description of the folder structure expected by SUSHI for a FSH project
+"><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Project Structure"/>
+<meta name="twitter:description" content="Description of the folder structure expected by SUSHI for a FSH project
+"/>
+
+
+
+
+
+<link rel="preload" href="/scss/main.min.aa5d7a51632f7af0d6417c549b329fa5760a67d4a648167f545b8bb85f71174f.css" as="style">
+<link href="/scss/main.min.aa5d7a51632f7af0d6417c549b329fa5760a67d4a648167f545b8bb85f71174f.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+<script
+  src="https://unpkg.com/lunr@2.3.8/lunr.min.js"
+  integrity="sha384-vRQ9bDyE0Wnu+lMfm57BlYLO0/XauFuKpVsZPs7KEDwYKktWi5+Kz3MP8++DFlRY"
+  crossorigin="anonymous"></script>
+
+
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"></span><span class="text-uppercase font-weight-bold">FSH School</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/quickstart/" ><span>Quick Start</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/docs/" ><span class="active">Documentation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/about/" ><span>About</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/community/" ><span>Community</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/downloads/" ><span>Downloads</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+
+
+<input
+  type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.cd7464a1a4fe48b79dbbf020e58868011f15fdbc030db97d78785e00d7feec904532f3b91fbbfdb2063aa25832d61bee17a17550388e1227e3ad1a24a47951a8.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="10"
+>
+
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+
+
+
+
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+
+
+<input
+  type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.cd7464a1a4fe48b79dbbf020e58868011f15fdbc030db97d78785e00d7feec904532f3b91fbbfdb2063aa25832d61bee17a17550388e1227e3ad1a24a47951a8.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="10"
+>
+
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  
+  <nav class="collapse td-sidebar-nav" id="td-section-nav">
+    
+    
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Documentation</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docs">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/sushi/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">SUSHI</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docssushi">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/sushi/installation/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Installation</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docssushiinstallation">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/sushi/project/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Project Structure</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docssushiproject">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/sushi/configuration/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Configuration</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docssushiconfiguration">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/sushi/running/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Running SUSHI</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docssushirunning">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/sushi/tips/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Tips and Tricks</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docssushitips">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/sushi/tutorial/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">SUSHI Tutorial</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docssushitutorial">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/sushi/api/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">API</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docssushiapi">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/gofsh/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">GoFSH</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgofsh">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/gofsh/installation/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Installation</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgofshinstallation">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/gofsh/api/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">API</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgofshapi">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/gofsh/running/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Running GoFSH</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgofshrunning">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/gofsh/tutorial/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">GoFSH Tutorial</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgofshtutorial">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/vscode/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Visual Studio Code Extension</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsvscode">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+  </nav>
+</div>
+
+
+
+
+          </div>
+          <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
+            
+
+
+
+
+
+
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+
+
+
+
+
+
+
+<a href="https://github.com/FHIR/FSHSchool/issues/new?title=Project%20Structure" target="_blank"><i class="fab fa-github fa-fw"></i> Report a documentation issue</a>
+<a href="https://github.com/FHIR/sushi/issues/new" target="_blank"><i class="fab fa-github fa-fw"></i> Report a SUSHI issue</a>
+
+<a href="https://www.hl7.org/fhir/" target="_blank"><i class="fas fa-fire fa-fw"></i> FHIR R4 Specification</a>
+<a href="http://build.fhir.org/ig/HL7/fhir-shorthand/" target="_blank"><i class="fas fa-fish fa-fw"></i> FHIR Shorthand</a>
+<a href="https://chat.fhir.org/#narrow/stream/215610-shorthand" target="_blank"><i class="fas fa-comments fa-fw"></i> #shorthand</a>
+
+</div>
+
+
+
+
+
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#minimal-project">Minimal Project</a></li>
+    <li><a href="#initializing-a-sushi-project">Initializing a SUSHI Project</a></li>
+    <li><a href="#using-the-hl7-ig-publisher-and-auto-builder">Using the HL7 IG Publisher and Auto-Builder</a></li>
+  </ul>
+</nav>
+
+
+
+          </div>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://fshschool.org/docs/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://fshschool.org/docs/sushi/">SUSHI</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://fshschool.org/docs/sushi/project/">Project Structure</a>
+</li>
+
+	</ol>
+</nav	>
+
+            
+<div class="td-content">
+	<h1>Project Structure</h1>
+        <div class="lead">Description of the folder structure expected by SUSHI for a FSH project</div>
+	
+	<h2 id="minimal-project">Minimal Project</h2>
+<p>The simplest FSH project contains only a configuration file and an <strong>input/fsh</strong> subdirectory of FSH files containing FHIR Shorthand definitions. It might look like this:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">my-project
+├── input
+|    └── fsh
+|        ├── file1.fsh
+|        ├── file2.fsh
+|        └── file3.fsh
+└── sushi-config.yaml
+</code></pre></div><p>Each FSH file can contain multiple FSH definitions of varying types. FSH file names are not significant, but must end with the <strong>.fsh</strong> extension. In addition, FSH files can be organized into subdirectories. This provides authors the flexibility to organize their FSH definitions in whatever way makes sense to then.</p>
+<p>The <strong>sushi-config.yaml</strong> file provides project configuration data to SUSHI. It is described further in the <a href="/docs/sushi/configuration/">Configuration</a> documentation.</p>
+<h2 id="initializing-a-sushi-project">Initializing a SUSHI Project</h2>
+<p>Setting up a fully-featured FSH project can be complex, so SUSHI provides an <code>init</code> command to do it automatically. When <code>sushi init</code> is run, SUSHI will request project information from the user:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Name (Default: ExampleIG): my-project
+Id (Default: fhir.example): my.id
+Canonical (Default: http://example.org): http://myid.org
+Status (Default: draft): active
+Version (Default: 0.1.0): 2.0.0
+Release Label (Default: ci-build): trial-use
+Publisher Name (Default: Example Publisher): MyPublisher
+Publisher Url (Default: http://example.org/example-publisher): http://my-publisher.org
+Initialize SUSHI project in C:\Users\shorty\dev\my-project? [y/n]: y
+</code></pre></div><p>These values are then used to generate a project structure compatible with the FHIR IG Publisher:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">my-project
+├── .gitignore
+├── _genonce.bat
+├── _genonce.sh
+├── _updatePublisher.bat
+├── _updatePublisher.sh
+├── ig.ini
+├── input
+|   ├── ignoreWarnings.txt
+|   ├── fsh
+|   |   └── patient.fsh
+|   └── pagecontent
+|       └── index.md
+└── sushi-config.yaml
+</code></pre></div><p>In addition to the <strong>input/fsh</strong> folder, <code>init</code> creates an <strong>input/pagecontent</strong> folder containing a dummy home page for your IG. The files <strong>ig.ini</strong> and <strong>ignoreWarnings.txt</strong> are required by the <a href="https://build.fhir.org/ig/FHIR/ig-guidance/using-templates.html">template-based IG Publisher</a>. The <code>.bat</code> and <code>.sh</code> scripts which allow you to <a href="/docs/sushi/running/#downloading-the-ig-publisher">run the IG Publisher</a> from your command line. Finally, a default <code>.gitignore</code> file for integration with GitHub is provided. From this point on, you can modify the configuration and definitions as necessary.</p>
+<h2 id="using-the-hl7-ig-publisher-and-auto-builder">Using the HL7 IG Publisher and Auto-Builder</h2>
+<p>This project structure integrates with the HL7 IG Publisher <a href="https://github.com/FHIR/auto-ig-builder/blob/master/README.md">Auto-Builder</a>. When the IG Publisher detects an <strong>input/fsh</strong> subdirectory, it will automatically run SUSHI on the project directory and output the SUSHI results to a <strong>fsh-generated</strong> directory (e.g., <strong>my-project/fsh-generated</strong> in the example above). It will then continue with the normal IG Publisher process.</p>
+<p>This approach allows a GitHub repository to be configured such that whenever changes to FSH files are pushed to GitHub, the <a href="https://github.com/FHIR/auto-ig-builder/blob/master/README.md">Auto-Builder</a> will pick them up, run the SUSHI/IG Publisher process, and publish the resulting IG to <a href="http://build.fhir.org">http://build.fhir.org</a>.</p>
+<p>SUSHI provides support for several of the files and directories required by the <a href="https://build.fhir.org/ig/FHIR/ig-guidance/">template-based IG Publisher</a> for building Implementation Guides. Some IG customizations can be configured using additional properties in the <strong>sushi-config.yaml</strong> file. A FSH project integrated into the template-based IG Publisher may look like this:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">my-project
+├── ig.ini
+├── input
+|   ├── fsh
+|   |   ├── file1.fsh
+|   |   ├── file2.fsh
+|   |   └── file3.fsh
+│   ├── ignoreWarnings.txt
+│   ├── images
+│   │   ├── myDocument.pdf
+│   │   ├── myGraphic.png
+│   │   └── mySpreadsheet.xlsx
+│   ├── includes
+│   │   └── menu.xml
+│   └── pagecontent
+│       ├── 1_mySecondPage.md
+│       ├── 2_myThirdPage.md
+│       ├── 3_myFourthPage.md
+│       └── index.md
+├── package-list.json
+├── sushi-ignoreWarnings.txt
+└── sushi-config.yaml
+</code></pre></div>
+
+<div class="alert alert-success" role="alert">
+<h4 class="alert-heading">Tip</h4>
+Examples of <strong>package.json</strong>, <strong>ig.ini</strong>, <strong>package-list.json</strong>, <strong>ignoreWarnings.txt</strong> and <strong>menu.xml</strong> files can be found in the <a href="https://github.com/FHIR/sample-ig">sample IG project</a> provided for this purpose. In addition, more general guidance can be found in <a href="https://build.fhir.org/ig/FHIR/ig-guidance/">Guidance for HL7 IG Creation</a>.
+</div>
+
+<p>You can populate your project as follows:</p>
+<ul>
+<li>
+<p><strong>sushi-config.yaml</strong>: This file provides configuration data to SUSHI. It is described further in the <a href="/docs/sushi/configuration/">Configuration</a> documentation.</p>
+</li>
+<li>
+<p><strong>input/fsh/*.fsh</strong>: FSH files contain the FHIR Shorthand definitions for all the resources and examples in your IG.</p>
+</li>
+<li>
+<p><strong>ig.ini</strong>: Configuration file required for the FHIR IG Publication process. NOTE: As of the SUSHI 1.0 release, this file MUST use a template based on <code>fhir.base.template#current</code>. Specific template versions (i.e., other than <code>#current</code>) are expected to work in the future.  For now, any of the following should work:</p>
+<ul>
+<li><code>template = fhir.base.template#current</code></li>
+<li><code>template = hl7.base.template#current</code></li>
+<li><code>template = hl7.fhir.template#current</code></li>
+<li><code>template = hl7.davinci.template#current</code></li>
+<li><code>template = hl7.cda.template#current</code></li>
+</ul>
+</li>
+<li>
+<p><strong>input/ignoreWarnings.txt</strong>: This file is used to suppress specific QA warnings and information messages produced by the FHIR IG Publisher (as opposed to SUSHI).</p>
+</li>
+<li>
+<p><strong>input/images/*</strong>: Put anything that is not a page in the IG, such as images, spreadsheets or zip files, in the <strong>input/images</strong> subdirectory. These files can be referenced by user-provided pages or menus.</p>
+</li>
+<li>
+<p><strong>input/includes/menu.xml</strong>: If present, this file will be used for the IG&rsquo;s main menu layout. Note that the presence of this file will block usage of the <code>menu</code> property in <strong>sushi-config.yaml</strong>.</p>
+</li>
+<li>
+<p><strong>input/pagecontent/*</strong>: Put either markup (.xml) or markdown (.md) files with the narrative content of your IG in the <strong>input/pagecontent/</strong> subdirectory. These files are the sources for the html pages that accompany the automatically-generated pages of your IG. The header and footer of these pages are automatically generated, so your content should not include these elements. Any number of pages can be added. In addition to stand-alone pages, you can provide additional text for generated artifact pages. The naming of these files is significant:</p>
+<ul>
+<li><strong>index.xml|md</strong>: This file provides the content for the IG&rsquo;s main page.</li>
+<li><strong>N_pagename.xml|md</strong>: If present, these files will be generated as individual pages in the IG. The leading integer (N) determines the order of the pages in the table of contents. Adding a leading integer is optional, and in the absence of a leading integer, SUSHI will sort the pages alphabetically. The order of the pages can also be explitly specified with the <code>pages</code> property in <strong>sushi-config.yaml</strong>.</li>
+<li><strong>{artifact-file-name}-intro.xml|md</strong>: If present, the contents of the file will be placed on the relevant page <em>before</em> the artifact&rsquo;s definition.</li>
+<li><strong>{artifact-file-name}-notes.xml|md</strong>: If present, the contents of the file will be placed on the relevant page <em>after</em> the artifact&rsquo;s definition.</li>
+</ul>
+</li>
+<li>
+<p><strong>input/{supported-resource-input-directory}/*</strong> (not shown above): JSON or XML files in <a href="https://build.fhir.org/ig/FHIR/ig-guidance/using-templates.html#root.input">supported resource directories</a> (e.g., <strong>profiles</strong>, <strong>extensions</strong>, <strong>examples</strong>, etc.) can be referenced by FHIR artifacts defined in FSH, and will be added to the generated <strong>ImplementationGuide.json</strong> file. If there are additional subfolders (e.g., input/resources/nested), use the <code>path-resource</code> parameter in <strong>sushi-config.yaml</strong> to tell the IG Publisher which additional input paths to process (see <a href="/docs/sushi/tips/#specifying-additional-resource-paths">Specifying Additional Resource Paths</a> for details).</p>
+</li>
+<li>
+<p><strong>package-list.json</strong>: This optional file, described <a href="https://confluence.hl7.org/display/FHIR/FHIR+IG+PackageList+doco">here</a>, should contain the version history of your IG.</p>
+</li>
+<li>
+<p><strong>sushi-ignoreWarnings.txt</strong>: This optional file can be used to suppress warnings logged by SUSHI. Errors and informational logs from SUSHI cannot be ignored. This file should be placed either at the root of the project (e.g., <strong>my-project/sushi-ignoreWarnings.txt</strong> in the example above), or within the <strong>input</strong> directory (e.g., <strong>my-project/input/sushi-ignoreWarnings.txt</strong>). Warnings will be ignored if they completely match the contents of any line of the file (one line per warning, case-sensitive). Regular expressions can also be specified, one per line, indicated by starting and ending the line with <code>/</code>. For example:</p>
+<pre><code>Instance PatientExample1 is not an instance of a resource, so it should only be used inline on other instances, and it will not be exported to a standalone file. Specify &quot;Usage: #inline&quot; to remove this warning.
+/Detected the following non-conformant Resource definitions.*/
+</code></pre><p>Any warning which exactly matches the contents of the first line will be ignored. The second line specifies that any warning beginning with <code>Detected the following non-conformant Resource definitions</code> will be ignored.</p>
+
+
+<div class="alert alert-success" role="alert">
+<h4 class="alert-heading">Tip</h4>
+SUSHI does log several multi-line warnings, but these warnings cannot be specified directly in the <strong>sushi-ignoreWarnings.txt</strong> file, since the warnings to ignore must be specified line by line. To ignore these warnings, a regular expression should be used.
+</div>
+
+</li>
+</ul>
+
+        <div class="section-index">
+    
+    
+    
+    
+    <hr class="panel-line">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    
+</div>
+
+	
+	
+	<div class="text-muted mt-5 pt-3 border-top">Last modified May 2, 2024: <a  href="https://github.com/FHIR/FSHSchool/commit/9513c199578d987428bf3007d79ec371c0951287">Remove specific tags for SUSHI 3.0.0 &#43; Document new CLI command options (#90) (9513c19)</a>
+</div>
+</div>
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Zulip" aria-label="Zulip">
+    <a class="text-white" target="_blank" href="https://chat.fhir.org/#narrow/stream/215610-shorthand">
+      <i class="fas fa-comments"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Issues" aria-label="Issues">
+    <a class="text-white" target="_blank" href="https://github.com/FHIR/sushi/issues">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Jira" aria-label="Jira">
+    <a class="text-white" target="_blank" href="https://jira.hl7.org/issues/?jql=project%20%3D%20FHIR%20AND%20Specification%20%3D%20%22Shorthand%20%28FHIR%29%20%5BFHIR-shorthand%5D%22">
+      <i class="fab fa-jira"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="FSH School" aria-label="FSH School">
+    <a class="text-white" target="_blank" href="https://github.com/FHIR/FSHSchool">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="SUSHI" aria-label="SUSHI">
+    <a class="text-white" target="_blank" href="https://github.com/FHIR/sushi/">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2024 Health Level Seven International All Rights Reserved. FHIR® is a registered trademark of Health Level Seven International.</small>
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.664f21bf5eb0c31ebc661e2616e6c63e0448cec6d5636d869957be423c3cb952.js" integrity="sha256-Zk8hv16wwx68Zh4mFubGPgRIzsbVY22GmVe&#43;Qjw8uVI=" crossorigin="anonymous"></script>
+
+
+
+  </body>
+</html>
