@@ -34,6 +34,7 @@ jobs:
             ${{ runner.os }}-node-
 
       - run: npm ci
+      - run: npm run zip-tutorial
       - run: hugo
 
       - name: Deploy

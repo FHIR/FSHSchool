@@ -56,6 +56,15 @@ $ hugo
 This will build the static site files to the `./public` folder. They can then be served using any
 standard HTTP server.
 
+# Tutorial files
+
+Files for the FSH tutorial are in the `./fsh-tutorial` folder. If you update any of these files, you should also rebuild the zipped version of the tutorial by running:
+```bash
+$ npm run zip-tutorial
+```
+
+This is also run automatically during the deployment process.
+
 # License
 
 Copyright 2020+ Health Level Seven International
