@@ -35,15 +35,21 @@ For full instructions and prerequisites, see [GoFSH Installation](/docs/gofsh/in
 
 ### Presentations
 
+* <a href="https://youtu.be/tmtEnjxrCDA">Learn to FSH: A friendly introduction to FHIR Shorthand</a>, from FHIR DevDays, June 2023
+  * Slides <a href="230606_MarkKramer_Learn_to_FSH.pdf">here</a>
+* <a href="https://youtu.be/u6Btqb0Sz3M">Advanced FSH: What to do when you’re hooked</a>, from FHIR DevDays, June 2023
+  * Slides <a href="230609_ChrisMoesel_AdvancedFSH.pdf">here</a>
+* Let's Build - Create an Implementation Guide with FHIR Shorthand, from FHIR DevDays, June 2022
+  * Slides <a href="220607-ChrisMoesel-CreateAnIGWithFHIRShorthand-Chris-Moesel.pdf">here</a>
+* <a href="https://youtu.be/OmcSuAMf20s">Create an Implementation Guide with FHIR Shorthand</a>, from FHIR DevDays, June 2021
+  * Slides <a href="20210608_Mark_Kramer_Create_an_IG_with_FSH.pdf">here</a>
+* <a href="https://youtu.be/Ohgx5TedLlI">Advanced FHIR Shorthand and Tools</a>, from FHIR DevDays, June 2021
+  * Slides <a href="20210610_Chris_Moesel_Advanced_FSH_And_Tools.pdf">here</a>
+* <a href="https://youtu.be/0JSp-IOul20">Let's Build - Create an Implementation Guide</a>, from FHIR DevDays, June 2021
+  * Slides <a href="20210617_MarkKramer_Lets_Build_Create_an_IG_with_FSH.pdf">here</a>
 * <a href="https://youtu.be/RfmqpUA606U">Introduction to FHIR Shorthand</a>, from FHIR DevDays, November 2020
   * Slides <a href="201118_Mark_Kramer_Introduction_To_FHIR_Shorthand.pdf">here</a>
 * <a href="https://youtu.be/7yzLzQjict0">Let's Build - Profiling with FHIR Shorthand</a>, from FHIR DevDays, November 2020
   * Slides <a href="201118_Chris_Moesel_Lets_Build_with_FHIR_Shorthand.pdf">here</a>
-* <a href="https://youtu.be/Ohgx5TedLlI">Advanced FHIR Shorthand and Tools</a>, from FHIR DevDays, June 2021
-  * Slides <a href="20210610_Chris_Moesel_Advanced_FSH_And_Tools.pdf">here</a>
-* <a href="https://youtu.be/OmcSuAMf20s">Create an Implementation Guide with FHIR Shorthand</a>, from FHIR DevDays, June 2021
-  * Slides <a href="20210608_Mark_Kramer_Create_an_IG_with_FSH.pdf">here</a>
-* <a href="https://youtu.be/0JSp-IOul20">Let's Build - Create an Implementation Guide</a>, from FHIR DevDays, June 2021
-  * Slides <a href="20210617_MarkKramer_Lets_Build_Create_an_IG_with_FSH.pdf">here</a>
 
 {{% /blocks/section %}}
