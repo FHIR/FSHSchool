@@ -13,6 +13,10 @@ and push its contents to the [gh-pages](https://github.com/FHIR/FSHSchool/tree/g
 - Security Information: The FSH School website Security Information can be found in [SECURITY.md](SECURITY.md).
 - Compliance Information: N/A.
 
+## About FSH School
+
+To learn more about FSH School, watch the [Community Engagement, Issue Tracking, and Documentation Knowledge Sharing Session](https://vimeo.com/990594107/c35c3f5e43) and view the [presentation slides](https://confluence.hl7.org/display/FHIR/FSH+Knowledge+Sharing+Sessions?preview=/256509612/256185999/KSS%202%20-%20FSH%20Community%20Engagement.pdf). This session covers what type of information is documented in FSH School and how to update the documentation.
+
 # Local Development
 
 To develop this site locally:
