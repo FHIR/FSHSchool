@@ -130,7 +130,7 @@
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.a0a7921fda7ff8543ef85531d3d899ca3976e86c791dbdd1fdbd0489da3485e83118621851383b577fd2d557e38f846198faeb5b059cddb12dd9ce46172c9099.json"
+  data-offline-search-index-json-src="/offline-search-index.56d1664e9e6614be067b0b084b80e82b9e0fa8a1e70d1d5048d769f44cdbc7660951d213611abd9c8b687a2d3f2e44e8393b7f5dd804d48004df9acd0ae06f25.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -161,7 +161,7 @@
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.a0a7921fda7ff8543ef85531d3d899ca3976e86c791dbdd1fdbd0489da3485e83118621851383b577fd2d557e38f846198faeb5b059cddb12dd9ce46172c9099.json"
+  data-offline-search-index-json-src="/offline-search-index.56d1664e9e6614be067b0b084b80e82b9e0fa8a1e70d1d5048d769f44cdbc7660951d213611abd9c8b687a2d3f2e44e8393b7f5dd804d48004df9acd0ae06f25.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -719,6 +719,7 @@ The <code>license</code> value should come from the <a href="http://hl7.org/fhir
 <ul>
 <li><code>dev</code>: indicates that the dependency should be loaded from the local FHIR cache</li>
 <li><code>current</code>: indicates that the dependency should be loaded from the last successful auto-build.</li>
+<li><code>current$branchname</code>: indicates that the dependency should be loaded from the last successful auto-build of the <code>branchname</code> branch (e.g., for the branch named <code>my-test-branch</code>, use <code>current$my-test-branch</code>).</li>
 <li><code>latest</code>: indicates that the dependency should be loaded using the version tagged as <code>latest</code> on the package server.</li>
 </ul>
 <p>The <code>dependencies</code> property also supports an advanced syntax that allows you to directly specify the dependency id and/or URI if necessary. For example:</p>
@@ -795,7 +796,7 @@ The <code>license</code> value should come from the <a href="http://hl7.org/fhir
 <tr>
 <td align="left">dependencies</td>
 <td align="left">dependsOn</td>
-<td align="left">A <code>key: value</code> pair, where key is the package id and value is the version (or <code>dev</code>/<code>current</code>). For advanced use cases, the value can be an object with keys for <code>id</code>, <code>uri</code>, <code>version</code>, and <code>extension</code>. For R5 IG resources, the key <code>reason</code> can also be provided.</td>
+<td align="left">A <code>key: value</code> pair, where key is the package id and value is the version (or <code>dev</code>/<code>current</code>/<code>current$branchname</code>). For advanced use cases, the value can be an object with keys for <code>id</code>, <code>uri</code>, <code>version</code>, and <code>extension</code>. For R5 IG resources, the key <code>reason</code> can also be provided.</td>
 </tr>
 <tr>
 <td align="left">experimental</td>
@@ -1251,7 +1252,7 @@ The <code>license</code> value should come from the <a href="http://hl7.org/fhir
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified July 15, 2024: <a  href="https://github.com/FHIR/FSHSchool/commit/ac9542241ccdb960a498ba6ecbeb03c6142a89f9">Extensions are supported on dependencies (#99) (ac95422)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified December 27, 2025: <a  href="https://github.com/FHIR/FSHSchool/commit/0b220b0e00104cc007426fedc726533c3bf74aa8">Updates re: current$branchname dependencies and sushi-ignoreErrors.txt (#108) (0b220b0)</a>
 </div>
 </div>
 
@@ -1315,7 +1316,7 @@ The <code>license</code> value should come from the <a href="http://hl7.org/fhir
         
       </div>
       <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2024 Health Level Seven International All Rights Reserved. FHIR® is a registered trademark of Health Level Seven International.</small>
+        <small class="text-white">&copy; 2025 Health Level Seven International All Rights Reserved. FHIR® is a registered trademark of Health Level Seven International.</small>
         
       </div>
     </div>

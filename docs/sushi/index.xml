@@ -125,6 +125,7 @@ Initialize SUSHI project in C:\Users\shorty\dev\my-project? [y/n]: y
 │       ├── 3_myFourthPage.md
 │       └── index.md
 ├── package-list.json
+├── sushi-ignoreErrors.txt
 ├── sushi-ignoreWarnings.txt
 └── sushi-config.yaml
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -143,15 +144,11 @@ Examples of &lt;strong&gt;package.json&lt;/strong&gt;, &lt;strong&gt;ig.ini&lt;/
 &lt;p&gt;&lt;strong&gt;input/fsh/*.fsh&lt;/strong&gt;: FSH files contain the FHIR Shorthand definitions for all the resources and examples in your IG.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;ig.ini&lt;/strong&gt;: Configuration file required for the FHIR IG Publication process. NOTE: As of the SUSHI 1.0 release, this file MUST use a template based on &lt;code&gt;fhir.base.template#current&lt;/code&gt;. Specific template versions (i.e., other than &lt;code&gt;#current&lt;/code&gt;) are expected to work in the future.  For now, any of the following should work:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;template = fhir.base.template#current&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;template = hl7.base.template#current&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;template = hl7.fhir.template#current&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;template = hl7.davinci.template#current&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;template = hl7.cda.template#current&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
+&lt;p&gt;&lt;strong&gt;ig.ini&lt;/strong&gt;: Configuration file required for the FHIR IG Publication process. This usually contains entries for the &lt;code&gt;ig&lt;/code&gt; location and &lt;code&gt;template&lt;/code&gt; to use. See &lt;a href=&#34;https://build.fhir.org/ig/FHIR/ig-guidance/index.html#technical-details&#34;&gt;Guidance for IG Creation&lt;/a&gt; for a list of standard HL7 templates. The following is an example of an &lt;code&gt;ig.ini&lt;/code&gt; file:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;[IG]&lt;/span&gt;
+&lt;span style=&#34;color:#c4a000&#34;&gt;ig&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;fsh-generated/resources/ImplementationGuide-fhir.example.json&lt;/span&gt;
+&lt;span style=&#34;color:#c4a000&#34;&gt;template&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;fhir.base.template#current&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;input/ignoreWarnings.txt&lt;/strong&gt;: This file is used to suppress specific QA warnings and information messages produced by the FHIR IG Publisher (as opposed to SUSHI).&lt;/p&gt;
 &lt;/li&gt;
@@ -177,7 +174,10 @@ Examples of &lt;strong&gt;package.json&lt;/strong&gt;, &lt;strong&gt;ig.ini&lt;/
 &lt;p&gt;&lt;strong&gt;package-list.json&lt;/strong&gt;: This optional file, described &lt;a href=&#34;https://confluence.hl7.org/display/FHIR/FHIR+IG+PackageList+doco&#34;&gt;here&lt;/a&gt;, should contain the version history of your IG.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;sushi-ignoreWarnings.txt&lt;/strong&gt;: This optional file can be used to suppress warnings logged by SUSHI. Errors and informational logs from SUSHI cannot be ignored. This file should be placed either at the root of the project (e.g., &lt;strong&gt;my-project/sushi-ignoreWarnings.txt&lt;/strong&gt; in the example above), or within the &lt;strong&gt;input&lt;/strong&gt; directory (e.g., &lt;strong&gt;my-project/input/sushi-ignoreWarnings.txt&lt;/strong&gt;). Warnings will be ignored if they completely match the contents of any line of the file (one line per warning, case-sensitive). Regular expressions can also be specified, one per line, indicated by starting and ending the line with &lt;code&gt;/&lt;/code&gt;. For example:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;sushi-ignoreErrors.txt&lt;/strong&gt;: (SUSHI 3.17+) This optional file can be used to suppress errors logged by SUSHI. It will not suppress warnings or informational logs. This file should be placed either at the root of the project (e.g., &lt;strong&gt;my-project/sushi-ignoreErrors.txt&lt;/strong&gt; in the example above), or within the &lt;strong&gt;input&lt;/strong&gt; directory (e.g., &lt;strong&gt;my-project/input/sushi-ignoreErrors.txt&lt;/strong&gt;). Errors will be ignored if they completely match the contents of any line of the file (one line per error, case-sensitive). Regular expressions can also be specified, one per line, indicated by starting and ending the line with &lt;code&gt;/&lt;/code&gt;. See sushi-ignoreWarnings.txt description for a more complete example of the file format.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;sushi-ignoreWarnings.txt&lt;/strong&gt;: This optional file can be used to suppress warnings logged by SUSHI. It will not suppress errors or informational logs. This file should be placed either at the root of the project (e.g., &lt;strong&gt;my-project/sushi-ignoreWarnings.txt&lt;/strong&gt; in the example above), or within the &lt;strong&gt;input&lt;/strong&gt; directory (e.g., &lt;strong&gt;my-project/input/sushi-ignoreWarnings.txt&lt;/strong&gt;). Warnings will be ignored if they completely match the contents of any line of the file (one line per warning, case-sensitive). Regular expressions can also be specified, one per line, indicated by starting and ending the line with &lt;code&gt;/&lt;/code&gt;. For example:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;Instance PatientExample1 is not an instance of a resource, so it should only be used inline on other instances, and it will not be exported to a standalone file. Specify &amp;quot;Usage: #inline&amp;quot; to remove this warning.
 /Detected the following non-conformant Resource definitions.*/
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Any warning which exactly matches the contents of the first line will be ignored. The second line specifies that any warning beginning with &lt;code&gt;Detected the following non-conformant Resource definitions&lt;/code&gt; will be ignored.&lt;/p&gt;
@@ -185,7 +185,7 @@ Examples of &lt;strong&gt;package.json&lt;/strong&gt;, &lt;strong&gt;ig.ini&lt;/
 
 &lt;div class=&#34;alert alert-success&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;Tip&lt;/h4&gt;
-SUSHI does log several multi-line warnings, but these warnings cannot be specified directly in the &lt;strong&gt;sushi-ignoreWarnings.txt&lt;/strong&gt; file, since the warnings to ignore must be specified line by line. To ignore these warnings, a regular expression should be used.
+SUSHI does log several multi-line errors and warnings, but these cannot be specified directly in the &lt;strong&gt;sushi-ignoreErrors.txt&lt;/strong&gt; or &lt;strong&gt;sushi-ignoreWarnings.txt&lt;/strong&gt; files, since the messages to ignore must be specified line by line. To ignore these errors or warnings, a regular expression should be used.
 &lt;/div&gt;
 
 &lt;/li&gt;
@@ -310,6 +310,7 @@ The &lt;code&gt;license&lt;/code&gt; value should come from the &lt;a href=&#34;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;dev&lt;/code&gt;: indicates that the dependency should be loaded from the local FHIR cache&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;current&lt;/code&gt;: indicates that the dependency should be loaded from the last successful auto-build.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;current$branchname&lt;/code&gt;: indicates that the dependency should be loaded from the last successful auto-build of the &lt;code&gt;branchname&lt;/code&gt; branch (e.g., for the branch named &lt;code&gt;my-test-branch&lt;/code&gt;, use &lt;code&gt;current$my-test-branch&lt;/code&gt;).&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;latest&lt;/code&gt;: indicates that the dependency should be loaded using the version tagged as &lt;code&gt;latest&lt;/code&gt; on the package server.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;The &lt;code&gt;dependencies&lt;/code&gt; property also supports an advanced syntax that allows you to directly specify the dependency id and/or URI if necessary. For example:&lt;/p&gt;
@@ -386,7 +387,7 @@ The &lt;code&gt;license&lt;/code&gt; value should come from the &lt;a href=&#34;
 &lt;tr&gt;
 &lt;td align=&#34;left&#34;&gt;dependencies&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;dependsOn&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;A &lt;code&gt;key: value&lt;/code&gt; pair, where key is the package id and value is the version (or &lt;code&gt;dev&lt;/code&gt;/&lt;code&gt;current&lt;/code&gt;). For advanced use cases, the value can be an object with keys for &lt;code&gt;id&lt;/code&gt;, &lt;code&gt;uri&lt;/code&gt;, &lt;code&gt;version&lt;/code&gt;, and &lt;code&gt;extension&lt;/code&gt;. For R5 IG resources, the key &lt;code&gt;reason&lt;/code&gt; can also be provided.&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;A &lt;code&gt;key: value&lt;/code&gt; pair, where key is the package id and value is the version (or &lt;code&gt;dev&lt;/code&gt;/&lt;code&gt;current&lt;/code&gt;/&lt;code&gt;current$branchname&lt;/code&gt;). For advanced use cases, the value can be an object with keys for &lt;code&gt;id&lt;/code&gt;, &lt;code&gt;uri&lt;/code&gt;, &lt;code&gt;version&lt;/code&gt;, and &lt;code&gt;extension&lt;/code&gt;. For R5 IG resources, the key &lt;code&gt;reason&lt;/code&gt; can also be provided.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td align=&#34;left&#34;&gt;experimental&lt;/td&gt;
