@@ -91,6 +91,7 @@ my-project
 │       ├── 3_myFourthPage.md
 │       └── index.md
 ├── package-list.json
+├── sushi-ignoreErrors.txt
 ├── sushi-ignoreWarnings.txt
 └── sushi-config.yaml
 ```
@@ -103,12 +104,12 @@ You can populate your project as follows:
 
 * **sushi-config.yaml**: This file provides configuration data to SUSHI. It is described further in the [Configuration](/docs/sushi/configuration/) documentation.
 * **input/fsh/\*.fsh**: FSH files contain the FHIR Shorthand definitions for all the resources and examples in your IG.
-* **ig.ini**: Configuration file required for the FHIR IG Publication process. NOTE: As of the SUSHI 1.0 release, this file MUST use a template based on `fhir.base.template#current`. Specific template versions (i.e., other than `#current`) are expected to work in the future.  For now, any of the following should work:
-  * `template = fhir.base.template#current`
-  * `template = hl7.base.template#current`
-  * `template = hl7.fhir.template#current`
-  * `template = hl7.davinci.template#current`
-  * `template = hl7.cda.template#current`
+* **ig.ini**: Configuration file required for the FHIR IG Publication process. This usually contains entries for the `ig` location and `template` to use. See [Guidance for IG Creation](https://build.fhir.org/ig/FHIR/ig-guidance/index.html#technical-details) for a list of standard HL7 templates. The following is an example of an `ig.ini` file:
+  ```ini
+  [IG]
+  ig = fsh-generated/resources/ImplementationGuide-fhir.example.json
+  template = fhir.base.template#current
+  ```
 * **input/ignoreWarnings.txt**: This file is used to suppress specific QA warnings and information messages produced by the FHIR IG Publisher (as opposed to SUSHI).
 * **input/images/\***: Put anything that is not a page in the IG, such as images, spreadsheets or zip files, in the **input/images** subdirectory. These files can be referenced by user-provided pages or menus.
 * **input/includes/menu.xml**: If present, this file will be used for the IG's main menu layout. Note that the presence of this file will block usage of the `menu` property in **sushi-config.yaml**.
@@ -119,7 +120,8 @@ You can populate your project as follows:
   * **{artifact-file-name}-notes.xml\|md**: If present, the contents of the file will be placed on the relevant page _after_ the artifact's definition.
 * **input/{supported-resource-input-directory}/\*** (not shown above): JSON or XML files in [supported resource directories](https://build.fhir.org/ig/FHIR/ig-guidance/using-templates.html#root.input) (e.g., **profiles**, **extensions**, **examples**, etc.) can be referenced by FHIR artifacts defined in FSH, and will be added to the generated **ImplementationGuide.json** file. If there are additional subfolders (e.g., input/resources/nested), use the `path-resource` parameter in **sushi-config.yaml** to tell the IG Publisher which additional input paths to process (see [Specifying Additional Resource Paths](/docs/sushi/tips/#specifying-additional-resource-paths) for details).
 * **package-list.json**: This optional file, described [here](https://confluence.hl7.org/display/FHIR/FHIR+IG+PackageList+doco), should contain the version history of your IG.
-* **sushi-ignoreWarnings.txt**: This optional file can be used to suppress warnings logged by SUSHI. Errors and informational logs from SUSHI cannot be ignored. This file should be placed either at the root of the project (e.g., **my-project/sushi-ignoreWarnings.txt** in the example above), or within the **input** directory (e.g., **my-project/input/sushi-ignoreWarnings.txt**). Warnings will be ignored if they completely match the contents of any line of the file (one line per warning, case-sensitive). Regular expressions can also be specified, one per line, indicated by starting and ending the line with `/`. For example:
+* **sushi-ignoreErrors.txt**: (SUSHI 3.17+) This optional file can be used to suppress errors logged by SUSHI. It will not suppress warnings or informational logs. This file should be placed either at the root of the project (e.g., **my-project/sushi-ignoreErrors.txt** in the example above), or within the **input** directory (e.g., **my-project/input/sushi-ignoreErrors.txt**). Errors will be ignored if they completely match the contents of any line of the file (one line per error, case-sensitive). Regular expressions can also be specified, one per line, indicated by starting and ending the line with `/`. See sushi-ignoreWarnings.txt description for a more complete example of the file format.
+* **sushi-ignoreWarnings.txt**: This optional file can be used to suppress warnings logged by SUSHI. It will not suppress errors or informational logs. This file should be placed either at the root of the project (e.g., **my-project/sushi-ignoreWarnings.txt** in the example above), or within the **input** directory (e.g., **my-project/input/sushi-ignoreWarnings.txt**). Warnings will be ignored if they completely match the contents of any line of the file (one line per warning, case-sensitive). Regular expressions can also be specified, one per line, indicated by starting and ending the line with `/`. For example:
 
   ```
   Instance PatientExample1 is not an instance of a resource, so it should only be used inline on other instances, and it will not be exported to a standalone file. Specify "Usage: #inline" to remove this warning.
@@ -128,5 +130,5 @@ You can populate your project as follows:
   Any warning which exactly matches the contents of the first line will be ignored. The second line specifies that any warning beginning with `Detected the following non-conformant Resource definitions` will be ignored.
 
   {{% alert title="Tip" color="success" %}}
-  SUSHI does log several multi-line warnings, but these warnings cannot be specified directly in the **sushi-ignoreWarnings.txt** file, since the warnings to ignore must be specified line by line. To ignore these warnings, a regular expression should be used.
+  SUSHI does log several multi-line errors and warnings, but these cannot be specified directly in the **sushi-ignoreErrors.txt** or **sushi-ignoreWarnings.txt** files, since the messages to ignore must be specified line by line. To ignore these errors or warnings, a regular expression should be used.
   {{% /alert %}}
