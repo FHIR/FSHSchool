@@ -244,7 +244,7 @@ SUSHI creates only the **fsh-generated** folder, but some of the files shown abo
 
 ### Downloading the IG Publisher Scripts
 
-To run the IG Publisher, we recommend downloading the **\_updatePublisher.bat|sh** and **\_genonce.bat|sh** scripts provided by the sample-ig project. To get these scripts, [download the sample-ig project](https://github.com/FHIR/sample-ig/archive/master.zip), unzip it, and copy _all_ of the **.bat** and **.sh** files to the directory above the **fsh-generated** directory (**my-project** in the example above).
+To run the IG Publisher, we recommend downloading the **\_build.bat|sh** scripts. To get these scripts, [download the ig-publisher-scripts project](https://github.com/HL7/ig-publisher-scripts/archive/refs/heads/main.zip), unzip it, and copy the **_build.bat** and **_build.sh** files to the directory above the **fsh-generated** directory (**my-project** in the example above).
 
 If you used `sushi init` then these scripts were already downloaded and added to your project.
 
@@ -253,17 +253,17 @@ If you used `sushi init` then these scripts were already downloaded and added to
 After copying these, change directories in the command prompt to the directory above the **fsh-generated** directory. At the command prompt, enter:
 
 ```shell
-{{< windows >}} {{< terminal >}} _updatePublisher
+{{< windows >}} {{< terminal >}} _build update
 ```
 
 ```shell
-{{< apple >}} {{< terminal >}} ./_updatePublisher.sh
+{{< apple >}} {{< terminal >}} ./_build.sh update
 ```
 
 This will download the latest version of the HL7 FHIR IG Publisher tool into the **/input-cache** directory. _This step can be skipped if you already have the latest version of the IG Publisher tool in **input-cache**._
 
 {{% alert title="Tip" color="success" %}}
-If you are blocked by a firewall, or if for any reason `_updatePublisher` fails to execute, download the current IG Publisher jar file [here](https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar). When the file has downloaded, move it into the **input-cache** directory (which you may need to create as a _sibling_ to the **input** directory).
+If you are blocked by a firewall, or if for any reason `_build` fails to execute, download the current IG Publisher jar file [here](https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar). When the file has downloaded, move it into the **input-cache** directory (which you may need to create as a _sibling_ to the **input** directory).
 {{% /alert %}}
 
 ### Running the IG Publisher
@@ -275,11 +275,11 @@ If you have never run the IG Publisher, you may need to install Jekyll first. Se
 After the IG Publisher has been successfully downloaded, execute the following command to run it:
 
 ```shell
-{{< windows >}} {{< terminal >}} _genonce
+{{< windows >}} {{< terminal >}} _build build
 ```
 
 ```shell
-{{< apple >}} {{< terminal >}} ./_genonce.sh
+{{< apple >}} {{< terminal >}} ./_build.sh build
 ```
 
 This will run the HL7 IG Publisher, which may take several minutes to complete. After the publisher is finished, open the file **/output/index.html** in a browser to see the resulting IG.

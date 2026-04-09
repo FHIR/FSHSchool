@@ -44,10 +44,8 @@ These values are then used to generate a project structure compatible with the F
 ```text
 my-project
 ├── .gitignore
-├── _genonce.bat
-├── _genonce.sh
-├── _updatePublisher.bat
-├── _updatePublisher.sh
+├── _build_.bat
+├── _build_.sh
 ├── ig.ini
 ├── input
 |   ├── ignoreWarnings.txt
