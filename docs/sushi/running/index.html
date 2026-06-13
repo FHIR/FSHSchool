@@ -130,7 +130,7 @@
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.56d1664e9e6614be067b0b084b80e82b9e0fa8a1e70d1d5048d769f44cdbc7660951d213611abd9c8b687a2d3f2e44e8393b7f5dd804d48004df9acd0ae06f25.json"
+  data-offline-search-index-json-src="/offline-search-index.700a6dec7d5d0098125f26fcfa3d3c3501fbc60d232ee2757bb90068de00a29fb2723a8871cb5abd677526d250283dd83fd8e7967e0321b2598852f80d1cc650.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -161,7 +161,7 @@
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.56d1664e9e6614be067b0b084b80e82b9e0fa8a1e70d1d5048d769f44cdbc7660951d213611abd9c8b687a2d3f2e44e8393b7f5dd804d48004df9acd0ae06f25.json"
+  data-offline-search-index-json-src="/offline-search-index.700a6dec7d5d0098125f26fcfa3d3c3501fbc60d232ee2757bb90068de00a29fb2723a8871cb5abd677526d250283dd83fd8e7967e0321b2598852f80d1cc650.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -821,18 +821,18 @@ You can see a list of the available Firely Terminal versions <a href="https://ww
 <li><strong>package-list.json</strong>: Specified by the author and unchanged by SUSHI.</li>
 </ul>
 <h3 id="downloading-the-ig-publisher-scripts">Downloading the IG Publisher Scripts</h3>
-<p>To run the IG Publisher, we recommend downloading the <strong>_updatePublisher.bat|sh</strong> and <strong>_genonce.bat|sh</strong> scripts provided by the sample-ig project. To get these scripts, <a href="https://github.com/FHIR/sample-ig/archive/master.zip">download the sample-ig project</a>, unzip it, and copy <em>all</em> of the <strong>.bat</strong> and <strong>.sh</strong> files to the directory above the <strong>fsh-generated</strong> directory (<strong>my-project</strong> in the example above).</p>
+<p>To run the IG Publisher, we recommend downloading the <strong>_build.bat|sh</strong> scripts. To get these scripts, <a href="https://github.com/HL7/ig-publisher-scripts/archive/refs/heads/main.zip">download the ig-publisher-scripts project</a>, unzip it, and copy the <strong>_build.bat</strong> and <strong>_build.sh</strong> files to the directory above the <strong>fsh-generated</strong> directory (<strong>my-project</strong> in the example above).</p>
 <p>If you used <code>sushi init</code> then these scripts were already downloaded and added to your project.</p>
 <h3 id="downloading-the-ig-publisher">Downloading the IG Publisher</h3>
 <p>After copying these, change directories in the command prompt to the directory above the <strong>fsh-generated</strong> directory. At the command prompt, enter:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><i class='fab fa-windows fa-fw'></i> <i class="fas fa-dollar-sign"></i> _updatePublisher
-</code></pre></div><div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><i class='fab fa-apple fa-fw'></i> <i class="fas fa-dollar-sign"></i> ./_updatePublisher.sh
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><i class='fab fa-windows fa-fw'></i> <i class="fas fa-dollar-sign"></i> _build update
+</code></pre></div><div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><i class='fab fa-apple fa-fw'></i> <i class="fas fa-dollar-sign"></i> ./_build.sh update
 </code></pre></div><p>This will download the latest version of the HL7 FHIR IG Publisher tool into the <strong>/input-cache</strong> directory. <em>This step can be skipped if you already have the latest version of the IG Publisher tool in <strong>input-cache</strong>.</em></p>
 
 
 <div class="alert alert-success" role="alert">
 <h4 class="alert-heading">Tip</h4>
-If you are blocked by a firewall, or if for any reason <code>_updatePublisher</code> fails to execute, download the current IG Publisher jar file <a href="https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar">here</a>. When the file has downloaded, move it into the <strong>input-cache</strong> directory (which you may need to create as a <em>sibling</em> to the <strong>input</strong> directory).
+If you are blocked by a firewall, or if for any reason <code>_build</code> fails to execute, download the current IG Publisher jar file <a href="https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar">here</a>. When the file has downloaded, move it into the <strong>input-cache</strong> directory (which you may need to create as a <em>sibling</em> to the <strong>input</strong> directory).
 </div>
 
 <h3 id="running-the-ig-publisher">Running the IG Publisher</h3>
@@ -844,8 +844,8 @@ If you have never run the IG Publisher, you may need to install Jekyll first. Se
 </div>
 
 <p>After the IG Publisher has been successfully downloaded, execute the following command to run it:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><i class='fab fa-windows fa-fw'></i> <i class="fas fa-dollar-sign"></i> _genonce
-</code></pre></div><div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><i class='fab fa-apple fa-fw'></i> <i class="fas fa-dollar-sign"></i> ./_genonce.sh
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><i class='fab fa-windows fa-fw'></i> <i class="fas fa-dollar-sign"></i> _build build
+</code></pre></div><div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><i class='fab fa-apple fa-fw'></i> <i class="fas fa-dollar-sign"></i> ./_build.sh build
 </code></pre></div><p>This will run the HL7 IG Publisher, which may take several minutes to complete. After the publisher is finished, open the file <strong>/output/index.html</strong> in a browser to see the resulting IG.</p>
 
 
@@ -901,7 +901,7 @@ timeout = 120
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified May 2, 2024: <a  href="https://github.com/FHIR/FSHSchool/commit/9513c199578d987428bf3007d79ec371c0951287">Remove specific tags for SUSHI 3.0.0 &#43; Document new CLI command options (#90) (9513c19)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified June 13, 2026: <a  href="https://github.com/FHIR/FSHSchool/commit/265f6e78921644f405226bb5dfbb46e8aa7a98b7">Use _build script instead of _updatePublisher and _genonce (#109) (265f6e7)</a>
 </div>
 </div>
 
@@ -965,7 +965,7 @@ timeout = 120
         
       </div>
       <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2025 Health Level Seven International All Rights Reserved. FHIR® is a registered trademark of Health Level Seven International.</small>
+        <small class="text-white">&copy; 2026 Health Level Seven International All Rights Reserved. FHIR® is a registered trademark of Health Level Seven International.</small>
         
       </div>
     </div>

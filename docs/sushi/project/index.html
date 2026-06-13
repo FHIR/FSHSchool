@@ -130,7 +130,7 @@
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.56d1664e9e6614be067b0b084b80e82b9e0fa8a1e70d1d5048d769f44cdbc7660951d213611abd9c8b687a2d3f2e44e8393b7f5dd804d48004df9acd0ae06f25.json"
+  data-offline-search-index-json-src="/offline-search-index.700a6dec7d5d0098125f26fcfa3d3c3501fbc60d232ee2757bb90068de00a29fb2723a8871cb5abd677526d250283dd83fd8e7967e0321b2598852f80d1cc650.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -161,7 +161,7 @@
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.56d1664e9e6614be067b0b084b80e82b9e0fa8a1e70d1d5048d769f44cdbc7660951d213611abd9c8b687a2d3f2e44e8393b7f5dd804d48004df9acd0ae06f25.json"
+  data-offline-search-index-json-src="/offline-search-index.700a6dec7d5d0098125f26fcfa3d3c3501fbc60d232ee2757bb90068de00a29fb2723a8871cb5abd677526d250283dd83fd8e7967e0321b2598852f80d1cc650.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -630,10 +630,8 @@ Initialize SUSHI project in C:\Users\shorty\dev\my-project? [y/n]: y
 </code></pre></div><p>These values are then used to generate a project structure compatible with the FHIR IG Publisher:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">my-project
 ├── .gitignore
-├── _genonce.bat
-├── _genonce.sh
-├── _updatePublisher.bat
-├── _updatePublisher.sh
+├── _build_.bat
+├── _build_.sh
 ├── ig.ini
 ├── input
 |   ├── ignoreWarnings.txt
@@ -775,7 +773,7 @@ SUSHI does log several multi-line errors and warnings, but these cannot be speci
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified December 27, 2025: <a  href="https://github.com/FHIR/FSHSchool/commit/0b220b0e00104cc007426fedc726533c3bf74aa8">Updates re: current$branchname dependencies and sushi-ignoreErrors.txt (#108) (0b220b0)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified June 13, 2026: <a  href="https://github.com/FHIR/FSHSchool/commit/265f6e78921644f405226bb5dfbb46e8aa7a98b7">Use _build script instead of _updatePublisher and _genonce (#109) (265f6e7)</a>
 </div>
 </div>
 
@@ -839,7 +837,7 @@ SUSHI does log several multi-line errors and warnings, but these cannot be speci
         
       </div>
       <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2025 Health Level Seven International All Rights Reserved. FHIR® is a registered trademark of Health Level Seven International.</small>
+        <small class="text-white">&copy; 2026 Health Level Seven International All Rights Reserved. FHIR® is a registered trademark of Health Level Seven International.</small>
         
       </div>
     </div>

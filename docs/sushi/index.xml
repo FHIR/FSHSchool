@@ -88,10 +88,8 @@ Initialize SUSHI project in C:\Users\shorty\dev\my-project? [y/n]: y
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;These values are then used to generate a project structure compatible with the FHIR IG Publisher:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;my-project
 ├── .gitignore
-├── _genonce.bat
-├── _genonce.sh
-├── _updatePublisher.bat
-├── _updatePublisher.sh
+├── _build_.bat
+├── _build_.sh
 ├── ig.ini
 ├── input
 |   ├── ignoreWarnings.txt
@@ -1009,18 +1007,18 @@ You can see a list of the available Firely Terminal versions &lt;a href=&#34;htt
 &lt;li&gt;&lt;strong&gt;package-list.json&lt;/strong&gt;: Specified by the author and unchanged by SUSHI.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;downloading-the-ig-publisher-scripts&#34;&gt;Downloading the IG Publisher Scripts&lt;/h3&gt;
-&lt;p&gt;To run the IG Publisher, we recommend downloading the &lt;strong&gt;_updatePublisher.bat|sh&lt;/strong&gt; and &lt;strong&gt;_genonce.bat|sh&lt;/strong&gt; scripts provided by the sample-ig project. To get these scripts, &lt;a href=&#34;https://github.com/FHIR/sample-ig/archive/master.zip&#34;&gt;download the sample-ig project&lt;/a&gt;, unzip it, and copy &lt;em&gt;all&lt;/em&gt; of the &lt;strong&gt;.bat&lt;/strong&gt; and &lt;strong&gt;.sh&lt;/strong&gt; files to the directory above the &lt;strong&gt;fsh-generated&lt;/strong&gt; directory (&lt;strong&gt;my-project&lt;/strong&gt; in the example above).&lt;/p&gt;
+&lt;p&gt;To run the IG Publisher, we recommend downloading the &lt;strong&gt;_build.bat|sh&lt;/strong&gt; scripts. To get these scripts, &lt;a href=&#34;https://github.com/HL7/ig-publisher-scripts/archive/refs/heads/main.zip&#34;&gt;download the ig-publisher-scripts project&lt;/a&gt;, unzip it, and copy the &lt;strong&gt;_build.bat&lt;/strong&gt; and &lt;strong&gt;_build.sh&lt;/strong&gt; files to the directory above the &lt;strong&gt;fsh-generated&lt;/strong&gt; directory (&lt;strong&gt;my-project&lt;/strong&gt; in the example above).&lt;/p&gt;
 &lt;p&gt;If you used &lt;code&gt;sushi init&lt;/code&gt; then these scripts were already downloaded and added to your project.&lt;/p&gt;
 &lt;h3 id=&#34;downloading-the-ig-publisher&#34;&gt;Downloading the IG Publisher&lt;/h3&gt;
 &lt;p&gt;After copying these, change directories in the command prompt to the directory above the &lt;strong&gt;fsh-generated&lt;/strong&gt; directory. At the command prompt, enter:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;i class=&#39;fab fa-windows fa-fw&#39;&gt;&lt;/i&gt; &lt;i class=&#34;fas fa-dollar-sign&#34;&gt;&lt;/i&gt; _updatePublisher
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;i class=&#39;fab fa-apple fa-fw&#39;&gt;&lt;/i&gt; &lt;i class=&#34;fas fa-dollar-sign&#34;&gt;&lt;/i&gt; ./_updatePublisher.sh
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;i class=&#39;fab fa-windows fa-fw&#39;&gt;&lt;/i&gt; &lt;i class=&#34;fas fa-dollar-sign&#34;&gt;&lt;/i&gt; _build update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;i class=&#39;fab fa-apple fa-fw&#39;&gt;&lt;/i&gt; &lt;i class=&#34;fas fa-dollar-sign&#34;&gt;&lt;/i&gt; ./_build.sh update
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will download the latest version of the HL7 FHIR IG Publisher tool into the &lt;strong&gt;/input-cache&lt;/strong&gt; directory. &lt;em&gt;This step can be skipped if you already have the latest version of the IG Publisher tool in &lt;strong&gt;input-cache&lt;/strong&gt;.&lt;/em&gt;&lt;/p&gt;
 
 
 &lt;div class=&#34;alert alert-success&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;Tip&lt;/h4&gt;
-If you are blocked by a firewall, or if for any reason &lt;code&gt;_updatePublisher&lt;/code&gt; fails to execute, download the current IG Publisher jar file &lt;a href=&#34;https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar&#34;&gt;here&lt;/a&gt;. When the file has downloaded, move it into the &lt;strong&gt;input-cache&lt;/strong&gt; directory (which you may need to create as a &lt;em&gt;sibling&lt;/em&gt; to the &lt;strong&gt;input&lt;/strong&gt; directory).
+If you are blocked by a firewall, or if for any reason &lt;code&gt;_build&lt;/code&gt; fails to execute, download the current IG Publisher jar file &lt;a href=&#34;https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar&#34;&gt;here&lt;/a&gt;. When the file has downloaded, move it into the &lt;strong&gt;input-cache&lt;/strong&gt; directory (which you may need to create as a &lt;em&gt;sibling&lt;/em&gt; to the &lt;strong&gt;input&lt;/strong&gt; directory).
 &lt;/div&gt;
 
 &lt;h3 id=&#34;running-the-ig-publisher&#34;&gt;Running the IG Publisher&lt;/h3&gt;
@@ -1032,8 +1030,8 @@ If you have never run the IG Publisher, you may need to install Jekyll first. Se
 &lt;/div&gt;
 
 &lt;p&gt;After the IG Publisher has been successfully downloaded, execute the following command to run it:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;i class=&#39;fab fa-windows fa-fw&#39;&gt;&lt;/i&gt; &lt;i class=&#34;fas fa-dollar-sign&#34;&gt;&lt;/i&gt; _genonce
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;i class=&#39;fab fa-apple fa-fw&#39;&gt;&lt;/i&gt; &lt;i class=&#34;fas fa-dollar-sign&#34;&gt;&lt;/i&gt; ./_genonce.sh
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;i class=&#39;fab fa-windows fa-fw&#39;&gt;&lt;/i&gt; &lt;i class=&#34;fas fa-dollar-sign&#34;&gt;&lt;/i&gt; _build build
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;i class=&#39;fab fa-apple fa-fw&#39;&gt;&lt;/i&gt; &lt;i class=&#34;fas fa-dollar-sign&#34;&gt;&lt;/i&gt; ./_build.sh build
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will run the HL7 IG Publisher, which may take several minutes to complete. After the publisher is finished, open the file &lt;strong&gt;/output/index.html&lt;/strong&gt; in a browser to see the resulting IG.&lt;/p&gt;
 
 
@@ -1346,14 +1344,14 @@ The dot (.) represents &amp;ldquo;this directory,&amp;rdquo; the location of the
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The files generated by SUSHI are located in the &lt;strong&gt;FishExample/fsh-generated&lt;/strong&gt; directory. Check that the &lt;strong&gt;FishExample/fsh-generated/resources&lt;/strong&gt; subdirectory contains two generated StructureDefinitions and a generated ImplementationGuide.&lt;/p&gt;
 &lt;h3 id=&#34;step-5-generate-the-sample-ig&#34;&gt;Step 5: Generate the Sample IG&lt;/h3&gt;
 &lt;p&gt;At the command prompt, enter:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;i class=&#39;fab fa-windows fa-fw&#39;&gt;&lt;/i&gt; &lt;i class=&#34;fas fa-dollar-sign&#34;&gt;&lt;/i&gt; _updatePublisher
-&lt;i class=&#39;fab fa-apple fa-fw&#39;&gt;&lt;/i&gt; &lt;i class=&#34;fas fa-dollar-sign&#34;&gt;&lt;/i&gt; ./_updatePublisher.sh
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;i class=&#39;fab fa-windows fa-fw&#39;&gt;&lt;/i&gt; &lt;i class=&#34;fas fa-dollar-sign&#34;&gt;&lt;/i&gt; _build
+&lt;i class=&#39;fab fa-apple fa-fw&#39;&gt;&lt;/i&gt; &lt;i class=&#34;fas fa-dollar-sign&#34;&gt;&lt;/i&gt; ./_build.sh
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will download the latest version of the HL7 FHIR IG Publisher tool into &lt;strong&gt;./input-cache&lt;/strong&gt;. &lt;em&gt;This step can be skipped if you already have run the command recently, and have the latest version of the IG Publisher tool.&lt;/em&gt;&lt;/p&gt;
 
 
 &lt;div class=&#34;alert alert-success&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;Tip&lt;/h4&gt;
-If you are blocked by a firewall, or if for any reason &lt;code&gt;_updatePublisher&lt;/code&gt; fails to execute, download the current IG Publisher jar file &lt;a href=&#34;https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar&#34;&gt;here&lt;/a&gt;. When the file has downloaded, move it into the directory &lt;strong&gt;/FishExample/input-cache&lt;/strong&gt; (creating the directory if necessary).
+If you are blocked by a firewall, or if for any reason &lt;code&gt;_build&lt;/code&gt; fails to execute, download the current IG Publisher jar file &lt;a href=&#34;https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar&#34;&gt;here&lt;/a&gt;. When the file has downloaded, move it into the directory &lt;strong&gt;/FishExample/input-cache&lt;/strong&gt; (creating the directory if necessary).
 &lt;/div&gt;
 
 
@@ -1364,8 +1362,8 @@ Before proceeding to the next command: If you have never run the IG Publisher, y
 &lt;/div&gt;
 
 &lt;p&gt;Now run:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;i class=&#39;fab fa-windows fa-fw&#39;&gt;&lt;/i&gt; &lt;i class=&#34;fas fa-dollar-sign&#34;&gt;&lt;/i&gt; _genonce
-&lt;i class=&#39;fab fa-apple fa-fw&#39;&gt;&lt;/i&gt; &lt;i class=&#34;fas fa-dollar-sign&#34;&gt;&lt;/i&gt; ./_genonce.sh
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;i class=&#39;fab fa-windows fa-fw&#39;&gt;&lt;/i&gt; &lt;i class=&#34;fas fa-dollar-sign&#34;&gt;&lt;/i&gt; _build build
+&lt;i class=&#39;fab fa-apple fa-fw&#39;&gt;&lt;/i&gt; &lt;i class=&#34;fas fa-dollar-sign&#34;&gt;&lt;/i&gt; ./_build.sh build
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will run the HL7 FHIR IG generator, which may take several minutes to complete.&lt;/p&gt;
 &lt;p&gt;After the publisher is finished, open the file &lt;strong&gt;/FishExample/output/index.html&lt;/strong&gt; to see the resulting IG.&lt;/p&gt;
 &lt;p&gt;If you click on the Artifacts Summary item in the menu, you will see that the IG contains two profiles, FishPatient and Veterinarian. If you look at each of them, you will notice that they have minimal differentials. The only way in which they differ from their base resource is that they require at least one name.&lt;/p&gt;
@@ -1412,7 +1410,7 @@ Description: &amp;#34;Codes describing various species of fish, taken from SNOME
 The rule in the value set definition above selects all codes from SNOMED-CT that are children of the concept &amp;ldquo;Fish (organism)&amp;rdquo;.
 &lt;/div&gt;
 
-&lt;p&gt;Run SUSHI again. The count of ValueSets should now be 1. Try generating the IG by running &lt;code&gt;_genonce&lt;/code&gt; again. Open the file &lt;strong&gt;/FishExample/output/index.html&lt;/strong&gt; to see the resulting IG.&lt;/p&gt;
+&lt;p&gt;Run SUSHI again. The count of ValueSets should now be 1. Try generating the IG by running the &lt;code&gt;_build&lt;/code&gt; command again. Open the file &lt;strong&gt;/FishExample/output/index.html&lt;/strong&gt; to see the resulting IG.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Do you see where the FishPatient profile is in the IG?&lt;/li&gt;
 &lt;li&gt;Does the differential reflect your changes?&lt;/li&gt;
